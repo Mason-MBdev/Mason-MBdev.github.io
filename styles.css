@@ -188,6 +188,25 @@ nav {
     padding-top: 20px;
 }
 
+/* contact section  */
+#contact-list {
+    height: 300px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c9a88d;
+    border:5px black;
+    border-style: solid;
+    transition: all 200ms ease;
+}
+
+.contact__link--list {
+    margin-top: 100px;
+    display: flex;
+}
 
 @media (max-width: 900px) {
     .paragraph {
