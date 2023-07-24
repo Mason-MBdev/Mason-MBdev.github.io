@@ -253,6 +253,10 @@ nav {
         display: none;
     }  
 
+    .shorter-text{
+        display: inline-block;
+    }  
+
     .text--header {
         display: none;
     }
@@ -281,7 +285,7 @@ nav {
     }
 }
 
-@media (max-width: 470px) {
+@media (max-width: 467px) {
     .short-text{
         display: none=;
     }  
