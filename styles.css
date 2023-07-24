@@ -28,6 +28,7 @@ html {
 body { 
     height: 100%;
     /* background-image: url("circut.jpg"); */
+    background-color: #e1d0bc;
     background-size:cover;
 }
 
@@ -41,7 +42,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #36454F;
+    background-color: #c9a88d;
     border-radius: 10px;
     border:20px #000000;
     border-style: solid;
@@ -58,7 +59,7 @@ nav {
 }
 
 .nav__link--anchor-primary {
-    background-color: rosybrown;
+    background-color: #fbeddb;
     padding: 16px 40px;
     border-radius: 50px;
     color: black;
@@ -68,4 +69,5 @@ nav {
 .nav__link--anchor-primary:hover {
     padding: 19px 47px;
     font-size: 22px;
+    background-color: #2d4772;
 }
