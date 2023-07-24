@@ -11,6 +11,10 @@ h1, h2, span {
     line-height: 1.25;
 }
 
+h1 {
+   font-size: 30px; 
+}
+
 p {
     font-size: 15px;
 }
@@ -33,6 +37,24 @@ body {
     background-size:cover;
 }
 
+.flex-1 {
+    flex: 1;
+}
+
+.flex {
+    display: flex;
+}
+
+.row {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.text--purple {
+    color: purple;
+}
+
 
 /*nav bar*/
 nav {
@@ -46,26 +68,13 @@ nav {
     background-color: #c9a88d;
     border:5px black;
     border-style: solid;
-}
+    transition: all 200ms ease;
 
-@media only screen and (max-width: 700px){
-    .nav__link--anchor-primary {
-        background-color: #fbeddb;
-        padding: 16px 40px;
-        border-radius: 50px;
-        color: black;
-        transition: all 300ms ease;
-    }
-
-    .nav__link--anchor-primary:hover {
-        padding: 19px 47px;
-        font-size: 22px;
-        background-color: #2d4772;
-    }
 }
 
 .nav__link--list {
     display: flex;
+    transition: all 200ms ease;
 }
 
 .nav__link--anchor {
@@ -79,7 +88,7 @@ nav {
     padding: 16px 40px;
     border-radius: 50px;
     color: black;
-    transition: all 300ms ease;
+    transition: all 200ms ease;
 }
 
 .nav__link--anchor-primary:hover {
@@ -91,4 +100,147 @@ nav {
 .Logo {
     font-size: 30px;
     margin: 0 20px;
+    align-items: center;
+    transition: all 200ms ease;
+
+}
+
+
+/* About section */
+#about-me {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-me__info--container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+@media (max-width: 910px) {
+    nav {
+        height: 100px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #c9a88d;
+        border:5px black;
+        border-style: solid;
+        transition: all 200ms ease;
+    
+    }
+
+    h1 {
+        font-size:20px;
+
+    }
+
+    .about-me__info--paragraph {
+        font-size: 15px;
+    }
+
+    .nav__link--anchor-primary {
+        background-color: #fbeddb;
+        padding: 8px 20px;
+        border-radius: 50px;
+        color: black;
+        transition: all 200ms ease;
+    }
+
+    .nav__link--anchor-primary:hover {
+        padding: 10px 25px;
+        font-size: 22px;
+        background-color: #2d4772;
+    }
+}
+
+@media (max-width: 640px) {
+    nav {
+        height: 100px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #c9a88d;
+        border:5px black;
+        border-style: solid;
+        transition: all 200ms ease;
+    
+    }
+
+    h1 {
+        font-size:15px;
+
+    }
+
+    .about-me__info--paragraph {
+        font-size: 10px;
+    }
+
+    .nav__link--anchor-primary {
+        background-color: #fbeddb;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 15px;
+        color: black;
+        transition: all 200ms ease;
+    }
+
+    .nav__link--anchor-primary:hover {
+        padding: 10px 25px;
+        font-size: 22px;
+        background-color: #2d4772;
+    }
+}
+
+@media (max-width: 500px) {
+    nav {
+        height: 60px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #c9a88d;
+        border:5px black;
+        border-style: solid;
+        transition: all 200ms ease;
+    
+    }
+
+    h1 {
+        font-size:15px;
+
+    }
+
+    .about-me__info--paragraph {
+        font-size: 10px;
+    }
+
+    .nav__link--anchor-primary {
+        background-color: #fbeddb;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 15px;
+        color: black;
+        transition: all 200ms ease;
+    }
+
+    .nav__link--anchor-primary:hover {
+        padding: 10px 25px;
+        font-size: 22px;
+        background-color: #2d4772;
+    }
 }
