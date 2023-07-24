@@ -32,7 +32,6 @@ html {
 
 body { 
     height: 100%;
-    /* background-image: url("circut.jpg"); */
     background-color: #e1d0bc;
     background-size:cover;
 }
@@ -139,27 +138,72 @@ nav {
     .paragraph {
         max-width: 700px;
     }
+
+    .text--header {
+        font-size: 27px;
+        transition: all 200ms ease;
+    }
     
     .nav__link--anchor-primary {
         background-color: #fbeddb;
-        padding: 13px 35px;
+        padding: 10px 30px;
         border-radius: 50px;
         color: black;
         transition: all 200ms ease;
     }
     
     .nav__link--anchor-primary:hover {
-        padding: 19px 47px;
+        padding: 15px 45px;
         background-color: #2d4772;
     }
 }
 
 @media (max-width: 800px) {
+    .paragraph {
+        max-width: 600px;
+    }
 
+    .text--header {
+        font-size: 25px;
+        transition: all 200ms ease;
+    }
+    
+    .nav__link--anchor-primary {
+        background-color: #fbeddb;
+        padding: 8px 26px;
+        border-radius: 50px;
+        color: black;
+        transition: all 200ms ease;
+    }
+    
+    .nav__link--anchor-primary:hover {
+        padding: 13px 39px;
+        background-color: #2d4772;
+    }
 }
 
 @media (max-width: 700px) {
+    .paragraph {
+        max-width: 500px;
+    }
 
+    .text--header {
+        font-size: 23px;
+        transition: all 200ms ease;
+    }
+    
+    .nav__link--anchor-primary {
+        background-color: #fbeddb;
+        padding: 6px 18px;
+        border-radius: 50px;
+        color: black;
+        transition: all 200ms ease;
+    }
+    
+    .nav__link--anchor-primary:hover {
+        padding: 11px 33px;
+        background-color: #2d4772;
+    }
 }
 
 @media (max-width: 600px) {
