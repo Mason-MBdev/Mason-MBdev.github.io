@@ -57,6 +57,10 @@ body {
     color: white;
 }
 
+.text--heading {
+    color: rgb(230, 230, 247);
+}
+
 .short-text{
     display: none;
 }
@@ -92,7 +96,6 @@ nav-mobile {
 }
 
 .nav__link--anchor-primary {
-    color: rgb(199, 199, 255);
     transition: all 200ms ease;
 }
 
@@ -123,14 +126,16 @@ nav {
 }
 
 .text--header {
-    color: rgb(199, 199, 255);
+    color: rgb(230, 230, 247);
 }
 
 .short-text {
-    color: rgb(199, 199, 255);}
+    color: rgb(230, 230, 247);
+}
 
 .shorter-text {
-    color: rgb(199, 199, 255);}
+    color: rgb(230, 230, 247);
+}
 
 .nav__link--list {
     display: flex;
