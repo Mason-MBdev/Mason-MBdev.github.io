@@ -92,7 +92,7 @@ nav-mobile {
 }
 
 .nav__link--anchor-primary {
-    color: black;
+    color: rgb(199, 199, 255);
     transition: all 200ms ease;
 }
 
@@ -127,12 +127,10 @@ nav {
 }
 
 .short-text {
-    color: white;
-}
+    color: rgb(199, 199, 255);}
 
 .shorter-text {
-    color: white;
-}
+    color: rgb(199, 199, 255);}
 
 .nav__link--list {
     display: flex;
@@ -265,7 +263,7 @@ nav {
     }
     
     .nav__link--anchor-primary {
-        color: black;
+        color: rgb(199, 199, 255);
         transition: all 200ms ease;
     }
     
@@ -294,7 +292,7 @@ nav {
     }
     
     .nav__link--anchor-primary {
-        color: black;
+        color: rgb(199, 199, 255);
         transition: all 200ms ease;
     }
     
@@ -314,7 +312,7 @@ nav {
     }
     
     .nav__link--anchor-primary {
-        color: black;
+        color: rgb(199, 199, 255);
         transition: all 200ms ease;
     }
     
@@ -323,7 +321,7 @@ nav {
     }
 }
 
-@media (max-width: 643px) {
+@media (max-width: 700px) {
     .paragraph {
         max-width: 400px;
     }
@@ -332,9 +330,15 @@ nav {
         font-size: 20px;
         transition: all 200ms ease;
     }
+
+    .nav__link--anchor {
+        margin: 0 30px;
+        text-decoration: none;
+        font-weight: 700;
+    }
     
     .nav__link--anchor-primary {
-        color: black;
+        color: rgb(199, 199, 255);
         transition: all 200ms ease;
         font-size: 20px;
     }
@@ -345,14 +349,14 @@ nav {
 }
 
 
-@media (max-width: 500px) {
+@media (max-width: 580px) {
 
     .short-text{
         display: none;
     }  
 
     .shorter-text{
-        display: inline-block;
+        display: none;
     }  
 
     .text--header {
@@ -367,9 +371,15 @@ nav {
         font-size: 18px;
         transition: all 200ms ease;
     }
+
+    .nav__link--anchor {
+        margin: 0 25px;
+        text-decoration: none;
+        font-weight: 700;
+    }
     
     .nav__link--anchor-primary {
-        color: black;
+        color: rgb(199, 199, 255);
         transition: all 200ms ease;
     }
     
@@ -392,7 +402,7 @@ nav {
     }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 467px) {
 
     nav {
         height: 100px;
@@ -409,6 +419,7 @@ nav {
         margin: 1 auto;
         text-decoration: none;
         font-weight: 700;
+        margin: 0 15px;
     }
 
     nav-mobile {
@@ -419,9 +430,7 @@ nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-image: linear-gradient(rgba(0,0,0));
-        border:5px black;
-        border-style: solid;
-        transition: all 200ms ease;
+        background-image: linear-gradient(#3200d3, #5a2ee0);
+        transition: all 100ms ease;
     }
 }
