@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;700&display=swap');
 * {
-    font-family: 'lato', 'sans-serif';
+    font-family: 'Raleway', sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -13,6 +13,7 @@ h1, h2, span {
 
 h1 {
    font-size: 30px; 
+   colour: white;
 }
 
 p {
@@ -22,7 +23,6 @@ p {
 li {
     list-style-type: none;
     font-size: 25px;
-    margin
 }
 
 html {
@@ -31,7 +31,7 @@ html {
 
 body { 
     height: 100%;
-    background-color: #cfbca6;
+    background-color: #212324;
     background-size:cover;
 }
 
@@ -50,7 +50,11 @@ body {
 }
 
 .text--purple {
-    color: purple;
+    color: rgb(190, 190, 255);
+}
+
+.text--white {
+    color: white;
 }
 
 .short-text{
@@ -71,9 +75,8 @@ nav-mobile {
     display: none;
     justify-content: space-between;
     align-items: center;
-    background-color: #c9a88d;
-    border:5px black;
-    border-style: solid;
+    background-color: #190061;
+    background-image: linear-gradient(	#240090, #0C0032);
     transition: all 200ms ease;
 }
 
@@ -89,16 +92,11 @@ nav-mobile {
 }
 
 .nav__link--anchor-primary {
-    background-color: #e2c5a5;
-    fill: #e2c5a5;
-    padding: 13px 35px;
-    border-radius: 50px;
     color: black;
     transition: all 200ms ease;
 }
 
 .nav__link--anchor-primary:hover {
-    padding: 19px 47px;
     background-color: #2d4772;
 }
 
@@ -120,36 +118,45 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #b18f72;
-    border:5px black;
-    border-style: solid;
-    transition: all 200ms ease;
+    background-image: linear-gradient(#3200d3, #5a2ee0);
+    transition: all 100ms ease;
+}
+
+.text--header {
+    color: rgb(199, 199, 255);
+}
+
+.short-text {
+    color: white;
+}
+
+.shorter-text {
+    color: white;
 }
 
 .nav__link--list {
     display: flex;
-    transition: all 200ms ease;
+    transition: all 100
+    ms ease;
 }
 
 .nav__link--anchor {
-    margin: 0 12px;
+    margin: 0 40px;
     text-decoration: none;
     font-weight: 700;
 }
 
 .nav__link--anchor-primary {
-    padding: 13px 35px;
-    border-style: solid;
-    border-width: 4px;
-    color: black;
+    color: rgb(190, 190, 255);
     transition: all 200ms ease;
-    
 }
 
 .nav__link--anchor-primary:hover {
-    padding: 19px 47px;
-    background-color: #25170b;
-    color: white;
+    padding: 6px 18px;
+    background-color: #0d0035;
+    border-radius: 40px;
+    font-weight: 700;
+
 }
 
 .Logo {
@@ -191,6 +198,22 @@ nav {
     padding-top: 20px;
 }
 
+/* PROJECT section */
+#project__info--containere {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+
 /* contact section #c9a88d #fbeddb */
 #contact-list-section {
     height: 300px;
@@ -200,7 +223,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #b67c4d;
+    background-image: linear-gradient(	#39ace7, #0784b5);
     border:5px black;
     border-style: solid;
     transition: all 200ms ease;
@@ -216,15 +239,12 @@ nav {
 }
 
 .contact__link--anchor-primary {
-    background-color: #654013;
-    padding: 13px 35px;
     color: black;
     transition: all 200ms ease;
 }
 
 .contact__link--anchor-primary:hover {
-    padding: 19px 47px;
-    background-color: #2d4772;
+    color: black;
 }
 
 .contact__link--anchor {
@@ -245,16 +265,12 @@ nav {
     }
     
     .nav__link--anchor-primary {
-        background-color: #fbeddb;
-        padding: 10px 30px;
-        border-radius: 50px;
         color: black;
         transition: all 200ms ease;
     }
     
     .nav__link--anchor-primary:hover {
-        padding: 15px 45px;
-        background-color: #2d4772;
+        color: black;
     }
 }
 
@@ -278,16 +294,12 @@ nav {
     }
     
     .nav__link--anchor-primary {
-        background-color: #fbeddb;
-        padding: 8px 26px;
-        border-radius: 50px;
         color: black;
         transition: all 200ms ease;
     }
     
     .nav__link--anchor-primary:hover {
-        padding: 13px 39px;
-        background-color: #2d4772;
+        color: black;
     }
 }
 
@@ -302,16 +314,12 @@ nav {
     }
     
     .nav__link--anchor-primary {
-        background-color: #fbeddb;
-        padding: 6px 18px;
-        border-radius: 50px;
         color: black;
         transition: all 200ms ease;
     }
     
     .nav__link--anchor-primary:hover {
-        padding: 11px 33px;
-        background-color: #2d4772;
+        color: black;
     }
 }
 
@@ -326,17 +334,13 @@ nav {
     }
     
     .nav__link--anchor-primary {
-        background-color: #fbeddb;
-        padding: 5px 15px;
-        border-radius: 50px;
         color: black;
         transition: all 200ms ease;
         font-size: 20px;
     }
     
     .nav__link--anchor-primary:hover {
-        padding: 10px 30px;
-        background-color: #2d4772;
+        color: black;
     }
 }
 
@@ -365,17 +369,12 @@ nav {
     }
     
     .nav__link--anchor-primary {
-        background-color: #fbeddb;
-        padding: 5px 15px;
-        border-radius: 50px;
         color: black;
         transition: all 200ms ease;
-        font-size: 20px;
     }
     
     .nav__link--anchor-primary:hover {
-        padding: 10px 30px;
-        background-color: #2d4772;
+        color: black;
     }
 }
 
@@ -401,10 +400,8 @@ nav {
         max-width: 100%;
         margin: 0 auto;
         display: none;
+        background-image: linear-gradient(rgba(0,0,0));
         align-items: center;
-        background-color: #c9a88d;
-        border:5px black;
-        border-style: solid;
         transition: all 200ms ease;
     }
 
@@ -422,7 +419,7 @@ nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #c9a88d;
+        background-image: linear-gradient(rgba(0,0,0));
         border:5px black;
         border-style: solid;
         transition: all 200ms ease;
