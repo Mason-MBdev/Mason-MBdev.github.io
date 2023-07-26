@@ -94,6 +94,8 @@ nav-mobile {
     justify-content: center;    
     background-color: #3200d3;
     transition: all 200ms ease;
+    border-bottom: black solid;
+
 }
 
 .nav__link--list {
@@ -376,6 +378,11 @@ nav {
     nav-mobile {
         display: flex;
 
+    }
+
+    .paragraph {
+        max-width: 450px;
+        font-size: ;
     }
 
 }
