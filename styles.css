@@ -166,7 +166,7 @@ nav {
     color: rgb(190, 190, 255);
     transition: all 200ms ease;
     border-style: solid;
-    padding: 2px 4px;
+    padding: 3px 6px;
     border-radius: 20px;
 }
 
@@ -277,11 +277,6 @@ nav {
         max-width: 700px;
         transition: all 200ms ease;
     }
-
-    .text--header {
-        font-size: 27px;
-        transition: all 200ms ease;
-    }
     
     .nav__link--anchor-primary {
         color: rgb(199, 199, 255);
@@ -294,24 +289,10 @@ nav {
 }
 
 @media (max-width: 818px) {
-
-    .short-text{
-        display: inline-block;
-    }  
-
-    .text--header {
-        display: none;
-    }
-
     .paragraph {
         max-width: 600px;
     }
 
-    .short-text {
-        font-size: 25px;
-        transition: all 200ms ease;
-    }
-    
     .nav__link--anchor-primary {
         color: rgb(199, 199, 255);
         transition: all 200ms ease;
@@ -330,11 +311,6 @@ nav {
     .paragraph {
         max-width: 500px;
     }
-
-    .text--header {
-        font-size: 23px;
-        transition: all 200ms ease;
-    }
     
     .nav__link--anchor-primary {
         color: rgb(199, 199, 255);
@@ -345,17 +321,11 @@ nav {
         color: black;
     }
 
-    .short-text{
-        display: none;
-    }  
 
     .shorter-text{
         display: none;
     } 
 
-    .text--header {
-        display: none;
-    }
 }
 
 @media (max-width: 700px) {
@@ -391,12 +361,4 @@ nav {
 
     }
 
-}
-
-@media (max-width: 450px) {
-
-    .nav__link--list {
-        display: block;
-        transition: all 100
-    }
 }
