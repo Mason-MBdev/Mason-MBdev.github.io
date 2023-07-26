@@ -23,6 +23,7 @@ p {
 li {
     list-style-type: none;
     font-size: 25px;
+    white-space: normal;
 }
 
 html {
@@ -76,19 +77,22 @@ body {
     display: none;
     align-items: center;
     justify-content: center;
+    height: 60px;
+    border-bottom: solid;
+    border-top: solid;
+    border-color: black;
 }
 
-/* nav mobile */
+/* nav mobile #5a2ee0)*/
 
 nav-mobile {
-    height: 120px;
+    height: 60px;
     width: 100%;
     max-width: 100%;
     display: none;
     align-items: center;
     justify-content: center;    
-    background-color: #190061;
-    background-image: linear-gradient(#3200d3, #5a2ee0);
+    background-color: #3200d3;
     transition: all 200ms ease;
 }
 
@@ -122,6 +126,19 @@ nav-mobile {
     margin: 0 20px;
     align-items: center;
     transition: all 200ms ease;
+}
+
+/* gitlink */
+gitlink {
+    height: 60px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3200d3;    
+    transition: all 100ms ease;
 }
 
 
