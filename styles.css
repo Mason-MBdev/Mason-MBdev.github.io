@@ -136,7 +136,7 @@ gitlink {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     background-color: #3200d3;    
@@ -199,7 +199,7 @@ nav {
 
 .Logo {
     font-size: 30px;
-    margin: 0 20px;
+    margin: 0 40px;
     align-items: center;
     transition: all 200ms ease;
 }
@@ -217,7 +217,7 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 15px;
+    margin-top: 25px;
 }
 
 .picture {
@@ -239,7 +239,7 @@ nav {
 /* PROJECT section */
 #project__info--container {
     min-height: 100vh;
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 
@@ -377,12 +377,20 @@ nav {
 
     nav-mobile {
         display: flex;
-
+    }
+    project__info--container {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
     }
 
     .paragraph {
         max-width: 450px;
-        font-size: ;
+        font-size: 20px;
+    }
+
+    gitlink {
+        display: flex;
     }
 
 }
