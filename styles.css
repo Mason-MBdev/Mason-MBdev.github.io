@@ -54,6 +54,10 @@ body {
     color: rgb(190, 190, 255);
 }
 
+.text--laurier {
+    color: rgb(51, 0, 114)
+}
+
 .text--white {
     color: white;
 }
