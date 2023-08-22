@@ -54,10 +54,6 @@ body {
     color: rgb(190, 190, 255);
 }
 
-.text--laurier {
-    color: rgb(51, 0, 114)
-}
-
 .text--white {
     color: white;
 }
@@ -225,8 +221,8 @@ nav {
 }
 
 .picture {
-    width: 160px;
-    height: 160px;
+    width: 154.63px;
+    height: 154.63px;
     border-radius: 50%;
     overflow: hidden;
     box-shadow: 0 8px 16px rgba(0,0,0.16)
