@@ -237,12 +237,6 @@ nav {
 }
 
 /* PROJECT section */
-#project__info--container {
-    min-height: 100vh;
-    display: none;
-    flex-direction: column;
-}
-
 .project-title {
     display: flex;
     flex-direction: column;
@@ -251,12 +245,29 @@ nav {
     margin-top: 60px;
 }
 
+.project_container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 12.5px;
+    background-color: #5a2ee0;
+    max-width: 1200px;
+    border-radius: 15px;
+    margin: 10px auto;
+}
+
+.project {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 /* links section */
 
 .social-media-container {
     display: flex;
     justify-content: space-evenly;
-    padding: 10px;
+    padding: 12.5px;
     background-color: #5a2ee0;
     max-width: 400px;
     border-radius: 15px;
