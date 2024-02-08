@@ -127,13 +127,6 @@ nav-mobile {
     background-color: #2d4772;
 }
 
-.Logo {
-    font-size: 30px;
-    margin: 0 20px;
-    align-items: center;
-    transition: all 200ms ease;
-}
-
 /* gitlink */
 gitlink {
     height: 60px;
@@ -159,10 +152,6 @@ nav {
     align-items: center;
     background-image: linear-gradient(#3200d3, #5a2ee0);
     transition: all 100ms ease;
-}
-
-.Logo a {
-    text-decoration: none;
 }
 
 .text--header {
@@ -205,11 +194,12 @@ nav {
 
 }
 
-.Logo {
+.Logo a{
     font-size: 30px;
     margin: 0 40px;
     align-items: center;
     transition: all 200ms ease;
+    text-decoration: none;
 }
 
 
