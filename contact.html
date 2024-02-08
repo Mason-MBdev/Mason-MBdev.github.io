@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About me page</title>
+    <title>Contact</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
 
@@ -48,7 +48,7 @@
 
     <section id="nav">
         <nav>
-            <div class="Logo"><strong class = "text--header"><span class = "text--heading ">MASON BARNEY</span></strong><strong class = "short-text"><span class = "text--heading ">MASON BARNEY</span></strong>
+            <div class="Logo"><strong class = "text--header"><span class = "text--heading ">MASON B.</span></strong><strong class = "short-text"><span class = "text--heading ">MASON BARNEY</span></strong>
             <strong class = "shorter-text"><span class = "text--heading ">MB</span></strong></div>
             <ul class="nav__link--list">
                 <li>
@@ -56,12 +56,6 @@
                     nav__link--anchor
                     nav__link--anchor-primary
                     " target="_blank"><span class = "text--heading ">PROJECTS</span></a>
-                </li>
-                <li>
-                    <a href="Resume.pdf" class="
-                    nav__link--anchor
-                    nav__link--anchor-primary
-                    " target="_blank"><span class = "text--heading ">RESUME</span></a>
                 </li>
                 <li>
                     <a href="https://www.mbdev.ca/contact.html" class="
@@ -72,27 +66,37 @@
             </ul>
         </nav>
 
-    <button>
-        <a href="https://www.mbdev.ca/index.html">UNDER CONSTRUCTION COME BACK LATER</a>
-    </button>
-
     <!-- user input form, in progress -->
-    <section  id="input--form">
-        <form action ="results.html" method="get">
+    <div class="contact_container">
+        <h1><span class = "text--purple ">CONTACT</span></h1>
+        <h1> Feel free to reach out using my socials / contact info,<br> or connect with me here directly using this form<br><br>**Does not work yet, currently resarching how to host**</h1>
 
-            <div>
-                <label for="name" Name:>Name:</label>  
-                <input type="text" name="name" id="name" placeholder="">
+        <form>
+            
+            <div class = "identifiers">
+                <div class = "input-group">
+                    <label for "Name"> <p>Name</p> </label>
+                    <input type="text" id = "Name" required>
+                </div>
+
+                <div class = "input-group">
+                    <label for "Email"> <p>Email</p> </label>
+                    <input type="Email" id = "Email" required>
+                </div>
             </div>
         
-            <div>
-                <label for="details" Details:>Details:</label> 
-                    <input type="text" placeholder="">
-                </label>
+            <div class = "input-group">
+                <label for "message"> <p>Message</p> </label>
+                <textarea id="message" rows = 8></textarea>
             </div>
-        
+
+            <button class = "submit">
+                SUBMIT
+            </button>
+
         </form>
-    </section>
+
+    </div>
 
     </body>
 </html>
