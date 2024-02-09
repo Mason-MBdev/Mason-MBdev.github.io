@@ -194,8 +194,8 @@ nav {
 
 }
 
-.Logo a{
-    font-size: 30px;
+.Logo a {
+    font-size: 35px;
     margin: 0 40px;
     align-items: center;
     transition: all 200ms ease;
@@ -241,6 +241,10 @@ nav {
     justify-content: center;
     align-items: center;
     margin-top: 60px;
+}
+
+.AHHHHHHHHHHH {
+    margin-top: 25px;
 }
 
 .project_container{
