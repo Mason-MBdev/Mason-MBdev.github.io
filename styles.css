@@ -245,6 +245,7 @@ nav {
 
 .AHHHHHHHHHHH {
     margin-top: 25px;
+    gap: 10px;
 }
 
 .project_container{
@@ -256,6 +257,7 @@ nav {
     max-width: 1200px;
     border-radius: 15px;
     margin: 10px auto;
+    gap: 10 px;
 }
 
 .project {
@@ -450,4 +452,8 @@ form {
 
 .pixel_art-gif {
     max-width: 100px;
+}
+
+input:-webkit-autofill {
+    background-color: transparent;
 }

@@ -86,8 +86,7 @@
     <div class="contact_container">
         <h1><span class="text--purple">CONTACT</span></h1>
         <h1> <br>Feel free to reach out using my socials / contact info,<br> or connect with me directly using this form.</h1>
-        <p>**Does not work yet** att 1</p>
-        <form action="https://pi.mbdev.ca:443/submit_form" method="post">
+        <form id="contactForm" method="post">>
             <div class="identifiers">
                 <div class="input-group">
                     <label for="Name"> <p>Name</p> </label>
@@ -103,8 +102,44 @@
                 <textarea id="message" name="message" rows="8"></textarea>
             </div>
             <button type="submit" class="submit">SUBMIT</button>
+            <p id="statusMessage" style="display: none;"></p>
         </form>
     </div>
 
-    </body>
+    <!-- JavaScript code -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById('contactForm');
+            const statusMessage = document.getElementById('statusMessage');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = new FormData(form);
+                try {
+                    const response = await fetch('https://pi.mbdev.ca/submit_form', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const data = await response.json();
+                    if (response.ok) {
+                        statusMessage.textContent = data.message; // Display the message from the server
+                        statusMessage.style.color = 'green';
+                        statusMessage.style.display = 'block';
+                        form.reset();
+                    } else {
+                        statusMessage.textContent = 'Error: ' + data.message;
+                        statusMessage.style.color = 'red';
+                        statusMessage.style.display = 'block';
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    statusMessage.textContent = 'An unexpected error occurred.';
+                    statusMessage.style.color = 'red';
+                    statusMessage.style.display = 'block';
+                }
+            });
+        });
+        
+    </script>
+</body>
 </html>
