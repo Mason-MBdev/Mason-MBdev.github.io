@@ -122,7 +122,7 @@
                     });
                     const data = await response.json();
                     if (response.ok) {
-                        statusMessage.textContent = data.message; // Display the message from the server
+                        statusMessage.textContent = data.message;
                         statusMessage.style.color = 'green';
                         statusMessage.style.display = 'block';
                         form.reset();
@@ -139,7 +139,6 @@
                 }
             });
         });
-        
     </script>
 </body>
 </html>
