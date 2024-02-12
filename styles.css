@@ -17,7 +17,7 @@ h1 {
 }
 
 p {
-    color: white;
+    color: rgb(223, 223, 223);
     font-size: 17.5px;
 }
 
@@ -32,7 +32,7 @@ html {
 }
 
 body { 
-    height: 150%;
+    height: 175%;
     background-color: #212324;
     background-size:cover;
 }
@@ -98,8 +98,7 @@ nav-mobile {
     justify-content: center;    
     background-color: #3200d3;
     transition: all 200ms ease;
-    border-bottom: black solid;
-
+    box-shadow: 0 8px 16px rgba(0,0,0.16)
 }
 
 .nav__link--list {
@@ -152,6 +151,8 @@ nav {
     align-items: center;
     background-image: linear-gradient(#3200d3, #5a2ee0);
     transition: all 100ms ease;
+    box-shadow: 0 8px 16px rgba(0,0,0.16)
+
 }
 
 .text--header {
@@ -202,12 +203,21 @@ nav {
     text-decoration: none;
 }
 
+.Logo:hover {
+    transform: scale(1.1);
+}
+
+.Logo:hover .text--heading {
+    color: black;
+    transition: color 100ms ease;
+}
 
 /* About section */
 #about-me {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    margin: 20px;
 }
 
 .about-me__info--container {
@@ -215,7 +225,8 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 25px;
+    margin-top: 45px;
+    margin-bottom: 10px;
 }
 
 .picture {
@@ -245,8 +256,14 @@ nav {
 
 .AHHHHHHHHHHH {
     margin-top: 25px;
-    gap: 10px;
+    display:block;
 }
+
+.project h1{
+    text-align: left;
+}
+
+
 
 .project_container{
     display: flex;
@@ -257,7 +274,14 @@ nav {
     max-width: 1200px;
     border-radius: 15px;
     margin: 10px auto;
-    gap: 10 px;
+    margin-bottom: 50px;
+    box-shadow: 0 8px 16px rgba(0,0,0.16)
+}
+
+.project_container:hover {
+    transition: all 200ms ease;
+    transform: scale(1.05);
+    transition: all 200ms ease;
 }
 
 .project {
@@ -276,6 +300,8 @@ nav {
     max-width: 400px;
     border-radius: 15px;
     margin: 10px auto;
+    box-shadow: 0 8px 16px rgba(0,0,0.16)
+
 }
 
 .social-media-icon {
@@ -328,7 +354,7 @@ nav {
 }
 
 @media (max-width: 700px) {
-    .Title {
+    .Title-name {
         display: flex;
     }
 
@@ -433,12 +459,17 @@ form {
 .submit {
     background: transparent;
     color: white;
+    font-size: 20px;
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     border: outset;
+}
 
+.submit:hover {
+    background: rgb(102, 98, 98);
+    transform:  scale(0.95);
 }
 
 .identifiers {
@@ -457,3 +488,4 @@ form {
 input:-webkit-autofill {
     background-color: transparent;
 }
+
