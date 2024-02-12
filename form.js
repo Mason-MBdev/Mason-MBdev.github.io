@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => {
             // Update status message based on error
-            statusMessage.innerText = 'Error: Form submission failed';
+            statusMessage.innerText = 'Connection closed: not recieving messages currently';
             statusMessage.style.color = 'red'; // Set color to red for error
             console.error('Error:', error);
         });
