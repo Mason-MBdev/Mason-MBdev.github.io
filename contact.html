@@ -102,43 +102,48 @@
                 <textarea id="message" name="message" rows="8"></textarea>
             </div>
             <button type="submit" class="submit">SUBMIT</button>
-            <p id="statusMessage" style="display: none;"></p>
+            <p id="statusMessage" style="color: green;"></p>
         </form>
     </div>
 
     <!-- JavaScript code -->
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const form = document.getElementById('contactForm');
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
             const statusMessage = document.getElementById('statusMessage');
-
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const formData = new FormData(form);
-                try {
-                    const response = await fetch('https://pi.mbdev.ca/submit_form', {
-                        method: 'POST',
-                        body: formData
-                    });
-                    const data = await response.json();
-                    if (response.ok) {
-                        statusMessage.textContent = data.message;
-                        statusMessage.style.color = 'green';
-                        statusMessage.style.display = 'block';
-                        form.reset();
-                    } else {
-                        statusMessage.textContent = 'Error: ' + data.message;
-                        statusMessage.style.color = 'red';
-                        statusMessage.style.display = 'block';
+        
+            if (!contactForm || !statusMessage) {
+                console.error('Error: Contact form or status message element not found.');
+                return;
+            }
+        
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+        
+                // Create a FormData object from the form
+                const formData = new FormData(contactForm);
+        
+                // Send a POST request to the backend
+                fetch('https://pi.mbdev.ca/submit_form', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
                     }
-                } catch (error) {
+                    // Update status message based on response
+                    statusMessage.innerText = 'Yes'; // If the response is successful
+                    statusMessage.style.color = 'green'; // Set color to green for success
+                })
+                .catch(error => {
+                    // Update status message based on error
+                    statusMessage.innerText = 'No'; // If an error occurred
+                    statusMessage.style.color = 'red'; // Set color to red for error
                     console.error('Error:', error);
-                    statusMessage.textContent = 'An unexpected error occurred.';
-                    statusMessage.style.color = 'red';
-                    statusMessage.style.display = 'block';
-                }
+                });
             });
         });
-    </script>
+    </script>    
 </body>
 </html>
