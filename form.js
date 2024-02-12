@@ -1,39 +1,36 @@
-// Define a function to handle form submission response
-function handleFormResponse(response) {
-    // Get the status message element
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
     const statusMessage = document.getElementById('statusMessage');
-
-    // Check if response contains a success message
-    if (response.message === "Form submitted successfully!") {
-        // Update status message to indicate success
-        statusMessage.innerText = 'Form submitted successfully!';
-        statusMessage.style.color = 'green'; // Set color to green for success
-    } else {
-        // Update status message to indicate failure
-        statusMessage.innerText = 'Error: Form submission failed';
-        statusMessage.style.color = 'red'; // Set color to red for error
+    
+    if (!contactForm || !statusMessage) {
+        console.error('Error: Contact form or status message element not found.');
+        return;
     }
-}
-
-// Get form data
-const formData = new FormData();
-formData.append('Name', 'Test');
-formData.append('Email', 'test@example.com');
-formData.append('message', 'Test message');
-
-// Send a POST request to the server endpoint
-fetch('https://pi.mbdev.ca/submit_form', {
-    method: 'POST',
-    body: formData
-})
-.then(response => {
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
-    }
-    return response.json(); // Parse the JSON from the response body
-})
-.then(handleFormResponse) // Call the handleFormResponse function with the parsed JSON data
-.catch(error => {
-    // Handle any errors that occur during the fetch operation
-    console.error('Error:', error);
+    
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+    
+        // Create a FormData object from the form
+        const formData = new FormData(contactForm);
+    
+        // Send a POST request to the backend
+        fetch('https://pi.mbdev.ca/submit_form', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            // Update status message based on response
+            statusMessage.innerText = 'Form submitted successfully!';
+            statusMessage.style.color = 'green'; // Set color to green for success
+        })
+        .catch(error => {
+            // Update status message based on error
+            statusMessage.innerText = 'Error: Form submission failed';
+            statusMessage.style.color = 'red'; // Set color to red for error
+            console.error('Error:', error);
+        });
+    });
 });
