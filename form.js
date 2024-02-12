@@ -23,7 +23,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw new Error('Network response was not ok');
             }
             // Update status message based on response
-            statusMessage.innerText = 'Form submitted successfully!';
+            return response.json(); // Parse JSON response
+        })
+        .then(data => {
+            // Update status message based on response data
+            statusMessage.innerText = data.message;
             statusMessage.style.color = 'green'; // Set color to green for success
         })
         .catch(error => {
