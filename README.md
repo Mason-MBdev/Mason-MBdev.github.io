@@ -1,1 +1,1 @@
-Currently learning how to collect input from users, contact page is non-functional until then.
+Functional contact page, form POST to server at raspbPI returns confirmation from backend, finishing touches and detailed project section coming soon.
