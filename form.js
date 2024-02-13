@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const formData = new FormData(contactForm);
     
         // Send a POST request to the backend
-        fetch('https://pi.mbdev.ca/submit_form', {
+        fetch('https://pi.mbdev.ca/submit_form:8443', {
             method: 'POST',
             body: formData
         })

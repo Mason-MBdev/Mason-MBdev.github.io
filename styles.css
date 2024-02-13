@@ -477,8 +477,8 @@ form {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
-    width: 700px;
+    justify-content: space-between;
+    width: 500px;
 }
 
 .pixel_art-gif {
