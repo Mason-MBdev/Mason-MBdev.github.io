@@ -8,13 +8,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     contactForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault();
     
         // Create a FormData object from the form
         const formData = new FormData(contactForm);
     
         // Send a POST request to the backend
-        fetch('https://pi.mbdev.ca/submit_form:443', {
+        fetch('https://pi.mbdev.ca/submit_form', {
             method: 'POST',
             body: formData
         })
@@ -22,18 +22,18 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            // Update status message based on response
+            // Update status message 
             return response.json(); // Parse JSON response
         })
         .then(data => {
-            // Update status message based on response data
+            // Update status message 
             statusMessage.innerText = data.message;
-            statusMessage.style.color = 'green'; // Set color to green for success
+            statusMessage.style.color = 'green'; // green for success
         })
         .catch(error => {
-            // Update status message based on error
+            // Update status message 
             statusMessage.innerText = 'Connection closed: not recieving messages currently';
-            statusMessage.style.color = 'red'; // Set color to red for error
+            statusMessage.style.color = 'red'; // red for error
             console.error('Error:', error);
         });
     });
