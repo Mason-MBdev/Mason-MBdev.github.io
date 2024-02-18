@@ -288,11 +288,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    @media (max-width: 600px) {
-        display: flex;
-    }
-
+    gap: 30px;
 }
 
 
@@ -308,7 +304,6 @@ nav {
     border-radius: 15px;
     margin: 10px auto;
     box-shadow: 0 8px 16px rgba(0,0,0.16)
-
 }
 
 .social-media-icon {
@@ -361,6 +356,15 @@ nav {
 }
 
 @media (max-width: 700px) {
+
+    .p {
+        font-size: 0%;
+    }
+
+    h1 {
+        font-size: 2;
+    }
+
     .Title-name {
         display: flex;
     }
@@ -383,9 +387,6 @@ nav {
         display: none;
     } 
 
-}
-
-@media (max-width: 700px) {
     .short-text{
         display: none;
     }  
@@ -397,10 +398,6 @@ nav {
     .text--header {
         display: none;
     }
-
-}
-
-@media (max-width: 700px) {
 
     nav {
         display: none;
@@ -416,19 +413,24 @@ nav {
     nav-mobile {
         display: flex;
     }
-    project__info--container {
-        min-height: 100vh;
-        display: flex;
+
+    .project_container {
+        max-width: 300px;
+    }
+    
+    .project {
+        display: space-evenly;
         flex-direction: column;
+        max-height: fit-content;
+    }
+
+    h1 {
+        font-size: 20px; 
     }
 
     .paragraph {
-        max-width: 450px;
-        font-size: 25px;
-    }
-
-    gitlink {
-        display: flex;
+        max-width: 300px;
+        font-size: 20px;
     }
 
 }
