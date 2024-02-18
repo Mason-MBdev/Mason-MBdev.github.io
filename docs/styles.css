@@ -263,8 +263,6 @@ nav {
     text-align: left;
 }
 
-
-
 .project_container{
     display: flex;
     justify-content: space-evenly;
@@ -433,6 +431,16 @@ nav {
         font-size: 20px;
     }
 
+    .identifiers {
+        flex-direction: column;
+        max-width: 250px;
+    }
+
+    .message {
+        max-width: 300px;
+    }
+    
+
 }
 
 /* contact page */
@@ -484,7 +492,6 @@ form {
 .identifiers {
     margin-top: 15px;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     width: 600px;
