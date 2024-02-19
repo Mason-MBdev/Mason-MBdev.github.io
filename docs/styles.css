@@ -434,12 +434,14 @@ nav {
     .identifiers {
         flex-direction: column;
         max-width: 250px;
+        display: unse;
     }
 
     .message {
-        max-width: 300px;
+        max-width: 250px;
     }
-    
+
+
 
 }
 
