@@ -110,7 +110,7 @@ nav-mobile {
     display: flex;
     transition: all 200ms ease;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .nav__link--anchor {
