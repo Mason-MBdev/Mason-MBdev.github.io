@@ -76,26 +76,26 @@
         <form id="contactForm" method="post">
             <div class="identifiers">
                 <div class="input-group">
-                    <label for="First_Name"> <p>First Name</p> </label>
+                    <label for="First_Name"> <p>First Name<span class="text--red">*</span></p> </label>
                     <input type="text" id="Name" name="Name" required>
                 </div>
                 <div class="input-group">
                     <label for="Last_Name"> <p>Last Name</p> </label>
-                    <input type="text" id="Name" name="Name" required>
+                    <input type="text" id="Name" name="Name">
                 </div>
             </div>
 
             <div class="identifiers">
                 <div class="input-group">
-                    <label for="Email"> <p>Email</p> </label>
-                    <input type="Email" id="Email" name="Email" required>
-                </div>
-                <div class="input-group">
-                    <label for="PhoneNumber"> <p>Phone Number</p> </label>
+                    <label for="PhoneNumber"> <p>Phone Number <span class="text--red">*</span></p> </label>
                     <input type="tel" id="PhoneNumber" name="PhoneNumber" required>
                 </div>
+                <div class="input-group">
+                    <label for="Email"> <p>Email</p> </label>
+                    <input type="Email" id="Email" name="Email" >
+                </div>
             </div>
-            
+
             <div class="input-group">
                 <label for="message"> <p>Message</p> </label>
                 <textarea id="message" name="message" rows="8"></textarea>
