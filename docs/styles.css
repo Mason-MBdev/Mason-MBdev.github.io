@@ -434,15 +434,11 @@ nav {
     .identifiers {
         flex-direction: column;
         max-width: 250px;
-        display: unse;
     }
 
     .message {
         max-width: 250px;
     }
-
-
-
 }
 
 /* contact page */
@@ -495,7 +491,7 @@ form {
     margin-top: 15px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 600px;
 }
 
