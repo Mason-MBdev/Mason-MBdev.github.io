@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => {
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error('Error: Network response was not ok');
             }
             // Update status message 
             return response.json(); // Parse JSON response
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => {
             // Update status message 
-            statusMessage.innerText = 'Connection closed: not recieving messages currently';
+            statusMessage.innerText = 'Connection closed: I am away';
             statusMessage.style.color = 'red'; // red for error
             console.error('Error:', error);
         });
