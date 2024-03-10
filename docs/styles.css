@@ -294,6 +294,19 @@ nav {
     gap: 30px;
 }
 
+.project_expansion {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    font-size: 150%;
+}
+
+.project_expansion p {
+    font-size: 23px;
+    margin-left: 5px;
+}
+
 
 
 /* links section */
@@ -492,12 +505,30 @@ form {
     transform:  scale(0.95);
 }
 
+.submission_group{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 40px;
+}
+
+.status_box {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+}
+
 .identifiers {
     margin-top: 15px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     width: 600px;
+}
+
+.statusDot {
+    font-size: 27.5px
 }
 
 .pixel_art-gif {
