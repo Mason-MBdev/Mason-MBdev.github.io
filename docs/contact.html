@@ -15,7 +15,7 @@
   gtag('config', 'G-EXGNL7CQT6');
 </script>
 
-<body>
+<body class="contact-body">
     <section id="Title">
         <div class="Title">
             <h1> MASON BARNEY </h1>
@@ -44,10 +44,10 @@
         <nav>
             <div class="Logo">
                 <a href="https://mbdev.ca/index" class="text--header">
-                    <strong><span class="text--heading">MASON B.</span></strong>
+                    <span class="text--heading"> &#x2656; MASON B.</span>
                 </a>
                 <a href="https://mbdev.ca/index" class="short-text">
-                    <strong><span class="text--heading">MASON B.</span></strong>
+                    <span class="text--heading"> &#x2656; MB.</span>
                 </a>
             </div>
             <strong class = "shorter-text"><span class = "text--heading ">MB</span></strong></div>
@@ -70,21 +70,20 @@
     <!-- user input form, in progress -->
     <div class="contact_container">
         <h1><span class="text--purple">CONTACT</span></h1>
-        <h1> <br>Contact me directly using this form.</h1>
         <form id="contactForm" method="post">
             <div class="identifiers">
                 <div class="input-group">
-                    <label for="First_Name"> <p>Name<span class="text--red">*</span></p></label>
-                    <input type="text" id="Name" name="Name" required>
+                    <label for="First_Name" class = "contact_label"> <p>Name<span class="text--red">*</span></label>
+                    <input type="text" id="Name" name="Name" class = "contact_label" required>
                 </div>
                 <div class="input-group">
-                    <label for="Email"> <p>Email<span class="text--red">*</span></p></label>
-                    <input type="Email" id="Email" name="Email" >
+                    <label for="Email"> <p>Email<span class="text--red">*</span></label>
+                    <input type="Email" id="Email" name="Email" class = "contact_label" required>
                 </div>
             </div>
             <div class="input-group">
                 <label for="message"> <p>Message</p> </label>
-                <textarea id="message" name="message" rows="8"></textarea>
+                <textarea id="message" name="message" rows="8" class = "contact_label"></textarea>
             </div>
             <div class = "submission_group">
                 <button type="submit" class="submit">SUBMIT</button>                
