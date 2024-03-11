@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const statusMessage = document.getElementById('statusMessage');
     const statusDot = document.getElementById('statusDot');
 
+
     if (!contactForm || !statusMessage) {
         console.error('Error: Contact form or status message element not found.');
         return;

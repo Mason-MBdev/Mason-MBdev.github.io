@@ -301,13 +301,16 @@ nav {
 interact */
 .project_container:hover {
     transition: all 200ms ease;
-    transform: scale(1.02);
-    border: 10px, #0d0035;
+    transform: scale(1.01);
+    cursor: pointer;
+    border: 5px solid white;
 }
 
 .project_container:not(:hover) {
     transition: all 200ms ease;
     transform: scale(1.00);
+    border: 1px solid black; /* 1px solid black border */
+
 }
 
 .project_expansion-more {
@@ -333,6 +336,13 @@ interact */
     gap: 30px;
 }
 
+.project .project_descriptor_box {
+    width: 30%;
+    height: 100%;
+}
+
+
+
 .project_expansion {
     display: flex;
     justify-content: space-evenly;
@@ -345,11 +355,9 @@ interact */
 
 
 .project_expansion p {
-    font-size: 23px;
+    font-size: 15px;
     margin-left: 5px;
 }
-
-
 
 
 /* links section */
@@ -473,7 +481,7 @@ interact */
     }
 
     .project_container {
-        max-width: 300px;
+        max-width: 400px;
     }
     
     .project {
@@ -499,6 +507,24 @@ interact */
     .message {
         max-width: 250px;
     }
+
+    .move-left {
+        margin-right: 0px;
+    }
+
+    .project_expansion {
+        margin-right: 0px;
+    }
+
+    .project .project_descriptor_box {
+        width: 100%;
+        height: 40%;
+    }
+
+    .index-body {
+        height: 1675px;
+    }
+
 }
 
 /* contact page */
