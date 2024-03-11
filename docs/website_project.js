@@ -6,19 +6,19 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (project1) {
         project1.addEventListener('click', function() {
-            alert('Feature in progress');
+            alert('Feature in progress, check back later');
         });
     }
 
     if (project2) {
         project2.addEventListener('click', function() {
-            alert('Feature in progress');
+            alert('Feature in progress, check back later');
         });
     }
 
     if (project3) {
         project3.addEventListener('click', function() {
-            alert('Feature in progress');
+            alert('Feature in progress, check back later');
         });
     }
 
