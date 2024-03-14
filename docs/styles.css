@@ -18,7 +18,6 @@ h1, h2, span {
     text-align: center;
     line-height: 1.25;
     font-weight: normal;
-
 }
 
 h1 {
@@ -120,7 +119,6 @@ nav-mobile {
     transition: all 200ms ease;
     align-items: center;
     justify-content: space-evenly;
-    position: absolute;
 }
 
 .nav__link--anchor {
@@ -128,19 +126,16 @@ nav-mobile {
     text-decoration: none;
     justify-content: center;
     align-items: center;
-    position: absolute;
 }
 
 .nav__link--anchor-primary {
     transition: all 200ms ease;
     justify-content: center;
     align-items: center;
-    position: absolute;
 }
 
 .nav__link--anchor-primary:hover {
     background-color: #2d4772;
-    position: absolute;
 }
 
 /* gitlink */
@@ -169,7 +164,6 @@ nav {
     background-image: linear-gradient(#3200d3, #5a2ee0);
     transition: all 100ms ease;
     box-shadow: 0 8px 16px rgba(0,0,0.16)
-
 }
 
 .text--header {
@@ -295,7 +289,7 @@ nav {
     margin: 10px auto;
     margin-bottom: 50px;
     box-shadow: 0 8px 16px rgba(0,0,0.16);
-    position: absolute;
+    position: relative;
 }
 
 /* when individual projects are hovered, they will expand slightly and the 
@@ -373,8 +367,9 @@ interact */
 }
 
 .social-media-icon {
-    width: auto;
-    height: auto;
+    margin-top: 3px;
+    width:  45px;
+    height: 45px;
     transition: all 200ms ease;
 }
 
@@ -607,4 +602,3 @@ form {
 input:-webkit-autofill {
     background-color: transparent;
 }
-
