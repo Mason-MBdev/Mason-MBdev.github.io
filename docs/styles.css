@@ -276,11 +276,7 @@ nav {
 
 .AHHHHHHHHHHH {
     margin-top: 25px;
-    display:block;
-}
-
-.project h1{
-    text-align: left;
+    display: block;
 }
 
 .project_container{
@@ -337,11 +333,9 @@ interact */
 }
 
 .project .project_descriptor_box {
-    width: 30%;
+    width: 25%;
     height: 100%;
 }
-
-
 
 .project_expansion {
     display: flex;
@@ -352,7 +346,6 @@ interact */
     color: black;
     margin-right: 30px;
 }
-
 
 .project_expansion p {
     font-size: 15px;
@@ -481,7 +474,7 @@ interact */
     }
 
     .project_container {
-        max-width: 400px;
+        max-width: 85%;
     }
     
     .project {
@@ -517,14 +510,13 @@ interact */
     }
 
     .project .project_descriptor_box {
-        width: 100%;
+        width: auto;
         height: 40%;
     }
 
     .index-body {
         height: 1675px;
     }
-
 }
 
 /* contact page */
