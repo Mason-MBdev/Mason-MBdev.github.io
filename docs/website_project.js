@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var project2 = document.getElementById('project_container2');
     var project3 = document.getElementById('project_container3');
     
-    
+    // adds event lister to the project container so when it is clicked, it will expand and show more detail
+    // Languauges used, time of completion, photos of the application/program, things learned, etc
     if (project1) {
         project1.addEventListener('click', function() {
             alert('Feature in progress, check back later');

@@ -114,11 +114,13 @@ nav-mobile {
     box-shadow: 0 8px 16px rgba(0,0,0.16)
 }
 
+/* Troubleshoot which one of these definitions actually needs position:absolute; */
 .nav__link--list {
     display: flex;
     transition: all 200ms ease;
     align-items: center;
     justify-content: space-evenly;
+    position: absolute;
 }
 
 .nav__link--anchor {
@@ -126,16 +128,19 @@ nav-mobile {
     text-decoration: none;
     justify-content: center;
     align-items: center;
+    position: absolute;
 }
 
 .nav__link--anchor-primary {
     transition: all 200ms ease;
     justify-content: center;
     align-items: center;
+    position: absolute;
 }
 
 .nav__link--anchor-primary:hover {
     background-color: #2d4772;
+    position: absolute;
 }
 
 /* gitlink */
@@ -289,7 +294,8 @@ nav {
     border-radius: 15px;
     margin: 10px auto;
     margin-bottom: 50px;
-    box-shadow: 0 8px 16px rgba(0,0,0.16)
+    box-shadow: 0 8px 16px rgba(0,0,0.16);
+    position: absolute;
 }
 
 /* when individual projects are hovered, they will expand slightly and the 
@@ -299,13 +305,13 @@ interact */
     transition: all 200ms ease;
     transform: scale(1.01);
     cursor: pointer;
-    border: 5px solid white;
+    border: 2.5px solid white;
 }
 
 .project_container:not(:hover) {
     transition: all 200ms ease;
     transform: scale(1.00);
-    border: 1px solid black; /* 1px solid black border */
+    border: 2px solid black; /* 1px solid black border */
 
 }
 
@@ -367,20 +373,18 @@ interact */
 }
 
 .social-media-icon {
-    width: 55px;
-    height: 55px;
-}
-
-.social-media-icon {
+    width: auto;
+    height: auto;
     transition: all 200ms ease;
 }
 
 .social-media-icon:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
+/* not in use at the moment, however was/will be useful for past/future minimal movements */
 .move-left {
-    margin-right: 35px;
+    margin-right: 0px;
 }
 
 
