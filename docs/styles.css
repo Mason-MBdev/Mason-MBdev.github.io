@@ -287,9 +287,9 @@ nav {
     max-width: 1200px;
     border-radius: 15px;
     margin: 10px auto;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     box-shadow: 0 8px 16px rgba(0,0,0.16);
-    position: relative;
+    border: 2px solid black; /* 1px solid black border */
 }
 
 /* when individual projects are hovered, they will expand slightly and the 
@@ -297,16 +297,13 @@ nav {
 interact */
 .project_container:hover {
     transition: all 200ms ease;
-    transform: scale(1.01);
     cursor: pointer;
-    border: 2.5px solid white;
+    border: 2px solid white;
 }
 
 .project_container:not(:hover) {
     transition: all 200ms ease;
     transform: scale(1.00);
-    border: 2px solid black; /* 1px solid black border */
-
 }
 
 .project_expansion-more {
