@@ -11,7 +11,7 @@
 }
 
 .contact-body {
-    height: 750px;
+    height: 1750px;
 }
 
 h1, h2, span {
@@ -599,4 +599,35 @@ form {
 
 input:-webkit-autofill {
     background-color: transparent;
+}
+
+.description_photos-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    height: auto;
+}
+
+.description_photos-center {
+    border: 2px solid white; /* Add white border */
+    border-radius: 10px; /* Make the border rounded */
+    padding: 17.5px; /* Add padding for space between border and content */
+}
+
+.description_photos-center > div:not(:last-child) {
+    margin-bottom: 10px; /* Adjust the value as needed */
+}
+
+.description_photo1 {
+    max-width: 300px;
+    display: block;
+    margin: auto;
+    position: relative;
+}
+
+.description_photo2 {
+    width: 400px;
+    display: block;
+    margin: auto;
+    position: relative;
 }
