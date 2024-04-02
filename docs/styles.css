@@ -611,7 +611,7 @@ input:-webkit-autofill {
 .description_photos-center {
     border: 2px solid white; /* Add white border */
     border-radius: 10px; /* Make the border rounded */
-    padding: 17.5px; /* Add padding for space between border and content */
+    padding: 20px; /* Add padding for space between border and content */
 }
 
 .description_photos-center > div:not(:last-child) {
@@ -630,4 +630,16 @@ input:-webkit-autofill {
     display: block;
     margin: auto;
     position: relative;
+}
+
+.Gapdiv1 {
+    height: 10px;
+}
+
+.Gapdiv2 {
+    height: 40px;
+}
+
+.description_photos-center p {
+    text-align: center;    
 }
