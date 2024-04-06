@@ -11,7 +11,7 @@
 }
 
 .contact-body {
-    min-height: 850px;
+    min-height: 950px;
     height: auto;
     max-height: 1750px;
 }
@@ -449,7 +449,6 @@ interact */
     transform: scale(1.1);
 }
 
-/* not in use at the moment, however was/will be useful for past/future minimal movements */
 .move-left {
     margin-right: 0px;
 }
@@ -711,14 +710,14 @@ input:-webkit-autofill {
 }
 
 .description_photo1 {
-    max-width: 300px;
+    max-width: 30vw;
     display: block;
     margin: auto;
     position: relative;
 }
 
 .description_photo2 {
-    width: 400px;
+    width: 30vw;
     display: block;
     margin: auto;
     position: relative;
@@ -734,15 +733,15 @@ input:-webkit-autofill {
 
 .Contact_Description .project_accordion .project_container .project,
 .Contact_Description .project_accordion .project_container{
-    width: 57.25vw;
+    width: 62.25vw;
     max-width: 80vw;
-    min-width: 40vw;
+    min-width: 50vw;
 }
 
 .Contact_Description .project_accordion .project_container .project-expandable {
-    width: 55vw;
+    width: 60vw;
     max-width: 80vw;
-    min-width: 40vw;
+    min-width: 50vw;
 }
 
 .text--white {
@@ -767,8 +766,9 @@ input:-webkit-autofill {
     position: absolute;
     top: 50%;
     left: 75%;
-    transform: translate(-50%, -50%);
+    transform: translate(-70%, -50%);
     display: none;
+    font-size: 40px; /* Adjust font size as needed */
 }
 
 .project_accordion .project_container.active .project .indicators .close-indicator {
