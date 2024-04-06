@@ -554,6 +554,18 @@ interact */
         max-height: fit-content;
     }
 
+    .left-right-container {
+        display: block;
+    }
+
+    .project_left {
+        display: block;
+    }
+
+    .project_right {
+        display: block;
+    }
+
     h1 {
         font-size: 20px; 
     }
@@ -573,7 +585,10 @@ interact */
     }
 
     .move-left {
-        margin-right: 0px;
+        display: flex;
+        flex-direction: column; /* Display items in a column */
+        justify-content: center; /* Center items horizontally */
+        align-items: center; /* Center items vertically */
     }
 
     .project_expansion {
@@ -588,6 +603,7 @@ interact */
     .index-body {
         height: 1675px;
     }
+
 }
 
 /* contact page */
@@ -715,17 +731,18 @@ input:-webkit-autofill {
 .description_photos-center p {
     text-align: center;    
 }
+
 .Contact_Description .project_accordion .project_container .project,
 .Contact_Description .project_accordion .project_container{
     width: 57.25vw;
-    max-width: 500px;
-    min-width: 475px;
+    max-width: 80vw;
+    min-width: 40vw;
 }
 
 .Contact_Description .project_accordion .project_container .project-expandable {
     width: 55vw;
-    max-width: 475px;
-    min-width: 460px;
+    max-width: 80vw;
+    min-width: 40vw;
 }
 
 .text--white {
