@@ -1,26 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var project1 = document.getElementById('project_container1');
-    var project2 = document.getElementById('project_container2');
-    var project3 = document.getElementById('project_container3');
-    
-    // adds event lister to the project container so when it is clicked, it will expand and show more detail
+document.addEventListener('DOMContentLoaded', function() {    
+    const accordion = document.getElementsByClassName('project_container');
+
+    // adds event lister to the project containers so when it is clicked, it will expand and show more detail
     // Languauges used, time of completion, photos of the application/program, things learned, etc
-    if (project1) {
-        project1.addEventListener('click', function() {
-            alert('Feature in progress, check back later');
-        });
+    for (i = 0; i < accordion.length ; i++) {
+        accordion[i].addEventListener('click', function() {
+        this.classList.toggle('active')
+    })
     }
-
-    if (project2) {
-        project2.addEventListener('click', function() {
-            alert('Feature in progress, check back later');
-        });
-    }
-
-    if (project3) {
-        project3.addEventListener('click', function() {
-            alert('Feature in progress, check back later');
-        });
-    }
-
-});
+})

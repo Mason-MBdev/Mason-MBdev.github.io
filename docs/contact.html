@@ -6,14 +6,6 @@
     <title>Contact</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EXGNL7CQT6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-EXGNL7CQT6');
-</script>
 
 <body class="contact-body">
     <section id="Title">
@@ -66,6 +58,7 @@
                 </li>
             </ul>
         </nav>
+    </section>
 
     <!-- user input form, in progress -->
     <div class="contact_container">
@@ -96,37 +89,48 @@
     </div>
     <script src="form.js"></script>
 
-    <section id="Contact_Description">
+    <div class="Contact_Description">
         <h1><span class="text--purple">How does this work?</span></h1>
-
-        <div class="description_photos-container">
-            <div class="description_photos-center"> 
-                <div> 
-                    <h1>
-                        Website Architechure
-                    </h1>
+        
+        <div class = "project_accordion">
+            <div class="project_container">
+                <div class = "project">
+                    <h1><div class="text--white">Click here to find out more</div></h1> 
+                    
+                    <div class="indicators">
+                        <h1><div class="text--white"><div class="open-indicator">+</div></div></h1>
+                        <h1><div class="text--white"><div class="close-indicator">-</div></div></h1>
+                    </div>
                 </div>
-                <div>
-                    <img class = "description_photo2" src=".\Content\FinalChart.drawio.svg" alt="Raspberry PI 4-bit LCD Module">
-                </div>
-
-                <div class="Gapdiv2"></div>
-                
-                <h1>
-                    Raspberry PI LCD module
-                </h1>
-                <p>
-                    Prints all messages to my desk in real-time
-                </p>
-
-                <div class="Gapdiv1"></div>
-                
-                <div>
-                    <img class = "description_photo1" src=".\Content\Raspberry-Pi-LCD-4-bit-mode.png" alt="Raspberry PI 4-bit LCD Module">
+    
+                <div class="project-expandable">
+                    <div class="description_photos-container">
+                        <div class="description_photos-center"> 
+                            <h1>
+                                Raspberry PI LCD module
+                            </h1>
+                            <p>
+                                Prints all messages to my desk in real-time
+                            </p>
+                            <div class="Gapdiv1"></div>
+                            <div>
+                                <img class = "description_photo1" src=".\Content\Raspberry-Pi-LCD-4-bit-mode.png" alt="Raspberry PI 4-bit LCD Module">
+                            </div>
+                            <div class="Gapdiv1"></div>
+                            <div> 
+                                <h1>
+                                    Website Architechure
+                                </h1>
+                            </div>
+                            <div>
+                                <img class = "description_photo2" src=".\Content\FinalChart.drawio.svg" alt="Raspberry PI 4-bit LCD Module">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <!-- Js script to expand brief description of Rasp Pi project-->
+            <script src="website_project.js"></script>
         </div>
-    </section>
-
 </body>
 </html>
