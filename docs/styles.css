@@ -711,14 +711,15 @@ input:-webkit-autofill {
 }
 
 .description_photo1 {
-    max-width: 22.5vw;
+    max-width: 400px;
+    width: 22.5vw;
     display: block;
     margin: auto;
     position: relative;
 }
 
 .description_photo2 {
-    width: 30vw;
+    width: 22.5vw;
     display: block;
     margin: auto;
     position: relative;
@@ -734,14 +735,14 @@ input:-webkit-autofill {
 
 .Contact_Description .project_accordion .project_container .project,
 .Contact_Description .project_accordion .project_container{
-    width: 62.25vw;
-    max-width: 80vw;
+    width: 60vw;
+    max-width: 60vw;
     min-width: 50vw;
 }
 
 .Contact_Description .project_accordion .project_container .project-expandable {
-    width: 60vw;
-    max-width: 80vw;
+    width: 57.5vw;
+    max-width: 60vw;
     min-width: 50vw;
 }
 
