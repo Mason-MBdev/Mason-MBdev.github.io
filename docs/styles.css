@@ -615,6 +615,12 @@ interact */
         max-width: 62.5vw;
         min-width: 55vw;
     }
+
+    .description_photo1 {
+        min-width: 35vw;
+        width: 40vw;
+        max-width: 41vw;
+    }
 }
 
 /* contact page */
