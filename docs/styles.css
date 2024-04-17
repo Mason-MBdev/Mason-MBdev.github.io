@@ -735,15 +735,15 @@ input:-webkit-autofill {
 
 .Contact_Description .project_accordion .project_container .project,
 .Contact_Description .project_accordion .project_container{
-    width: 60vw;
-    max-width: 60vw;
-    min-width: 50vw;
+    width: 50vw;
+    max-width: 50vw;
+    min-width: 40vw;
 }
 
 .Contact_Description .project_accordion .project_container .project-expandable {
-    width: 57.5vw;
-    max-width: 60vw;
-    min-width: 50vw;
+    width: 47.5vw;
+    max-width: 50vw;
+    min-width: 40vw;
 }
 
 .text--white {
