@@ -603,6 +603,18 @@ interact */
         height: 1675px;
     }
 
+    .Contact_Description .project_accordion .project_container .project,
+    .Contact_Description .project_accordion .project_container{
+        width: 65vw;
+        max-width: 65vw;
+        min-width: 55vw;
+    }
+
+    .Contact_Description .project_accordion .project_container .project-expandable {
+        width: 62.5vw;
+        max-width: 62.5vw;
+        min-width: 55vw;
+    }
 }
 
 /* contact page */
