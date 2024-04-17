@@ -711,7 +711,7 @@ input:-webkit-autofill {
 }
 
 .description_photo1 {
-    max-width: 30vw;
+    max-width: 25vw;
     display: block;
     margin: auto;
     position: relative;
