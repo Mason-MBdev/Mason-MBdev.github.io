@@ -39,8 +39,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function stickyNavbarMobile() {
         if (window.scrollY >= stickyMobile) {
             navbarMobile.classList.add("sticky");
+            document.body.style.paddingTop = navbarMobile.offsetHeight + 'px'; // Add padding to the body equal to the height of the navbar
         } else {
             navbarMobile.classList.remove("sticky");
+            document.body.style.paddingTop = 0; // Remove padding from the body when the navbar is not sticky
         }
     }
 
