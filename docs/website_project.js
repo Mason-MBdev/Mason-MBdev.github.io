@@ -10,30 +10,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Get the non-mobile navbar element
-    const navbar = document.querySelector('nav');
+    var navbar = document.querySelector('nav');
 
     // Get the offset position of the non-mobile navbar
-    const sticky = navbar.offsetTop;
-
-    // Get the height of the non-mobile navbar
-    const navbarHeight = navbar.offsetHeight;
-
-    // Create a placeholder element to occupy the space previously taken by the non-mobile navbar
-    const placeholder = document.createElement('div');
-    placeholder.style.height = navbarHeight + 'px';
-    placeholder.style.display = 'none'; // Initially hide the placeholder
-
-    // Insert the placeholder before the navbar element
-    navbar.parentNode.insertBefore(placeholder, navbar);
+    var sticky = navbar.offsetTop;
 
     // Add the sticky class to the non-mobile navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
     function stickyNavbar() {
         if (window.scrollY >= sticky) {
             navbar.classList.add("sticky");
-            placeholder.style.display = 'block'; // Show the placeholder to occupy the space previously taken by the navbar
+            document.body.style.paddingTop = navbar.offsetHeight + 'px'; // Add padding to the body equal to the height of the navbar
         } else {
             navbar.classList.remove("sticky");
-            placeholder.style.display = 'none'; // Hide the placeholder when the navbar is not sticky
+            document.body.style.paddingTop = 0; // Remove padding from the body when the navbar is not sticky
         }
     }
 
