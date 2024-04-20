@@ -383,7 +383,12 @@ interact */
 .project .project_descriptor_box {
     width: 25%;
     height: 100%;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
 }
+
 
 .project_expansion {
     display: flex;
@@ -414,8 +419,21 @@ interact */
     align-items: center;
 }
 
-.project_left > * {
-    flex: 1; /* Each element takes up 50% of the space */
+.project_left > *:first-child {
+    flex: 4; /* First child takes up 40% of the space */
+    border: 2px solid white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Cool box shadow effect */
+}
+
+.project_left > *:last-child {
+    flex: 6; /* Last child takes up 60% of the space */
+}
+
+.align-project-text {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
 }
 
 .project_right {
@@ -452,7 +470,6 @@ interact */
 .move-left {
     margin-right: 0px;
 }
-
 
 @media (max-width: 900px) {
     .paragraph {
@@ -620,6 +637,10 @@ interact */
         min-width: 35vw;
         width: 40vw;
         max-width: 41vw;
+    }
+
+    .project_left > *:first-child {
+        margin-bottom: 20px;
     }
 }
 
