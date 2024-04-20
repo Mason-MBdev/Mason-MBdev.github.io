@@ -115,8 +115,42 @@ body::-webkit-scrollbar-thumb {
 
 /* nav mobile #5a2ee0)*/
 
+/* Sticky navbar styles for non-mobile */
+/* Sticky navbar styles for non-mobile */
+nav.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the navbar appears on top of other content */
+}
+
+/* Other existing navbar styles for non-mobile */
+nav {
+    height: 100px; /* Adjust the height of the navbar as needed */
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: linear-gradient(#3200d3, #5a2ee0);
+    transition: all 100ms ease;
+    box-shadow: 0 8px 16px rgba(0,0,0.16)
+}
+
+/* Sticky navbar styles for mobile */
+nav-mobile.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the navbar appears on top of other content */
+}
+
+/* Other existing navbar styles for mobile */
 nav-mobile {
-    height: 60px;
+    height: 60px; /* Adjust the height of the navbar as needed */
     width: 100%;
     max-width: 100%;
     display: none;
@@ -167,19 +201,6 @@ nav-mobile {
 
 
 /*nav bar*/
-nav {
-    height: 100px;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-image: linear-gradient(#3200d3, #5a2ee0);
-    transition: all 100ms ease;
-    box-shadow: 0 8px 16px rgba(0,0,0.16)
-}
-
 .text--header {
     color: rgb(230, 230, 247);
 }
