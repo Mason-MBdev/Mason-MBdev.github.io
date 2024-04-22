@@ -303,7 +303,7 @@ nav-mobile {
     margin-top: 90px;
 }
 
-.project_container{
+.project_container {
     display: flex;
     justify-content: center;
     align-content: center;
@@ -311,15 +311,6 @@ nav-mobile {
     margin-bottom: 30px;
     max-width: 1300px;
     width: 70vw;
-    
-    /* padding: 12.5px;
-    background-color: #5a2ee0;
-    max-width: 1200px;
-    border-radius: 15px;
-    margin: 10px auto;
-    margin-bottom: 40px;
-    box-shadow: 0 8px 16px rgba(0,0,0.16);
-    border: 2px solid black; 1px solid black border All of this moved to the 'project' div for accordion purposes*/
 }
 
 .project_accordion {
@@ -333,24 +324,27 @@ nav-mobile {
 .project_accordion .project_container .project-expandable {
     align-self: center;
     background: rgb(211, 211, 211);
-    height: 0px;
+    max-height: 1000px; /* Adjusted maximum height for smooth contraction */
     overflow: hidden;
     overflow-y: auto;
-    transition: 1000ms ease-in-out;
-    width: 70vw;
-    border-radius: 0 0 10px 10px;
+    width: 69.8vw;
+    border-radius: 0;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out, border-width 0.5s ease-in-out; /* Updated transition for contraction */
+}
+
+.project_accordion .project_container:not(.active) .project-expandable {
+    max-height: 0; /* Set maximum height to 0 when not active */
+    padding: 0; /* Remove padding when collapsed */
+    border-width: 0; /* Remove border when collapsed */
 }
 
 .project_accordion .project_container.active .project-expandable {
-    height: auto;
-    padding: 10px;
-    transition: 250ms ease-in-out;
-    border-width: 0 1px 1px 1px;
-    border-style: none solid solid solid; 
+    padding: 10px; /* Add padding when expanded */
+    border-width: 0 1px 1px 1px; /* Add border when expanded */
 }
 
-.project_accordion .project_container.active .project{
-    box-shadow: 0 0 16px rgba(0,0,0.16);
+.project_accordion .project_container.active .project {
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.16);
     border-radius: 10px 10px 0 0;
 }
 
@@ -358,7 +352,9 @@ nav-mobile {
 "Find out more" section will expand to indicate to users that they can 
 interact */
 .project {
-    transition: 0.5s;
+    transition: border-radius 0.5s; /* Added transition for border-radius */
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.16);
+    border-radius: 0; /* Initial border radius */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -371,14 +367,13 @@ interact */
     margin-right: auto;
     margin-bottom: 0;
     margin-left: auto;
-    box-shadow: 0 8px 16px rgba(0,0,0.16);
     border: 2px solid black;
 }
 
 .project:hover {
     transition: all 200ms ease;
     cursor: pointer;
-    border: 2px solid white;
+    border: 1px solid white;
 }
 
 .project:not(:hover) {
@@ -647,6 +642,7 @@ interact */
         width: 72.5vw;
         max-width: 70vw;
         min-width: 67.5vw;
+        transition: 0s;
     }
 
     .Contact_Description .project_accordion .project_container .project-expandable {
@@ -802,7 +798,7 @@ input:-webkit-autofill {
 }
 
 .Contact_Description .project_accordion .project_container .project-expandable {
-    width: 47.5vw;
+    width: 49.9vw;
     max-width: 50vw;
     min-width: 40vw;
 }
