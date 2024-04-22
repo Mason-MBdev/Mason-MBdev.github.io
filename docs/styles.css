@@ -327,6 +327,7 @@ nav-mobile {
     max-height: 1000px; /* Adjusted maximum height for smooth contraction */
     overflow: hidden;
     overflow-y: auto;
+    max-width: 1300px;
     width: 69.8vw;
     border-radius: 0;
     transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out, border-width 0.5s ease-in-out; /* Updated transition for contraction */
@@ -367,7 +368,7 @@ interact */
     margin-right: auto;
     margin-bottom: 0;
     margin-left: auto;
-    border: 2px solid black;
+    border: 1px solid black;
 }
 
 .project:hover {
