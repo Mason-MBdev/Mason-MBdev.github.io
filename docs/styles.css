@@ -489,180 +489,6 @@ interact */
     margin-right: 0px;
 }
 
-@media (max-width: 900px) {
-    .paragraph {
-        max-width: 700px;
-        transition: all 200ms ease;
-    }
-    
-    .nav__link--anchor-primary {
-        color: rgb(199, 199, 255);
-        transition: all 200ms ease;
-    }
-    
-    .nav__link--anchor-primary:hover {
-        color: black;
-    }
-}
-
-@media (max-width: 818px) {
-    .paragraph {
-        max-width: 600px;
-    }
-
-    .nav__link--anchor-primary {
-        color: rgb(199, 199, 255);
-        transition: all 200ms ease;
-    }
-    
-    .nav__link--anchor-primary:hover {
-        color: black;
-    }
-}
-
-@media (max-width: 700px) {
-
-    .p {
-        font-size: 0%;
-    }
-
-    h1 {
-        font-size: 2;
-    }
-
-    .Title-name {
-        display: flex;
-    }
-
-    .paragraph {
-        max-width: 500px;
-    }
-    
-    .nav__link--anchor-primary {
-        color: rgb(199, 199, 255);
-        transition: all 200ms ease;
-    }
-    
-    .nav__link--anchor-primary:hover {
-        color: black;
-    }
-
-
-    .shorter-text{
-        display: none;
-    } 
-
-    .short-text{
-        display: none;
-    }  
-
-    .shorter-text{
-        display: none;
-    } 
-
-    .text--header {
-        display: none;
-    }
-
-    nav {
-        display: none;
-    }
-
-    .nav__link--anchor {
-        margin: 1 auto;
-        text-decoration: none;
-        margin: 0 10px;
-    }
-
-    nav-mobile {
-        display: flex;
-    }
-
-    .project_container {
-        max-width: 85%;
-    }
-    
-    .project {
-        display: space-evenly;
-        flex-direction: column;
-        max-height: fit-content;
-    }
-
-    .left-right-container {
-        display: block;
-    }
-
-    .project_left {
-        display: block;
-    }
-
-    .project_right {
-        display: block;
-    }
-
-    h1 {
-        font-size: 20px; 
-    }
-
-    .paragraph {
-        max-width: 300px;
-        font-size: 20px;
-    }
-
-    .identifiers {
-        flex-direction: column;
-        max-width: 296px;
-    }
-
-    .message {
-        max-width: 250px;
-    }
-
-    .move-left {
-        display: flex;
-        flex-direction: column; /* Display items in a column */
-        justify-content: center; /* Center items horizontally */
-        align-items: center; /* Center items vertically */
-    }
-
-    .project_expansion {
-        margin-right: 0px;
-    }
-
-    .project .project_descriptor_box {
-        width: auto;
-        height: 40%;
-    }
-
-    .index-body {
-        height: 1675px;
-    }
-
-    .Contact_Description .project_accordion .project_container .project,
-    .Contact_Description .project_accordion .project_container{
-        width: 72.5vw;
-        max-width: 70vw;
-        min-width: 67.5vw;
-        transition: 0s;
-    }
-
-    .Contact_Description .project_accordion .project_container .project-expandable {
-        width: 70vw;
-        max-width: 70vw;
-        min-width: 65vw;
-    }
-
-    .description_photo1 {
-        min-width: 35vw;
-        width: 40vw;
-        max-width: 41vw;
-    }
-
-    .project_left > *:first-child {
-        margin-bottom: 20px;
-    }
-}
-
 /* contact page */
 
 .contact_container {
@@ -841,4 +667,178 @@ input:-webkit-autofill {
 
 .project_accordion .project_container.active .project .indicators .open-indicator {
     display: none;
+}
+
+@media (max-width: 900px) {
+    .paragraph {
+        max-width: 700px;
+        transition: all 200ms ease;
+    }
+    
+    .nav__link--anchor-primary {
+        color: rgb(199, 199, 255);
+        transition: all 200ms ease;
+    }
+    
+    .nav__link--anchor-primary:hover {
+        color: black;
+    }
+}
+
+@media (max-width: 818px) {
+    .paragraph {
+        max-width: 600px;
+    }
+
+    .nav__link--anchor-primary {
+        color: rgb(199, 199, 255);
+        transition: all 200ms ease;
+    }
+    
+    .nav__link--anchor-primary:hover {
+        color: black;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .p {
+        font-size: 0%;
+    }
+
+    h1 {
+        font-size: 2;
+    }
+
+    .Title-name {
+        display: flex;
+    }
+
+    .paragraph {
+        max-width: 500px;
+    }
+    
+    .nav__link--anchor-primary {
+        color: rgb(199, 199, 255);
+        transition: all 200ms ease;
+    }
+    
+    .nav__link--anchor-primary:hover {
+        color: black;
+    }
+
+
+    .shorter-text{
+        display: none;
+    } 
+
+    .short-text{
+        display: none;
+    }  
+
+    .shorter-text{
+        display: none;
+    } 
+
+    .text--header {
+        display: none;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .nav__link--anchor {
+        margin: 1 auto;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+
+    nav-mobile {
+        display: flex;
+    }
+
+    .project_container {
+        max-width: 85%;
+    }
+    
+    .project {
+        display: space-evenly;
+        flex-direction: column;
+        max-height: fit-content;
+    }
+
+    .left-right-container {
+        display: block;
+    }
+
+    .project_left {
+        display: block;
+    }
+
+    .project_right {
+        display: block;
+    }
+
+    h1 {
+        font-size: 20px; 
+    }
+
+    .paragraph {
+        max-width: 300px;
+        font-size: 20px;
+    }
+
+    .identifiers {
+        flex-direction: column;
+        max-width: 296px;
+    }
+
+    .message {
+        max-width: 250px;
+    }
+
+    .move-left {
+        display: flex;
+        flex-direction: column; /* Display items in a column */
+        justify-content: center; /* Center items horizontally */
+        align-items: center; /* Center items vertically */
+    }
+
+    .project_expansion {
+        margin-right: 0px;
+    }
+
+    .project .project_descriptor_box {
+        width: auto;
+        height: 40%;
+    }
+
+    .index-body {
+        height: 1675px;
+    }
+
+    .Contact_Description .project_accordion .project_container .project,
+    .Contact_Description .project_accordion .project_container{
+        width: 72.5vw;
+        max-width: 70vw;
+        min-width: 67.5vw;
+        transition: 0s;
+    }
+
+    .Contact_Description .project_accordion .project_container .project-expandable {
+        width: 70vw;
+        max-width: 70vw;
+        min-width: 65vw;
+    }
+
+    .description_photo1 {
+        min-width: 35vw;
+        width: 40vw;
+        max-width: 41vw;
+    }
+
+    .project_left > *:first-child {
+        margin-bottom: 20px;
+    }
 }
