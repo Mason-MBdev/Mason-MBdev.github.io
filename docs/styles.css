@@ -50,6 +50,7 @@ html {
 
 body {
     height: 185%;
+    background-color: black;
     background-image: url('Content/background2.jpg');
     background-repeat: no-repeat;
     background-position: center;
