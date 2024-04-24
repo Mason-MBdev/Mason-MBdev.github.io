@@ -665,7 +665,7 @@ input:-webkit-autofill {
     display: none;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .paragraph {
         max-width: 700px;
         transition: all 200ms ease;
@@ -681,7 +681,7 @@ input:-webkit-autofill {
     }
 }
 
-@media (max-width: 818px) {
+@media (max-width: 1000px) {
     .paragraph {
         max-width: 600px;
     }
@@ -696,7 +696,7 @@ input:-webkit-autofill {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
 
     .p {
         font-size: 0%;
