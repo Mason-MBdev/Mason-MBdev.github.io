@@ -49,7 +49,7 @@ html {
 } */
 
 body {
-    height: 185%;
+    height: auto;
     background-color: black;
     background-image: url('Content/background2.jpg');
     background-repeat: no-repeat;
@@ -61,6 +61,7 @@ body {
 }
 
 body::after {
+    height: auto;
     content: "";
     position: absolute;
     top: 0;
