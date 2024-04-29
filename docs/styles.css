@@ -352,13 +352,12 @@ nav-mobile {
 
 .project_accordion .project_container .project-expandable {
     align-self: center;
-    background: rgb(197, 192, 192);
+    background: rgb(0, 0, 0);
     max-height: 1000px; /* Adjusted maximum height for smooth contraction */
     overflow: hidden;
     overflow-y: auto;
     max-width: 1300px;
     width: 69.8vw;
-    border-radius: 0;
     transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out, border-width 0.5s ease-in-out; /* Updated transition for contraction */
 }
 
@@ -370,8 +369,11 @@ nav-mobile {
 
 .project_accordion .project_container.active .project-expandable {
     padding: 25px; /* Add padding when expanded */
-    border-width: 0 1px 1px 1px; /* Add border when expanded */
     cursor: pointer;
+    border-width: 0 1px 1px 1px; /* Remove top border */
+    border-style: solid; /* Specify border style for each side */
+    border-color: transparent rgb(76, 76, 76) rgb(76, 76, 76) rgb(76, 76, 76); /* Specify border color for each side */
+    border-radius: 0 0 10px 10px; /* Rounded only bottom left and right corners */
 }
 
 .project_accordion .project_container.active .project {
@@ -489,7 +491,7 @@ interact */
     display: flex;
     justify-content: left; /* Horizontally center the content */
     align-items: center; /* Vertically center the content */
-    color: black;
+    color: white;
 }
 
 .project_right {
@@ -907,9 +909,5 @@ input:-webkit-autofill {
 
     .project_left > *:first-child {
         margin-bottom: 20px;
-    }
-
-    .project-expandable_photo {
-        max-width: 200px;
     }
 }
