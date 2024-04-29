@@ -345,9 +345,14 @@ nav-mobile {
     align-items: center;
 }
 
+.project-expandable::-webkit-scrollbar {
+    height: 0px;
+    width: 0px;
+}
+
 .project_accordion .project_container .project-expandable {
     align-self: center;
-    background: rgb(211, 211, 211);
+    background: rgb(197, 192, 192);
     max-height: 1000px; /* Adjusted maximum height for smooth contraction */
     overflow: hidden;
     overflow-y: auto;
@@ -364,8 +369,9 @@ nav-mobile {
 }
 
 .project_accordion .project_container.active .project-expandable {
-    padding: 10px; /* Add padding when expanded */
+    padding: 25px; /* Add padding when expanded */
     border-width: 0 1px 1px 1px; /* Add border when expanded */
+    cursor: pointer;
 }
 
 .project_accordion .project_container.active .project {
@@ -431,7 +437,6 @@ interact */
     align-content: center;
 }
 
-
 .project_expansion {
     display: flex;
     justify-content: space-evenly;
@@ -451,14 +456,18 @@ interact */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    justify-self: center;
+    align-items: center;
     width: 100%;
+    gap: 20px;
 }
 
 .project_left {
     display: flex;
-    flex: 0 0 60%;
+    flex: 0 0 35%;
     justify-content: space-between;
     align-items: center;
+    height: 100px;
 }
 
 .project_left > *:first-child {
@@ -473,17 +482,51 @@ interact */
 }
 
 .align-project-text {
+    display: block;
+}
+
+.align-project-text p {
     display: flex;
-    justify-content: center; /* Horizontally center the content */
+    justify-content: left; /* Horizontally center the content */
     align-items: center; /* Vertically center the content */
+    color: black;
 }
 
 .project_right {
     display: flex;
-    flex: 0 0 40%;
-    justify-content: space-between;
+    flex: 0 0 65%;
+    justify-content: space-evenly;
     align-items: center;
 }
+
+.project-expandable_photo {
+    margin-top: 20px;
+    max-width: 370px;
+    max-height: 320px;  
+}
+
+.media_scroller {
+    max-height: 320px; 
+    max-width: 400px;
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+}
+
+.media_scroller::-webkit-scrollbar {
+    height: 2vh;
+}
+
+.media_scroller::-webkit-scrollbar-track {
+    background: #33193c;
+}
+
+.media_scroller::-webkit-scrollbar-thumb {
+    background: rgb(255, 255, 255);
+    border-radius: 9999px;
+}
+
+
 
 /* links section */
 
@@ -864,5 +907,9 @@ input:-webkit-autofill {
 
     .project_left > *:first-child {
         margin-bottom: 20px;
+    }
+
+    .project-expandable_photo {
+        max-width: 200px;
     }
 }
