@@ -352,7 +352,7 @@ nav-mobile {
 
 .project_accordion .project_container .project-expandable {
     align-self: center;
-    background: rgb(0, 0, 0);
+    background: rgb(22, 22, 22);
     max-height: 1000px; /* Adjusted maximum height for smooth contraction */
     overflow: hidden;
     overflow-y: auto;
@@ -370,7 +370,7 @@ nav-mobile {
 .project_accordion .project_container.active .project-expandable {
     padding: 25px; /* Add padding when expanded */
     cursor: pointer;
-    border-width: 0 1px 1px 1px; /* Remove top border */
+    border-width: 0 2px 2px 2px; /* Remove top border */
     border-style: solid; /* Specify border style for each side */
     border-color: transparent rgb(76, 76, 76) rgb(76, 76, 76) rgb(76, 76, 76); /* Specify border color for each side */
     border-radius: 0 0 10px 10px; /* Rounded only bottom left and right corners */
