@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Website</title>
+    <title>MBdev Portfolio</title>
     <link rel="stylesheet" href="./styles.css">
     <link rel="shortcut icon" type="image/x-icon" href="./Content/favicon7.ico">
+    <script defer src="app_scroll.js"></script>
 </head>
 
 <body class="parallax-container">   
@@ -54,173 +55,183 @@
             </ul>
         </nav>
 
-        <div class="flex flex-1">
-            <div class="about-me__info row">
-                <div class="about-me__info--container">
-                    <figure class="picture">
-                        <img src=".\Content\laurier_logo.png" class="about-me__picture" alt="laurier logo"> 
-                    </figure>
+        <section class="hidden">
+            <div class="flex flex-1">
+                <div class="about-me__info row">
+                    <div class="about-me__info--container">
+                        <figure class="picture">
+                            <img src=".\Content\laurier_logo.png" class="about-me__picture" alt="laurier logo"> 
+                        </figure>
 
-                    <h1 class="aboutmetitle">
-                        <span class = "text--purple ">ABOUT</span>
-                    </h1>
+                        <h1 class="aboutmetitle"><span class = "text--purple ">ABOUT</span></h1>
 
-                    <h1 class="paragraph">
-                        <span class = "text--white">Hello! My name is Mason, I'm an aspiring software developer at&nbsp;Wilfrid&nbsp;Laurier&nbsp;University</span>
-                    </h1>
+                        <h1 class="paragraph"><span class = "text--white">Hello! My name is Mason, I'm an aspiring software developer at&nbsp;Wilfrid&nbsp;Laurier&nbsp;University</span><br><br></h1>
+                        
+                        <h1 class="bigger-text">
+                            &#x21cA;
+                        </h1>
+
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     </section>
 
     
     <!-- Projects Section -->
     <div class="project_section">
-        <h1 class="project-title">
-            <span class = "text--purple "> PROJECTS </span>
-        </h1>
+        <section class="hidden">
+            <h1 class="project-title">
+                <span class = "text--purple "> PROJECTS </span>
+            </h1>
 
-        <h1>
-            In progress, check again soon !
-        </h1>
+            <h1>
+                In progress, check again soon !
+            </h1>
+        </section>
 
         <!-- for later: &#x2192; -->
         <div class = "project_accordion">
-            <div class="project_container">
-                <div class = "project">
-                    <div class="left-right-container">
-                        <div class="project_left">
-                            <div class = "project_descriptor_box">
-                                <h1>Portfolio Website</h1>
-                            </div>
-                        </div>
+            
 
-                        <div class="project_right">
-                            <div>
-                                <h1> &#x2192; </h1>
-                            </div>
-                
-                            <div class="move-left">
-                                <img class = "pixel_art-gif" src=".\Content\white-globe-icon-24-2350767687.jpg" alt="Animated Wizzard Gif">
+            <section class="hidden">
+                <div class="project_container">
+                    <div class = "project">
+                        <div class="left-right-container">
+                            <div class="project_left">
+                                <div class = "project_descriptor_box">
+                                    <h1>Portfolio Website</h1>
+                                </div>
                             </div>
 
-                            <div>
-                                <h1> &#x2192; </h1>
-                            </div>
-                
-                            <div class = "project_expansion">
-                                <h1> You're here </h1>
-                                <p class = "project_expansion-more"> Click to find out more </p>
+                            <div class="project_right">
+                                <div>
+                                    <h1> &#x2192; </h1>
+                                </div>
+                    
+                                <div class="move-left">
+                                    <img class = "pixel_art-gif" src=".\Content\white-globe-icon-24-2350767687.jpg" alt="Animated Wizzard Gif">
+                                </div>
+
+                                <div>
+                                    <h1> &#x2192; </h1>
+                                </div>
+                    
+                                <div class = "project_expansion">
+                                    <h1> You're here </h1>
+                                    <p class = "project_expansion-more"> Click to find out more </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="project-expandable">
-                    <div class="left-right-container">
-                        <div class="align-project-text">
-                            <p><u>Features</u><br><br></p>
-                            <p> - Send a message on the contact page, and it will be printed in real-time on an LCD display connected to the PI! <br><br> - An interactive and animated showcase for my projects, hosted on a Raspberry PI mini-computer, scroll around and check out what I'm working on!<br><br><br> </p>
-                            <p><u>Languages</u><br><br></p>
-                            <p>- Python, JavaScript, HTML5, CSS </p>
-                        </div>
-                        <div class="media_scroller">
-                            <img class="project-expandable_photo" src=".\Content\FinalChart.drawio.svg" alt="LinkedIn">
-                            <img class ="project-expandable_photo" src=".\Content\Raspberry-Pi-LCD-4-bit-mode.png" alt="Raspberry PI 4-bit LCD Module">
-                        </div>
-                  </div>
-                </div>
-
-            </div>
-
-            <div class="project_container">
-                <div class = "project">
-                    <div class="left-right-container">
-                        <div class="project_left">
-                            <div class = "project_descriptor_box">      
-                                <h1>Arcane Arena</h1>
-                            </div>                        
-                        </div>
-                        <div class="project_right">
-                            <div>
-                                <h1> &#x2192; </h1>
-                            </div>
-        
-                            <div class="move-left">
-                                <img class = "pixel_art-gif" src=".\Content\pixel_wizzard.gif" alt="Animated Wizzard Gif">
-                            </div>
-        
-                            <div>
-                                <h1> &#x2192; </h1>
-                            </div>
-        
-                            <div class = "project_expansion">
-                                <h1> In Progress</h1>
-                                <p class = "project_expansion-more"> Click to find out more </p>
-                            </div>
-                        </div>
-                    </div>    
-                </div>
-
-                <div class="project-expandable">
-                    <div class="align-project-text">
+                    <div class="project-expandable">
                         <div class="left-right-container">
                             <div class="align-project-text">
-                                <p> In progress - beta out - May 2024 </p>
+                                <p><u>Features</u><br><br></p>
+                                <p> - Send a message on the contact page, and it will be printed in real-time on an LCD display connected to the PI! <br><br> - An interactive and animated showcase for my projects, hosted on a Raspberry PI mini-computer, scroll around and check out what I'm working on!<br><br><br> </p>
+                                <p><u>Languages</u><br><br></p>
+                                <p>- Python, JavaScript, HTML5, CSS </p>
                             </div>
-                            <div class="image_container">
+                            <div class="media_scroller">
+                                <img class="project-expandable_photo" src=".\Content\FinalChart.drawio.svg" alt="LinkedIn">
+                                <img class ="project-expandable_photo" src=".\Content\Raspberry-Pi-LCD-4-bit-mode.png" alt="Raspberry PI 4-bit LCD Module">
                             </div>
-                      </div>
-                        
+                    </div>
                     </div>
                 </div>
+            </section>
 
-            </div>
-
-            <div class="project_container">
-                <div class = "project">
-                    <div class="left-right-container">
-                        <div class="project_left">
-                            <div class = "project_descriptor_box">
-                                <h1>Academic Organizer</h1>
+            <section class="hidden">
+                <div class="project_container">
+                    <div class = "project">
+                        <div class="left-right-container">
+                            <div class="project_left">
+                                <div class = "project_descriptor_box">      
+                                    <h1>Arcane Arena</h1>
+                                </div>                        
                             </div>
-                        </div>
-
-                        <div class="project_right">
-                            <div>
-                                <h1> &#x2192; </h1>
+                            <div class="project_right">
+                                <div>
+                                    <h1> &#x2192; </h1>
+                                </div>
+            
+                                <div class="move-left">
+                                    <img class = "pixel_art-gif" src=".\Content\pixel_wizzard.gif" alt="Animated Wizzard Gif">
+                                </div>
+            
+                                <div>
+                                    <h1> &#x2192; </h1>
+                                </div>
+            
+                                <div class = "project_expansion">
+                                    <h1> In Progress</h1>
+                                    <p class = "project_expansion-more"> Click to find out more </p>
+                                </div>
                             </div>
-
-                            <div class="move-left">
-                                <img class = "pixel_art-gif" src=".\Content\organizer.png" alt="Organizer image">
-                            </div>
-                            
-                            <div>
-                                <h1> &#x2192; </h1>
-                            </div>
-
-                            <div class = "project_expansion">
-                                <h1> In Progress</h1>
-                                <p class = "project_expansion-more"> Click to find out more </p>
-                            </div>
-                        </div>
+                        </div>    
                     </div>
-                </div> 
-                
-                <div class="project-expandable">
-                    <div class="align-project-text">
+
+                    <div class="project-expandable">
                         <div class="align-project-text">
                             <div class="left-right-container">
                                 <div class="align-project-text">
-                                    <p> In progress - testing - July 2024 </p>
+                                    <p> In progress - beta out - May 2024 </p>
                                 </div>
                                 <div class="image_container">
                                 </div>
-                          </div>
+                        </div>
+                            
+                        </div>
                     </div>
                 </div>
+            </section>
 
-            </div>
+            <section class="hidden">
+                <div class="project_container">
+                    <div class = "project">
+                        <div class="left-right-container">
+                            <div class="project_left">
+                                <div class = "project_descriptor_box">
+                                    <h1>Academic Organizer</h1>
+                                </div>
+                            </div>
+
+                            <div class="project_right">
+                                <div>
+                                    <h1> &#x2192; </h1>
+                                </div>
+
+                                <div class="move-left">
+                                    <img class = "pixel_art-gif" src=".\Content\organizer.png" alt="Organizer image">
+                                </div>
+                                
+                                <div>
+                                    <h1> &#x2192; </h1>
+                                </div>
+
+                                <div class = "project_expansion">
+                                    <h1> In Progress</h1>
+                                    <p class = "project_expansion-more"> Click to find out more </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    
+                    <div class="project-expandable">
+                        <div class="align-project-text">
+                            <div class="align-project-text">
+                                <div class="left-right-container">
+                                    <div class="align-project-text">
+                                        <p> In progress - testing - July 2024 </p>
+                                    </div>
+                                        <div class="image_container">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
         <!-- Js script to hopefully extend a more in-depth description of the project outwards from the bottom of each project container when clicked-->
         <script src="website_project.js"></script>
