@@ -704,11 +704,11 @@ input:-webkit-autofill {
 }
 
 .description_photos-container p {
-    color: black;
+    color: white;
 }
 
 .description_photos-container h1 {
-    color: black;
+    color: white;
 }
 
 .project_accordion .project_container .project .indicators {
