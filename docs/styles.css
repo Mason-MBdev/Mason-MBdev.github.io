@@ -531,7 +531,7 @@ interact */
     display: flex;
     overflow-x: auto;
     gap: 10px;
-}
+}   
 
 .media_scroller::-webkit-scrollbar {
     height: 8px;
