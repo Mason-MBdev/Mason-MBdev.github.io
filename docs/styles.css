@@ -534,7 +534,7 @@ interact */
 }
 
 .media_scroller::-webkit-scrollbar {
-    height: 2vh;
+    height: 8px;
 }
 
 .media_scroller::-webkit-scrollbar-track {
@@ -546,7 +546,10 @@ interact */
     border-radius: 9999px;
 }
 
-
+.ProjectPhoto-1 {
+    width: 62vw;
+    max-width: 617px;
+}
 
 /* links section */
 
