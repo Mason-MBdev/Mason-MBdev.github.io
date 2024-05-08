@@ -549,6 +549,7 @@ interact */
 .ProjectPhoto-1 {
     width: 62vw;
     max-width: 617px;
+    border-width: 2px;
 }
 
 /* links section */
