@@ -65,7 +65,7 @@ html {
 body {
     height: auto;
     background-color: black;
-    background-image: url('Content/backgroundRetro.jpg');
+    background-image: url('Content/BackgroundRetro.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
