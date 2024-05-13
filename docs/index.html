@@ -55,23 +55,28 @@
             </ul>
         </nav>
 
-        <section class="hidden">
+        
             <div class="flex flex-1">
                 <div class="about-me__info row">
-                    <div class="about-me__info--container">
-                        <figure class="picture">
-                            <img src=".\Content\laurier_logo.png" class="about-me__picture" alt="laurier logo"> 
-                        </figure>
+                    <section class="hidden">
+                        <div class="about-me__info--container">
+                            <figure class="picture">
+                                <img src=".\Content\laurier_logo.png" class="about-me__picture" alt="laurier logo"> 
+                            </figure>
 
-                        <h1 class="aboutmetitle"><span class = "text--purple ">ABOUT</span></h1>
+                            
+                            <h1 class="aboutmetitle"><span class = "text--purple ">ABOUT</span></h1>
 
-                        <h1 class="paragraph"><span class = "text--white">Hi! My name is Mason, I'm studying Computer Science at&nbsp;Wilfrid&nbsp;Laurier&nbsp;University.&nbsp;And I'm interested in everything from webapps, to cybersecurity, to games & A.I. Take a look around!</span><br><br></h1>
-                        
-                        <h1 class="bigger-text">
-                            &#x21cA;
-                        </h1>
+                            <h1 class="paragraph"><span class = "text--white"><br>Hi! My name is Mason, I'm studying Computer Science at&nbsp;Wilfrid&nbsp;Laurier&nbsp;University.&nbsp;<br><br>I'm interested in full-stack web development, game design, and creating practical software for practical purposes.</span><br><br></h1>
+                            
+                            <h1 class="bigger-text">
+                                <span class = "text--white">
+                                    &#x21cA;
+                                </span>
+                            </h1>
 
-                    </div>
+                        </div>
+                    </section>
                 </div>
             </div>
         </section>
@@ -80,15 +85,16 @@
     
     <!-- Projects Section -->
     <div class="project_section">
-        <section class="hidden">
+
             <h1 class="project-title">
                 <span class = "text--purple "> PROJECTS </span>
             </h1>
 
             <h1>
-                In progress, check again soon !
+                <span class = "text--white ">
+                    Click on a project for more info
+                </span>
             </h1>
-        </section>
 
         <!-- for later: &#x2192; -->
         <div class = "project_accordion">
@@ -104,22 +110,17 @@
                                 </div>
                             </div>
 
-                            <div class="project_right">
-                                <div>
-                                    <h1> &#x2192; </h1>
-                                </div>
-                    
+                            <div class="project_right">              
                                 <div class="move-left">
                                     <img class = "pixel_art-gif" src=".\Content\white-globe-icon-24-2350767687.jpg" alt="Animated Wizzard Gif">
+                                </div>
+                    
+                                <div class = "project_expansion">
+                                    <h1> You Are Here </h1>
                                 </div>
 
                                 <div>
                                     <h1> &#x2192; </h1>
-                                </div>
-                    
-                                <div class = "project_expansion">
-                                    <h1> You're here </h1>
-                                    <p class = "project_expansion-more"> Click to find out more </p>
                                 </div>
                             </div>
                         </div>
@@ -128,13 +129,18 @@
                     <div class="project-expandable">
                         <div class="left-right-container">
                             <div class="align-project-text">
-                                <p><b>Features</b><br><br></p>
-                                <p> - Send a message on the contact page, and it will be printed in real-time on an LCD display connected to the PI! <br><br> - An interactive and animated showcase for my projects, hosted on a Raspberry PI mini-computer, scroll around and check out what I'm working on!<br><br><br> </p>
+                                <p><b>Features:</b><br><br></p>
+                                <span class = "text--white">
+                                    <p> - Print a message in real-time on my desk using the contact page <br><br></p>
+                                    <p> - Scroll around and check out what I'm working on <br><br><br><br><br><br><br><br> </p>
+                                </span>
                                 <p><b>Languages/Tech:</b><br><br></p>
-                                <p>- Python, JavaScript, HTML5, CSS </p>
+                                <span class = "text--white">
+                                    <p>- Python, JavaScript, HTML5, CSS </p>
+                                </span>
                             </div>
-                            <div class="media_scroller">
-                                <img class ="project-expandable_photo" src=".\Content\Raspberry-Pi-LCD-4-bit-mode.png" alt="Raspberry PI 4-bit LCD Module">
+                            <div class="image_container">
+                                <p><br> <b>Site Architechture:</b> </p>
                                 <img class="project-expandable_photo" src=".\Content\FinalChart.drawio.svg" alt="LinkedIn">
                             </div>
                     </div>
@@ -153,21 +159,17 @@
                             </div>
 
                             <div class="project_right">
-                                <div>
-                                    <h1> &#x2192; </h1>
-                                </div>
 
                                 <div class="move-left">
                                     <img class = "pixel_art-gif" src=".\Content\organizer.png" alt="Organizer image">
                                 </div>
-                                
-                                <div>
-                                    <h1> &#x2192; </h1>
-                                </div>
 
                                 <div class = "project_expansion">
                                     <h1> In Progress</h1>
-                                    <p class = "project_expansion-more"> Click to find out more </p>
+                                </div>
+
+                                <div>
+                                    <h1> &#x2192; </h1>
                                 </div>
                             </div>
                         </div>
@@ -179,12 +181,16 @@
                                 <div class="left-right-container">
                                     <div class="align-project-text">
                                         <p><b>Features:</b><br><br></p>
-                                        <p>- Manage courses, and add assignments <br><br></p>
-                                        <p>- Immediate view of cumulative, course, and assignment grades <br><br></p>
-                                        <p>- Track due dates and manage your time <br><br></p>
-                                        <p>- Set priority & remaining time for tasks, and sort them <br><br><br></p>
+                                        <span class = "text--white">
+                                            <p>- Manage courses, and add assignments <br><br></p>
+                                            <p>- Immediate view of cumulative, course, and assignment grades <br><br></p>
+                                            <p>- Track due dates and manage your time <br><br></p>
+                                            <p>- Set priority & remaining time for tasks, and sort them <br><br><br><br><br></p>
+                                        </span>
                                         <p> <b>Languages/Tech:</b> <br><br></p>
-                                        <p>- Python, Figma <br><br></p>
+                                        <span class = "text--white">
+                                            <p>- Python, Figma <br><br></p>
+                                        </span>
                                     </div>
                                         <div class="image_container">
                                             <p><br> <b>Design-Draft Photos:</b> <br><br></p>
@@ -206,21 +212,17 @@
                                 </div>                        
                             </div>
                             <div class="project_right">
-                                <div>
-                                    <h1> &#x2192; </h1>
-                                </div>
             
                                 <div class="move-left">
                                     <img class = "pixel_art-gif" src=".\Content\pixel_wizzard.gif" alt="Animated Wizzard Gif">
                                 </div>
             
-                                <div>
-                                    <h1> &#x2192; </h1>
-                                </div>
-            
                                 <div class = "project_expansion">
                                     <h1> In Progress</h1>
-                                    <p class = "project_expansion-more"> Click to find out more </p>
+                                </div>
+
+                                <div>
+                                    <h1> &#x2192; </h1>
                                 </div>
                             </div>
                         </div>    
@@ -230,7 +232,7 @@
                         <div class="align-project-text">
                             <div class="left-right-container">
                                 <div class="align-project-text">
-                                    <p> <b>In Progress - Demo Out - July 2024</b> </p>
+                                    <p> <b>Demo Out - July 2024</b> </p>
                                 </div>
                                 
                                 <div class="image_container">
