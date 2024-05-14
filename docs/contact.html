@@ -37,7 +37,7 @@
         <nav>
             <div class="Logo">
                 <a href="https://mbdev.ca/index" class="text--header">
-                    <span class="text--heading"> &#x2656; MASON B.</span>
+                    <span class="text--heading"> &#x2656; MASON B</span>
                 </a>
                 <a href="https://mbdev.ca/index" class="short-text">
                     <span class="text--heading"> &#x2656; MB.</span>
@@ -64,30 +64,36 @@
     <!-- user input form, in progress -->
     <div class="contact_container">
         <h1><span class="text--purple">CONTACT</span></h1>
-        <form id="contactForm" method="post">
+        <form class="contact-gap-box" id="contactForm" method="post">
             <div class="identifiers">
                 <div class="input-group">
-                    <label for="First_Name" class = "contact_label"> <p>Name<span class="text--red">*</span></label>
-                    <input type="text" id="Name" name="Name" class = "contact_label" required>
+                    <input type="text" id="Name" name="Name" class="contact_label" required placeholder="Name">
                 </div>
                 <div class="input-group">
-                    <label for="Email"> <p>Email<span class="text--red">*</span></label>
-                    <input type="Email" id="Email" name="Email" class = "contact_label" required>
+                    <input type="email" id="Email" name="Email" class="contact_label" required placeholder="Email">
                 </div>
             </div>
             <div class="input-group">
-                <label for="message"> <p>Message<span class="text--red">*</span></p> </label>
-                <textarea id="message" name="message" rows="8" class = "contact_label"></textarea>
+                <textarea id="message" name="message" rows="8" class="contact_label" required placeholder="Message"></textarea>
             </div>
-            <div class = "submission_group">
+            <div class="submission_group">
                 <button type="submit" class="submit">SUBMIT</button>                
-                <div class = "status_box">
-                    <span id = "statusDot" class = "statusDot" style="color: rgb(255, 255, 255);">&#8853;</span>
+                <div class="status_box">
+                    <span id="statusDot" class="statusDot" style="color: rgb(255, 255, 255);">&#8853;</span>
                     <p id="statusMessage" style="color: rgb(255, 255, 255);">Status</p>
                 </div>
             </div>
         </form>
-    </div>
+        <div class="Gapdiv1"></div>
+        <div class="Gapdiv1"></div>
+        <div class="Gapdiv1"></div>
+        <div class="Gapdiv1"></div>
+        <h1 class="bigger-text">
+            <span class = "text--white">
+                ↓
+            </span>
+        </h1>
+    </div>    
     <script src="form.js"></script>
 
     <section class="hidden">
