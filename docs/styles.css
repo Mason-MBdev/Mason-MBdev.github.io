@@ -998,4 +998,8 @@ input:-webkit-autofill {
     .move-left {
         margin-bottom: 30px;
     }
+
+    .text--purple {
+        font-size: 24px;
+    }
 }
