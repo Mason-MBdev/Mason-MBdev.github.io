@@ -488,14 +488,14 @@ interact */
 }
 
 .project_left > *:first-child {
-    flex: 4; /* First child takes up 40% of the space */
+    flex: 4;
     border: 2px solid white;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Cool box shadow effect */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
 }
 
 .project_left > *:last-child {
-    flex: 6; /* Last child takes up 60% of the space */
+    flex: 6; 
 }
 
 .align-project-text {
@@ -983,15 +983,19 @@ input:-webkit-autofill {
         max-width: 41vw;
     }
 
-    .project_left > *:first-child {
-        margin-bottom: 20px;
-    }
-
     .ProjectPhoto-1 {
         width: 200px;
     }
 
     .project-expandable_photo {
         width: 200px;
+    }
+
+    .project_left {
+        max-height: 80px;
+    }
+
+    .move-left {
+        margin-bottom: 30px;
     }
 }
