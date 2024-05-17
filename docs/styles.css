@@ -215,7 +215,12 @@ nav-mobile {
 }
 
 .nav__link--anchor-primary:hover {
-    background-color: #00708c;
+    color: black;
+}
+
+.nav__link--anchor-primary:hover .text--heading{
+    transition: all 200ms ease;
+    color: black;
 }
 
 /* gitlink */
@@ -771,6 +776,9 @@ input:-webkit-autofill {
 .text--white {
     color: white;
     opacity: 80%;
+    text-align: left;
+    justify-self: center;
+    align-self: center;
 }
 
 .left-right-container .text--white {
