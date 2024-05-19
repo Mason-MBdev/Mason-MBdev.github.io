@@ -3,13 +3,15 @@ const observer = new IntersectionObserver((entries) => {
         console.log(entry)
         if (entry.isIntersecting) {
             entry.target.classList.add('show');
-        } 
-        // If I want to show the animation more than once
-        // else {
-        //     entry.target.classList.remove('show');
-        // }
+        }
     });
 });
 
-const hiddenElements = document.querySelectorAll('.hidden')
-hiddenElements.forEach((el) => observer.observe(el));
+const hiddenRightElements = document.querySelectorAll('.hidden-right')
+hiddenRightElements.forEach((el) => observer.observe(el));
+
+const hiddenLeftElements = document.querySelectorAll('.hidden-left')
+hiddenLeftElements.forEach((el) => observer.observe(el));
+
+const blurElements = document.querySelectorAll('.blurred')
+blurElements.forEach((el) => observer.observe(el));

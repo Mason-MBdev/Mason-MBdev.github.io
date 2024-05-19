@@ -7,14 +7,26 @@
     box-sizing: border-box;
 }
 
-.hidden {
+.hidden-left {
     opacity: 0;
     transform: translateX(-100%);
     transition: all 1.5s;
 }
 
+.hidden-right {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 1.5s;
+}
+
+.blurred {
+    filter: blur(1px);
+    transition: all 0.5s;
+}
+
 .show {
     opacity: 1;
+    filter: blur(0px);    
     transform: translateX(0);
 }
 
@@ -61,7 +73,7 @@ html {
 
 body {
     height: auto;
-    background-color: rgb(10, 10, 10);
+    background-color: rgb(23, 23, 23);
     /* background-image: url('Content/BackgroundRetro.jpg'); */
     background-repeat: no-repeat;
     background-position: center;
@@ -69,6 +81,7 @@ body {
     background-size: cover;
     overflow-y: auto;
     position: relative; 
+    overflow-x: hidden;
 }
 /* 
 body::after {
@@ -102,11 +115,14 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-    background: #33193c;
+    background: #000000;
+    border-left: rgb(101, 101, 101) 1px solid;
+    border-right: rgb(101, 101, 101) 1px solid;
 }
 
 body::-webkit-scrollbar-thumb {
     background: rgb(255, 255, 255);
+    border-radius: 20px;
 }
 
 .text--purple {
@@ -147,7 +163,6 @@ body::-webkit-scrollbar-thumb {
 /* nav mobile #5a2ee0)*/
 
 /* Sticky navbar styles for non-mobile */
-/* Sticky navbar styles for non-mobile */
 nav.sticky {
     position: fixed;
     top: 0;
@@ -166,7 +181,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-image: linear-gradient(#360024, #791717);
+    background-image: linear-gradient(#643c3c, #340d27);
     transition: all 100ms ease;
     box-shadow: 0 8px 16px rgba(0,0,0.16)
 }
@@ -188,7 +203,7 @@ nav-mobile {
     display: none;
     align-items: center;
     justify-content: center;    
-    background-image: linear-gradient(#360024, #791717);
+    background-image: linear-gradient(#643c3c, #340d27);
     transition: all 200ms ease;
     box-shadow: 0 8px 16px rgba(0,0,0.16)
 }
@@ -314,7 +329,7 @@ nav-mobile {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 80px;
+    margin-top: 60px;
     margin-bottom: 50px;
 }
 
@@ -354,6 +369,8 @@ nav-mobile {
     margin-bottom: 55px;
     max-width: 1300px;
     width: 70vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1); /* Add box shadow to create a raised effect */
+    border-radius: 10px;
 }
 
 .project_accordion {
@@ -367,17 +384,19 @@ nav-mobile {
 .project-expandable::-webkit-scrollbar {
     height: 0px;
     width: 0px;
+    border-radius: 20px;
 }
 
 .project_accordion .project_container .project-expandable {
     transform: translateX(1px);
-    background: rgb(22, 22, 22);
+    background: rgb(28, 28, 28);
     max-height: 1000px; /* Adjusted maximum height for smooth contraction */
     overflow: hidden;
     overflow-y: auto;
     max-width: 1300px;
     width: 69.8vw;
     transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out, border-width 0.5s ease-in-out; /* Updated transition for contraction */
+    border-radius: 10px; /* Add border radius to soften the edges */
 }
 
 .project_accordion .project_container:not(.active) .project-expandable {
@@ -413,7 +432,7 @@ interact */
     align-items: center;
     gap: 30px;
     padding: 12.5px;
-    background-image: linear-gradient(#360024, #791717);
+    background-image: linear-gradient(#643c3c, #340d27);
     max-width: 1300px;
     width: 70vw;
     border-radius: 15px;
@@ -584,7 +603,7 @@ button:active {
     display: flex;
     justify-content: space-evenly;
     padding: 12.5px;
-    background-image: linear-gradient(#360024, #791717);
+    background-image: linear-gradient(#340d27, #643c3c);
     max-width: 400px;
     border-radius: 15px;
     margin: 10px auto;
@@ -844,6 +863,13 @@ input:-webkit-autofill {
 
 .project_accordion .project_container.active .project .indicators .open-indicator {
     display: none;
+}
+
+.paragraph {
+    /* grey background with padding */
+    background: #2c2c2c;
+    border-radius: 10px;
+    margin: 20px;
 }
 
 @media (max-width: 1000px) {
