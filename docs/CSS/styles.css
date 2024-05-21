@@ -119,7 +119,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .text--heading {
-    color: rgb(230, 230, 247);
+    color: rgb(255, 255, 255);
+    opacity: 80%;
 }
 
 .short-text{
@@ -130,9 +131,23 @@ body::-webkit-scrollbar-thumb {
     display: none;
 }
 
+.footer-text {
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    align-self: center;
+}
+
+.copyright-text {
+    color: rgb(255, 255, 255);
+    opacity: 80%;
+    font-size: 15px;
+    text-align: center;
+}
+
 /* title text mobile */
 .Title {
-    color: rgb(230, 230, 247);
+    color: rgb(255, 156, 156);
     background-image: linear-gradient(#492da6, #201248);
     display: none;
     align-items: center;
@@ -166,7 +181,8 @@ nav {
     align-items: center;
     background-image: linear-gradient(#643c3c, #340d27);
     transition: all 100ms ease;
-    box-shadow: 0 8px 16px rgba(0,0,0.16)
+    box-shadow: 0 8px 16px rgba(0,0,0.16);
+    border-bottom: 1px rgb(74, 74, 74) solid;
 }
 
 /* Sticky navbar styles for mobile */
@@ -213,12 +229,12 @@ nav-mobile {
 }
 
 .nav__link--anchor-primary:hover {
-    color: black;
+    color: rgb(255, 156, 156);
 }
 
 .nav__link--anchor-primary:hover .text--heading{
     transition: all 200ms ease;
-    color: black;
+    color: rgb(255, 156, 156);
 }
 
 /* gitlink */
@@ -286,7 +302,7 @@ nav-mobile {
 }
 
 .Logo:hover .text--heading {
-    color: black;
+    color: rgb(255, 156, 156);
     transition: color 250ms ease-in-out;
 }
 
@@ -341,7 +357,7 @@ nav-mobile {
     padding-top: 20px;
     border-radius: 10px;
     margin: 0px 10vw 10vh;
-    border: 1.5px solid black;
+    border: 1.5px solid rgb(95, 95, 95);
 }
 
 .project-title {
@@ -366,9 +382,9 @@ nav-mobile {
 .grey-container {
     background: #2c2c2c;
     border-radius: 10px;
-    margin-top: 35px;
+    margin-top: 45px;
     margin-bottom: 50px;
-    border: 1.5px solid black;
+    border: 1.5px solid rgb(88, 88, 88);
 }
 
 .project_accordion {
@@ -437,7 +453,7 @@ interact */
     margin-right: auto;
     margin-bottom: 0;
     margin-left: auto;
-    border: 1px solid black;
+    border: 1px solid rgb(102, 102, 102);
 }
 
 .project:hover {
@@ -597,15 +613,23 @@ button:active {
 
 /* links section */
 
-.social-media-container {
+.footer {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     padding: 12.5px;
     background-image: linear-gradient(#340d27, #643c3c);
-    max-width: 400px;
-    border-radius: 15px;
     margin: 10px auto;
-    box-shadow: 0 8px 16px rgba(0,0,0.16)
+    box-shadow: 0 8px 16px rgba(0,0,0.16);
+    border-top: 1px rgb(98, 98, 98) solid;
+    gap: 40px;
+}
+
+.social-media-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
 }
 
 .social-media-icon {
@@ -613,10 +637,12 @@ button:active {
     width:  45px;
     height: 45px;
     transition: all 200ms ease;
+    filter: invert(100%);
 }
 
 .social-media-icon:hover {
     transform: scale(1.3);
+    color: black;
 }
 
 .move-left {
