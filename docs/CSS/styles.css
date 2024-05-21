@@ -7,8 +7,6 @@
     box-sizing: border-box;
 }
 
-/* Testing for text animation */
-
 .hidden-left {
     opacity: 0;
     transform: translateX(-100%);
@@ -389,8 +387,6 @@ nav-mobile {
     margin-top: 45px;
     margin-bottom: 50px;
     border: 1.5px solid rgb(88, 88, 88);
-    width: 800px;
-    height: 275px;
 }
 
 .project_accordion {
@@ -896,6 +892,11 @@ input:-webkit-autofill {
     display: none;
 }
 
+.paragraph {
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
 @media (max-width: 1000px) {
     .paragraph {
         max-width: 700px;
@@ -1012,7 +1013,6 @@ input:-webkit-autofill {
     }
 
     .paragraph {
-        max-width: 300px;
         font-size: 20px;
     }
 
@@ -1084,5 +1084,10 @@ input:-webkit-autofill {
 
     .text--purple {
         font-size: 24px;
+    }
+
+    .grey-container {
+        margin-left: 10vw;
+        margin-right: 10vw;
     }
 }
