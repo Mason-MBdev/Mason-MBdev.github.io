@@ -9,36 +9,6 @@
 
 /* Testing for text animation */
 
-/* @keyframes glow {
-    0% { text-shadow: 0 0 1px #ff0000, 0 0 1px #ff0000, 0 0 1px #ff0000, 0 0 1px #ff0000; }
-    100% { text-shadow: 0 0 1.5px #ff0000, 0 0 1.5px #ff0000, 0 0 1.5px #ff0000, 0 0 1.5px #ff0000; }
-}
-
-.text--purple {
-    animation: glow 1s ease-in-out infinite alternate;
-} */
-/* 
-@keyframes typing {
-    from { width: 0; visibility: hidden; }
-    to { width: 100%; visibility: visible; }
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: black }
-}
-
-.line {
-    white-space: nowrap;
-    overflow: hidden;
-    width: 0;
-    animation: typing 4s steps(40, end) forwards;
-}
-
-.line:nth-child(2) {
-    animation-delay: 4s;
-}  */
-
 .hidden-left {
     opacity: 0;
     transform: translateX(-100%);
@@ -418,6 +388,8 @@ nav-mobile {
     margin-top: 45px;
     margin-bottom: 50px;
     border: 1.5px solid rgb(88, 88, 88);
+    width: 800px;
+    height: 275px;
 }
 
 .project_accordion {
@@ -921,13 +893,6 @@ input:-webkit-autofill {
 
 .project_accordion .project_container.active .project .indicators .open-indicator {
     display: none;
-}
-
-.paragraph {
-    /* grey background with padding */
-    background: #2c2c2c;
-    border-radius: 10px;
-    margin-top: 15px;
 }
 
 @media (max-width: 1000px) {
