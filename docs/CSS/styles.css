@@ -7,6 +7,15 @@
     box-sizing: border-box;
 }
 
+/* @keyframes glow {
+    0% { text-shadow: 0 0 1px #ff0000, 0 0 1px #ff0000, 0 0 1px #ff0000, 0 0 1px #ff0000; }
+    100% { text-shadow: 0 0 1.5px #ff0000, 0 0 1.5px #ff0000, 0 0 1.5px #ff0000, 0 0 1.5px #ff0000; }
+}
+
+.text--purple {
+    animation: glow 1s ease-in-out infinite alternate;
+} */
+
 .hidden-left {
     opacity: 0;
     transform: translateX(-100%);
@@ -795,6 +804,7 @@ input:-webkit-autofill {
     border: 2px solid black; /* Add white border */
     border-radius: 10px; /* Make the border rounded */
     padding: 20px; /* Add padding for space between border and content */
+    background: rgb(41, 41, 41);
 }
 
 .description_photos-center > div:not(:last-child) {
