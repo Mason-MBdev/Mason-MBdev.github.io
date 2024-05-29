@@ -75,28 +75,26 @@ class Pawn extends Piece {
     
         // Forward movement
         if (newColumn === currentColumn && newRow === currentRow + direction) {
-            // Check if the destination square is empty
-            if (board.pieces[newRow - 1][newColumn - 1]) {
-                console.log('Pawn cannot capture when moving forward');
+            // if there is a king in the destination square return false
+            if (board.pieces[newRow - 1][newColumn - 1] instanceof King) {
+                console.log('Pawn cannot capture the king');
                 return false;
             }
+
             console.log('Pawn moves forward');
             return true;
         }
     
         // Initial double move
         if ((this.teamColor === 'white' && currentRow === 7) || (this.teamColor === 'black' && currentRow === 2)) {
+            // if there is an enemy king in the destination square return false
+            if (board.pieces[newRow - 1][newColumn - 1] instanceof King) {
+                console.log('Pawn cannot capture the king');
+                return false;
+            }
+            
             if (newColumn === currentColumn && newRow === currentRow + 2 * direction) {
                 console.log('Pawn moves forward 2');
-                return true;
-            }
-        }
-    
-        // En passant capture
-        if (Math.abs(newColumn - currentColumn) === 1 && newRow === currentRow + direction) {
-            // Check if there is a piece to capture via en passant
-            if (board.pieces[currentRow - 1][newColumn - 1] && board.pieces[currentRow - 1][newColumn - 1].justMovedTwoSquares) {
-                console.log('Pawn captures en passant');
                 return true;
             }
         }
@@ -297,7 +295,7 @@ class King extends Piece {
 
                     // log the piece name and position
                     console.log(`Checking ${piece.constructor.name} at ${column}${row} for attack on king`);
-
+                    
                     if (piece.isValidMove(kingPosition)) {
                         console.log(`King is in check by ${piece.constructor.name} at ${column}${row}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!`);
                         return true;

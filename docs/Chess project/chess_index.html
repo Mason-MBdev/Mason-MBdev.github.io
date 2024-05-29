@@ -7,6 +7,7 @@
 </head>
 <body>
 
+    <!-- NAV BAR -->
     <div class="nav">
         <div class="nav-left" style="display: flex; align-items: center; justify-self: center;">
             <h1 style="font-size: 30px; margin-left: 25px;">Chess V.2</h1>
@@ -17,6 +18,7 @@
         </div>
     </div>
 
+    <!-- GAME WINDOW -->
     <div class="main_window">
     <div class="game-container with-linear-gradient">
         <div id="black">
@@ -68,6 +70,7 @@
         <button id="restart-button">Restart</button>
     </div> -->
 
+    <!-- START MENU -->
     <div id="popup-menu" class="popup">
         <div class="popup-content">
             <h1>Online Chess</h1>
@@ -100,17 +103,27 @@
 
                     <div class="Online" style="display: none;">
                         <h3>Room Code:</h3>
-                        <input type="text" id="room-code-input" placeholder="..."> 
-                        <h3> Password: </h3>
-                        <input type="text" id="room-password-input" placeholder="..."><br>
-                        <button id="join-button" onclick="alert('This feature is not complete yet')">Join</button>
-                        <button id="join-button" onclick="alert('This feature is not complete yet')">Host</button>
+                        <input type="text" id="room-code-input" placeholder="...">
+                        <h3>Password:</h3>
+                        <input type="password" id="room-password-input" placeholder="..."><br>
+                        <button id="join-button" onclick="startJoin()">Join</button>
+                        <button id="host-button" onclick="startHost()">Host</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="overlay"></div>
+    
+    <!-- Scripts -->
+    <script type="module" src="./JS/client.js"></script>
+    <script src="./JS/timer.js"></script>
+    <script src="./JS/movement.js"></script>
+    <script src="./JS/pieces.js"></script>
+    <script src="./JS/display.js"></script>
+    <script src="./JS/board.js"></script>
+    <script src="./JS/main.js"></script>
+
     <!-- Script for the drop down selection -->
     <script>
         const gameTypeInput = document.getElementById("game-type-input");
@@ -128,22 +141,13 @@
         });
     </script>
 
+    <!-- Mobile Alert -->
     <script>
         window.addEventListener('resize', function() {
             if (window.innerWidth < 768) {
                 alert('This website is intended to be viewed on a desktop, if you are on a phone or tablet, you may try rotating the phone to get a better look but you are most likely looking at a formatting nightmare.');
             }
         });
-    </script>
-
-    <!-- JS -->
-    <script src="./JS/timer.js"></script>
-    <script src="./JS/movement.js"></script>
-    <script src="./JS/pieces.js"></script>
-    <script src="./JS/display.js"></script>
-    <script src="./JS/board.js"></script>
-    <script src="./JS/main.js"></script>
-        
     </script>
 </body>
 </html>

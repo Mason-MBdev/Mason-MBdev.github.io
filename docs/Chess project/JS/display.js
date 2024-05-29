@@ -37,6 +37,14 @@ function displayBoard(board) {
     }
 }
 
+
+function addEventListenersToCells() {
+    const cells = document.querySelectorAll('.cell');
+    cells.forEach(cell => {
+        cell.addEventListener('click', handleCellClick);
+    });
+}
+
 function openMenuPopup() {
     document.getElementById('popup-menu').style.display = 'block';
     showOverlay();
