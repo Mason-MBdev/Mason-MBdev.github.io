@@ -55,6 +55,12 @@ class Board {
         const { row, column } = position;
         this.pieces[row - 1][column - 1] = null;
         console.log(`Removed piece at ${column}${row}`);
+        // if the piece is a king, end the game
+        if (this.pieces[row - 1][column - 1] instanceof King) {
+            // call endgame by determining which colour won the game and passing it to the endGame function
+            const winningTeam = this.currentPlayer === 'white' ? 'black' : 'white';
+            endGame();
+        }
     }
 
     movePiece(piecePosition, newPosition) {

@@ -5,23 +5,20 @@ class Piece {
     }
 
     isValidMove(newPosition) {
-        // if the position the piece is trying to move to contains a piece of the same color, return false and log message with piece name
-        if (board.pieces[newRow - 1][newColumn - 1] && board.pieces[newRow - 1][newColumn - 1].teamColor === this.teamColor) {
-            console.log(`Cannot move to ${newColumn}${newRow} because it contains a piece of the same color`);
+        if (board.pieces[newPosition.row - 1][newPosition.column - 1] && board.pieces[newPosition.row - 1][newPosition.column - 1].teamColor === this.teamColor) {
+            console.log(`Cannot move to ${newPosition.column}${newPosition.row} because it contains a piece of the same color`);
             return false;
         }
         return true;
     }
 
-    // determine if there is a piece in the path of the piece moving
-    getPath(piecePosition, newPosition, pieces) {
+    getPath(piecePosition, newPosition) {
         const { row: oldRow, column: oldColumn } = piecePosition;
         const { row: newRow, column: newColumn } = newPosition;
 
         const rowDiff = newRow - oldRow;
         const colDiff = newColumn - oldColumn;
 
-        // if the piece is moving vertically
         if (colDiff === 0) {
             for (let i = 1; i < Math.abs(rowDiff); i++) {
                 const row = oldRow + i * Math.sign(rowDiff);
@@ -32,7 +29,6 @@ class Piece {
             }
         }
 
-        // if the piece is moving horizontally
         if (rowDiff === 0) {
             for (let i = 1; i < Math.abs(colDiff); i++) {
                 const column = oldColumn + i * Math.sign(colDiff);
@@ -43,12 +39,12 @@ class Piece {
             }
         }
 
-        // if the piece is moving diagonally
         if (Math.abs(rowDiff) === Math.abs(colDiff)) {
             for (let i = 1; i < Math.abs(rowDiff); i++) {
-                const testRow = this.currentPosition.row + i * Math.sign(rowDiff);
-                const testColumn = this.currentPosition.column + i * Math.sign(colDiff);
-                if (board.pieces[testRow - 1][testColumn - 1]) { // Subtract 1 from testRow and testColumn
+                const testRow = oldRow + i * Math.sign(rowDiff);
+                const testColumn = oldColumn + i * Math.sign(colDiff);
+                if (board.pieces[testRow - 1][testColumn - 1]) {
+                    console.log(`Piece in the way at ${testColumn}${testRow}`);
                     return false;
                 }
             }
@@ -60,68 +56,60 @@ class Piece {
 class Pawn extends Piece {
     constructor(currentPosition, teamColor) {
         super(currentPosition, teamColor);
-        this.unicodeChar = this.teamColor === 'white' ? '\u2659' : '\u265F'; // Set unicodeChar for Pawn
+        this.unicodeChar = this.teamColor === 'white' ? '\u2659' : '\u265F';
     }
 
     isValidMove(newPosition) {
-        console.log('Pawn isValidMove called');
         const currentRow = this.currentPosition.row;
         const currentColumn = this.currentPosition.column;
         const newRow = newPosition.row;
         const newColumn = newPosition.column;
-    
-        // Determine direction based on team color
-        const direction = this.teamColor === 'white'? -1 : 1;
-    
-        // Forward movement
+        const direction = this.teamColor === 'white' ? -1 : 1;
+
         if (newColumn === currentColumn && newRow === currentRow + direction) {
-            // if there is a king in the destination square return false
             if (board.pieces[newRow - 1][newColumn - 1] instanceof King) {
                 console.log('Pawn cannot capture the king');
                 return false;
             }
-
-            console.log('Pawn moves forward');
             return true;
         }
-    
-        // Initial double move
+
         if ((this.teamColor === 'white' && currentRow === 7) || (this.teamColor === 'black' && currentRow === 2)) {
-            // if there is an enemy king in the destination square return false
-            if (board.pieces[newRow - 1][newColumn - 1] instanceof King) {
-                console.log('Pawn cannot capture the king');
-                return false;
-            }
-            
             if (newColumn === currentColumn && newRow === currentRow + 2 * direction) {
-                console.log('Pawn moves forward 2');
+                if (board.pieces[newRow - 1][newColumn - 1] instanceof King) {
+                    console.log('Pawn cannot capture the king');
+                    return false;
+                }
                 return true;
             }
         }
-    
-        // Standard capturing move
+
         if (Math.abs(newColumn - currentColumn) === 1 && newRow === currentRow + direction) {
-            // Ensure there is a piece to capture
             if (!board.pieces[newRow - 1][newColumn - 1]) {
                 console.log('Pawn cannot capture empty square');
                 return false;
             }
-    
-            console.log('Pawn captures');
             return true;
         }
-    
-        console.log('Invalid move for pawn');
-        return false; // Default to false if no valid move
+
+        return false;
+    }
+
+    canAttack(position) {
+        const currentRow = this.currentPosition.row;
+        const currentColumn = this.currentPosition.column;
+        const targetRow = position.row;
+        const targetColumn = position.column;
+        const direction = this.teamColor === 'white' ? -1 : 1;
+
+        return Math.abs(currentColumn - targetColumn) === 1 && targetRow === currentRow + direction;
     }
 }
 
 class Rook extends Piece {
     constructor(currentPosition, teamColor) {
         super(currentPosition, teamColor);
-        // Set unicodeChar for rook
         this.unicodeChar = this.teamColor === 'white' ? '\u2656' : '\u265C';
-
     }
 
     isValidMove(newPosition) {
@@ -130,31 +118,34 @@ class Rook extends Piece {
         const newRow = newPosition.row;
         const newColumn = newPosition.column;
 
-        // if any square in the path you are moving ALONG TO REACH THE DISTINATION is blocked by a piece, return false
-        if (!this.getPath(this.currentPosition, newPosition, this.pieces)) {
-            console.log("Path is not clear cannot reach king.");
+        if (!this.getPath(this.currentPosition, newPosition)) {
             return false;
         }
 
-        // if the position the piece is trying to move to contains a piece of the same color, return false and log message with piece name
         if (board.pieces[newRow - 1][newColumn - 1] && board.pieces[newRow - 1][newColumn - 1].teamColor === this.teamColor) {
-            console.log(`Cannot move to ${newColumn}${newRow} because it contains a piece of the same color`);
             return false;
         }
 
-        // Rooks can move horizontally or vertically
-        if (newRow === currentRow || newColumn === currentColumn) {
-            return true; // Valid move
+        return newRow === currentRow || newColumn === currentColumn;
+    }
+
+    canAttack(position) {
+        if (!this.getPath(this.currentPosition, position)) {
+            return false;
         }
 
-        return false; // Default to false if no valid move
+        const currentRow = this.currentPosition.row;
+        const currentColumn = this.currentPosition.column;
+        const targetRow = position.row;
+        const targetColumn = position.column;
+
+        return targetRow === currentRow || targetColumn === currentColumn;
     }
 }
 
 class Knight extends Piece {
     constructor(currentPosition, teamColor) {
         super(currentPosition, teamColor);
-        // Set unicodeChar for knight
         this.unicodeChar = this.teamColor === 'white' ? '\u2658' : '\u265E';
     }
 
@@ -163,29 +154,31 @@ class Knight extends Piece {
         const currentColumn = this.currentPosition.column;
         const newRow = newPosition.row;
         const newColumn = newPosition.column;
-
-        // Knights can move in an L shape
         const rowDiff = Math.abs(newRow - currentRow);
         const colDiff = Math.abs(newColumn - currentColumn);
 
-        // if the position the piece is trying to move to contains a piece of the same color, return false and log message with piece name
         if (board.pieces[newRow - 1][newColumn - 1] && board.pieces[newRow - 1][newColumn - 1].teamColor === this.teamColor) {
-            console.log(`Cannot move to ${newColumn}${newRow} because it contains a piece of the same color`);
             return false;
         }
 
-        if ((rowDiff === 1 && colDiff === 2) || (rowDiff === 2 && colDiff === 1)) {
-            return true; // Valid move
-        }
+        return (rowDiff === 1 && colDiff === 2) || (rowDiff === 2 && colDiff === 1);
+    }
 
-        return false; // Default to false if no valid move
+    canAttack(position) {
+        const currentRow = this.currentPosition.row;
+        const currentColumn = this.currentPosition.column;
+        const targetRow = position.row;
+        const targetColumn = position.column;
+        const rowDiff = Math.abs(targetRow - currentRow);
+        const colDiff = Math.abs(targetColumn - currentColumn);
+
+        return (rowDiff === 1 && colDiff === 2) || (rowDiff === 2 && colDiff === 1);
     }
 }
 
 class Bishop extends Piece {
     constructor(currentPosition, teamColor) {
         super(currentPosition, teamColor);
-        // Set unicodeChar for bishop
         this.unicodeChar = this.teamColor === 'white' ? '\u2657' : '\u265D';
     }
 
@@ -195,109 +188,107 @@ class Bishop extends Piece {
         const newRow = newPosition.row;
         const newColumn = newPosition.column;
 
-        // if any square in the path you are moving ALONG TO REACH THE DISTINATION is blocked by a piece, return false
-        if (!this.getPath(this.currentPosition, newPosition, this.pieces)) {
-            console.log("Path is not clear cannot reach king.");
+        if (!this.getPath(this.currentPosition, newPosition)) {
             return false;
         }
 
-        // if the position the piece is trying to move to contains a piece of the same color, return false and log message with piece name
         if (board.pieces[newRow - 1][newColumn - 1] && board.pieces[newRow - 1][newColumn - 1].teamColor === this.teamColor) {
-            console.log(`Cannot move to ${newColumn}${newRow} because it contains a piece of the same color`);
             return false;
         }
 
-        // Bishops can move diagonally
         const rowDiff = Math.abs(newRow - currentRow);
         const colDiff = Math.abs(newColumn - currentColumn);
 
-        if (rowDiff === colDiff) {
-            return true; // Valid move
+        return rowDiff === colDiff;
+    }
+
+    canAttack(position) {
+        if (!this.getPath(this.currentPosition, position)) {
+            return false;
         }
 
-        return false; // Default to false if no valid move
+        const currentRow = this.currentPosition.row;
+        const currentColumn = this.currentPosition.column;
+        const targetRow = position.row;
+        const targetColumn = position.column;
+        const rowDiff = Math.abs(targetRow - currentRow);
+        const colDiff = Math.abs(targetColumn - currentColumn);
+
+        return rowDiff === colDiff;
     }
 }
 
 class Queen extends Piece {
     constructor(currentPosition, teamColor) {
         super(currentPosition, teamColor);
-        // Set unicodeChar for queen
         this.unicodeChar = this.teamColor === 'white' ? '\u2655' : '\u265B';
     }
 
     isValidMove(newPosition) {
-        // A queen's move combines the moves of a rook and bishop
-        const rookMove = (new Rook(this.currentPosition, this.teamColor)).isValidMove(newPosition);
-        const bishopMove = (new Bishop(this.currentPosition, this.teamColor)).isValidMove(newPosition);
+        const rookMove = new Rook(this.currentPosition, this.teamColor).isValidMove(newPosition);
+        const bishopMove = new Bishop(this.currentPosition, this.teamColor).isValidMove(newPosition);
 
         if (rookMove || bishopMove) {
-            console.log('Path is clear for either Rook or Bishop move');
-        } else {
-            console.log('Path is blocked for either Rook or Bishop move');
-            return false;
+            return true;
         }
 
-        console.log(`Rook move: ${rookMove}, Bishop move: ${bishopMove}`);
-
-        // log old position x and y
-        console.log(`Old position: ${this.currentPosition.column}${this.currentPosition.row}`);
-
-        // log new position x and y
-        console.log(`New position: ${newPosition.column}${newPosition.row}`);
-
-        // if the position the piece is trying to move to contains a piece of the same color, return false and log message with piece name
         if (board.pieces[newPosition.row - 1][newPosition.column - 1] && board.pieces[newPosition.row - 1][newPosition.column - 1].teamColor === this.teamColor) {
-            console.log(`Cannot move to ${newPosition.column}${newPosition.row} because it contains a piece of the same color`);
             return false;
         }
 
-        return rookMove || bishopMove;
+        return false;
+    }
+
+    canAttack(position) {
+        const rookAttack = new Rook(this.currentPosition, this.teamColor).canAttack(position);
+        const bishopAttack = new Bishop(this.currentPosition, this.teamColor).canAttack(position);
+
+        return rookAttack || bishopAttack;
     }
 }
 
 class King extends Piece {
     constructor(currentPosition, teamColor) {
         super(currentPosition, teamColor);
-        this.unicodeChar = this.teamColor === 'white'? '\u2654' : '\u265A';
+        this.unicodeChar = this.teamColor === 'white' ? '\u2654' : '\u265A';
     }
 
     isValidMove(newPosition) {
-        console.log('KING FLAG 4');
-        console.log('newPosition: ', newPosition);
         const currentRow = this.currentPosition.row;
         const currentColumn = this.currentPosition.column;
         const newRow = newPosition.row;
         const newColumn = newPosition.column;
 
         if (board.pieces[newRow - 1][newColumn - 1] && board.pieces[newRow - 1][newColumn - 1].teamColor === this.teamColor) {
-            console.log(`Cannot move to ${newColumn}${newRow} because it contains a piece of the same color`);
             return false;
         }
 
         const rowDiff = Math.abs(newRow - currentRow);
         const colDiff = Math.abs(newColumn - currentColumn);
 
-        if (rowDiff <= 1 && colDiff <= 1) {
-            return true; // Valid move
-        }
+        return rowDiff <= 1 && colDiff <= 1;
+    }
 
-        return false; // Default to false if no valid move
+    canAttack(position) {
+        const currentRow = this.currentPosition.row;
+        const currentColumn = this.currentPosition.column;
+        const targetRow = position.row;
+        const targetColumn = position.column;
+        const rowDiff = Math.abs(targetRow - currentRow);
+        const colDiff = Math.abs(targetColumn - currentColumn);
+
+        return rowDiff <= 1 && colDiff <= 1;
     }
 
     isInCheck() {
         for (let row = 1; row <= 8; row++) {
             for (let column = 1; column <= 8; column++) {
                 const piece = board.pieces[row - 1][column - 1];
-                if (piece && piece.teamColor!== this.teamColor) {
-                    const newPosition = { row, column };
+                if (piece && piece.teamColor !== this.teamColor) {
                     const kingPosition = this.currentPosition;
 
-                    // log the piece name and position
-                    console.log(`Checking ${piece.constructor.name} at ${column}${row} for attack on king`);
-                    
-                    if (piece.isValidMove(kingPosition)) {
-                        console.log(`King is in check by ${piece.constructor.name} at ${column}${row}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!`);
+                    if (piece.canAttack(kingPosition)) {
+                        console.log(`King is in check by ${piece.constructor.name} at ${column}${row}`);
                         return true;
                     }
                 }
@@ -307,22 +298,13 @@ class King extends Piece {
         return false;
     }
 
-    // isInCheckParameters() {
     isInCheckParameters(kingPosition) {
-        console.log('KING FLAG 5');
-        console.log('kingPosition: ', kingPosition);
-        // log the king position
-        console.log(`King position: ${kingPosition.column}${kingPosition.row}`);
         for (let row = 1; row <= 8; row++) {
             for (let column = 1; column <= 8; column++) {
                 const piece = board.pieces[row - 1][column - 1];
-                if (piece && piece.teamColor!== this.teamColor) {
-                    // log the piece name and position
-                    console.log(`Checking ${piece.constructor.name} at ${column}${row} for attack on king`);
-                    console.log(`King position: ${kingPosition.column}${kingPosition.row}`);
-
-                    if (piece.isValidMove(kingPosition)) {
-                        console.log(`King is in check by ${piece.constructor.name} at ${column}${row}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!`);
+                if (piece && piece.teamColor !== this.teamColor) {
+                    if (piece.canAttack(kingPosition)) {
+                        console.log(`King is in check by ${piece.constructor.name} at ${column}${row}`);
                         return true;
                     }
                 }
@@ -333,22 +315,28 @@ class King extends Piece {
     }
 
     canKingEscape(kingPosition) {
-        console.log('KING FLAG 69');
-        // Iterate through all possible moves for the king
-        for (let row = 1; row <= 8; row++) {
-            for (let column = 1; column <= 8; column++) {
-                const newPosition = { row, column };
-    
-                // Check if the move is valid and would take the king out of check
-                if (isValidMove(kingPosition)) {
-                    console.log(`King can escape to ${column}${row}`);
-                    return true; // Found a valid move that takes the king out of check
+        // findKing function
+        const whiteKingPosition = kingPosition;
+
+        const currentRow = this.currentPosition.row;
+        const currentColumn = this.currentPosition.column;
+
+        for (let row = currentRow - 1; row <= currentRow + 1; row++) {
+            for (let column = currentColumn - 1; column <= currentColumn + 1; column++) {
+                if (row > 0 && row <= 8 && column > 0 && column <= 8) {
+                    const newPosition = { row, column };
+                    whiteKing.currentPosition = newPosition;
+                    if (this.isValidMove(newPosition) && !finalKingCheck(whiteKing)) {
+                        console.log(`King can escape to ${column}${row}`);
+                        whiteKing.currentPosition = whiteKingPosition;
+                        return true;
+                    }
                 }
             }
-        } 
-        // If no valid moves were found, the king cannot escape
-        console.log('CHECKMATE GAMEOVER FLAG');
-        gameOver();
+        }
+        whiteKing.currentPosition = whiteKingPosition;
+        console.log('King cannot escape, checkmate');
+        endGame(winningTeam);
         return false;
     }
 }

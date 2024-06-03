@@ -6,6 +6,11 @@ body {
     background-image: linear-gradient(0deg, #780086, #8ebfff);
 }
 
+/* remove all scroll bars */
+::-webkit-scrollbar {
+    display: none;
+}
+
 .main_window {
     display: flex;
     flex-direction: column;
@@ -19,11 +24,12 @@ body {
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
-    background-image: linear-gradient(90deg, #313131, #dbdbdb);
+    background-image: linear-gradient(90deg, #414141, #dbdbdb);
     padding: 20px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     width: 1052px; /* Adjust based on desired size */
     height: 620px; /* Adjust based on desired size */
+    border-radius: 15px;
 }
 
 .scoreboard {
@@ -70,6 +76,12 @@ h3 {
     vertical-align: middle;
     line-height: 75px;
     border-radius: 10px;
+    transition: font-size 0.1s;
+}
+
+.cell:hover {
+    font-size: 70px;
+    transition: font-size 0.1s;
 }
 
 .white {
@@ -120,10 +132,6 @@ h3 {
     height: 480px;
 }
 
-.hidden {
-    transform: translateY(-150%);
-    transition: transform 0.5s;
-}
 /* //display children row */
 .menu-container {
     display: flex;
@@ -133,17 +141,21 @@ h3 {
     margin-top: 20px;
 }
 
+.gameover-content .menu-container {
+    margin-top: 0;
+}
+
 .right-popup {
     display: flex;
     flex-direction: column;
     justify-content: top;
     align-items: center;
-
+    margin-bottom: 10px;
     padding: 10px;
     border-radius: 10px;
     width: 250px;
     height: 360px;
-    background-color: #b0c2d5; /* Dark gray background */
+    background-color: #fff5ff; /* Dark gray background */
     border: 2px solid #3c3c3c; /* Orange border */
 }
 
@@ -157,8 +169,9 @@ h3 {
     border-radius: 10px;
     width: 250px;
     height: 360px;
-    background-color: #b0c2d5; /* Dark gray background */
+    background-color: #fff5ff; /* Dark gray background */
     border: 2px solid #3c3c3c; /* Orange border */
+    margin-bottom: 10px;
 }
 
 
@@ -180,14 +193,14 @@ h3 {
     border: 1px solid #000000;
     border-radius: 5px;
     padding: 10px;
-    background-color: rgb(116, 149, 188); /* Dark gray background */
+    background-color: #204b7d; /* Dark gray background */
     width: 230px;
     text-align: center;
 }
 
 .popup input[type="text"],
 .popup input[type="number"] {
-    background-color: rgb(153, 175, 203);    
+    background-color: rgb(199, 168, 168);    
     color: #000000; /* Black text */
     padding: 10px; /* Add some padding */
     border: 1px solid #000000; /* Orange border */
@@ -203,18 +216,21 @@ h3 {
 }
 
 .popup button {
-    background-color: #1d7a00; /* Orange background */
+    background-color: #64a7f8; /* Orange background */
     color: #FFF; /* Light text */
     padding: 10px 20px; /* Add padding */
-    border: none; /* Remove border */
+    border: 1px solid rgb(0, 0, 0); /* Remove border */
     border-radius: 5px; /* Add border radius */
     font-size: 16px; /* Font size */
     cursor: pointer; /* Add pointer cursor */
     width: 97.5px;
+    transition: background-color 0.1s ease;
 }
 
 .popup button:hover {
-    background-color: #4abb3d; /* Lighter orange on hover */
+    background-color: #204b7d; /* Lighter orange on hover */
+    /* transition 1 sec */
+    transition: background-color 0.1s ease;
 }
 
 .scoreboard {
@@ -261,8 +277,8 @@ h3 {
     width: 247px;
 }
 
-#game-type-input {
-    background-color: rgb(153, 175, 203);    
+.menu-input {
+    background-color: rgb(199, 168, 168);    
     color: #ffffff; /* Black text */
     padding: 10px; /* Add some padding */
     border: 1px solid #000000; /* Orange border */
@@ -270,7 +286,31 @@ h3 {
     width: 200px; /* Subtract padding and border width */
     font-size: 16px; /* Font size */
     margin-bottom: 15px; /* Add margin below the input */
+    height: 40px;
 }
+
+.settings-title-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 555px;
+    border-bottom: 2px solid #000000;
+}
+
+.settings-title-container > :first-child {
+    margin-right: auto;
+    width: 500px;
+    margin-bottom: 5px;
+    font-size: 40px;
+}
+
+.settings-title-container > :last-child {
+    margin-left: auto;
+    width: 100px;
+}
+
 
 .Local {
     max-width: 200px;
@@ -304,6 +344,14 @@ h3 {
     padding: 20px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     height: 580px;
+}
+
+#settings-menu {
+    z-index: 9999;
+}
+
+.popup-content {
+    z-index: 9999;
 }
 
 .scoreboard h2 {
@@ -355,7 +403,7 @@ h3 {
 }
 
 .highlight {
-    background-color: #cfcfcf;
+    background-color: #6cd494;
 }
 
 .nav {
@@ -363,10 +411,9 @@ h3 {
     justify-content: space-between;
     padding: 10px;
     background-color: #434343;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add shadow */
-    border-bottom: 1px solid #cbcbcb; /* Add border */
-    border-top: 1px solid #b6b6b6; /* Add border */
-
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* Add shadow */
+    border-bottom: 1px solid #aeaeae; /* Add border */
+    border-top: 1px solid #aeaeae; /* Add border */
 }
 
 .nav-left h1 {
@@ -376,6 +423,11 @@ h3 {
 
 .nav-right {
     align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
 }
 
 #menu-button {
@@ -384,7 +436,7 @@ h3 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    color: #333;
+    color: #280461;
     font-size: 16px;
 }
 
@@ -393,10 +445,10 @@ h3 {
     margin: 0;
     box-sizing: border-box;
     font-size: 14.5px;
-    --accent: rgb(255, 85, 0);
+    --accent: rgb(145, 58, 15);
     font-weight: bold;
     letter-spacing: 0.1em;
-    border: #cbcbcb 2px solid;
+    border: #000000 1px solid;
     border-radius: 1.1em;
     cursor: pointer;
     color: white;
@@ -408,16 +460,101 @@ h3 {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    background-color: #686868;
+    background-color: #883535;
     text-decoration: none;
 }
 
 #menu-button:hover {
-    background-color: #b50000; /* Darker blue on hover */
+    background-color: #651919; /* Darker blue on hover */
 }
 
-.with-linear-gradient {
+/* .with-linear-gradient {
     border-style: solid;
     border-width: 2px;
-    border-image: linear-gradient(270deg, rgb(84, 84, 84), rgb(255, 255, 255)) 1;
+    border-image: linear-gradient(270deg, rgb(72, 72, 72), rgb(206, 206, 206)) 1;
+} */
+
+#gameover-menu {
+    display: block; /* or use 'initial' */
+    visibility: hidden;
+    transform: translateY(-100%); /* Start from above the top of the page */
+    transition: transform 0.5s, visibility 0.5s;
+}
+
+#gameover-menu.animate {
+    visibility: visible;
+    transform: translateY(0); /* End at the normal position */
+    transition: transform 0.5s, visibility 0.5s;
+}
+
+.gameover-content {
+    background-image: linear-gradient(180deg, #6c8699, #2e5178, #373d41);
+    margin: 8% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Subtle shadow for depth */
+    border: 1px solid #b1b1b1; /* Orange border */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 470px;
+}
+
+.gameover-content h1 h2 h3 {
+    color: white;
+}
+
+#restart-button {
+    margin-top: 20px;
+}
+
+.gameover-menu-scorebox {
+    padding: 10px;
+    border-radius: 10px;
+    width: 153px;
+    /* center all text */
+    text-align: center;
+    /* place a grey box around it, small border */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    height: 175px;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#gameover-menu-winner {
+    margin-bottom: 10px;
+    width: 100%;
+    opacity: 100%;
+    border: 2px solid #454545;
+    width: 400px;
+}
+
+.gameover-score-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background:#6a91bd;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    padding: 10px;
+}
+
+.coolh3 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+    font-size: 20px;
+    background-color: rgb(116, 149, 188);
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.hidden {
+    transform: translateY(-150%);
+    transition: transform 0.5s;
 }

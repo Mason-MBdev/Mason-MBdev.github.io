@@ -57,6 +57,77 @@ function closeMenuPopup() {
     }, 150);
 }
 
+function openGameOverPopup(winningTeam) {
+    // Fill in this information:
+    // <h2 id="gameover-menu-winner"></h2>
+    // <h3 id="gameover-menu-reason"></h3>
+    // <h3 id="gameover-menu-score"></h3>
+    // <h3 id="gameover-menu-time"></h3>
+    // <h3 id="gameover-menu-pieces"></h3>
+    // wait 1 second
+    setTimeout(() => {
+        console.log('showing game over popup');
+    }, 1000);
+    showMenu2();
+
+    document.getElementById('gameover-menu').classList.add('animate');
+    
+    document.getElementById('gameover-menu-winner').textContent = winningTeam + ' Player ' + 'Wins!';
+    document.getElementById('gameover-menu-score-white').textContent = 'Score: ' + calculateScore("white");
+    document.getElementById('gameover-menu-score-black').textContent = 'Score: ' + calculateScore("black");
+    document.getElementById('gameover-menu-pieces-white').textContent = '' + calculateTakenPieces("white");
+    document.getElementById('gameover-menu-pieces-black').textContent = '' + calculateTakenPieces("black");
+
+    function calculateScore(teamColour) {
+        console.log('calculating score for: ' + teamColour);
+        if (teamColour === 'white') {
+            // if there are no pieces taken, return "No captured pieces"
+            if (takenPieces.white.length === 0) {
+                return "No captured pieces";
+            }
+    
+            return parseInt(document.getElementById('white-score').textContent);
+        } else {
+            // if there are no pieces taken, return "No captured pieces"
+            if (takenPieces.black.length === 0) {
+                return "No captured pieces";
+            }
+            return parseInt(document.getElementById('black-score').textContent);
+        }
+    }
+
+    function calculateTakenPieces(teamColour) {
+        // use the takenPieces object to get the taken pieces and display them in the popup
+        console.log('calculating taken pieces for: ' + teamColour);
+        if (teamColour === 'white') {
+            return takenPieces.white.join(' ');
+        } else {
+            return takenPieces.black.join(' ');
+        }
+    }
+    showOverlay();
+}
+
+function closeGameOverPopup() {
+    document.getElementById('gameover-menu').classList.add('hidden');
+    document.getElementById('gameover-menu').classList.remove('animate');
+    setTimeout(() => {
+        location.reload();
+    }, 300);
+}
+
+// Function to show the menu
+function showMenu2() {
+    var gameoverMenu = document.getElementById('gameover-menu');
+    gameoverMenu.classList.add('animate');
+}
+
+// Function to hide the menu
+function hideMenu2() {
+    var gameoverMenu = document.getElementById('gameover-menu');
+    gameoverMenu.classList.remove('animate');
+}
+
 function showOverlay() {
     var overlay = document.querySelector('.overlay');
     overlay.style.display = 'block';
@@ -65,6 +136,16 @@ function showOverlay() {
 function hideOverlay() {
     var overlay = document.querySelector('.overlay');
     overlay.style.display = 'none';
+}
+
+showSettingsMenu = () => {
+    document.getElementById('settings-menu').style.display = 'block';
+    showOverlay();
+}
+
+closeSettingsMenu = () => {
+    document.getElementById('settings-menu').style.display = 'none';
+    hideOverlay();
 }
 
 class TakenPieces {

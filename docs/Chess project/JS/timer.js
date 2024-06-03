@@ -16,7 +16,7 @@ class ChessTimer {
                     this.player1Time--;
                     if (this.player1Time === 0) {
                         clearInterval(this.timerId1);
-                        alert('Time is up for Black team!');
+                        endGame("White");
                     }
                     this.updateTimerElement(timerElement1, timerElement2);
                 }, 1000);
@@ -26,7 +26,7 @@ class ChessTimer {
                     this.player2Time--;
                     if (this.player2Time === 0) {
                         clearInterval(this.timerId2);
-                        alert('Time is up for white team!');
+                        endGame("Black");
                     }
                     this.updateTimerElement(timerElement1, timerElement2);
                 }, 1000);

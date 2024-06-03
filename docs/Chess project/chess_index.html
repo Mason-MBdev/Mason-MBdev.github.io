@@ -15,12 +15,14 @@
 
         <div class="nav-right">
             <button id="menu-button" onclick="location.reload();">Reload Game</button>
+            <!-- Reinstate commented code after finishing feature -->
+            <!-- <button id="menu-button" onclick="showSettingsMenu();">Settings</button> -->
         </div>
     </div>
 
     <!-- GAME WINDOW -->
     <div class="main_window">
-    <div class="game-container with-linear-gradient">
+    <div class="game-container">
         <div id="black">
             <div class="scoreboard" id="black-scoreboard">
                 <h2>Black</h1>
@@ -64,11 +66,76 @@
         </div>
     </div>
 
-    <!-- <div class="game-over">
-        <h1>Game Over</h1>
-        <h2 id="game-over-text"></h2>
-        <button id="restart-button">Restart</button>
-    </div> -->
+    <div id="gameover-menu" class="popup">
+        <div class="gameover-content">
+            <h1>Game Over</h1>
+            <h2 id="gameover-menu-winner" style="color: white; font-size: 22px;"></h2>
+
+            <div class="gameover-score-container">
+                <h3 class="coolh3" style="color: white; font-size: 22px;">SCOREBOARD</h3>
+                <div class="menu-container" style="">
+
+                    <div class="gameover-menu-scorebox" style="background-color: rgb(57, 57, 57); border: 1px rgb(0, 0, 0) solid; margin: 10px;">
+                        <h3 style="color: rgb(255, 255, 255); border-bottom: 2px solid white;"><b>Black Captures:</b></h2>
+                        <h3 id="gameover-menu-pieces-black" style="color: rgb(225, 225, 225); height: 74.4px;"></h3>
+                        <h3 id="gameover-menu-score-black" style="color: rgb(225, 225, 225); background-color: rgb(38, 38, 38); padding: 10px; border-radius: 10px; width: 90%; border: 1px black solid; font-size: 16px;"></h3>
+                    </div>
+                    
+                    <div class="gameover-menu-scorebox" style="background-color: rgb(240, 240, 240); border: 1px black solid; margin: 10px;">
+                        <h3 style="color: black; border-bottom: 2px solid rgb(0, 0, 0);"><b>White Captures:</b></h2>
+                        <h3 id="gameover-menu-pieces-white" style="color: rgb(38, 38, 38); height: 74.4px;"></h3>
+                        <h3 id="gameover-menu-score-white" style="color: rgb(38, 38, 38); background-color: rgb(225, 225, 225); padding: 10px; border-radius: 10px; width: 90%; border: 1px black solid; font-size: 16px;"></h3>
+                    </div>
+
+                </div>
+            </div>
+
+            <button id="restart-button" onclick="closeGameOverPopup()">Restart</button>
+        </div>
+    </div>
+
+    <!-- <div class="popup" id="settings-menu">
+        <div class="popup-content">
+
+            <div class="settings-title-container">
+                <h1>Settings</h1>
+                <button id="menu-button" onclick="closeSettingsMenu();" >X</button>
+            </div>
+            <h3> Settings in progress, does not work yet </h3>
+            <div class="menu-container">
+                <div class="right-popup">
+                    <h2> Display </h2>
+                    <p> <b>Change how the game looks</b> </p>
+                    
+                    <h3>Theme:</h3>
+                    <select id="settings-display-preset-input" class="menu-input">
+                        <option value="default">Default</option>
+                        <option value="dark">Dark Mode</option>
+                        <option value="light">Light Mode</option>
+                    </select><br>
+
+                    <h3>Custom:</h3>
+                    <input type="color" id="settings-display-custom-input" class="menu-input"><br>
+                    <button id="settings-display-custom-button" onclick="changeCustomColor()">Apply</button>
+                
+                    <!-- <p> <b>Local:</b> <br><br> Play with a friend locally by switching controls every turn, <br>set a turn timer if you want a faster paced game.</p>
+                    <p> <b>Multiplayer:</b> <br><br> Play with a friend online by hosting (or connecting to) a room. <br><br><b>*not complete yet*</b></p> -->
+                <!-- </div>
+                <div class="left-popup">
+                    <h2> Gameplay </h2>
+                    <p> <b>Change how you play the game</b> </p>
+                    <!-- Allow the user to see White time and Black player time, and then individually alter the values -->
+                    <!-- <h3>White Timer:</h3>
+                    <input type="text" id="settings-time-input" placeholder="Unlimited"><br>
+                    <h3>Black Timer:</h3>
+                    <input type="text" id="settings-time-input" placeholder="Unlimited"><br>
+                    <button id="settings-time-button-black" onclick="changeTime()">Apply</button><br><br> -->
+                    <!-- <p> <b>Local:</b> <br><br> Play with a friend locally by switching controls every turn, <br>set a turn timer if you want a faster paced game.</p>
+                    <p> <b>Multiplayer:</b> <br><br> Play with a friend online by hosting (or connecting to) a room. <br><br><b>*not complete yet*</b></p> -->
+                <!-- </div>
+            </div>
+        </div>
+    </div>   -->
 
     <!-- START MENU -->
     <div id="popup-menu" class="popup">
@@ -88,7 +155,7 @@
 
                     <div class="mode">
                         <h3>Mode:</h3>
-                        <select id="game-type-input">
+                        <select id="game-type-input" class="menu-input">
                             <option value="single">Local</option>
                             <option value="multi">Online-Multiplayer</option>
                         </select><br>
@@ -105,7 +172,7 @@
                         <h3>Room Code:</h3>
                         <input type="text" id="room-code-input" placeholder="...">
                         <h3>Password:</h3>
-                        <input type="password" id="room-password-input" placeholder="..."><br>
+                        <input type="text" id="room-password-input" placeholder="..."><br>
                         <button id="join-button" onclick="startJoin()">Join</button>
                         <button id="host-button" onclick="startHost()">Host</button>
                     </div>
@@ -116,7 +183,6 @@
     <div class="overlay"></div>
     
     <!-- Scripts -->
-    <script type="module" src="./JS/client.js"></script>
     <script src="./JS/timer.js"></script>
     <script src="./JS/movement.js"></script>
     <script src="./JS/pieces.js"></script>

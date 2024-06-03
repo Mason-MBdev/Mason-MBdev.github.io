@@ -47,8 +47,7 @@ document.getElementById('start-button').addEventListener('click', () => {
 // ---------------------------------------------------------------------------------------
 
 // function to handle the end of the game
-function endGame() {
-    alert('Game Over!');
-    // Add code to reset the game
-
+function endGame(winningTeam) {
+    console.log("Game over, winning team: " + winningTeam);
+    openGameOverPopup(winningTeam);
 }
