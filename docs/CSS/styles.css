@@ -376,7 +376,7 @@ nav-mobile {
     padding-top: 20px;
     border-radius: 10px;
     margin: 0px 10vw 10vh;
-    border: 1.5px solid rgb(95, 95, 95);
+    border: 2px solid rgb(95, 95, 95);
 }
 
 .project-title {
@@ -472,13 +472,13 @@ interact */
     margin-right: auto;
     margin-bottom: 0;
     margin-left: auto;
-    border: 1px solid rgb(102, 102, 102);
+    border: 2px solid rgb(102, 102, 102);
 }
 
 .project:hover {
     transition: all 200ms ease;
     cursor: pointer;
-    border: 1px solid rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
 }
 
 .project:not(:hover) {
@@ -613,7 +613,7 @@ button {
     letter-spacing: 0.1em;
     border: #868686 2px solid;
     border-radius: 1.1em;
-    background-color: #3e3e3e;
+    background-color: #924444;
     cursor: pointer;
     color: white;
     padding: 15px;
@@ -623,18 +623,8 @@ button {
 }
 
 button:hover {
-    background-color: #166c16;
+    background-color: #6c0c0c;
     border: #c8c8c8 2px solid;
-}
-
-button:active {
-    box-shadow: var(--hover-shadows), var(--accent) 0px 0px 30px 5px;
-    background-color: var(--accent);
-    transform: scale(0.95);
-}
-
-.button_incomplete:hover { 
-    background-color: #bc5e00;
 }
 
 /* links section */
