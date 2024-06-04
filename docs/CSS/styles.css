@@ -320,12 +320,12 @@ nav-mobile {
 
 .Logo:hover .text--heading {
     color: rgb(255, 156, 156);
-    transition: color 250ms ease-in-out;
+    transition: color 100ms ease-in-out;
 }
 
 .Logo:not(:hover) .text--heading {
     color: white;
-    transition: color 250ms ease-in-out;
+    transition: color 100ms ease-in-out;
 }
 
 /* About section */
@@ -602,7 +602,7 @@ interact */
 
 .ProjectPhoto-1 {
     width: 40vw;
-    max-width: 500px;
+    max-width: 400px;
     border: 1px solid rgb(193, 193, 193);
 }
 
@@ -611,24 +611,30 @@ button {
     --accent: rgb(255, 85, 0);
     font-weight: bold;
     letter-spacing: 0.1em;
-    border: #FF4500 2px solid;
+    border: #868686 2px solid;
     border-radius: 1.1em;
     background-color: #3e3e3e;
     cursor: pointer;
     color: white;
-    padding: 1em 2em;
+    padding: 15px;
     transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
         letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s;
+    width: 170px;
 }
 
 button:hover {
-    background-color: #ff5c21;
+    background-color: #166c16;
+    border: #c8c8c8 2px solid;
 }
 
 button:active {
     box-shadow: var(--hover-shadows), var(--accent) 0px 0px 30px 5px;
     background-color: var(--accent);
     transform: scale(0.95);
+}
+
+.button_incomplete:hover { 
+    background-color: #bc5e00;
 }
 
 /* links section */

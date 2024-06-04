@@ -46,13 +46,11 @@ function handleCellClick(event) {
 
         // QUARANTINE --------------------------------------------------------------------------------------------------
         // Function should check if the current player just moved their own king into check
-        
         const whiteKing = board.findKingByTeamColor('white');
         const blackKing = board.findKingByTeamColor('black');
 
         // Find the king of the current player
         const currentPlayerKing = board.findKingByTeamColor(board.currentPlayer);
-
         console.log("Current player's king: ", currentPlayerKing);
 
         // Simulate the move to check for self-check

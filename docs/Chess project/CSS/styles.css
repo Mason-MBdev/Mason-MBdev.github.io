@@ -179,11 +179,10 @@ h3 {
     color: #ffffff; /* Orange heading */
     margin-bottom: 15px;
     font-size: 35px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35); /* Add text shadow */
     letter-spacing: 2px; /* Increase letter spacing */
     font-weight: bold; /* Add bold font weight */
 }
-
 
 .popup h2 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -193,7 +192,7 @@ h3 {
     border: 1px solid #000000;
     border-radius: 5px;
     padding: 10px;
-    background-color: #204b7d; /* Dark gray background */
+    background-color: #558ccd; /* Dark gray background */
     width: 230px;
     text-align: center;
 }
