@@ -546,9 +546,8 @@ interact */
 
 .project_left > *:first-child {
     flex: 4;
-    border: 2px solid white;
+    border: 2px solid rgb(184, 184, 184);
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
 }
 
 .project_left > *:last-child {
@@ -604,6 +603,7 @@ interact */
     width: 40vw;
     max-width: 400px;
     border: 1px solid rgb(193, 193, 193);
+    max-height: 200px;
 }
 
 button {
