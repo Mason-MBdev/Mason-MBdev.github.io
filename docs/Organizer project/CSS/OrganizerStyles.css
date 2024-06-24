@@ -6,6 +6,10 @@
 /* Typography */
 /*----------------------------------------*/
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #FFF; /* Light text for dark background */
@@ -20,12 +24,17 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+
 h2 {
     font-size: 30px;
     margin-bottom: 20px;
     text-transform: uppercase; /* Convert text to uppercase for emphasis */
     letter-spacing: 2px; /* Add letter spacing for readability */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle text shadow for depth */
+}
+
+.assignment.assignment-details-container h4 {
+    color: #ffffff; /* Orange heading */
 }
 
 /* Containers */
@@ -46,15 +55,18 @@ h2 {
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Subtle shadow for depth */
 }
 
+
 .persistent-elements {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: #afafaf 1px solid;
-    border-bottom: #afafaf 1px solid;
-    padding: 15px;
-    margin-top: 35px;
-    background-color: #3c3c3c;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 40px;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDEwMCAxMDAiPgogIDxkZWZzPgogICAgPHBhdHRlcm4gaWQ9InBhdHRlcm4iIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblR5cGU9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHJlY3Qgd2lkdGg9IjI1IiBoZWlnaHQ9IjI1IiBmaWxsPSIjZmY1NTAwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgeT0iMjUiIGZpbGw9IiMwMDAwODAiLz4KICAgIDwvcGF0dGVybiA+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMmIxYjFiIiAvPgogIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIiBvcGFjaXR5PSIwLjA0IiAvPgo8L3N2Zz4K');
+    background-position: center 7px;
+    box-shadow: 0 1px 3px rgba(214, 58, 1, 0.5), 0 -1px 3px rgba(222, 52, 0, 0.5);
+    z-index: 9999;
 }
 
 .persistent-elements > :first-child {
@@ -63,6 +75,15 @@ h2 {
 
 .persistent-elements > :not(:first-child) {
     justify-self: flex-end;
+}
+
+/* Sticky navbar styles for non-mobile */
+.persistent-elements.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 98.2%;
+    z-index: 1000;
 }
 
 /* Header */
@@ -82,11 +103,12 @@ h2 {
 /* Course Section */
 /*----------------------------------------*/
 .course {
-    background-color: #333; /* Darker gray background */
-    padding: 20px;
-    margin: 50px 30px 50px 30px;
+    background-color: #312f2f; /* Darker gray background */
+    padding: 60px;
+    margin: 40px 30px 50px 30px;
     border-radius: 10px;
-    border: 1px solid #afafaf; /* Add border */
+    box-shadow: 0 0 5px #893333;
+    border: #000000 2px solid;
 }
 
 .course h3 {
@@ -96,36 +118,63 @@ h2 {
 /* Grades Section */
 /*----------------------------------------*/
 .grades-section {
-    border: #828282 1px solid;
-    padding: 0px 12px 20px 12px;
+    border: #000000 2px solid;
+    padding: 30px;
     border-radius: 10px;
     background-color: #2b2b2b;
+    width: 1280.8px;
+    margin: 0 auto; /* Add this line to center the element horizontally */
+    box-shadow: 0 0 3px rgb(0, 0, 0); /* Subtle shadow for depth */
+}
+
+/* make the last child inside the grades section have no bottom margin */
+.grades-section > :last-child {
+    margin-bottom: 0;
 }
 
 /* custom scrollbar */
 /*----------------------------------------*/
 /* For Firefox */
-* {
+.courses-loaded {
+    height: calc(100vh - 108px); /* Adjust the height as needed */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+}
+
+/* Custom scrollbar styles */
+/* For Firefox */
+.courses-loaded {
     scrollbar-width: thin;
     scrollbar-color: #777 #1f1f1f;
 }
 
 /* For Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
+.wrapper::-webkit-scrollbar {
     width: 10px; /* Set the width of the scrollbar */
 }
 
-*::-webkit-scrollbar-track {
+.wrapper::-webkit-scrollbar-track {
     background-color: #1f1f1f; /* Dark gray background */
-}
+    }
 
-*::-webkit-scrollbar-thumb {
+.wrapper::-webkit-scrollbar-thumb {
     background-color: #777; /* Neutral thumb color */
     border-radius: 5px; /* Rounded corners */
 }
 
-*::-webkit-scrollbar-thumb:hover {
+.wrapper::-webkit-scrollbar-thumb:hover {
     background-color: #555; /* Darker shade of neutral color on hover */
+}
+
+/* Optional: Styles to ensure content area takes full height */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Hide default scrollbars */
 }
 
 /* Assignment Styles */
@@ -135,7 +184,7 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #444; /* Gray background */
+    background-color: #2b2b2b; /* Gray background */
     padding: 15px;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -153,19 +202,22 @@ h2 {
 /*----------------------------------------*/
 
 .custom-file-input {
-    font-size: 14.5px;
+    font-size: 17px;
     font-family: Arial, Helvetica, sans-serif;
     --accent: rgb(255, 85, 0);
     font-weight: bold;
-    letter-spacing: 0.1em;
     border: #FF4500 2px solid;
-    border-radius: 1.1em;
-    background-color: #3e3e3e;
+    border-radius: 10px;
+    background-color: #1f1f1f;
     cursor: pointer;
     color: white;
-    padding: 1em 2em;
     transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
         letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s;
+    width: 156.8px;
+    height: 46.8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .custom-file-input:hover {
@@ -182,19 +234,25 @@ h2 {
     display: none;
 }
 
+
 /* Dropdown Styles */
 /*----------------------------------------*/
 #course-dropdown {
-    background-color: #3e3e3e; /* Dark gray background */
+    background-color: #1f1f1f; /* Dark gray background */
     color: #FFF; /* Light text */
-    padding: 15px; /* Add some padding */
+    padding-left: 10px;
+    padding-right: 0px;
+    /* padding-top: 5px;
+    padding-bottom: 20px; */
     border: 2px solid #FF4500; /* Orange border */
     border-radius: 10px; /* Add border radius */
     cursor: pointer;
     width: auto; /* Set width to fill the container */
-    font-size: 16px; /* Font size */
+    font-size: 14.5px; /* Font size */
     outline: none; /* Remove default outline */
     font-size: 20px;
+    height: 50px;
+    width: 325px;
 }
 
 #course-dropdown option {
@@ -231,16 +289,17 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #555; /* Dark gray background */
+    background-color: #3d3d3d; /* Dark gray background */
     padding: 15px;
     border-radius: 8px;
     margin-top: 15px;
     margin-bottom: 15px;
-    border: 1px solid #777; /* Add border */
+    border: 2px solid #000000;
+    box-shadow: 0 0 2px rgb(255, 255, 255);
 }
 
 .legend > div {
-    width: 20%;
+    width: 25%;
     text-align: left;
 }
 
@@ -324,9 +383,10 @@ h2 {
     z-index: 9998; /* Higher z-index than the overlay */
 }
 
+
 .popup-content {
     background-color: #333; /* Dark gray background */
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 20px;
     border-radius: 10px;
     width: 25%;
@@ -355,22 +415,6 @@ h2 {
 .popup input[type="text"]::placeholder,
 .popup input[type="number"]::placeholder {
     color: #FFF; /* Light text */
-}
-
-/* 
-.popup button {
-    background-color: #FF4500; 
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
-} */
-
-.popup button:hover {
-    background-color: #EAECEE; /* Lighter orange for hover */
 }
 
 .popup .close {
@@ -416,16 +460,26 @@ h2 {
     font-size: 20px;
 }
 
+.overall-grade {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 100px;
+}
+
 .assignment.assignment-details-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #444; /* Dark gray background */
+    background-color: #414141; /* Dark gray background */
     padding: 15px;
     border-radius: 8px;
     margin-top: 15px;
     margin-bottom: 15px;
-    border: 1px solid #777; /* Add border */
+    border: 2px solid #000000; /* Add border */
+    box-shadow: 0 0 1px rgb(218, 62, 0);
 }
 
 .assignment.assignment-details-container > div {
@@ -462,31 +516,333 @@ h2 {
 
 /* different button testing */
 button {
-    font-size: 14.5px;
+    font-size: 17px;
     --accent: rgb(255, 85, 0);
     font-weight: bold;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     border: #FF4500 2px solid;
-    border-radius: 1.1em;
-    background-color: #3e3e3e;
+    border-radius: 10px;
+    background-color: #1f1f1f;
     cursor: pointer;
     color: white;
-    padding: 1em 2em;
-    transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
-        letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s;
+    padding: 0.75em 1.5em;
+    transition:  background-color 0.1s;
+    width: 160px;
+    height: 50px;
 }
 
 button:hover {
-    background-color: #ff5c21;
+    background-color: #e13c00;
 }
 
 button:active {
-    box-shadow: var(--hover-shadows), var(--accent) 0px 0px 30px 5px;
-    background-color: var(--accent);
     transform: scale(0.95);
 }
 
 #add-assignment-popup-btn {
     width: 100%;
 }
-  
+
+button.secondary {
+    font-size: 14px; /* Matched font size */
+    --accent: rgb(51, 51, 51); /* Kept accent color */
+    letter-spacing: 0.1em; /* Kept letter spacing */
+    border: 1px solid rgb(163, 163, 163); /* Adjusted border thickness and color */
+    border-radius: 1.5em; /* Made border radius consistent */
+    background-color: #8d3515; /* Kept background color */
+    cursor: pointer; /* Kept cursor style */
+    color: var(--accent); /* Kept text color */
+    padding: 0.5em 1em; /* Adjusted padding for consistency */
+    transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
+                letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s; 
+    color: white;
+}
+
+
+
+button.secondary:active {
+    box-shadow: var(--hover-shadows), var(--accent) 0px 0px 30px 5px;
+    background-color: var(--accent);
+    transform: scale(0.95);
+    color: white;
+}  
+
+/* Style for date input */
+input[type="date"] {
+    background-color: #555; /* Dark gray background */
+    color: #FFF; /* Light text */
+    padding: 10px; /* Add some padding */
+    border: 2px solid #FF4500; /* Orange border */
+    border-radius: 5px; /* Add border radius */
+    width: calc(100% - 22px); /* Subtract padding and border width */
+    font-size: 16px; /* Font size */
+    margin-bottom: 15px; /* Add margin below the input */
+}
+
+.task-menu-container {
+    background-color: #312f2f;
+    padding: 60px;
+    margin: 40px 30px 50px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #893333;
+    border: #575757 1px solid;
+}
+
+.task-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* border: #000000 2px solid; */
+    padding: 28px;
+    border-radius: 10px;
+    background-color: #2b2b2b;
+    gap: 30px;
+    justify-content: center; /* Center the rows horizontally */
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    width: 1265.6px;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.task-container-top {
+    display: flex;
+    flex-wrap: wrap;
+    border: #000000 2px solid;
+    padding: 28px;
+    border-radius: 10px;
+    background-color: #2b2b2b;
+    gap: 40px;
+    justify-content: center; /* Center the rows horizontally */
+    align-items: center;
+    justify-items: left;
+    align-content: center;
+    width: 1284.8px;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 3px rgb(0, 0, 0);
+    text-align: left; /* Add text-align property to align text left */
+}
+
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #373737; /* Dark gray background */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #777; /* Add border */
+    width: 245px;
+    max-width: 280px;
+    transition: background 0.1s, border 0.1s; /* Added transition property for background and border */
+}
+
+.task:hover {
+    background: rgb(68, 68, 68);
+    border: rgb(215, 215, 215) 1px solid;
+    transition: background 0.1s, border 0.1s; /* Added transition property for background and border */
+}
+
+.task > div {
+    text-align: left;
+}
+
+.menu-info {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1323.2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    justify-content: center;
+    gap: 50px;
+}
+
+.menu-info-internal {
+    border: #000000 2px solid;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: #2b2b2b;
+    box-shadow: 0 0 3px rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    height: 125px;
+    max-width: 400px;
+}
+
+.delete-button-wrapper {
+    gap: 10px;
+}
+
+.highlight {
+    transform: scale(0.95);
+    background-color: #e13c00;
+    border: black 2px solid;
+}
+
+.nav-element {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu-buttons {
+    background-color: #2b2b2b;
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px black solid;
+    box-shadow: 0 0 3px rgb(245, 49, 0);
+    max-width: 520px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: left;
+}
+
+.course-menu-buttons {
+    background-color: #2b2b2b;
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px black solid;
+    box-shadow: 0 0 3px rgb(0, 0, 0);
+    margin-top: 20px;
+    max-width: 1424px;
+    justify-content: center; /* Modified: Use center to align elements horizontally */
+    align-content: center;
+    display: flex;
+    width: 1319px;
+    height: 80px;
+    margin-bottom: 100px;
+}
+
+button.secondary.incomplete {
+    background-color: rgb(207, 207, 47);
+}
+
+button.secondary.complete {
+    background-color: rgb(0 89 0)
+}
+
+button.secondary.ass-delete-button {
+    background-color: rgb(117 0 0)
+}
+
+button.secondary.assignment-operators {
+    width: 110px;
+}
+
+button.secondary.TaskAdd-btn {
+    background-color: green;
+}
+
+.assignment-operators.secondary.incomplete:hover {
+    color: white;
+}
+
+.task-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.TaskDelete-btn.secondary.ass-delete-button.assignment-operators,
+.secondary.assignment-operators.TaskEdit-btn,
+.secondary.complete.assignment-operators.TaskComplete-btn {
+    color: black;
+    width: 50px;
+    height: 40px;
+    font-size: 17px;
+    color: rgb(171, 255, 241);
+    text-align: center;
+    border-radius: 10px;
+}
+
+#TaskFilter-btn,
+#TaskSort-btn,
+.TaskAdd-btn.secondary {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    background-color: rgb(177, 31, 31);
+}
+
+.TaskAdd-btn.secondary {
+    color: white;
+}
+
+#TaskFilter-btn:hover,
+#TaskSort-btn:hover {
+    border: 1px solid white; /* Set the border to white */
+    color: white;
+    background-color: rgb(66, 66, 66);
+}
+
+#TaskFilter-btn.complete,
+#TaskSort-btn.complete {
+    border: 1px solid rgb(163, 163, 163);
+    color: white;
+    background-color: #333; /* Darker background color */
+}
+
+button.secondary.assignment-operators {
+    width: 96px;
+}
+
+button.secondary.assignment-operators.ass-delete-button {
+    width: 97px;
+}
+
+button.secondary:Hover {
+    background-color: rgb(47, 47, 47);
+    border:#d4d4d4 1px solid;
+    color: #FFF; /* White text */
+}
+
+.meta-task {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 1300px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.task-menu-buttons {
+    background-color: #2b2b2b;
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px black solid;
+    box-shadow: 0 0 3px rgb(245, 49, 0);
+    max-width: 520px;
+    justify-content: center; /* Centers children horizontally */
+    align-items: center; /* Centers children vertically */
+    display: flex;
+    margin: 0 auto; /* Centers the div itself horizontally */
+}
+.operations-container {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.course-menu-info {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1250px;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 50px;
+    display: flex;
+    justify-content: center;
+}

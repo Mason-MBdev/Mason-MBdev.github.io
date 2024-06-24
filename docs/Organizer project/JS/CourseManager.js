@@ -1,6 +1,7 @@
 class CourseManager {
     constructor() {
         this.courses = [];
+        this.selectedCourse = null;
     }
 
     calculateOverallGrade() {
@@ -55,5 +56,35 @@ class CourseManager {
             throw new Error("Course not found");
         }
         course.removeAssignment(assignmentId);
+    }
+
+    displayCourses() {
+        console.log("Courses:");
+        this.courses.forEach(course => {
+            console.log(`Course: ${course.title}`);
+            console.log(`Assignments: ${course.assignments.length}`);
+            console.log(`Grade: ${course.courseGrade}`);
+        });
+    }
+
+    displayCourseAssignments(courseId) {
+        const course = this.courses.find(c => c.id === courseId);
+        if (!course) {
+            throw new Error("Course not found");
+        }
+        console.log(`Assignments for course ${course.title}:`);
+        course.assignments.forEach(assignment => {
+            console.log(`Assignment: ${assignment.title}`);
+            console.log(`Grade: ${assignment.grade}`);
+            console.log(`Weight: ${assignment.weight}`);
+        });
+    }
+
+    selectCourse(courseId) {
+        this.selectedCourse = this.courses.find(c => c.id === courseId);
+    }
+
+    getSelectedCourse() {
+        return this.selectedCourse;
     }
 }

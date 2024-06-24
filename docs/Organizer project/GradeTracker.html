@@ -10,28 +10,29 @@
 
 <div id="courses-container">
     <div class="course-section">
-        <!-- Initial buttons -->
-        <div class="app-title">
-            <h2>Course Manager (Demo)</h2>
-            <div class="overall-grade">
-                <p id="overall-grade">Overall Grade: 0.00%</p>
-            </div>
-        </div>
-
         <div class="persistent-elements">
-            <div style="display: flex; gap: 20px;">
+            
+            <div class="nav-menu-buttons nav-element">
+                <h2 style="margin: 0px; margin-top: 4px;">Menu</h2>
+                <button id="grades-btn">Grades</button>
+                <button id="tasks-btn">Tasks</button>
+                <button id="calendar-btn">Calendar</button>
+            </div>
+            
+            <div class="nav-menu-buttons nav-element">
                 <select id="course-dropdown" required>
                     <option value="" disabled selected>Select or add a course to start</option>
                 </select>
-                <button class="button_top" id="open-popup-btn">Add Course</button>
+                <button id="open-popup-btn">Add Course</button>
             </div>
-            <div style="display: flex; gap: 20px;">
-                <button id="save-btn">Save</button>
-                <label class="custom-file-input" for="fileInput">Load</label>
+
+            <div class="nav-menu-buttons nav-element">
+                <button id="save-btn">SAVE &#x25BC;</button>
+                <label class="custom-file-input" for="fileInput">LOAD &#x25BC;</label>
                 <input type="file" id="fileInput">
             </div>
-        </div>
 
+        </div>
         <div class="courses-loaded"> </div>
     </div>
 </div>
@@ -60,13 +61,75 @@
     </div>
 </div>
 
+<!-- task Popup Menu -->
+<div id="task-popup" class="popup">
+    <div class="popup-content">
+        <span id="close-task-popup" class="close-popup">&times;</span>
+
+        <h2>Manage Task</h2>
+        <label style="display: flex; margin: 20px 0px 10px 10px;">Required</label>
+        <input type="text" id="task-name-input" placeholder="Name">
+        <div style="display: flex; gap: 20px;">
+            <!-- label saying required-->
+            <input type="text" id="task-course-input" placeholder="Course">
+            <input type="date" id="task-date-input">
+        </div>
+
+        <label style="display: flex; margin: 20px 0px 10px 10px;">Optional</label>
+        <div>
+            <input type="number" id="task-grade-input" placeholder="Grade">
+            <input type="number" id="task-weight-input" placeholder="Weight">
+        </div>
+
+        <button id="add-task-popup-btn">Create</button>
+    </div>
+</div>
+
+<!-- filter Popup Menu -->
+<div id="filter-popup" class="popup">
+    <div class="popup-content">
+        <span id="close-filter-popup" class="close-popup">&times;</span>
+
+        <h2>Manage Filter</h2>
+        <label style="display: flex; margin: 20px 0px 10px 10px;">Apply Filters:</label>
+        <input type="text" id="task-name-input" placeholder="Name">
+        <div style="display: flex; gap: 20px;">
+            <!-- label saying required-->
+            <input type="text" id="task-course-input" placeholder="Course">
+            <input type="date" id="task-date-input">
+        </div>
+
+        <label style="display: flex; margin: 20px 0px 10px 10px;">Optional</label>
+        <div>
+            <input type="number" id="task-grade-input" placeholder="Grade">
+            <input type="number" id="task-weight-input" placeholder="Weight">
+        </div>
+
+        <button id="add-task-popup-btn">Create</button>
+    </div>
+</div>
+
+
 <div class="overlay"></div>
 
 <script src="./JS/Assignment.js"></script>
 <script src="./JS/Course.js"></script>
-<script src="./JS/CourseManager.js"></script>
 <script src="./JS/Persistence.js"></script>
+<script src="./JS/StickyNav.js"></script>
+<script src="./JS/Task.js"></script>
+<script src="./JS/TaskManager.js"></script>
+<script src="./JS/CourseManager.js"></script>
+<script src="./JS/Calendar.js"></script>
 <script src="./JS/App.js"></script>
+
+<!-- Mobile Alert -->
+<script>
+    window.addEventListener('resize', function() {
+        if (window.innerWidth < 768) {
+            alert('This website is intended to be viewed on a desktop, if you are on a phone or tablet, you may try rotating the phone to get a better look but you are most likely looking at a formatting nightmare.');
+        }
+    });
+</script>
 
 </body>
 </html>
