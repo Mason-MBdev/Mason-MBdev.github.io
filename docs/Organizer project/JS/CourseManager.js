@@ -493,8 +493,7 @@ class CourseManager {
         const legendDiv = document.createElement('div');
         legendDiv.className = 'legend';
     
-        // Populate the legend div with names, grades, weighted grades, completion, and operations
-        ['Assignment', 'Grade', 'Weighted Grade', 'Operations'].forEach(text => {
+        ['Assignment', 'Grade', 'Weighted Grade', 'Done\xa0\xa0\xa0\xa0||\xa0\xa0\xa0\xa0Edit\xa0\xa0\xa0\xa0||\xa0\xa0\xa0Delete'].forEach(text => {
             const legendItem = document.createElement('div');
             const legendItemText = document.createElement('h3');
             legendItemText.style.fontSize = '19px';
@@ -560,7 +559,7 @@ class CourseManager {
             });
     
             const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Delete \u{1F5D1}';
+            deleteButton.textContent = '\u{1F5D1}';
             deleteButton.classList.add('secondary');
             deleteButton.classList.add('assignment-operators');
             deleteButton.classList.add("ass-delete-button");
@@ -579,18 +578,18 @@ class CourseManager {
             const completionButton = document.createElement('button');
             completionButton.classList.add('secondary');
             completionButton.classList.add('assignment-operators');
-            completionButton.textContent = 'Done ✔';
+            completionButton.textContent = '✔';
     
             // Depending on the current state of the assignment, apply the complete and incomplete classes
             if (assignment.completed) {
                 completionButton.classList.remove('incomplete');
                 completionButton.classList.add('complete');
-                completionButton.textContent = 'Done ✔';
+                completionButton.textContent = '✔';
                 completionButton.style.color = 'white';
             } else {
                 completionButton.classList.add('incomplete');
                 completionButton.classList.remove('complete');
-                completionButton.textContent = 'To Do ✘';
+                completionButton.textContent = '✘';
                 completionButton.style.color = 'black';
             }
     
@@ -603,7 +602,7 @@ class CourseManager {
             });
     
             const editButton = document.createElement('button');
-            editButton.textContent = 'Edit \u{2710}';
+            editButton.textContent = '\u{2710}';
             editButton.classList.add('secondary');
             editButton.classList.add('assignment-operators');
             editButton.classList.add("ass-edit-button");

@@ -125,7 +125,7 @@ class TaskManager {
         taskManager.hideTaskPopup();
         this.updateTimeRemaining();
     }
-    
+
     // get time remaining for a task
     getTimeRemaining(task) {
         const dueDate = new Date(task.taskDueDate);
@@ -311,7 +311,7 @@ class TaskManager {
 
         // Add priority task label
         let priorityTaskLabel = document.createElement('h3');
-        priorityTaskLabel.innerText = 'Priority Task :';
+        priorityTaskLabel.innerText = 'Priority Task:';
         menuInternalInfoDiv1.appendChild(priorityTaskLabel);
 
         // Add highest priority task indicator
@@ -348,7 +348,7 @@ class TaskManager {
 
         // Add completion stats label
         let completionStatsLabel = document.createElement('h3');
-        completionStatsLabel.innerText = 'Stats :';
+        completionStatsLabel.innerText = 'Stats:';
         menuInternalInfoDiv2.appendChild(completionStatsLabel);
 
         // Add completed task count

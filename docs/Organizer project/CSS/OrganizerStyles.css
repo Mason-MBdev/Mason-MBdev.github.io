@@ -541,7 +541,7 @@ button:active {
 }
 
 button.secondary {
-    font-size: 14px; /* Matched font size */
+    font-size: 18px; /* Matched font size */
     --accent: rgb(51, 51, 51); /* Kept accent color */
     letter-spacing: 0.1em; /* Kept letter spacing */
     border: 1px solid rgb(163, 163, 163); /* Adjusted border thickness and color */
@@ -729,10 +729,6 @@ button.secondary.ass-delete-button {
     background-color: rgb(117 0 0)
 }
 
-button.secondary.assignment-operators {
-    width: 110px;
-}
-
 button.secondary.TaskAdd-btn {
     background-color: green;
 }
@@ -787,11 +783,7 @@ button.secondary.TaskAdd-btn {
 }
 
 button.secondary.assignment-operators {
-    width: 96px;
-}
-
-button.secondary.assignment-operators.ass-delete-button {
-    width: 97px;
+    width: 75px;
 }
 
 button.secondary:Hover {
@@ -822,6 +814,7 @@ button.secondary:Hover {
     display: flex;
     margin: 0 auto; /* Centers the div itself horizontally */
 }
+
 .operations-container {
     justify-content: center;
     align-items: center;
