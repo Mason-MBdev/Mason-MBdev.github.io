@@ -131,7 +131,7 @@ class CourseManager {
 
                 totalGrade += course.overallGrade;
                 // log  the values
-                console.log(`Course: ${course.title} grade: ${course.overallGrade}`);
+                console.log(`Course: ${course.title} grade: ${course.overallGrade}%`);
 
                 if (!this.highestGradeCourse || course.overallGrade > this.highestGradeCourse.overallGrade) {
                     this.highestGradeCourse = course;
@@ -443,7 +443,7 @@ class CourseManager {
         CourseInfoTwo.innerText = 'Course Info #2 ';
         CourseInfoTwo.id = 'Course Info #2'; // Add an id to the element
         console.log(this.highestGradeCourse);
-        CourseInfoTwo.innerText = course.highestGradeAssignment? `Highest Grade: \n${course.highestGradeAssignment.name}, ${course.highestGradeAssignment.grade}` : 'Highest Grade: N/A';
+        CourseInfoTwo.innerText = course.highestGradeAssignment? `Highest Grade: \n${course.highestGradeAssignment.name} - ${course.highestGradeAssignment.grade}%` : 'Highest Grade: N/A';
         CourseInfoTwo.style.fontWeight = 'normal';
         CourseInfoTwo.style.color = 'white';
         CourseInfoTwo.style.fontSize = '18px'; // Set font size to 21
@@ -493,7 +493,7 @@ class CourseManager {
         const legendDiv = document.createElement('div');
         legendDiv.className = 'legend';
     
-        ['Assignment', 'Grade', 'Weighted Grade', 'Done\xa0\xa0\xa0\xa0||\xa0\xa0\xa0\xa0Edit\xa0\xa0\xa0\xa0||\xa0\xa0\xa0Delete'].forEach(text => {
+        ['Assignment', 'Grade', 'Weighted Grade', '\xa0Done\xa0\xa0\xa0\xa0||\xa0\xa0\xa0\xa0Edit\xa0\xa0\xa0\xa0||\xa0\xa0\xa0Delete'].forEach(text => {
             const legendItem = document.createElement('div');
             const legendItemText = document.createElement('h3');
             legendItemText.style.fontSize = '19px';
