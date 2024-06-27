@@ -125,6 +125,7 @@ class TaskManager {
         taskManager.hideTaskPopup();
         this.updateTimeRemaining();
     }
+    
     // get time remaining for a task
     getTimeRemaining(task) {
         const dueDate = new Date(task.taskDueDate);
