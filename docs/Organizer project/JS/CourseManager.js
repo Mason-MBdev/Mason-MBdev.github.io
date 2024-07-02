@@ -130,11 +130,11 @@ class CourseManager {
         console.log("Assignment to edit:");
         console.log(assignment);
 
-        // if the assignment would cause the weight to exceed 100%, alert the user and return
-        if ((this.selectedCourse.totalWeight - assignment.weight) + assignmentWeight > 100) {
-            alert("The weight of the assignment would exceed 100%.");
-            return;
-        }
+        // // if the assignment would cause the weight to exceed 100%, alert the user and return
+        // if ((this.selectedCourse.totalWeight - assignment.weight) + assignmentWeight > 100) {
+        //     alert("The weight of the assignment would exceed 100%.");
+        //     return;
+        // }
 
         assignment.name = assignmentName;
         assignment.grade = assignmentGrade;
