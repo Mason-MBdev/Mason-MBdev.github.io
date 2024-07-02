@@ -6,6 +6,9 @@ class CourseManager {
         this.highestGradeCourse = null;
         this.completedAssignmentCountOverall = 0;
         this.totalAssignmentCountOverall = 0;
+        this.totalDecidedWeight = 0;
+        this.totalWeight = 0; 
+        this.editStatus = false;
     }
 
     // ADDING COURSES AND ASSIGNMENTS -----------------------------------------------------------------------------------------
@@ -54,6 +57,13 @@ class CourseManager {
             throw new Error("Course not found");
         }
         console.log("Sending assignment details to course...");
+
+        // if the assignment would cause the weight to exceed 100%, alert the user and return
+        if (course.totalWeight + assignmentDetails.weight > 100) {
+            alert("The weight of the assignment would exceed 100%.");
+            return;
+        }
+
         course.addAssignment(assignmentDetails);
     }
 
@@ -72,21 +82,78 @@ class CourseManager {
     editAssignmentFromCourse (courseId, assignmentId) {{
         console.log(`Coursemanager - editAssignmentFromCourse(courseId: ${courseId}, assignmentId: ${assignmentId})`);
         const course = this.courses.find(c => c.id === courseId);
-        console.log("Found course to Edit Assignment from:");
         console.log(course);
         if (!course) {
             throw new Error("Course not found");
         }
-
+        console.log("Found course to Edit Assignment from:");
+        console.log(course);
         // find the assignment to edit
-        const assignmentDetails = courseManager.getAssignmentById(courseId, assignmentId);
+        const assignmentDetails = courseManager.getAssignmentById(parseInt(courseId), parseInt(assignmentId));
+        console.log(assignmentDetails);
 
         // set the popup menu to display the assignment details of the assignment being edited
-        document.getElementById('assignment-grade-input').value = assignmentDetails.grade;
-        document.getElementById('assignment-name-input').value = assignmentDetails.name;
-        document.getElementById('assignment-weight-input').value = assignmentDetails.weight;
-        course.editAssignment(assignmentId, assignmentDetails);
+        document.getElementById('assignment-edit-grade-input').value = assignmentDetails.grade;
+        document.getElementById('assignment-edit-name-input').value = assignmentDetails.name;
+        document.getElementById('assignment-edit-weight-input').value = assignmentDetails.weight;
+        console.log("Assignment details set in popup menu");
+        this.editStatus = true;
+        console.log("Edit status set to true");
+
+        //open the popup menu
+        this.openEditAssignmentPopup();
     }}
+
+    editAssignmentFromPopup() {
+        const assignmentName = document.getElementById('assignment-edit-name-input').value;
+        const assignmentGrade = parseFloat(document.getElementById('assignment-edit-grade-input').value);
+        const assignmentWeight = parseInt(document.getElementById('assignment-edit-weight-input').value);
+        console.log("POPUP CALLED");
+
+        if (!assignmentName || isNaN(assignmentGrade) || isNaN(assignmentWeight)) {
+            alert("Please fill in all fields correctly.");
+            return;
+        }
+
+        console.log("TESING COURSE ID -----------------------------");
+        console.log(this.selectedCourse);
+
+        //console log the type of the id
+        console.log(typeof this.selectedCourse.id);
+
+        if (!this.selectedCourse == null) {
+            alert("Please select a course.");
+            return;
+        }
+
+        const assignment = courseManager.getAssignmentById(this.selectedCourse.id, this.selectedCourse.id);
+        console.log("Assignment to edit:");
+        console.log(assignment);
+
+        // if the assignment would cause the weight to exceed 100%, alert the user and return
+        if ((this.selectedCourse.totalWeight - assignment.weight) + assignmentWeight > 100) {
+            alert("The weight of the assignment would exceed 100%.");
+            return;
+        }
+
+        assignment.name = assignmentName;
+        assignment.grade = assignmentGrade;
+        assignment.weight = assignmentWeight;
+        console.log("Assignment edited:");
+        console.log(assignment);
+        this.closeEditAssignmentPopup();
+        this.displayAssignments(this.selectedCourse.id);
+    }
+
+
+    // Helpper function to get the assignment by ID
+    getAssignmentById(courseId, assignmentId) {
+        const course = this.courses.find(c => c.id === courseId);
+        if (!course) {
+            throw new Error("Course not found");
+        }
+        return course.assignments.find(assignment => assignment.id === assignmentId);
+    }
 
     addAssignmentFromPopup() {
         const assignmentName = document.getElementById('assignment-name-input').value;
@@ -117,13 +184,14 @@ class CourseManager {
 
     // CALCULATIONS / GETTERS ------------------------------------------------------------------------------------------------
     calculateOverallGrade() {
-        console.log("Calculating overall grade...fuck the queen");
+        console.log("Calculating overall grade...");
         let totalGrade = 0;
         let totalWeight = this.courses.length;
         this.courses.forEach(course => {
+            console.log("Recalculating course grade for course: " + course.title);
+            console.log(course);
             course.recalculateCourseGrade();
             if (course.overallGrade!== null) {
-                let completedAssignments = 0;
                 course.getCompletedAssignmentsCount();
 
                 //console log the name of the course and the number of completed assignments
@@ -149,17 +217,20 @@ class CourseManager {
             this.totalAssignmentCountOverall += course.assignments.length;
         });
 
+        // calculate decided and undecided weight
+        this.calculateOverallWeights();
+
         // Update all progress bars
         this.updateOverallProgress();
-        // this.courses.forEach(course => {
-        //     this.updateCourseProgress(course);
-        // });
+        this.courses.forEach(course => {
+            this.updateCourseProgress(course);
+        });
 
         // console log the results
         console.log("Completed Assignments Overall:", parseInt(this.completedAssignmentCountOverall));
         console.log("Total Assignments Overall:", parseInt(this.totalAssignmentCountOverall));
 
-        console.log(`Highest Grade: ${this.highestGradeCourse ? this.highestGradeCourse.title : 'N/A'}, ${this.highestGradeCourse ? this.highestGradeCourse.overallGrade : 'N/A'}`);
+        console.log(`Highest Course: ${this.highestGradeCourse ? this.highestGradeCourse.title : 'N/A'}, ${this.highestGradeCourse ? this.highestGradeCourse.overallGrade : 'N/A'}`);
         return totalWeight > 0? totalGrade / totalWeight : 0;
     }
 
@@ -172,7 +243,10 @@ class CourseManager {
     }
 
     selectCourse(id) {
+        console.log(`Selecting course with ID: ${id}`);
         this.selectedCourse = this.courses.find(course => course.id === id);
+        this.display();
+        console.log(`Selected course: ${this.selectedCourse}`);
     }
 
     updateOverallProgress() {
@@ -180,9 +254,10 @@ class CourseManager {
         if (progressBarFill) {
             const completedAssignments = this.completedAssignmentCountOverall;
             const totalAssignments = this.totalAssignmentCountOverall;
-            const percentage = totalAssignments > 0 ? (completedAssignments / totalAssignments) * 100 : 0;
+            const percentage = totalAssignments > 0 ? ((completedAssignments / totalAssignments) * 100).toFixed(2) : 0;
             console.log(`Updating progress bar: ${completedAssignments} / ${totalAssignments} = ${percentage}%`);
             progressBarFill.style.setProperty('width', `${percentage}%`);
+
             progressBarFill.innerText = `${percentage}%`;
 
             if (percentage < 25) {
@@ -195,14 +270,73 @@ class CourseManager {
         }
     }
 
-    // updateCourseProgress(course) {
+    updateCourseProgress(course) {
+        const progressBarFill = document.getElementById('progress-bar-fill'+course.id);
+        if (progressBarFill) {
+
+            const completedAssignments = course.completedAssignments;
+            const totalAssignments = course.assignments.length;
+            const percentage = totalAssignments > 0 ? ((completedAssignments / totalAssignments) * 100).toFixed(2) : 0;
+            console.log(`Updating progress bar: ${completedAssignments} / ${totalAssignments} = ${percentage}%`);
+            progressBarFill.style.setProperty('width', `${percentage}%`);
+
+            progressBarFill.innerText = `${percentage}%`;
+
+            // console log the text inside of the progressBarFill element
+            console.log(progressBarFill.innerText);
+
+            if (percentage < 25) {
+                progressBarFill.style.setProperty('background-color', 'red');
+            } else if (percentage >= 25 && percentage <= 49) {
+                progressBarFill.style.setProperty('background-color', 'orange');
+            } else {
+                progressBarFill.style.setProperty('background-color', 'green');
+            }
+        }
+    }
+
+    updateCoursedecidedWeight(course) {
+        const progressBarFill = document.getElementById('decided-weight-progress-bar-fill'+course.id);
+        if (progressBarFill) {
+
+            // determine percentage filled based on the decided weight of the course
+            const percentage = ((course.decidedWeight / course.totalWeight) * 100).toFixed(2);
+            progressBarFill.innerText = `${percentage}%`;
+
+            // console log the text inside of the progressBarFill element
+            console.log(progressBarFill.innerText);
+
+            if (percentage < 25) {
+                progressBarFill.style.setProperty('background-color', 'red');
+            } else if (percentage >= 25 && percentage <= 49) {
+                progressBarFill.style.setProperty('background-color', 'orange');
+            } else {
+                progressBarFill.style.setProperty('background-color', 'green');
+            }
+        }
+    }
+
+    calculateOverallWeights() {
+        let totalDecidedWeight = 0;
+        let totalUndecidedWeight = 0;
+        this.courses.forEach(course => {
+            course.courseWeightCalculations();
+            totalDecidedWeight += course.decidedWeight;
+            totalUndecidedWeight += course.undecidedWeight;
+        });
+
+        this.totalDecidedWeight = totalDecidedWeight;
+        this.totalUndecidedWeight = totalUndecidedWeight;
+        this.totalWeight = totalDecidedWeight + totalUndecidedWeight;
+
+        return totalDecidedWeight > 0 ? totalUndecidedWeight / totalDecidedWeight : 0;
+    }
 
     // DISPLAY COURSES AND ASSIGNMENTS ---------------------------------------------------------------------------------------
     // Displays the course which has been currently selected by the user, creates box for the assignments.
     display () {
         this.calculateOverallGrade();
 
-        // Clear existing content
         let coursesLoadedDiv = document.querySelector('.courses-loaded');
         coursesLoadedDiv.innerHTML = '';
 
@@ -228,14 +362,14 @@ class CourseManager {
         menuInternalInfoDiv1.classList.add('menu-info-internal');
         menuInfoDiv.appendChild(menuInternalInfoDiv1);
 
-        // Add priority task label
-        let priorityTaskLabel = document.createElement('h3');
-        priorityTaskLabel.innerText = 'Grades:';
-        menuInternalInfoDiv1.appendChild(priorityTaskLabel);
+        // // Add priority task label
+        // let priorityTaskLabel = document.createElement('h3');
+        // priorityTaskLabel.innerText = 'Grades:';
+        // menuInternalInfoDiv1.appendChild(priorityTaskLabel);
 
         // Add highest priority task indicator
         let lowestTimeRemaining = document.createElement('h4');
-        lowestTimeRemaining.innerText = 'N/A';
+        lowestTimeRemaining.innerText = 'Overall Grade: 0%';
         lowestTimeRemaining.id = 'overall-grade';
         lowestTimeRemaining.style.fontWeight = 'normal';
         lowestTimeRemaining.style.color = 'white';
@@ -245,7 +379,7 @@ class CourseManager {
 
         // Add time of that task
         let timeOfTask = document.createElement('h4');
-        timeOfTask.innerText = this.highestGradeCourse ? `Highest Grade: ${this.highestGradeCourse.title} - ${this.highestGradeCourse.overallGrade.toFixed(2)}%` : 'Highest Grade: N/A';
+        timeOfTask.innerText = this.highestGradeCourse ? `Highest Course: \n${this.highestGradeCourse.title} - ${this.highestGradeCourse.overallGrade.toFixed(2)}%` : 'Highest Course: N/A - 0%';
         timeOfTask.id = 'highest-grade';
         timeOfTask.style.fontWeight = 'normal';
         timeOfTask.style.color = 'white';
@@ -257,10 +391,10 @@ class CourseManager {
         menuInternalInfoDiv2.classList.add('menu-info-internal');
         menuInfoDiv.appendChild(menuInternalInfoDiv2);
 
-        // Add completion stats label
-        let completionStatsLabel = document.createElement('h3');
-        completionStatsLabel.innerText = 'Completion:';
-        menuInternalInfoDiv2.appendChild(completionStatsLabel);
+        // // Add completion stats label
+        // let completionStatsLabel = document.createElement('h3');
+        // completionStatsLabel.innerText = 'Completion:';
+        // menuInternalInfoDiv2.appendChild(completionStatsLabel);
 
         // Add completed task count
         let completedTaskCount = document.createElement('h4');
@@ -281,7 +415,56 @@ class CourseManager {
         // Create progress bar fill
         let progressBarFill = document.createElement('div');
         progressBarFill.id = 'progress-bar-fill';
+        progressBarFill.classList.add('progress-bar-fill-style');
         progressBar.appendChild(progressBarFill);
+
+        this.updateOverallProgress();
+
+        // append new div to menuinternalinfo2 to hold decided and undecided weight
+        let decidedUndecidedWeightDiv = document.createElement('div');
+        decidedUndecidedWeightDiv.classList.add('menu-info-internal');
+        menuInfoDiv.appendChild(decidedUndecidedWeightDiv);
+
+        // // Grade Weighting
+        // let weightLabel = document.createElement('h3');
+        // weightLabel.innerText = 'Grade Weighting:';
+        // decidedUndecidedWeightDiv.appendChild(weightLabel);
+
+        // Display decided weight
+        let decidedWeight = document.createElement('h4');
+        let weightnumber = (this.totalDecidedWeight / this.totalWeight * 100).toFixed(2)
+        decidedWeight.innerText = `Decided Weight: ${isNaN(weightnumber) ? '0%' : weightnumber + '%'}`;
+        decidedWeight.style.fontWeight = 'normal';
+        decidedWeight.style.color = 'white';
+        decidedWeight.style.fontSize = '18px';
+        decidedUndecidedWeightDiv.appendChild(decidedWeight);
+
+        // create a progress bar for decided weight and display fill based on decided weight
+        let decidedWeightProgressBar = document.createElement('div');
+        decidedWeightProgressBar.id = 'progress-bar';
+        decidedUndecidedWeightDiv.appendChild(decidedWeightProgressBar);
+
+        // create h4 element to display decided weight percentage
+        let decidedWeightProgressBarFill = document.createElement('div');
+        decidedWeightProgressBarFill.id = 'decided-weight-progress-bar-fill';
+        decidedWeightProgressBarFill.classList.add('progress-bar-fill-style');
+        decidedWeightProgressBar.appendChild(decidedWeightProgressBarFill);
+
+        // Calculate the width of the progress bar fill based on the decided weight ratio
+        let decidedWeightRatio = this.totalDecidedWeight / this.totalWeight;
+        let progressBarFillWidth = decidedWeightRatio * 100;
+        decidedWeightProgressBarFill.style.width = `${progressBarFillWidth}%`;
+
+        // Add percentage text
+        let progressBarFillText = document.createElement('span');
+        progressBarFillText.innerText = `${progressBarFillWidth.toFixed(2)}%`;
+        progressBarFillText.classList.add('progress-bar-fill-text');
+        decidedWeightProgressBarFill.appendChild(progressBarFillText);
+
+        // Check if progressBarFillWidth is NaN and display  if true
+        if (isNaN(progressBarFillWidth)) {
+            progressBarFillText.innerText = '0%';
+        }
 
         // create meta task div to hold task operations and task title
         let metaTaskDiv = document.createElement('div');
@@ -296,7 +479,7 @@ class CourseManager {
         // Add operations title
         let operationsTitle = document.createElement('h3');
         operationsTitle.innerText = '- Operations -';
-        operationsTitle.style.fontSize = '24px'; // Set font size to 20
+        operationsTitle.style.fontSize = '27px'; // Set font size to 20
         operationsContainer.appendChild(operationsTitle);
 
         // Container for meta task operations while holds another container of class "nav-menu-buttons" for add course and select course
@@ -309,22 +492,11 @@ class CourseManager {
         navMenuButtons.classList.add('nav-menu-buttons');
         metaTaskContainer.appendChild(navMenuButtons);
 
-        // Add course button
-        let addTaskButton = document.createElement('button');
-        addTaskButton.innerText = 'Add Course';
-        addTaskButton.classList.add('CourseAdd-btn');
-        addTaskButton.style.marginRight = '25px';
-        navMenuButtons.appendChild(addTaskButton);
-        addTaskButton.onclick = () => this.openAddCoursePopup();
-
         // Select course dropdown
         let selectCourseDropdown = document.createElement('select');
         selectCourseDropdown.id = 'select-course-dropdown';
         selectCourseDropdown.classList.add('course-dropdown');
         navMenuButtons.appendChild(selectCourseDropdown);
-
-        // Set selected value to the currently selected course
-        selectCourseDropdown.value = this.selectedCourse ? this.selectedCourse.id : '';
 
         // Add default option
         let defaultOption = document.createElement('option');
@@ -351,6 +523,17 @@ class CourseManager {
             this.displayAssignments(parseInt(selectCourseDropdown.value));
         });
 
+        // Set selected value to the currently selected course
+        selectCourseDropdown.value = this.selectedCourse ? this.selectedCourse.id : '';
+        
+        // Add course button
+        let addTaskButton = document.createElement('button');
+        addTaskButton.innerText = 'Add Course';
+        addTaskButton.classList.add('CourseAdd-btn');
+        addTaskButton.style.marginLeft = '25px';
+        navMenuButtons.appendChild(addTaskButton);
+        addTaskButton.onclick = () => this.openAddCoursePopup();
+        
         // nav-menu-buttons container for add task, filter, and sort buttons
         let navMenuButtons2 = document.createElement('div');
         navMenuButtons2.classList.add('nav-menu-buttons');
@@ -371,7 +554,14 @@ class CourseManager {
         navMenuButtons2.appendChild(deleteCourseButton);
         deleteCourseButton.onclick = () => {
             this.removeCourse(this.selectedCourse.id);
+            this.selectedCourse = null;
+            // select the first course in the list if there is one
             this.display();
+
+            if (this.courses.length > 0) {
+                this.selectCourse(this.courses[0].id);
+                this.displayAssignments(this.selectedCourse.id);
+            }
         };
 
         // create taskContainerTop for the to do label
@@ -385,10 +575,21 @@ class CourseManager {
         taskContainer.classList.add('task-container');
         taskContainer.style.textAlign = 'center'; // Add text alignment style
         taskContainerTop.appendChild(taskContainer);
+
+        coursesLoadedDiv.style.height = '';
     }
 
     // Displays the assignments within the course given as a parameter
     displayAssignments(courseId) {
+        
+        const container = document.getElementById('course-assignments-container');
+        if (container) {
+            const currentHeight = container.offsetHeight;
+            if (currentHeight !== null) {
+                container.style.minHeight = `${currentHeight}px`;
+                container.style.minHeight = `${currentHeight}px`;
+            }
+        }
         console.log(`Starting displayAssignments for course ID: ${courseId}`);
     
         // Find the course object by ID
@@ -424,13 +625,13 @@ class CourseManager {
         menuInternalInfoDiv1.classList.add('menu-info-internal');
         menuInfoDiv.appendChild(menuInternalInfoDiv1);
     
-        // Add priority task label
-        let CourseInfoBox = document.createElement('h3');
-        CourseInfoBox.innerText = 'Grades:';
-        menuInternalInfoDiv1.appendChild(CourseInfoBox);
+        // // Add priority task label
+        // let CourseInfoBox = document.createElement('h3');
+        // CourseInfoBox.innerText = 'Grades:';
+        // menuInternalInfoDiv1.appendChild(CourseInfoBox);
     
         // Course grade element
-        let courseGradeElement = document.createElement('h4');
+        let courseGradeElement = document.createElement('h3');
         courseGradeElement.id = 'course-grade'+course.id;
         courseGradeElement.textContent = "0.00%";
         courseGradeElement.style.fontWeight = 'normal';
@@ -439,11 +640,11 @@ class CourseManager {
         menuInternalInfoDiv1.appendChild(courseGradeElement);
     
         // Add time of that task
-        let CourseInfoTwo = document.createElement('h4');
+        let CourseInfoTwo = document.createElement('h3');
         CourseInfoTwo.innerText = 'Course Info #2 ';
         CourseInfoTwo.id = 'Course Info #2'; // Add an id to the element
         console.log(this.highestGradeCourse);
-        CourseInfoTwo.innerText = course.highestGradeAssignment? `Highest Grade: \n${course.highestGradeAssignment.name} - ${course.highestGradeAssignment.grade}%` : 'Highest Grade: N/A';
+        CourseInfoTwo.innerText = course.highestGradeAssignment? `Best Assignment - \n${course.highestGradeAssignment.name} - ${course.highestGradeAssignment.grade}%` : 'Best Assignment - \nN/A';
         CourseInfoTwo.style.fontWeight = 'normal';
         CourseInfoTwo.style.color = 'white';
         CourseInfoTwo.style.fontSize = '18px'; // Set font size to 21
@@ -454,13 +655,13 @@ class CourseManager {
         menuInternalInfoDiv2.classList.add('menu-info-internal');
         menuInfoDiv.appendChild(menuInternalInfoDiv2);
     
-        // Add completion stats label
-        let CourseInfoBoxTwo = document.createElement('h3');
-        CourseInfoBoxTwo.innerText = 'Completion:';
-        menuInternalInfoDiv2.appendChild(CourseInfoBoxTwo);
+        // // Add completion stats label
+        // let CourseInfoBoxTwo = document.createElement('h3');
+        // CourseInfoBoxTwo.innerText = 'Completion:';
+        // menuInternalInfoDiv2.appendChild(CourseInfoBoxTwo);
     
         // Add completed task count
-        let CourseInfoThree = document.createElement('h4');
+        let CourseInfoThree = document.createElement('h3');
         CourseInfoThree.innerText = `Completed Assignments: ${course.completedAssignments} / ${course.assignments.length}`;
         CourseInfoThree.style.marginRight = '29px'; // Add right margin
         CourseInfoThree.style.color = 'white';
@@ -475,14 +676,55 @@ class CourseManager {
 
         // Create progress bar fill
         let progressBarFill = document.createElement('div');
-        progressBarFill.id = 'progress-bar-fill';
-        progressBarFill.style.width = `${(course.completedAssignments / course.assignments.length) * 100}%`;
+        progressBarFill.id = 'progress-bar-fill'+course.id;
+        progressBarFill.classList.add('progress-bar-fill-style');
         progressBar.appendChild(progressBarFill);
 
         // Add progress text
         let progressText = document.createElement('div');
         progressText.textContent = `${(course.completedAssignments / course.assignments.length) * 100}%`;
         progressBarFill.appendChild(progressText);
+
+        // append new div to menuinternalinfo2 to hold decided and undecided weight
+        let decidedUndecidedWeightDiv = document.createElement('div');
+        decidedUndecidedWeightDiv.classList.add('menu-info-internal');
+        menuInfoDiv.appendChild(decidedUndecidedWeightDiv);
+
+        // // Grade Weighting
+        // let weightLabel = document.createElement('h3');
+        // weightLabel.innerText = 'Grade Weighting:';
+        // decidedUndecidedWeightDiv.appendChild(weightLabel);
+
+        // Display decided weight
+        let decidedWeight = document.createElement('h3');
+        decidedWeight.innerText = `Decided Weight: ${isNaN(course.decidedWeight) ? '0%' : `${(course.decidedWeight).toFixed(2)}%`} / ${isNaN(course.decidedWeight + course.undecidedWeight) ? '0%' : `${(course.decidedWeight + course.undecidedWeight).toFixed(2)}%`}`;
+        decidedWeight.style.fontWeight = 'normal';
+        decidedWeight.style.color = 'white';
+        decidedWeight.style.fontSize = '18px';
+        decidedUndecidedWeightDiv.appendChild(decidedWeight);
+
+        // create a progress bar for decided weight and display fill based on decided weight
+        let decidedWeightProgressBar = document.createElement('div');
+        decidedWeightProgressBar.id = 'progress-bar';
+        decidedUndecidedWeightDiv.appendChild(decidedWeightProgressBar);
+
+        // create h4 element to display decided weight percentage
+        let decidedWeightProgressBarFill = document.createElement('div');
+        decidedWeightProgressBarFill.id = 'decided-weight-progress-bar-fill'+course.id;
+        decidedWeightProgressBarFill.classList.add('progress-bar-fill-style');
+        decidedWeightProgressBar.appendChild(decidedWeightProgressBarFill);
+
+        // Calculate the width of the progress bar fill based on the decided weight ratio
+        let decidedWeightRatio = course.decidedWeight / (course.decidedWeight + course.undecidedWeight);
+        let progressBarFillWidth = decidedWeightRatio * 100;
+        decidedWeightProgressBarFill.style.width = `${progressBarFillWidth}%`;
+
+        // Add percentage text
+        let progressBarFillText = document.createElement('span');
+        progressBarFillText.classList.add('progress-bar-fill-text');
+        decidedWeightProgressBarFill.appendChild(progressBarFillText);
+
+        this.updateCoursedecidedWeight(course);
 
         // create meta task div to hold task operations and task title
         let metaTaskDiv = document.createElement('div');
@@ -493,7 +735,7 @@ class CourseManager {
         const legendDiv = document.createElement('div');
         legendDiv.className = 'legend';
     
-        ['Assignment', 'Grade', 'Weighted Grade', '\xa0Done\xa0\xa0\xa0\xa0||\xa0\xa0\xa0\xa0Edit\xa0\xa0\xa0\xa0||\xa0\xa0\xa0Delete'].forEach(text => {
+        ['Assignments', 'Grade', 'Weighted Grade', '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0Done\xa0\xa0||\xa0\xa0\xa0Edit\xa0\xa0\xa0||\xa0Delete'].forEach(text => {
             const legendItem = document.createElement('div');
             const legendItemText = document.createElement('h3');
             legendItemText.style.fontSize = '19px';
@@ -565,13 +807,13 @@ class CourseManager {
             deleteButton.classList.add("ass-delete-button");
             
             console.log(assignment);
-            console.log("FUCKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK");
             console.log(deleteButton.dataset);
             deleteButton.addEventListener('click', () => {
                 console.log(`TESTING START----------------------------------------------------------------------`);
                 console.log(`Attempting to delete assignment: ${assignment.name} from ${this.selectedCourse.title}`);
                 removeAssignmentFromCourse(courseId, assignmentElement.dataset.assignmentId);
                 console.log('TESTING END-------------------------------------------------------------------------');
+                // this.display();
                 this.displayAssignments(this.selectedCourse.id)
             });
     
@@ -585,20 +827,17 @@ class CourseManager {
                 completionButton.classList.remove('incomplete');
                 completionButton.classList.add('complete');
                 completionButton.textContent = '✔';
-                completionButton.style.color = 'white';
             } else {
                 completionButton.classList.add('incomplete');
                 completionButton.classList.remove('complete');
                 completionButton.textContent = '✘';
-                completionButton.style.color = 'black';
             }
     
             completionButton.addEventListener('click', () => {
+                const savedScrollPosition = window.scrollY;
                 toggleComplete(assignment, completionButton);
                 this.display();
-                this.displayAssignments(courseManager.selectedCourse.id)
-                // console log the currently selected course
-                console.log(this.selectedCourse);
+                this.displayAssignments(courseManager.selectedCourse.id);
             });
     
             const editButton = document.createElement('button');
@@ -630,6 +869,9 @@ class CourseManager {
         });
         updateOverallGradeDisplay();
         console.log(`New assignments generated and appended to grades section`);
+        if (container) {
+            container.style.minHeight = '';
+        }
     }
 
     // POPUP MENUS  -----------------------------------------------------------------------------------------------------------
@@ -650,6 +892,16 @@ class CourseManager {
     
     closeAddCoursePopup() {
         document.getElementById('popup-menu').style.display = 'none';
+        hideOverlay();
+    }
+
+    openEditAssignmentPopup() {
+        document.getElementById('assignment-edit-popup').style.display = 'block';
+        showOverlay();
+    }
+
+    closeEditAssignmentPopup() {
+        document.getElementById('assignment-edit-popup').style.display = 'none';
         hideOverlay();
     }
 }

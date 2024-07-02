@@ -55,6 +55,20 @@
     </div>
 </div>
 
+<!-- Assignment Popup Menu -->
+<div id="assignment-edit-popup" class="popup">
+    <div class="popup-content">
+        <span id="close-edit-popup" class="close-popup">&times;</span>
+        <h2>Add Assignment</h2>
+        <input type="text" id="assignment-edit-name-input" placeholder="Name">
+        <div style="display: flex; gap: 20px;">
+            <input type="number" id="assignment-edit-grade-input" placeholder="Grade ( % )">
+            <input type="number" id="assignment-edit-weight-input" placeholder="Weight ( % )">
+        </div>
+        <button id="edit-assignment-popup-btn">Add</button>
+    </div>
+</div>
+
 <!-- task Popup Menu -->
 <div id="task-popup" class="popup">
     <div class="popup-content">
@@ -65,15 +79,15 @@
         <input type="text" id="task-name-input" placeholder="Name">
         <div style="display: flex; gap: 20px;">
             <!-- label saying required-->
-            <input type="text" id="task-course-input" placeholder="Course">
+            <input type="text" id="task-course-input" placeholder="Category">
             <input type="date" id="task-date-input">
         </div>
 
-        <label style="display: flex; margin: 20px 0px 10px 10px;">Optional</label>
+        <!-- <label style="display: flex; margin: 20px 0px 10px 10px;">Optional</label>
         <div>
             <input type="number" id="task-grade-input" placeholder="Grade">
             <input type="number" id="task-weight-input" placeholder="Weight">
-        </div>
+        </div> -->
 
         <button id="add-task-popup-btn">Create</button>
     </div>
@@ -93,11 +107,11 @@
             <input type="date" id="task-date-input">
         </div>
 
-        <label style="display: flex; margin: 20px 0px 10px 10px;">Optional</label>
+        <!-- <label style="display: flex; margin: 20px 0px 10px 10px;">Optional</label>
         <div>
             <input type="number" id="task-grade-input" placeholder="Grade">
             <input type="number" id="task-weight-input" placeholder="Weight">
-        </div>
+        </div> -->
 
         <button id="add-task-popup-btn">Create</button>
     </div>

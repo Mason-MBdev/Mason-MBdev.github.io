@@ -6,6 +6,14 @@
 /* Typography */
 /*----------------------------------------*/
 
+/* Typography */
+/*----------------------------------------*/
+
+/* Add this code to disable cursor change on hover */
+html, body {
+    cursor: default;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -13,7 +21,7 @@ html {
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #FFF; /* Light text for dark background */
-    background-color: #1f1f1f; /* Dark background */
+    background-color: #4a4848; /* Dark background */
     margin: 0;
     padding: 0;
 }
@@ -65,10 +73,10 @@ h2 {
     padding-right: 40px;
     /* background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDEwMCAxMDAiPgogIDxkZWZzPgogICAgPHBhdHRlcm4gaWQ9InBhdHRlcm4iIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblR5cGU9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHJlY3Qgd2lkdGg9IjI1IiBoZWlnaHQ9IjI1IiBmaWxsPSIjZmY1NTAwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgeT0iMjUiIGZpbGw9IiMwMDAwODAiLz4KICAgIDwvcGF0dGVybiA+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMmIxYjFiIiAvPgogIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIiBvcGFjaXR5PSIwLjA0IiAvPgo8L3N2Zz4K'); */
     background-position: center 7px;
-    box-shadow: 0 1px 3px rgba(214, 58, 1, 0.5), 0 -1px 3px rgba(222, 52, 0, 0.5);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.73);
+    border-bottom: 3px solid #000000;
     z-index: 9999;
-    background: rgb(35, 35, 35);
-    margin-top: 1px;
+    background: #292929;
 }
 
 .persistent-elements > :first-child {
@@ -188,7 +196,6 @@ body, html {
     align-items: center;
     background-color: #2b2b2b; /* Gray background */
     padding: 15px;
-    border-radius: 8px;
     border: 1px solid #777; /* Add border */
 }
 
@@ -239,7 +246,7 @@ body, html {
 /*----------------------------------------*/
 .course-dropdown {
     background-color: #1f1f1f; /* Dark gray background */
-    color: #FFF; /* Light text */
+    color: rgb(226, 226, 226); /* Light text */
     padding-left: 10px;
     padding-right: 0px;
     /* padding-top: 5px;
@@ -253,6 +260,8 @@ body, html {
     font-size: 20px;
     height: 50px;
     width: 325px;
+    letter-spacing: 0.05em;
+
 }
 
 .course-dropdown option {
@@ -289,11 +298,11 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #3d3d3d; /* Dark gray background */
+    background-color: #292929; /* Dark gray background */
     padding: 15px;
-    border-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     border: 2px solid #000000;
-    box-shadow: 0 0 2px rgb(255, 255, 255);
 }
 
 .legend > div {
@@ -384,7 +393,7 @@ body, html {
 
 .popup-content {
     background-color: #333; /* Dark gray background */
-    margin: 10% auto;
+    margin: 16.5% auto;
     padding: 20px;
     border-radius: 10px;
     width: 25%;
@@ -473,7 +482,6 @@ body, html {
     align-items: center;
     background-color: #414141; /* Dark gray background */
     padding: 15px;
-    border-radius: 8px;
     border: 2px solid #000000; /* Add border */
     box-shadow: 0 0 1px rgb(218, 62, 0);
 }
@@ -520,7 +528,7 @@ button {
     border-radius: 10px;
     background-color: #1f1f1f;
     cursor: pointer;
-    color: white;
+    color: rgb(226, 226, 226);
     padding: 0.75em 1.5em;
     transition:  background-color 0.1s;
     width: 210px;
@@ -541,18 +549,18 @@ button:active {
 }
 
 button.secondary {
-    font-size: 18px; /* Matched font size */
+    font-size: 20px; /* Matched font size */
     --accent: rgb(51, 51, 51); /* Kept accent color */
     letter-spacing: 0.1em; /* Kept letter spacing */
     border: 1px solid rgb(163, 163, 163); /* Adjusted border thickness and color */
-    border-radius: 1.5em; /* Made border radius consistent */
+    border-radius: 20px; /* Made border radius consistent */
     background-color: #8d3515; /* Kept background color */
     cursor: pointer; /* Kept cursor style */
     color: var(--accent); /* Kept text color */
     padding: 0.5em 1em; /* Adjusted padding for consistency */
     transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
                 letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s; 
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 
@@ -577,12 +585,12 @@ input[type="date"] {
 }
 
 .task-menu-container {
-    background-color: #312f2f;
+    background-color: #3e3a3a;
     padding: 60px;
-    margin: 40px 30px 50px 30px;
+    margin: 40px 30px 10px 30px;
     border-radius: 10px;
-    box-shadow: 0 0 10px #3f3f3f;
-    border: #000000 2px solid;
+    box-shadow: 0 0 10px #000000;
+    border: #2e2e2e 1px solid;
 }
 
 .task-container {
@@ -590,7 +598,7 @@ input[type="date"] {
     flex-wrap: wrap;
     padding: 28px;
     border-radius: 10px;
-    background-color: #2b2b2b;
+    background-color: #353535;
     gap: 30px;
     justify-content: center;
     align-items: center;
@@ -608,7 +616,7 @@ input[type="date"] {
     border: #000000 2px solid;
     padding: 28px;
     border-radius: 10px;
-    background-color: #2b2b2b;
+    background-color: #353535;
     gap: 40px;
     justify-content: center; /* Center the rows horizontally */
     align-items: center;
@@ -666,7 +674,7 @@ input[type="date"] {
     box-shadow: 0 0 3px rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 300px;
     height: 125px;
     max-width: 400px;
@@ -674,6 +682,7 @@ input[type="date"] {
 
 .delete-button-wrapper {
     gap: 15px;
+    justify-content: center;
 }
 
 .highlight {
@@ -702,7 +711,7 @@ input[type="date"] {
 }
 
 .course-menu-buttons {
-    background-color: #2b2b2b;
+    background-color: #353535;
     border-radius: 10px;
     padding: 10px;
     border: 2px black solid;
@@ -718,7 +727,7 @@ input[type="date"] {
 }
 
 button.secondary.incomplete {
-    background-color: rgb(207, 207, 47);
+    background-color: rgb(171, 135, 47);
 }
 
 button.secondary.complete {
@@ -740,16 +749,16 @@ button.secondary.TaskAdd-btn {
 .task-options {
     display: flex;
     flex-direction: column;
+    margin-left: 15px;
 }
 
 .TaskDelete-btn.secondary.ass-delete-button.assignment-operators,
 .secondary.assignment-operators.TaskEdit-btn,
 .secondary.complete.assignment-operators.TaskComplete-btn {
-    color: black;
+    color: rgb(0, 0, 0);
     width: 50px;
     height: 40px;
     font-size: 17px;
-    color: rgb(171, 255, 241);
     text-align: center;
     border-radius: 10px;
 }
@@ -783,10 +792,24 @@ button.secondary.TaskAdd-btn {
 }
 
 button.secondary.assignment-operators {
-    width: 75px;
+    width: 60px;
+    height: 50px;
 }
 
 button.secondary:Hover {
+    background-color: rgb(47, 47, 47);
+    border:#d4d4d4 1px solid;
+    color: #FFF; /* White text */
+}
+
+button.secondary:Hover {
+    background-color: rgb(47, 47, 47);
+    border:#d4d4d4 1px solid;
+    color: #FFF; /* White text */
+}
+
+
+button.secondary.assignment-operators:hover {
     background-color: rgb(47, 47, 47);
     border:#d4d4d4 1px solid;
     color: #FFF; /* White text */
@@ -844,31 +867,43 @@ button.secondary:Hover {
     gap: 10px;
     border-radius: 10px;
     background: rgb(39, 39, 39);
+    box-shadow: 0 0 2px rgb(16, 16, 16);
 }
 
-.course-assignments-container > *:not(:last-child) {
-    margin-bottom: 15px;
+.course-assignments-container > *:last-child {
+    border-radius: 0 0 8px 8px;
 }
 
 #progress-bar {
     width: 100%;
     height: 20px;
     background-color: #d7d7d7;
-    border-radius: 50px;
-    margin-top: 10px;
+    border-radius: 10px;
     border: 3px solid #434343;
+    margin-top: -20px;
     box-shadow: 0 1px 2px rgba(128, 128, 128, 0.1), 0 0 0 1px rgb(144, 144, 144);
 }
 
-#progress-bar-fill {
+.progress-bar-fill-style {
     width: 0%;
     height: 100%;
     background-color: #008000;
-    border-radius: 50px;
+    border-radius: 7px;
     text-align: center;
     text-justify: center;
     color: black;
     font-weight: bold;
     line-height: 19px;
     border-right: 2px solid #2a2a2a;
+    text-indent: 4px; /* Move the text 4px to the right */
+}
+
+.AssignmentAdd-btn,
+.TaskAdd-btn,
+.CourseAdd-btn {
+    color: rgb(52, 189, 52);
+}
+
+.CourseDelete-btn {
+    color: rgb(249, 75, 75);
 }

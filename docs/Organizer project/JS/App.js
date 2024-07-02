@@ -2,66 +2,65 @@
 const courseManager = new CourseManager();
 const taskManager = new TaskManager();
 const calendarManager = new CalendarManager();
-taskManager.startLoop();
+const saveManager = new SaveManager();
 
 // create testing info for the course and task managers -----------------------------------------------------------------------------------------------
-
 // addCourse(title), addAssignmentToCourse(courseId, assignmentDetails), assignment constructor "constructor(name, grade, weight)"
-courseManager.addCourse('Math');
-courseManager.addCourse('Science');
-courseManager.addCourse('English');
-courseManager.addCourse('History');
 
-courseManager.selectCourse(0);
+function createDemoInfo() {
+    courseManager.addCourse('CP317 - Software Engineering');
+    courseManager.addCourse('CP312 - Algorithms');
+    courseManager.addCourse('PP247 - Business Ethics');
 
-console.log("sht");
-console.log(courseManager.courses);
+    courseManager.selectCourse(0);
 
-// Adding Math assignments
-courseManager.addAssignmentToCourse(0, new Assignment('Algebra Basics', 85, 15, true));
-courseManager.addAssignmentToCourse(0, new Assignment('Geometry Principles', 95, 25, true));
-courseManager.addAssignmentToCourse(0, new Assignment('Calculus Introduction', 88, 35, false));
-courseManager.addAssignmentToCourse(0, new Assignment('Statistics Fundamentals', 92, 45, false));
+    console.log("sht");
+    console.log(courseManager.courses);
 
-// Adding Science assignments
-courseManager.addAssignmentToCourse(1, new Assignment('Biology Cell Structure', 78, 20, true));
-courseManager.addAssignmentToCourse(1, new Assignment('Chemistry Periodic Table', 82, 30, true));
-courseManager.addAssignmentToCourse(1, new Assignment('Physics Motion Laws', 76, 40, false));
-courseManager.addAssignmentToCourse(1, new Assignment('Astronomy Solar System', 89, 50, true));
+    // my own courses for demo information
+    // Adding Software Engineering assignments
+    courseManager.addAssignmentToCourse(0, new Assignment('Assignment 1', 90, 8.33, true));
+    courseManager.addAssignmentToCourse(0, new Assignment('Assignment 2', 0, 8.33, false));
+    courseManager.addAssignmentToCourse(0, new Assignment('Assignment 3', 0, 8.33, false));
+    courseManager.addAssignmentToCourse(0, new Assignment('Exam 1', 81, 20, true));
+    courseManager.addAssignmentToCourse(0, new Assignment('Exam 2', 0, 20, false));
+    courseManager.addAssignmentToCourse(0, new Assignment('Group Project', 0, 35, false));
 
-// Adding English assignments
-courseManager.addAssignmentToCourse(2, new Assignment('Literature Analysis', 93, 30, true));
-courseManager.addAssignmentToCourse(2, new Assignment('Creative Writing', 87, 35, true));
-courseManager.addAssignmentToCourse(2, new Assignment('Grammar Exercises', 91, 40, false));
-courseManager.addAssignmentToCourse(2, new Assignment('Poetry Appreciation', 86, 45, false));
+    // Adding Algorithms assignments
+    courseManager.addAssignmentToCourse(1, new Assignment('Quiz 1', 53.33, 5, true));
+    courseManager.addAssignmentToCourse(1, new Assignment('Quiz 2', 90, 5, true));
+    courseManager.addAssignmentToCourse(1, new Assignment('Quiz 3', 0, 5, false));
+    courseManager.addAssignmentToCourse(1, new Assignment('Quiz 4', 0, 5, false));
+    courseManager.addAssignmentToCourse(1, new Assignment('Assignment 1', 78, 5, true));
+    courseManager.addAssignmentToCourse(1, new Assignment('Assignment 2', 0, 5, false));
+    courseManager.addAssignmentToCourse(1, new Assignment('Assignment 3', 0, 5, false));
+    courseManager.addAssignmentToCourse(1, new Assignment('Assignment 4', 0, 5, false));
+    courseManager.addAssignmentToCourse(1, new Assignment('Midterm', 62, 20, false));
+    courseManager.addAssignmentToCourse(1, new Assignment('Final', 0, 40, false));
 
-// Adding History assignments
-courseManager.addAssignmentToCourse(3, new Assignment('World War II Overview', 79, 25, true));
-courseManager.addAssignmentToCourse(3, new Assignment('Renaissance Art', 83, 35, true));
-courseManager.addAssignmentToCourse(3, new Assignment('American Revolution', 77, 40, true));
-courseManager.addAssignmentToCourse(3, new Assignment('Industrial Revolution Impact', 81, 50, true));
+    // Adding Business Ethics assignments
+    courseManager.addAssignmentToCourse(2, new Assignment('Discussion posts', 0, 15, false));
+    courseManager.addAssignmentToCourse(2, new Assignment('Assignment 1', 70, 25, true));
+    courseManager.addAssignmentToCourse(2, new Assignment('Assignment 2', 0, 25, false));
+    courseManager.addAssignmentToCourse(2, new Assignment('Assignment 3', 0, 0, false));
+    courseManager.addAssignmentToCourse(2, new Assignment('Midterm', 78.33, 15, true));
+    courseManager.addAssignmentToCourse(2, new Assignment('Final', 0, 20, false));
 
-// create demo input for task manager, AddTask (taskname, taskGrade, taskWeight, taskCourse, taskDueDate)
-// Academic tasks
-taskManager.AddTask('Study for Algebra Exam', 100, 20, 'Math', '2024-09-15');
-taskManager.AddTask('Research Paper on Photosynthesis', 80, 30, 'Science', '2024-10-20');
-taskManager.AddTask('English Essay Draft', 90, 40, 'English', '2024-11-10');
-taskManager.AddTask('History Project Presentation', 85, 50, 'History', '2024-12-05');
+    // create demo input for task manager, AddTask (taskname, taskGrade, taskWeight, taskCourse, taskDueDate)
+    // Academic tasks
+    taskManager.AddTask('Write save and load feature for the course manager', 100, 20, 'Math', '2024-09-15');
+}
 
-// Personal development tasks
-taskManager.AddTask('Learn Python Basics', 70, 10, 'Personal Development', '2024-08-01');
-taskManager.AddTask('Start a Blog', 75, 15, 'Personal Development', '2024-09-01');
-taskManager.AddTask('Complete Online Course on Digital Marketing', 80, 20, 'Personal Development', '2024-10-01');
-taskManager.AddTask('Volunteer at Local Community Center', 90, 25, 'Personal Development', '2024-11-01');
+// createDemoInfo();
 
-
-console.log(courseManager.courses);
-
+// Object Starting positions -----------------------------------------------------------------------------------------------
+taskManager.display();
+taskManager.updateTimeRemaining();
+taskManager.startLoop();
 courseManager.display();
-courseManager.displayAssignments(0);
+// courseManager.displayAssignments(0);
 
-// EVENT LISTENERS -----------------------------------------------------------------------------------------------
-
+// EVENT LISTENERS ----------------------------------------------------------------------------------------------------------
 // Add Task Button
 const taskButton = document.getElementById('tasks-btn');
 taskButton.addEventListener('click', () => {
@@ -77,6 +76,7 @@ gradesButton.addEventListener('click', () => {
     clearHighlight();
     gradesButton.classList.add('highlight');
     courseManager.display();
+    console.log("displaying Assignments in Course: " + courseManager.selectedCourse.id);
     courseManager.displayAssignments(courseManager.selectedCourse.id)
 });
 
@@ -94,11 +94,39 @@ document.getElementById('add-course-popup-btn').addEventListener('click', course
 // Close Course Popup
 document.getElementById('close').addEventListener('click', courseManager.closeAddCoursePopup);
 
+// Close Edit assignment Popup
+document.getElementById('close-edit-popup').addEventListener('click', courseManager.closeEditAssignmentPopup);
+
 // Close Assignment Popup
 document.getElementsByClassName('close-popup')[0].addEventListener('click', courseManager.closeAddAssignmentPopup);
 
 document.getElementById('add-assignment-popup-btn').addEventListener('click', () => {
     courseManager.addAssignmentFromPopup();
+});
+
+document.getElementById('edit-assignment-popup-btn').addEventListener('click', () => {
+    courseManager.editAssignmentFromPopup();
+});
+
+// Add Task Popup - Button
+document.getElementById('add-task-popup-btn').addEventListener('click', () => {
+    taskManager.addTaskFromPopup();
+});
+
+// Close task Popup
+document.getElementById('close-task-popup').addEventListener('click', taskManager.hideTaskPopup);
+
+// Save and Load Buttons
+document.getElementById('save-btn').addEventListener('click', () => {   
+    saveManager.saveToFile(courseManager, taskManager, calendarManager);
+});
+
+document.getElementById('fileInput').addEventListener('change', (event) => {
+    console.log("File input changed");
+    const file = event.target.files[0];
+    if (file) {
+        saveManager.loadFromFile(courseManager, taskManager, calendarManager, file);
+    }
 });
 
 function clearHighlight () {
@@ -123,7 +151,10 @@ function hideOverlay() {
 }
 
 function updateOverallGradeDisplay() {
-    
+    console.log("Fuck");
+    console.log(courseManager.selectedCourse);
+    console.log("Selected course ID: " + courseManager.selectedCourse.id);
+    console.log("Fuck2");
     const selectedCourseId = courseManager.selectedCourse.id;
     const course = courseManager.getCourseById(selectedCourseId);
     

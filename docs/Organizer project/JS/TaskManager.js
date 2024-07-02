@@ -89,8 +89,10 @@ class TaskManager {
 
     addTaskFromPopup() {
         const taskName = document.getElementById('task-name-input').value;
-        const taskGrade = parseFloat(document.getElementById('task-grade-input').value);
-        const taskWeight = parseInt(document.getElementById('task-weight-input').value);
+        // const taskGrade = parseFloat(document.getElementById('task-grade-input').value);
+        // const taskWeight = parseInt(document.getElementById('task-weight-input').value);
+        const taskGrade= 0;
+        const taskWeight= 0;
         const taskCourse = document.getElementById('task-course-input').value;
         const taskDate = new Date(document.getElementById('task-date-input').value);
     
@@ -176,7 +178,6 @@ class TaskManager {
         });
     }
 
-    lowestTimeRemaining = 9007199254740991;
 
     // function called to update the time remaining for all tasks every minute
     updateTimeRemaining() {
@@ -252,8 +253,8 @@ class TaskManager {
         // If taskName is provided, then the user is editing a task
         if (task) {
             document.getElementById('task-name-input').value = task.taskName;
-            document.getElementById('task-grade-input').value = task.taskGrade;
-            document.getElementById('task-weight-input').value = task.taskWeight;
+            // document.getElementById('task-grade-input').value = task.taskGrade;
+            // document.getElementById('task-weight-input').value = task.taskWeight;
             if (task.taskCourse){
                 document.getElementById('task-course-input').value = task.taskCourse;
             }
@@ -268,7 +269,6 @@ class TaskManager {
             document.getElementById('task-course-input').value = '';
             document.getElementById('task-date-input').value = '';
         }
-
         showOverlay();
     }
 
@@ -382,7 +382,7 @@ class TaskManager {
         // Add operations title
         let operationsTitle = document.createElement('h3');
         operationsTitle.innerText = '- Operations -';
-        operationsTitle.style.fontSize = '24px'; // Set font size to 20
+        operationsTitle.style.fontSize = '27px'; // Set font size to 20
         operationsContainer.appendChild(operationsTitle);
 
         // Container for meta task operations while holds another container of class "nav-menu-buttons" for addtask, filter, and sort

@@ -9,6 +9,9 @@ class Course {
         this.highestGradeAssignment = null;
         this.completedAssignments = 0;
         this.incompleteAssignments = 0;
+        this.decidedWeight = 0;
+        this.undecidedWeight = 0;
+        this.totalWeight = 0;
     }
 
     getCompletedAssignmentsCount() {
@@ -19,6 +22,7 @@ class Course {
     
     // Method to recalculate the course grade and store the highest grade assignment
     recalculateCourseGrade() {
+        console.log("This is a function");
         let totalWeight = 0;
         let totalPoints = 0;
         this.assignments.forEach(assignment => {
@@ -39,9 +43,22 @@ class Course {
         console.log(`course name: ${this.title} grade recalculated: ${this.overallGrade.toFixed(2)}%`);
     }
 
-    // Calculate the weighted sum of grades
-    calculateWeightedSum() {
-        return parseFloat(this.assignments.reduce((sum, assignment) => sum + assignment.grade * assignment.weight / 100, 0).toFixed(2));
+    // calculate the decided and undecided weight of the course based off of: completion, weight, and grade of all assignments
+    courseWeightCalculations() {
+        let decidedWeight = 0;
+        let undecidedWeight = 0;
+        this.assignments.forEach(assignment => {
+            if (assignment.completed) {
+                decidedWeight += assignment.weight;
+            } else {
+                undecidedWeight += assignment.weight;
+            }
+        });
+
+        this.decidedWeight = decidedWeight;
+        this.undecidedWeight = undecidedWeight;
+        this.totalWeight = decidedWeight + undecidedWeight;
+        return undecidedWeight;
     }
 
     // Method to add an assignment to the course
@@ -56,17 +73,5 @@ class Course {
     removeAssignment(assignmentId) {
         assignmentId = parseInt(assignmentId);
         this.assignments = this.assignments.filter(assignment => assignment.id!== assignmentId);
-    }
-
-    editAssignment (newAssignment, assignmentId) {
-        assignmentId = parseInt(assignmentId);
-        const assignment = this.assignments.find(assignment => assignment.id === assignmentId);
-        
-        if (assignment) {
-            assignment.name = newAssignment.name;
-            assignment.grade = newAssignment.grade;
-            assignment.weight = newAssignment.weight;
-            assignment.completed = newAssignment.completed;
-        }
     }
 }
