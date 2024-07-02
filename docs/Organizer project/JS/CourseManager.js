@@ -59,10 +59,10 @@ class CourseManager {
         console.log("Sending assignment details to course...");
 
         // if the assignment would cause the weight to exceed 100%, alert the user and return
-        if (course.totalWeight + assignmentDetails.weight > 100) {
-            alert("The weight of the assignment would exceed 100%.");
-            return;
-        }
+        // if (course.totalWeight + assignmentDetails.weight > 100) {
+        //     alert("The weight of the assignment would exceed 100%.");
+        //     return;
+        // }
 
         course.addAssignment(assignmentDetails);
     }
