@@ -9,6 +9,7 @@ class CourseManager {
         this.totalDecidedWeight = 0;
         this.totalWeight = 0; 
         this.editStatus = false;
+        this.selectedAssignment = null;
     }
 
     // ADDING COURSES AND ASSIGNMENTS -----------------------------------------------------------------------------------------
@@ -99,12 +100,16 @@ class CourseManager {
         console.log("Assignment details set in popup menu");
         this.editStatus = true;
         console.log("Edit status set to true");
-
+        console.log(assignmentId);
+        this.selectedAssignment = assignmentId;
         //open the popup menu
         this.openEditAssignmentPopup();
     }}
 
     editAssignmentFromPopup() {
+        const assignmentId = this.selectedAssignment;
+        console.log(assignmentId);
+
         const assignmentName = document.getElementById('assignment-edit-name-input').value;
         const assignmentGrade = parseFloat(document.getElementById('assignment-edit-grade-input').value);
         const assignmentWeight = parseInt(document.getElementById('assignment-edit-weight-input').value);
@@ -125,8 +130,12 @@ class CourseManager {
             alert("Please select a course.");
             return;
         }
+        // console log selected course and assignment id
+        console.log(this.selectedCourse);
+        console.log(assignmentId);
 
-        const assignment = courseManager.getAssignmentById(this.selectedCourse.id, this.selectedCourse.id);
+        const assignment = courseManager.getAssignmentById(this.selectedCourse.id, assignmentId);
+
         console.log("Assignment to edit:");
         console.log(assignment);
 
@@ -148,11 +157,13 @@ class CourseManager {
 
     // Helpper function to get the assignment by ID
     getAssignmentById(courseId, assignmentId) {
+        //console log parameters
+        console.log(`Coursemanager - getAssignmentById(courseId: ${courseId}, assignmentId: ${assignmentId})`);
         const course = this.courses.find(c => c.id === courseId);
         if (!course) {
             throw new Error("Course not found");
         }
-        return course.assignments.find(assignment => assignment.id === assignmentId);
+        return course.assignments.find(assignment => assignment.id === parseInt(assignmentId));
     }
 
     addAssignmentFromPopup() {

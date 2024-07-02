@@ -105,7 +105,10 @@ document.getElementById('add-assignment-popup-btn').addEventListener('click', ()
 });
 
 document.getElementById('edit-assignment-popup-btn').addEventListener('click', () => {
-    courseManager.editAssignmentFromPopup();
+    const assignmentContainer = document.querySelector('.assignment.assignment-details-container');
+    const assignmentId = assignmentContainer.dataset.assignmentId;
+    console.log("Buttonclick: " + assignmentId);
+    courseManager.editAssignmentFromPopup(assignmentId);
 });
 
 // Add Task Popup - Button
