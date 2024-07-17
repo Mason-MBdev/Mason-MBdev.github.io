@@ -404,30 +404,37 @@ class CourseManager {
 
         // Add highest priority task indicator
         let lowestTimeRemaining = document.createElement('h4');
-        lowestTimeRemaining.innerText = 'Overall Grade: 0%';
+        lowestTimeRemaining.innerText = 'Overall Grade: 0.00%';
         lowestTimeRemaining.id = 'overall-grade';
         lowestTimeRemaining.style.fontWeight = 'normal';
         lowestTimeRemaining.style.color = 'white';
-        lowestTimeRemaining.style.fontSize = '18px';
+        lowestTimeRemaining.style.fontSize = '20px';
+        lowestTimeRemaining.style.textAlign = 'center'; // Center align the text
         menuInternalInfoDiv1.appendChild(lowestTimeRemaining);
         console.log(this.highestGradeCourse);
 
+        // create a container for min and max grade
+        let gradeContainer = document.createElement('div');
+        gradeContainer.classList.add('grade-container');
+        gradeContainer.style.display = 'flex'; // Add this line to set display to flex
+        gradeContainer.style.justifyContent = 'space-between'; // Add this line to justify content in a row
+        menuInternalInfoDiv1.appendChild(gradeContainer);
         
-        // add text for max grade
-        let maxGrade = document.createElement('h4');
-        maxGrade.innerText = `Max: ${isNaN(this.maxOverallGrade) ? '0' : this.maxOverallGrade}%`;
-        maxGrade.style.fontWeight = 'normal';
-        maxGrade.style.color = 'white';
-        maxGrade.style.fontSize = '18px';
-        menuInternalInfoDiv1.appendChild(maxGrade);
-
         // add text for min grade
         let minGrade = document.createElement('h4');
-        minGrade.innerText = `Min: ${isNaN(this.minOverallGrade) ? '0' : this.minOverallGrade}%`;
+        minGrade.innerText = `Min: ${isNaN(this.minOverallGrade) ? '0.00' : this.minOverallGrade}%`;
         minGrade.style.fontWeight = 'normal';
         minGrade.style.color = 'white';
         minGrade.style.fontSize = '18px';
-        menuInternalInfoDiv1.appendChild(minGrade);
+        gradeContainer.appendChild(minGrade);
+
+        // add text for max grade
+        let maxGrade = document.createElement('h4');
+        maxGrade.innerText = `Max: ${isNaN(this.maxOverallGrade) ? '0.00' : this.maxOverallGrade}%`;
+        maxGrade.style.fontWeight = 'normal';
+        maxGrade.style.color = 'white';
+        maxGrade.style.fontSize = '18px';
+        gradeContainer.appendChild(maxGrade);
 
         // // Add time of that task
         // let timeOfTask = document.createElement('h4');
@@ -689,19 +696,48 @@ class CourseManager {
         courseGradeElement.style.fontWeight = 'normal';
         courseGradeElement.style.color = 'black'; // Change text color to light blue
         courseGradeElement.style.fontSize = '20px'; // Set font size to 20
+        courseGradeElement.style.textAlign = 'center'; // Center align the text
         menuInternalInfoDiv1.appendChild(courseGradeElement);
 
     
         // Add time of that task
-        let CourseInfoTwo = document.createElement('h3');
-        CourseInfoTwo.innerText = 'Course Info #2 ';
-        CourseInfoTwo.id = 'Course Info #2'; // Add an id to the element
-        console.log(this.highestGradeCourse);
-        CourseInfoTwo.innerText = course.highestGradeAssignment? `Best Assignment - \n${course.highestGradeAssignment.name} - ${course.highestGradeAssignment.grade}%` : 'Best Assignment - \nN/A';
-        CourseInfoTwo.style.fontWeight = 'normal';
-        CourseInfoTwo.style.color = 'white';
-        CourseInfoTwo.style.fontSize = '18px'; // Set font size to 21
-        menuInternalInfoDiv1.appendChild(CourseInfoTwo);
+        // let CourseInfoTwo = document.createElement('h3');
+        // CourseInfoTwo.innerText = 'Course Info #2 ';
+        // CourseInfoTwo.id = 'Course Info #2'; // Add an id to the element
+        // console.log(this.highestGradeCourse);
+        // CourseInfoTwo.innerText = course.highestGradeAssignment? `Best Assignment - \n${course.highestGradeAssignment.name} - ${course.highestGradeAssignment.grade}%` : 'Best Assignment - \nN/A';
+        // CourseInfoTwo.style.fontWeight = 'normal';
+        // CourseInfoTwo.style.color = 'white';
+        // CourseInfoTwo.style.fontSize = '18px'; // Set font size to 21
+        // menuInternalInfoDiv1.appendChild(CourseInfoTwo);
+
+        this.updateCoursedecidedWeight(course);
+
+        // create a container for min and max grade
+        let gradeContainer = document.createElement('div');
+        gradeContainer.classList.add('grade-container');
+        gradeContainer.style.display = 'flex'; // Add this line to set display to flex
+        gradeContainer.style.justifyContent = 'space-between'; // Add this line to justify content in a row
+        menuInternalInfoDiv1.appendChild(gradeContainer);
+        
+        // console log the max and min for the course: "Course: Max: Min:"
+        console.log(`Course: ${course.title} Max: ${course.maxGrade} Min: ${course.minGrade} displaying ... stupid fucking code`);
+
+        // add text for min grade
+        let minGrade = document.createElement('h4');
+        minGrade.innerText = `Min: ${isNaN(course.minGrade) ? '0' : course.minGrade}%`;
+        minGrade.style.fontWeight = 'normal';
+        minGrade.style.color = 'white';
+        minGrade.style.fontSize = '18px';
+        gradeContainer.appendChild(minGrade);
+
+        // add text for max grade
+        let maxGrade = document.createElement('h4');
+        maxGrade.innerText = `Max: ${isNaN(course.maxGrade) ? '0' : course.maxGrade}%`;
+        maxGrade.style.fontWeight = 'normal';
+        maxGrade.style.color = 'white';
+        maxGrade.style.fontSize = '18px';
+        gradeContainer.appendChild(maxGrade);
 
         // menu info div internal container 2
         let menuInternalInfoDiv2 = document.createElement('div');
@@ -777,33 +813,7 @@ class CourseManager {
         progressBarFillText.classList.add('progress-bar-fill-text');
         decidedWeightProgressBarFill.appendChild(progressBarFillText);
 
-        this.updateCoursedecidedWeight(course);
 
-        // create a container for min and max grade
-        let gradeContainer = document.createElement('div');
-        gradeContainer.classList.add('grade-container');
-        gradeContainer.style.display = 'flex'; // Add this line to set display to flex
-        gradeContainer.style.justifyContent = 'space-between'; // Add this line to justify content in a row
-        decidedUndecidedWeightDiv.appendChild(gradeContainer);
-        
-        // console log the max and min for the course: "Course: Max: Min:"
-        console.log(`Course: ${course.title} Max: ${course.maxGrade} Min: ${course.minGrade} displaying ... stupid fucking code`);
-
-        // add text for max grade
-        let maxGrade = document.createElement('h4');
-        maxGrade.innerText = `Max: ${isNaN(course.maxGrade) ? '0' : course.maxGrade}%`;
-        maxGrade.style.fontWeight = 'normal';
-        maxGrade.style.color = 'white';
-        maxGrade.style.fontSize = '18px';
-        gradeContainer.appendChild(maxGrade);
-
-        // add text for min grade
-        let minGrade = document.createElement('h4');
-        minGrade.innerText = `Min: ${isNaN(course.minGrade) ? '0' : course.minGrade}%`;
-        minGrade.style.fontWeight = 'normal';
-        minGrade.style.color = 'white';
-        minGrade.style.fontSize = '18px';
-        gradeContainer.appendChild(minGrade);
 
         // create meta task div to hold task operations and task title
         let metaTaskDiv = document.createElement('div');
