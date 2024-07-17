@@ -17,7 +17,7 @@ function createDemoInfo() {
     console.log("sht");
     console.log(courseManager.courses);
 
-    // my own courses for demo information
+    // LAURIER EXAMPLE courses for demo information
     // Adding Software Engineering assignments
     courseManager.addAssignmentToCourse(0, new Assignment('Assignment 1', 90, 8.33, true));
     courseManager.addAssignmentToCourse(0, new Assignment('Assignment 2', 0, 8.33, false));
@@ -31,11 +31,11 @@ function createDemoInfo() {
     courseManager.addAssignmentToCourse(1, new Assignment('Quiz 2', 90, 5, true));
     courseManager.addAssignmentToCourse(1, new Assignment('Quiz 3', 0, 5, false));
     courseManager.addAssignmentToCourse(1, new Assignment('Quiz 4', 0, 5, false));
-    courseManager.addAssignmentToCourse(1, new Assignment('Assignment 1', 78, 5, true));
-    courseManager.addAssignmentToCourse(1, new Assignment('Assignment 2', 0, 5, false));
+    courseManager.addAssignmentToCourse(1, new Assignment('Assignment 1', 44, 5, true));
+    courseManager.addAssignmentToCourse(1, new Assignment('Assignment 2', 78, 5, false));
     courseManager.addAssignmentToCourse(1, new Assignment('Assignment 3', 0, 5, false));
     courseManager.addAssignmentToCourse(1, new Assignment('Assignment 4', 0, 5, false));
-    courseManager.addAssignmentToCourse(1, new Assignment('Midterm', 62, 20, false));
+    courseManager.addAssignmentToCourse(1, new Assignment('Midterm', 74, 20, false));
     courseManager.addAssignmentToCourse(1, new Assignment('Final', 0, 40, false));
 
     // Adding Business Ethics assignments

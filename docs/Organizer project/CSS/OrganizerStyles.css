@@ -32,6 +32,10 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+h4 {
+    font-size: 18px;
+}
+
 
 h2 {
     font-size: 30px;
@@ -680,6 +684,13 @@ input[type="date"] {
     max-width: 400px;
 }
 
+.menu-info-internal > :first-child {
+    margin-top: 10px;
+}
+
+.menu-info-internal > :last-child {
+    margin-bottom: 10px;
+}
 .delete-button-wrapper {
     gap: 15px;
     justify-content: center;

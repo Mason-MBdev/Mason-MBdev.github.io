@@ -12,6 +12,8 @@ class Course {
         this.decidedWeight = 0;
         this.undecidedWeight = 0;
         this.totalWeight = 0;
+        this.maxGrade = 100;
+        this.minGrade = 0;
     }
 
     getCompletedAssignmentsCount() {
@@ -25,8 +27,10 @@ class Course {
         console.log("This is a function");
         let totalWeight = 0;
         let totalPoints = 0;
-        this.assignments.forEach(assignment => {
+        let maxPoints = 0;
+        let minPoints = 0;
 
+        this.assignments.forEach(assignment => {
             if (!this.highestGradeAssignment || assignment.grade > this.highestGradeAssignment.grade) {
                 this.highestGradeAssignment = assignment;
             }
@@ -35,13 +39,27 @@ class Course {
             if (assignment.completed) {
                 totalPoints += assignment.grade * (assignment.weight / 100);
                 totalWeight += assignment.weight;
+            } else {
+                // For incomplete assignments, consider max grade (100%) and min grade (0%)
+                maxPoints += 100 * (assignment.weight / 100);
+                minPoints += 0 * (assignment.weight / 100);
             }
         });
-        console.log(`total points: ${totalPoints} total weight: ${totalWeight}`);
 
+        console.log(`total points: ${totalPoints} total weight: ${totalWeight}`);
         this.overallGrade = (totalPoints / totalWeight) * 100 || 0;
+
+        // Calculate the maximum and minimum achievable grades
+        this.maxGrade = parseFloat(((totalPoints + maxPoints) / 100) * 100).toFixed(2);
+        this.minGrade = parseFloat((totalPoints / 100) * 100).toFixed(2);
+
+        // Console log the max and min grades
+        console.log(`max grade: ${this.maxGrade} min grade: ${this.minGrade}`);
+
         console.log(`course name: ${this.title} grade recalculated: ${this.overallGrade.toFixed(2)}%`);
     }
+
+
 
     // calculate the decided and undecided weight of the course based off of: completion, weight, and grade of all assignments
     courseWeightCalculations() {

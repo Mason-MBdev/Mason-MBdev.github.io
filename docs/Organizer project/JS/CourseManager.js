@@ -8,8 +8,11 @@ class CourseManager {
         this.totalAssignmentCountOverall = 0;
         this.totalDecidedWeight = 0;
         this.totalWeight = 0; 
+        this.totalUndecidedWeight = 0;
         this.editStatus = false;
         this.selectedAssignment = null;
+        this.maxOverallGrade = 0;
+        this.minOverallGrade = 0;
     }
 
     // ADDING COURSES AND ASSIGNMENTS -----------------------------------------------------------------------------------------
@@ -112,7 +115,7 @@ class CourseManager {
 
         const assignmentName = document.getElementById('assignment-edit-name-input').value;
         const assignmentGrade = parseFloat(document.getElementById('assignment-edit-grade-input').value);
-        const assignmentWeight = parseInt(document.getElementById('assignment-edit-weight-input').value);
+        const assignmentWeight = parseFloat(document.getElementById('assignment-edit-weight-input').value);
         console.log("POPUP CALLED");
 
         if (!assignmentName || isNaN(assignmentGrade) || isNaN(assignmentWeight)) {
@@ -169,7 +172,7 @@ class CourseManager {
     addAssignmentFromPopup() {
         const assignmentName = document.getElementById('assignment-name-input').value;
         const assignmentGrade = parseFloat(document.getElementById('assignment-grade-input').value);
-        const assignmentWeight = parseInt(document.getElementById('assignment-weight-input').value);
+        const assignmentWeight = parseFloat(document.getElementById('assignment-weight-input').value);
         console.log("POPUP CALLED");
 
         if (!assignmentName || isNaN(assignmentGrade) || isNaN(assignmentWeight)) {
@@ -198,18 +201,22 @@ class CourseManager {
         console.log("Calculating overall grade...");
         let totalGrade = 0;
         let totalWeight = this.courses.length;
+        let maxOverallGrade = 0;
+        let minOverallGrade = 0;
+
         this.courses.forEach(course => {
             console.log("Recalculating course grade for course: " + course.title);
             console.log(course);
             course.recalculateCourseGrade();
-            if (course.overallGrade!== null) {
+
+            if (course.overallGrade !== null) {
                 course.getCompletedAssignmentsCount();
 
-                //console log the name of the course and the number of completed assignments
+                // Console log the name of the course and the number of completed assignments
                 console.log(`Course: ${course.title} completed assignments: ${course.completedAssignments}`);
 
                 totalGrade += course.overallGrade;
-                // log  the values
+                // Log the values
                 console.log(`Course: ${course.title} grade: ${course.overallGrade}%`);
 
                 if (!this.highestGradeCourse || course.overallGrade > this.highestGradeCourse.overallGrade) {
@@ -217,10 +224,18 @@ class CourseManager {
                     console.log(`Highest grade course updated:`);
                     console.log(this.highestGradeCourse);
                 }
+
+                // Accumulate max and min grades
+                maxOverallGrade += parseInt(course.maxGrade);
+                minOverallGrade += parseInt(course.minGrade);
+                
+                // console log
+                console.log(`int Max Overall Grade: ${maxOverallGrade}`);
+                console.log(`int Min Overall Grade: ${minOverallGrade}`);
             }
         });
 
-        // calculate the total number of completed assignments across all courses, and total number of assignments across all courses. completedAssignmentCountOverall and totalAssignmentCountOverall
+        // Calculate the total number of completed assignments and total number of assignments across all courses
         this.completedAssignmentCountOverall = 0;
         this.totalAssignmentCountOverall = 0;
         this.courses.forEach(course => {
@@ -228,7 +243,7 @@ class CourseManager {
             this.totalAssignmentCountOverall += course.assignments.length;
         });
 
-        // calculate decided and undecided weight
+        // Calculate decided and undecided weight
         this.calculateOverallWeights();
 
         // Update all progress bars
@@ -237,12 +252,21 @@ class CourseManager {
             this.updateCourseProgress(course);
         });
 
-        // console log the results
+        // Ensure max and min grades are within valid bounds
+        maxOverallGrade = Math.min(maxOverallGrade / this.courses.length, 100);
+        minOverallGrade = Math.max(minOverallGrade / this.courses.length, 0);
+
+        // Console log the results
         console.log("Completed Assignments Overall:", parseInt(this.completedAssignmentCountOverall));
         console.log("Total Assignments Overall:", parseInt(this.totalAssignmentCountOverall));
-
         console.log(`Highest Course: ${this.highestGradeCourse ? this.highestGradeCourse.title : 'N/A'}, ${this.highestGradeCourse ? this.highestGradeCourse.overallGrade : 'N/A'}`);
-        return totalWeight > 0? totalGrade / totalWeight : 0;
+        console.log(`Maximum Overall Grade: ${maxOverallGrade}`);
+        console.log(`Minimum Overall Grade: ${minOverallGrade}`);
+
+        this.maxOverallGrade = parseFloat(maxOverallGrade.toFixed(2));
+        this.minOverallGrade = parseFloat(minOverallGrade.toFixed(2));
+
+        return totalWeight > 0 ? totalGrade / totalWeight : 0;
     }
 
     generateUniqueId() {
@@ -388,48 +412,31 @@ class CourseManager {
         menuInternalInfoDiv1.appendChild(lowestTimeRemaining);
         console.log(this.highestGradeCourse);
 
-        // Add time of that task
-        let timeOfTask = document.createElement('h4');
-        timeOfTask.innerText = this.highestGradeCourse ? `Highest Course: \n${this.highestGradeCourse.title} - ${this.highestGradeCourse.overallGrade.toFixed(2)}%` : 'Highest Course: N/A - 0%';
-        timeOfTask.id = 'highest-grade';
-        timeOfTask.style.fontWeight = 'normal';
-        timeOfTask.style.color = 'white';
-        timeOfTask.style.fontSize = '18px'; // Set font size to 21
-        menuInternalInfoDiv1.appendChild(timeOfTask);
+        
+        // add text for max grade
+        let maxGrade = document.createElement('h4');
+        maxGrade.innerText = `Max: ${isNaN(this.maxOverallGrade) ? '0' : this.maxOverallGrade}%`;
+        maxGrade.style.fontWeight = 'normal';
+        maxGrade.style.color = 'white';
+        maxGrade.style.fontSize = '18px';
+        menuInternalInfoDiv1.appendChild(maxGrade);
 
-        // menu info div internal container 2
-        let menuInternalInfoDiv2 = document.createElement('div');
-        menuInternalInfoDiv2.classList.add('menu-info-internal');
-        menuInfoDiv.appendChild(menuInternalInfoDiv2);
+        // add text for min grade
+        let minGrade = document.createElement('h4');
+        minGrade.innerText = `Min: ${isNaN(this.minOverallGrade) ? '0' : this.minOverallGrade}%`;
+        minGrade.style.fontWeight = 'normal';
+        minGrade.style.color = 'white';
+        minGrade.style.fontSize = '18px';
+        menuInternalInfoDiv1.appendChild(minGrade);
 
-        // // Add completion stats label
-        // let completionStatsLabel = document.createElement('h3');
-        // completionStatsLabel.innerText = 'Completion:';
-        // menuInternalInfoDiv2.appendChild(completionStatsLabel);
-
-        // Add completed task count
-        let completedTaskCount = document.createElement('h4');
-        completedTaskCount.id = 'complete-Assignments-count';
-        console.log(this.completedAssignmentCountOverall);
-        completedTaskCount.innerText = `Assignments done: ${this.completedAssignmentCountOverall} / ${this.totalAssignmentCountOverall}`;
-        completedTaskCount.style.marginRight = '29px';
-        completedTaskCount.style.color = 'white';
-        completedTaskCount.style.fontWeight = 'normal';
-        completedTaskCount.style.fontSize = '18px'; // Set font size to 21
-        menuInternalInfoDiv2.appendChild(completedTaskCount);
-
-        // Create progress bar
-        let progressBar = document.createElement('div');
-        progressBar.id = 'progress-bar';
-        menuInternalInfoDiv2.appendChild(progressBar);
-
-        // Create progress bar fill
-        let progressBarFill = document.createElement('div');
-        progressBarFill.id = 'progress-bar-fill';
-        progressBarFill.classList.add('progress-bar-fill-style');
-        progressBar.appendChild(progressBarFill);
-
-        this.updateOverallProgress();
+        // // Add time of that task
+        // let timeOfTask = document.createElement('h4');
+        // timeOfTask.innerText = this.highestGradeCourse ? `Highest Course: \n${this.highestGradeCourse.title} - ${this.highestGradeCourse.overallGrade.toFixed(2)}%` : 'Highest Course: N/A - 0%';
+        // timeOfTask.id = 'highest-grade';
+        // timeOfTask.style.fontWeight = 'normal';
+        // timeOfTask.style.color = 'white';
+        // timeOfTask.style.fontSize = '18px'; // Set font size to 21
+        // menuInternalInfoDiv1.appendChild(timeOfTask); faggot
 
         // append new div to menuinternalinfo2 to hold decided and undecided weight
         let decidedUndecidedWeightDiv = document.createElement('div');
@@ -476,6 +483,40 @@ class CourseManager {
         if (isNaN(progressBarFillWidth)) {
             progressBarFillText.innerText = '0%';
         }
+
+        // menu info div internal container 2
+        let menuInternalInfoDiv2 = document.createElement('div');
+        menuInternalInfoDiv2.classList.add('menu-info-internal');
+        menuInfoDiv.appendChild(menuInternalInfoDiv2);
+
+        // // Add completion stats label
+        // let completionStatsLabel = document.createElement('h3');
+        // completionStatsLabel.innerText = 'Completion:';
+        // menuInternalInfoDiv2.appendChild(completionStatsLabel);
+
+        // Add completed task count
+        let completedTaskCount = document.createElement('h4');
+        completedTaskCount.id = 'complete-Assignments-count';
+        console.log(this.completedAssignmentCountOverall);
+        completedTaskCount.innerText = `Assignments Completed: ${this.completedAssignmentCountOverall} / ${this.totalAssignmentCountOverall}`;
+        completedTaskCount.style.marginRight = '29px';
+        completedTaskCount.style.color = 'white';
+        completedTaskCount.style.fontWeight = 'normal';
+        completedTaskCount.style.fontSize = '18px'; // Set font size to 21
+        menuInternalInfoDiv2.appendChild(completedTaskCount);
+
+        // Create progress bar
+        let progressBar = document.createElement('div');
+        progressBar.id = 'progress-bar';
+        menuInternalInfoDiv2.appendChild(progressBar);
+
+        // Create progress bar fill
+        let progressBarFill = document.createElement('div');
+        progressBarFill.id = 'progress-bar-fill';
+        progressBarFill.classList.add('progress-bar-fill-style');
+        progressBar.appendChild(progressBarFill);
+
+        this.updateOverallProgress();
 
         // create meta task div to hold task operations and task title
         let metaTaskDiv = document.createElement('div');
@@ -642,13 +683,14 @@ class CourseManager {
         // menuInternalInfoDiv1.appendChild(CourseInfoBox);
     
         // Course grade element
-        let courseGradeElement = document.createElement('h3');
-        courseGradeElement.id = 'course-grade'+course.id;
+        let courseGradeElement = document.createElement('h4');
+        courseGradeElement.id = 'course-grade' + course.id;
         courseGradeElement.textContent = "0.00%";
         courseGradeElement.style.fontWeight = 'normal';
-        courseGradeElement.style.color = 'white';
-        courseGradeElement.style.fontSize = '18px'; // Set font size to 21
+        courseGradeElement.style.color = 'black'; // Change text color to light blue
+        courseGradeElement.style.fontSize = '20px'; // Set font size to 20
         menuInternalInfoDiv1.appendChild(courseGradeElement);
+
     
         // Add time of that task
         let CourseInfoTwo = document.createElement('h3');
@@ -736,6 +778,32 @@ class CourseManager {
         decidedWeightProgressBarFill.appendChild(progressBarFillText);
 
         this.updateCoursedecidedWeight(course);
+
+        // create a container for min and max grade
+        let gradeContainer = document.createElement('div');
+        gradeContainer.classList.add('grade-container');
+        gradeContainer.style.display = 'flex'; // Add this line to set display to flex
+        gradeContainer.style.justifyContent = 'space-between'; // Add this line to justify content in a row
+        decidedUndecidedWeightDiv.appendChild(gradeContainer);
+        
+        // console log the max and min for the course: "Course: Max: Min:"
+        console.log(`Course: ${course.title} Max: ${course.maxGrade} Min: ${course.minGrade} displaying ... stupid fucking code`);
+
+        // add text for max grade
+        let maxGrade = document.createElement('h4');
+        maxGrade.innerText = `Max: ${isNaN(course.maxGrade) ? '0' : course.maxGrade}%`;
+        maxGrade.style.fontWeight = 'normal';
+        maxGrade.style.color = 'white';
+        maxGrade.style.fontSize = '18px';
+        gradeContainer.appendChild(maxGrade);
+
+        // add text for min grade
+        let minGrade = document.createElement('h4');
+        minGrade.innerText = `Min: ${isNaN(course.minGrade) ? '0' : course.minGrade}%`;
+        minGrade.style.fontWeight = 'normal';
+        minGrade.style.color = 'white';
+        minGrade.style.fontSize = '18px';
+        gradeContainer.appendChild(minGrade);
 
         // create meta task div to hold task operations and task title
         let metaTaskDiv = document.createElement('div');
