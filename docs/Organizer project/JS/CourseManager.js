@@ -458,10 +458,11 @@ class CourseManager {
         // Display decided weight
         let decidedWeight = document.createElement('h4');
         let weightnumber = (this.totalDecidedWeight / this.totalWeight * 100).toFixed(2)
-        decidedWeight.innerText = `Decided Weight: ${isNaN(weightnumber) ? '0%' : weightnumber + '%'}`;
+        decidedWeight.innerText = `Decided Weight: ${isNaN(weightnumber) ? '0%' : weightnumber + '%'} / 100%`;
         decidedWeight.style.fontWeight = 'normal';
         decidedWeight.style.color = 'white';
         decidedWeight.style.fontSize = '18px';
+        decidedWeight.style.textAlign = 'center'; // Center align the text
         decidedUndecidedWeightDiv.appendChild(decidedWeight);
 
         // create a progress bar for decided weight and display fill based on decided weight
@@ -506,10 +507,10 @@ class CourseManager {
         completedTaskCount.id = 'complete-Assignments-count';
         console.log(this.completedAssignmentCountOverall);
         completedTaskCount.innerText = `Assignments Completed: ${this.completedAssignmentCountOverall} / ${this.totalAssignmentCountOverall}`;
-        completedTaskCount.style.marginRight = '29px';
         completedTaskCount.style.color = 'white';
         completedTaskCount.style.fontWeight = 'normal';
         completedTaskCount.style.fontSize = '18px'; // Set font size to 21
+        completedTaskCount.style.textAlign = 'center'; // Center align the text
         menuInternalInfoDiv2.appendChild(completedTaskCount);
 
         // Create progress bar
@@ -535,11 +536,11 @@ class CourseManager {
         operationsContainer.classList.add('operations-container');
         taskMenuContainer.appendChild(operationsContainer);
 
-        // Add operations title
-        let operationsTitle = document.createElement('h3');
-        operationsTitle.innerText = '- Operations -';
-        operationsTitle.style.fontSize = '27px'; // Set font size to 20
-        operationsContainer.appendChild(operationsTitle);
+        // // Add operations title
+        // let operationsTitle = document.createElement('h3');
+        // operationsTitle.innerText = '- Operations -';
+        // operationsTitle.style.fontSize = '27px'; // Set font size to 20
+        // operationsContainer.appendChild(operationsTitle);
 
         // Container for meta task operations while holds another container of class "nav-menu-buttons" for add course and select course
         let metaTaskContainer = document.createElement('div');
@@ -739,41 +740,6 @@ class CourseManager {
         maxGrade.style.fontSize = '18px';
         gradeContainer.appendChild(maxGrade);
 
-        // menu info div internal container 2
-        let menuInternalInfoDiv2 = document.createElement('div');
-        menuInternalInfoDiv2.classList.add('menu-info-internal');
-        menuInfoDiv.appendChild(menuInternalInfoDiv2);
-    
-        // // Add completion stats label
-        // let CourseInfoBoxTwo = document.createElement('h3');
-        // CourseInfoBoxTwo.innerText = 'Completion:';
-        // menuInternalInfoDiv2.appendChild(CourseInfoBoxTwo);
-    
-        // Add completed task count
-        let CourseInfoThree = document.createElement('h3');
-        CourseInfoThree.innerText = `Completed Assignments: ${course.completedAssignments} / ${course.assignments.length}`;
-        CourseInfoThree.style.marginRight = '29px'; // Add right margin
-        CourseInfoThree.style.color = 'white';
-        CourseInfoThree.style.fontSize = '18px'; // Set font size to 21
-        CourseInfoThree.style.fontWeight = 'normal';
-        menuInternalInfoDiv2.appendChild(CourseInfoThree);
-    
-        // Create progress bar
-        let progressBar = document.createElement('div');
-        progressBar.id = 'progress-bar';
-        menuInternalInfoDiv2.appendChild(progressBar);
-
-        // Create progress bar fill
-        let progressBarFill = document.createElement('div');
-        progressBarFill.id = 'progress-bar-fill'+course.id;
-        progressBarFill.classList.add('progress-bar-fill-style');
-        progressBar.appendChild(progressBarFill);
-
-        // Add progress text
-        let progressText = document.createElement('div');
-        progressText.textContent = `${(course.completedAssignments / course.assignments.length) * 100}%`;
-        progressBarFill.appendChild(progressText);
-
         // append new div to menuinternalinfo2 to hold decided and undecided weight
         let decidedUndecidedWeightDiv = document.createElement('div');
         decidedUndecidedWeightDiv.classList.add('menu-info-internal');
@@ -790,6 +756,7 @@ class CourseManager {
         decidedWeight.style.fontWeight = 'normal';
         decidedWeight.style.color = 'white';
         decidedWeight.style.fontSize = '18px';
+        decidedWeight.style.textAlign = 'center'; // Center align the text
         decidedUndecidedWeightDiv.appendChild(decidedWeight);
 
         // create a progress bar for decided weight and display fill based on decided weight
@@ -813,7 +780,40 @@ class CourseManager {
         progressBarFillText.classList.add('progress-bar-fill-text');
         decidedWeightProgressBarFill.appendChild(progressBarFillText);
 
+        // menu info div internal container 2
+        let menuInternalInfoDiv2 = document.createElement('div');
+        menuInternalInfoDiv2.classList.add('menu-info-internal');
+        menuInfoDiv.appendChild(menuInternalInfoDiv2);
 
+        // // Add completion stats label
+        // let CourseInfoBoxTwo = document.createElement('h3');
+        // CourseInfoBoxTwo.innerText = 'Completion:';
+        // menuInternalInfoDiv2.appendChild(CourseInfoBoxTwo);
+
+        // Add completed task count
+        let CourseInfoThree = document.createElement('h3');
+        CourseInfoThree.innerText = `Assignments Completed: ${course.completedAssignments} / ${course.assignments.length}`;
+        CourseInfoThree.style.color = 'white';
+        CourseInfoThree.style.fontSize = '18px'; // Set font size to 21
+        CourseInfoThree.style.fontWeight = 'normal';
+        CourseInfoThree.style.textAlign = 'center'; // Center align the text
+        menuInternalInfoDiv2.appendChild(CourseInfoThree);
+
+        // Create progress bar
+        let progressBar = document.createElement('div');
+        progressBar.id = 'progress-bar';
+        menuInternalInfoDiv2.appendChild(progressBar);
+
+        // Create progress bar fill
+        let progressBarFill = document.createElement('div');
+        progressBarFill.id = 'progress-bar-fill'+course.id;
+        progressBarFill.classList.add('progress-bar-fill-style');
+        progressBar.appendChild(progressBarFill);
+
+        // Add progress text
+        let progressText = document.createElement('div');
+        progressText.textContent = `${(course.completedAssignments / course.assignments.length) * 100}%`;
+        progressBarFill.appendChild(progressText);
 
         // create meta task div to hold task operations and task title
         let metaTaskDiv = document.createElement('div');
@@ -894,6 +894,7 @@ class CourseManager {
             deleteButton.classList.add('secondary');
             deleteButton.classList.add('assignment-operators');
             deleteButton.classList.add("ass-delete-button");
+            deleteButton.title = "Delete Assignment";
             
             console.log(assignment);
             console.log(deleteButton.dataset);
@@ -910,6 +911,7 @@ class CourseManager {
             completionButton.classList.add('secondary');
             completionButton.classList.add('assignment-operators');
             completionButton.textContent = '✔';
+            completionButton.title = 'Toggle Assignment Completion';
     
             // Depending on the current state of the assignment, apply the complete and incomplete classes
             if (assignment.completed) {
@@ -934,8 +936,9 @@ class CourseManager {
             editButton.classList.add('secondary');
             editButton.classList.add('assignment-operators');
             editButton.classList.add("ass-edit-button");
+            editButton.title = "Edit Assignment"; // Add title
             editButton.onclick = () => this.editAssignmentFromCourse(courseId, assignmentElement.dataset.assignmentId); // Assuming this function handles deletion
-    
+            
             const checkboxWrapper = document.createElement('div');
             checkboxWrapper.className = 'checkbox-wrapper';
             const deleteButtonWrapper = document.createElement('div');
