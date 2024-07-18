@@ -417,7 +417,7 @@ class CourseManager {
         let gradeContainer = document.createElement('div');
         gradeContainer.classList.add('grade-container');
         gradeContainer.style.display = 'flex'; // Add this line to set display to flex
-        gradeContainer.style.justifyContent = 'space-between'; // Add this line to justify content in a row
+        gradeContainer.style.justifyContent = 'space-evenly'; // Add this line to justify content in a row
         menuInternalInfoDiv1.appendChild(gradeContainer);
         
         // add text for min grade
@@ -717,7 +717,7 @@ class CourseManager {
         let gradeContainer = document.createElement('div');
         gradeContainer.classList.add('grade-container');
         gradeContainer.style.display = 'flex'; // Add this line to set display to flex
-        gradeContainer.style.justifyContent = 'space-between'; // Add this line to justify content in a row
+        gradeContainer.style.justifyContent = 'space-evenly'; // Add this line to justify content in a row
         menuInternalInfoDiv1.appendChild(gradeContainer);
         
         // console log the max and min for the course: "Course: Max: Min:"

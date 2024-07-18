@@ -28,7 +28,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
-    color: #FF4500; /* Orange heading */
+    color: #68bdbd; /* Orange heading */
     margin: 0;
 }
 
@@ -217,7 +217,7 @@ body, html {
     font-family: Arial, Helvetica, sans-serif;
     --accent: rgb(255, 85, 0);
     font-weight: bold;
-    border: #FF4500 2px solid;
+    border: #488383 2px solid;
     border-radius: 10px;
     background-color: #1f1f1f;
     cursor: pointer;
@@ -232,7 +232,7 @@ body, html {
 }
 
 .custom-file-input:hover {
-    background-color: #ff5c21;
+    background-color: #488383;
 }
 
 .custom-file-input:active {
@@ -255,7 +255,7 @@ body, html {
     padding-right: 0px;
     /* padding-top: 5px;
     padding-bottom: 20px; */
-    border: 2px solid #FF4500; /* Orange border */
+    border: 2px solid #68bdbd;
     border-radius: 10px; /* Add border radius */
     cursor: pointer;
     width: auto; /* Set width to fill the container */
@@ -406,7 +406,7 @@ body, html {
 }
 
 .popup h2 {
-    color: #FF4500; /* Orange heading */
+    color: #68bdbd; /* Orange heading */
     margin-bottom: 15px;
     font-size: 20px;
 }
@@ -416,7 +416,7 @@ body, html {
     background-color: #555; /* Dark gray background */
     color: #FFF; /* Light text */
     padding: 10px; /* Add some padding */
-    border: 2px solid #FF4500; /* Orange border */
+    border: #68bdbd 2px solid; /* Orange border */
     border-radius: 5px; /* Add border radius */
     width: calc(100% - 22px); /* Subtract padding and border width */
     font-size: 16px; /* Font size */
@@ -528,7 +528,7 @@ button {
     --accent: rgb(255, 85, 0);
     font-weight: bold;
     letter-spacing: 0.05em;
-    border: #FF4500 2px solid;
+    border: #68bdbd 2px solid;
     border-radius: 10px;
     background-color: #1f1f1f;
     cursor: pointer;
@@ -541,7 +541,7 @@ button {
 }
 
 button:hover {
-    background-color: #e13c00;
+    background-color: #488383;
 }
 
 button:active {
@@ -554,20 +554,16 @@ button:active {
 
 button.secondary {
     font-size: 20px; /* Matched font size */
-    --accent: rgb(51, 51, 51); /* Kept accent color */
     letter-spacing: 0.1em; /* Kept letter spacing */
-    border: 1px solid rgb(163, 163, 163); /* Adjusted border thickness and color */
+    border: 1px solid #68bdbd; /* Set the border to white */
     border-radius: 20px; /* Made border radius consistent */
-    background-color: #8d3515; /* Kept background color */
+    background-color: rgb(47, 47, 47);
     cursor: pointer; /* Kept cursor style */
-    color: var(--accent); /* Kept text color */
+    color: white;
     padding: 0.5em 1em; /* Adjusted padding for consistency */
     transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
                 letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s; 
-    color: rgb(0, 0, 0);
 }
-
-
 
 button.secondary:active {
     box-shadow: var(--hover-shadows), var(--accent) 0px 0px 30px 5px;
@@ -698,7 +694,7 @@ input[type="date"] {
 
 .highlight {
     transform: scale(0.95);
-    background-color: #e13c00;
+    background-color: #488383;
     border: black 2px solid;
 }
 
@@ -712,7 +708,7 @@ input[type="date"] {
     border-radius: 10px;
     padding: 10px;
     border: 2px black solid;
-    box-shadow: 0 0 3px rgb(245, 49, 0);
+    box-shadow: 0 0 3px rgb(0 191 245);
     max-width: 520px;
     display: flex;
     justify-content: center;
@@ -737,20 +733,16 @@ input[type="date"] {
     margin-bottom: 100px;
 }
 
+button.secondary.TaskAdd-btn {
+    background-color: green;
+}
+
 button.secondary.incomplete {
-    background-color: rgb(171, 135, 47);
+    color: rgb(200, 20, 20);
 }
 
 button.secondary.complete {
-    background-color: rgb(0 89 0)
-}
-
-button.secondary.ass-delete-button {
-    background-color: rgb(117 0 0)
-}
-
-button.secondary.TaskAdd-btn {
-    background-color: green;
+    color: rgb(0, 172, 0);
 }
 
 .assignment-operators.secondary.incomplete:hover {
@@ -792,7 +784,7 @@ button.secondary.TaskAdd-btn {
 #TaskSort-btn:hover {
     border: 1px solid white; /* Set the border to white */
     color: white;
-    background-color: rgb(66, 66, 66);
+    background-color: rgb(47, 47, 47);
 }
 
 #TaskFilter-btn.complete,
@@ -821,9 +813,9 @@ button.secondary:Hover {
 
 
 button.secondary.assignment-operators:hover {
-    background-color: rgb(47, 47, 47);
-    border:#d4d4d4 1px solid;
-    color: #FFF; /* White text */
+    background-color: #488383;
+    border:#68bdbd 1px solid;
+    color: white; /* White text */
 }
 
 .meta-task {
