@@ -925,7 +925,6 @@ class CourseManager {
             }
     
             completionButton.addEventListener('click', () => {
-                const savedScrollPosition = window.scrollY;
                 toggleComplete(assignment, completionButton);
                 this.display();
                 this.displayAssignments(courseManager.selectedCourse.id);
@@ -938,7 +937,7 @@ class CourseManager {
             editButton.classList.add("ass-edit-button");
             editButton.title = "Edit Assignment"; // Add title
             editButton.onclick = () => this.editAssignmentFromCourse(courseId, assignmentElement.dataset.assignmentId); // Assuming this function handles deletion
-            
+
             const checkboxWrapper = document.createElement('div');
             checkboxWrapper.className = 'checkbox-wrapper';
             const deleteButtonWrapper = document.createElement('div');

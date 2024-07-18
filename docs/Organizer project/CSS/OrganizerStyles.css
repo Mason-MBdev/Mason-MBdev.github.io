@@ -719,14 +719,14 @@ input[type="date"] {
     padding: 10px;
     border: 2px black solid;
     box-shadow: 0 0 3px rgb(0, 0, 0);
-    margin-top: 20px;
+    margin-top: 5px;
     max-width: 1424px;
     justify-content: space-evenly; /* Modified: Use center to align elements horizontally */
     align-content: center;
     display: flex;
     width: 1319px;
     height: 80px;
-    margin-bottom: 100px;
+    margin-bottom: 35px;
 }
 
 button.secondary.TaskAdd-btn {
