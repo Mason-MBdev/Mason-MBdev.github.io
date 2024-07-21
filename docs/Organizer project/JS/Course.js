@@ -49,9 +49,12 @@ class Course {
         console.log(`total points: ${totalPoints} total weight: ${totalWeight}`);
         this.overallGrade = (totalPoints / totalWeight) * 100 || 0;
 
+        // console log this.totalWeight
+        console.log(`total weight: ${this.totalWeight}`);
+
         // Calculate the maximum and minimum achievable grades
-        this.maxGrade = parseFloat(((totalPoints + maxPoints) / 100) * 100).toFixed(2);
-        this.minGrade = parseFloat((totalPoints / 100) * 100).toFixed(2);
+        this.maxGrade = parseFloat(((totalPoints + maxPoints) / this.totalWeight) * 100).toFixed(2);
+        this.minGrade = parseFloat((totalPoints / this.totalWeight) * 100).toFixed(2);
 
         // Console log the max and min grades
         console.log(`max grade: ${this.maxGrade} min grade: ${this.minGrade}`);

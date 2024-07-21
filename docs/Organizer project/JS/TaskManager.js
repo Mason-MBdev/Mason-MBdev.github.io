@@ -11,6 +11,8 @@ class TaskManager {
         this.sort = null;
         this.filterArray = [];
         this.sortArray = [];
+        this.tasksDueThisWeek = null;
+        this.tasksDueThisMonth = null;
     }
 
     // TASK OPERATIONS ------------------------------------------------------------------------------------
@@ -178,6 +180,18 @@ class TaskManager {
         });
     }
 
+    // iterate through tasks and update count for complete and incomplete
+    updateTaskCount() {
+        this.completedTaskCount = 0;
+        this.incompleteTaskCount = 0;
+        this.tasks.forEach(task => {
+            if (task.taskCompleted) {
+                this.completedTaskCount++;
+            } else {
+                this.incompleteTaskCount++;
+            }
+        });
+    }
 
     // function called to update the time remaining for all tasks every minute
     updateTimeRemaining() {
@@ -282,6 +296,7 @@ class TaskManager {
 
     // Display all tasks in the task manager to user
     display() {
+        this.updateTaskCount();
         console.log(this.tasks);
         // Clear existing content
         let coursesLoadedDiv = document.querySelector('.courses-loaded');
@@ -351,14 +366,14 @@ class TaskManager {
         completionStatsLabel.innerText = 'Stats:';
         menuInternalInfoDiv2.appendChild(completionStatsLabel);
 
-        // Add completed task count
-        let completedTaskCount = document.createElement('h4');
-        completedTaskCount.innerText = `Completed tasks: ${this.completedTaskCount}`;
-        completedTaskCount.style.marginRight = '29px'; // Add right margin
-        completedTaskCount.style.color = 'white'; // Set text color to white
-        // make it normal, not bold
-        completedTaskCount.style.fontWeight = 'normal';
-        menuInternalInfoDiv2.appendChild(completedTaskCount);
+        // // Add completed task count
+        // let completedTaskCount = document.createElement('h4');
+        // completedTaskCount.innerText = `Completed tasks: ${this.completedTaskCount}`;
+        // completedTaskCount.style.marginRight = '29px'; // Add right margin
+        // completedTaskCount.style.color = 'white'; // Set text color to white
+        // // make it normal, not bold
+        // completedTaskCount.style.fontWeight = 'normal';
+        // menuInternalInfoDiv2.appendChild(completedTaskCount);
 
         // Add incomplete task count
         let incompleteTaskCount = document.createElement('h4');
@@ -368,6 +383,41 @@ class TaskManager {
         // make it normal, not bold
         incompleteTaskCount.style.fontWeight = 'normal';
         menuInternalInfoDiv2.appendChild(incompleteTaskCount);
+
+        // determine count of tasks due this week and this month
+        this.tasksDueThisWeek = 0;
+        this.tasksDueThisMonth = 0;
+        this.tasks.forEach(task => {
+            if (task) {
+                if (!task.taskDueDate) {
+                    return;
+                }
+                if (this.getTimeRemainingInt(task) < 604800000) {
+                    this.tasksDueThisWeek++;
+                }
+                if (this.getTimeRemainingInt(task) < 2592000000) {
+                    this.tasksDueThisMonth++;
+                }
+            }
+        });
+
+        // add count of tasks due this week
+        let tasksDueThisWeek = document.createElement('h4');
+        tasksDueThisWeek.innerText = `Due this week: ${this.tasksDueThisWeek}`;
+        tasksDueThisWeek.style.marginRight = '29px'; // Add right margin
+        tasksDueThisWeek.style.color = 'white'; // Set text color to white
+        // make it normal, not bold
+        tasksDueThisWeek.style.fontWeight = 'normal';
+        menuInternalInfoDiv2.appendChild(tasksDueThisWeek);
+
+        // add count of tasks due this month
+        let tasksDueThisMonth = document.createElement('h4');
+        tasksDueThisMonth.innerText = `Due this month: ${this.tasksDueThisMonth}`;
+        tasksDueThisMonth.style.marginRight = '29px'; // Add right margin
+        tasksDueThisMonth.style.color = 'white'; // Set text color to white
+        // make it normal, not bold
+        tasksDueThisMonth.style.fontWeight = 'normal';
+        menuInternalInfoDiv2.appendChild(tasksDueThisMonth);
 
         // create meta task div to hold task operations and task title
         let metaTaskDiv = document.createElement('div');

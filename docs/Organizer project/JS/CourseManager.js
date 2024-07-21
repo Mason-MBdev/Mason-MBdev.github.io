@@ -382,7 +382,7 @@ class CourseManager {
 
         // Add title
         let title = document.createElement('h2');
-        title.innerText = 'Course Stats';
+        title.innerText = 'Overall Course Stats';
         title.style.textAlign = 'center';
         taskMenuContainer.appendChild(title);
 
@@ -567,7 +567,6 @@ class CourseManager {
         // Add options for each course
         for (let i = 0; i < this.courses.length; i++) {
             let courseOption = document.createElement('option');
-            console.log("fek");
             console.log(this.courses[i].id);
             console.log(this.courses[i].title);
 
@@ -777,8 +776,14 @@ class CourseManager {
 
         // Add percentage text
         let progressBarFillText = document.createElement('span');
+        progressBarFillText.innerText = `${progressBarFillWidth.toFixed(2)}%`;
         progressBarFillText.classList.add('progress-bar-fill-text');
         decidedWeightProgressBarFill.appendChild(progressBarFillText);
+
+        // Check if progressBarFillWidth is NaN and display  if true
+        if (isNaN(progressBarFillWidth)) {
+            progressBarFillText.innerText = '0%';
+        }
 
         // menu info div internal container 2
         let menuInternalInfoDiv2 = document.createElement('div');
@@ -812,8 +817,10 @@ class CourseManager {
 
         // Add progress text
         let progressText = document.createElement('div');
-        progressText.textContent = `${(course.completedAssignments / course.assignments.length) * 100}%`;
+        progressText.textContent = `${isNaN(course.completedAssignments) ? '0' : (course.completedAssignments / course.assignments.length) * 100}%`;
         progressBarFill.appendChild(progressText);
+
+        console.log("MEWOMP"+progressText.textContent);
 
         // create meta task div to hold task operations and task title
         let metaTaskDiv = document.createElement('div');
@@ -824,7 +831,7 @@ class CourseManager {
         const legendDiv = document.createElement('div');
         legendDiv.className = 'legend';
     
-        ['Assignments', 'Grade', 'Weighted Grade', '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0Done\xa0\xa0||\xa0\xa0\xa0Edit\xa0\xa0\xa0||\xa0Delete'].forEach(text => {
+        ['Name', 'Grade', 'Weighted Grade', '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0Done\xa0\xa0||\xa0\xa0\xa0Edit\xa0\xa0\xa0||\xa0Delete'].forEach(text => {
             const legendItem = document.createElement('div');
             const legendItemText = document.createElement('h3');
             legendItemText.style.fontSize = '19px';
@@ -833,6 +840,15 @@ class CourseManager {
             legendItem.appendChild(legendItemText);
             legendDiv.appendChild(legendItem);
         });
+
+        // create title "Assignments" for the course assignments
+        let courseAssignmentsTitle = document.createElement('h3');
+        courseAssignmentsTitle.innerText = 'Assignments:';
+        courseAssignmentsTitle.style.fontSize = '22px';
+        courseAssignmentsTitle.style.textAlign = 'left'; // Add text alignment
+        courseAssignmentsTitle.style.marginLeft = '0'; // Set left margin to 0
+        courseAssignmentsTitle.style.marginRight = 'auto'; // Set left margin to 0
+        gradesSection.appendChild(courseAssignmentsTitle);
 
         // create a container for all course assignments and legend
         let courseAssignmentsContainer = document.createElement('div');

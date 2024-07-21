@@ -257,13 +257,12 @@ body, html {
     border-radius: 10px; /* Add border radius */
     cursor: pointer;
     width: auto; /* Set width to fill the container */
-    font-size: 14.5px; /* Font size */
     outline: none; /* Remove default outline */
-    font-size: 20px;
+    font-size: 17px;
     height: 50px;
     width: 325px;
     letter-spacing: 0.05em;
-
+    text-align: center; /* Center align the text */
 }
 
 .course-dropdown option {
@@ -302,8 +301,6 @@ body, html {
     align-items: center;
     background-color: #292929; /* Dark gray background */
     padding: 15px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
     border: 2px solid #000000;
 }
 
@@ -583,8 +580,6 @@ input[type="date"] {
 .task-menu-container {
     background-color: #3e3a3a;
     padding: 60px;
-    margin: 40px 30px 10px 30px;
-    border-radius: 10px;
     box-shadow: 0 0 10px #000000;
     border: #2e2e2e 1px solid;
 }
@@ -844,7 +839,7 @@ button.secondary.assignment-operators:hover {
     justify-content: center;
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 175px;
 }
 
 .course-menu-info {
