@@ -533,6 +533,12 @@ button {
     width: 210px;
     max-width: 210px;
     height: 50px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
 }
 
 button:hover {
@@ -570,7 +576,7 @@ input[type="date"] {
     background-color: #555; /* Dark gray background */
     color: #FFF; /* Light text */
     padding: 10px; /* Add some padding */
-    border: 2px solid #FF4500; /* Orange border */
+    border: 2px solid #68bdbd; /* Orange border */
     border-radius: 5px; /* Add border radius */
     width: calc(100% - 22px); /* Subtract padding and border width */
     font-size: 16px; /* Font size */

@@ -52,7 +52,7 @@
 }
 
 .contact-body {
-    height: 1000px;
+    height: 100vh;
 }
 
 h1, h2, span {
@@ -84,7 +84,7 @@ html {
 
 body {
     height: auto;
-    background-color: rgb(23, 23, 23);
+    background-color: rgb(38, 41, 41);
     /* background-image: url('Content/BackgroundRetro.jpg'); */
     background-repeat: no-repeat;
     background-position: center;
@@ -94,6 +94,7 @@ body {
     position: relative; 
     overflow-x: hidden;
 }
+
 
 .flex-1 {
     flex: 1;
@@ -126,7 +127,7 @@ body::-webkit-scrollbar-thumb {
 
 .text--purple {
     font-size: 30px;
-    color: #a86a6a;
+    color: #f46a6a;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -138,6 +139,19 @@ body::-webkit-scrollbar-thumb {
 .text--heading {
     color: rgb(255, 255, 255);
     opacity: 80%;
+
+}
+
+.Logo .text--heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 6px;
+    border-radius: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 59px;
+    border: 2px solid rgb(200, 200, 200); /* Added border above */
 }
 
 .short-text{
@@ -177,6 +191,14 @@ body::-webkit-scrollbar-thumb {
 
 /* nav mobile #5a2ee0)*/
 
+.backholder {
+    margin-left: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+}
+
 /* Sticky navbar styles for non-mobile */
 nav.sticky {
     position: fixed;
@@ -196,7 +218,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-image: linear-gradient(#643c3c, #340d27);
+    background-image: linear-gradient(#6a2b2b, #530b38);
     transition: all 100ms ease;
     box-shadow: 0 8px 16px rgba(0,0,0.16);
     border-bottom: 1px rgb(74, 74, 74) solid;
@@ -246,12 +268,15 @@ nav-mobile {
 }
 
 .nav__link--anchor-primary:hover {
+    background: #2c2c2c;
     color: rgb(255, 156, 156);
 }
 
 .nav__link--anchor-primary:hover .text--heading{
     transition: all 200ms ease;
     color: rgb(255, 156, 156);
+    background: #2c2c2c;
+    /* border: 2px solid rgb(151, 193, 240); */
 }
 
 /* gitlink */
@@ -271,6 +296,9 @@ nav-mobile {
 /*nav bar*/
 .text--header {
     color: rgb(230, 230, 247);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .short-text {
@@ -293,23 +321,29 @@ nav-mobile {
 }
 
 .nav__link--anchor-primary {
-    color: rgb(255, 255, 255);
+    color: rgb(201, 201, 201);
     transition: all 200ms ease;
-    border-style: solid;
-    padding: 3px 6px;
-    border-radius: 20px;
+    border: 2px solid;
+    padding: 3px 20px;
+    border-radius: 9px;
+}
+
+.Logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 100ms ease-in-out;
+    width: 220px;
 }
 
 .Logo a {
     font-size: 35px;
-    margin: 0 40px;
     align-items: center;
     transition: all 100ms ease-in-out;
     text-decoration: none;
 }
 
 .Logo:hover {
-    transform: scale(1.1);
     transition: all 250ms ease-in-out;
 }
 
@@ -319,8 +353,9 @@ nav-mobile {
 }
 
 .Logo:hover .text--heading {
-    color: rgb(255, 156, 156);
+    color: rgb(255, 114, 114);
     transition: color 100ms ease-in-out;
+    background: #2c2c2c;
 }
 
 .Logo:not(:hover) .text--heading {
@@ -362,7 +397,15 @@ nav-mobile {
     width: 100%;
     justify-self: center;
     align-self: center;
-    
+}
+
+.about-me__picture-brand {
+    width: 80px;
+    height: 80px;
+}
+
+.about-me__picture-brand:hover {
+    transform: scale(1.05);
 }
 
 .aboutmetitle {
@@ -372,11 +415,11 @@ nav-mobile {
 
 /* PROJECT section */
 .project_section {
-    background: #2c2c2c;
+    background: #393939;
     padding-top: 20px;
     border-radius: 10px;
-    margin: 0px 10vw 10vh;
-    border: 2px solid rgb(95, 95, 95);
+    margin: 0px 2vw 13.5vh;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Add white box shadow */
 }
 
 .project-title {
@@ -399,11 +442,12 @@ nav-mobile {
 }
 
 .grey-container {
-    background: #2c2c2c;
+    padding: 10px;
+    background: #393939;
     border-radius: 10px;
-    margin-top: 45px;
+    margin-top: 30px;
     margin-bottom: 50px;
-    border: 1.5px solid rgb(88, 88, 88);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Add white box shadow */
 }
 
 .project_accordion {
@@ -422,14 +466,18 @@ nav-mobile {
 
 .project_accordion .project_container .project-expandable {
     transform: translateX(1px);
-    background: rgb(28, 28, 28);
-    max-height: 1000px; /* Adjusted maximum height for smooth contraction */
+    background: #242424;
+    max-height: 1000px;
     overflow: hidden;
     overflow-y: auto;
     max-width: 1300px;
     width: 69.8vw;
-    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out, border-width 0.5s ease-in-out; /* Updated transition for contraction */
-    border-radius: 10px; /* Add border radius to soften the edges */
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out, border-width 0.5s ease-in-out;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .project_accordion .project_container:not(.active) .project-expandable {
@@ -478,7 +526,7 @@ interact */
 .project:hover {
     transition: all 200ms ease;
     cursor: pointer;
-    border: 2px solid rgb(255, 255, 255);
+    border: 2px solid rgb(151, 193, 240);
 }
 
 .project:not(:hover) {
@@ -503,12 +551,17 @@ interact */
 }
 
 .project .project_descriptor_box {
-    width: 25%;
-    height: 100%;
-    justify-content: center;
-    justify-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    align-content: center;
+    gap: 30px;
+    height: 100%;
+    padding-left: 80px;
+    padding-right: 80px;
+    align-items: center; /* Add this line to center content vertically */
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .project_expansion {
@@ -538,7 +591,7 @@ interact */
 
 .project_left {
     display: flex;
-    flex: 0 0 35%;
+    flex: 0 0 50%;
     justify-content: space-between;
     align-items: center;
     height: 100px;
@@ -555,27 +608,30 @@ interact */
 }
 
 .align-project-text {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
 }
-
 .align-project-text p {
     display: flex;
     justify-content: left; /* Horizontally center the content */
     align-items: center; /* Vertically center the content */
     color: white;
+    font-size: 18px;
 }
 
 .project_right {
     display: flex;
-    flex: 0 0 65%;
+    flex: 0 0 50%;
     justify-content: space-evenly;
     align-items: center;
 }
 
 .project-expandable_photo {
     margin-top: 20px;
-    max-width: 370px;
-    max-height: 320px;  
+    max-width: 350px;
+    max-height: 350px;  
 }
 
 .media_scroller {
@@ -600,10 +656,14 @@ interact */
 }
 
 .ProjectPhoto-1 {
-    width: 40vw;
-    max-width: 400px;
+    width: 60vw;
+    max-width: 678px;
     border: 1px solid rgb(193, 193, 193);
-    max-height: 200px;
+    max-height: 600px;
+    align-self: center;
+    justify-self: center;
+    margin: 0 auto; /* Add this line to center the element horizontally */
+    margin-bottom: 20px;
 }
 
 button {
@@ -705,6 +765,7 @@ button:hover {
     width: 100%;
     font-size: 1em;
     transition: 0.3s ease;
+
 }
 
 .input_label {
@@ -723,9 +784,20 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: auto;
-    margin: 90px;    
+    text-align: center;
+    margin: 90px auto; /* Center horizontally */
     padding-bottom: 30px;
+    padding: 10px;
+    background: #393939;
+    border-radius: 10px;
+    margin-top: 90px;
+    margin-bottom: 50px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Add white box shadow */
+    padding-top: 30px;
+    width: 0 auto;
+    max-width: 45vw;
+    justify-self: center;
+    align-self: center;  
 }
 
 input, textarea{
@@ -736,8 +808,8 @@ input, textarea{
     margin: 5px 0px 0px 0px;
     resize: none;
     border-radius: 12px;
-    background: linear-gradient(#303133, #303133) padding-box, linear-gradient(90deg, #ed6e61, #6359e1) border-box;
-    border: 3px solid transparent;
+    /* background: linear-gradient(#303133, #303133) padding-box, linear-gradient(90deg, #ed6e61, #6359e1) border-box; */
+    border: 2px solid #a86a6a;
 }
 
 form {
@@ -746,19 +818,34 @@ form {
 }
 
 .submit {
-    background: transparent;
+    background: #924444;
     color: white;
-    font-size: 20px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
+    font-size: 14.5px;
+    padding: 15px;
+    border: 2px solid #868686;
+    border-radius: 1.1em;
     cursor: pointer;
-    border: outset;
+    transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
+        letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s;
+    width: 170px;
 }
 
 .submit:hover {
-    background: rgb(102, 98, 98);
-    transform:  scale(0.95);
+    background-color: #6c0c0c;
+    border: #c8c8c8 2px solid;
+    scale: 1.02;
+}
+
+.submit:active {
+    scale: 0.98;
+}
+
+input::placeholder {
+    color: #e4e4e4;
+}
+
+textarea::placeholder {
+    color: #e4e4e4;
 }
 
 .submission_group{
@@ -793,7 +880,7 @@ form {
 }
 
 .pixel_art-gif {
-    max-width: 100px;
+    max-width: 70px;
 }
 
 input:-webkit-autofill {
@@ -859,6 +946,7 @@ input:-webkit-autofill {
 }
 
 .text--white {
+    font-size: 23px;
     color: white;
     opacity: 80%;
     text-align: left;
@@ -870,6 +958,7 @@ input:-webkit-autofill {
     color: white;
     opacity: 80%;
     text-align: left;
+    font-size: 20px;
 }
 
 .description_photos-container p {
@@ -947,6 +1036,11 @@ input:-webkit-autofill {
 }
 
 @media (max-width: 1000px) {
+    .image_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
     .p {
         font-size: 0%;
@@ -1027,7 +1121,7 @@ input:-webkit-autofill {
     }
 
     h1 {
-        font-size: 20px; 
+        font-size: 23px; 
     }
 
     .paragraph {
@@ -1056,7 +1150,7 @@ input:-webkit-autofill {
 
     .project .project_descriptor_box {
         width: auto;
-        height: 40%;
+        height: auto;
     }
 
     body {
@@ -1085,19 +1179,15 @@ input:-webkit-autofill {
     }
 
     .ProjectPhoto-1 {
-        width: 200px;
+        width: 350px;
     }
 
     .project-expandable_photo {
-        width: 200px;
+        width: 350px;
     }
 
     .project_left {
         max-height: 80px;
-    }
-
-    .move-left {
-        margin-bottom: 30px;
     }
 
     .text--purple {
@@ -1105,8 +1195,8 @@ input:-webkit-autofill {
     }
 
     .grey-container {
-        margin-left: 10vw;
-        margin-right: 10vw;
+        margin-left: 4vw;
+        margin-right: 4vw;
     }
 
     .right_arrow {
@@ -1115,7 +1205,8 @@ input:-webkit-autofill {
 
     .down_arrow {
         display: block;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
+        margin-top: 50px;
     }
 }
 
