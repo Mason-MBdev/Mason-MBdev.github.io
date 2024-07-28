@@ -91,15 +91,17 @@
                 <textarea id="message" name="message" rows="8" class="contact_label" required placeholder="Message"></textarea>
             </div>
             <div class="submission_group">
-                <button type="submit" class="submit">SUBMIT</button>                
-                <div class="status_box">
-                    <div class="status_box" style="text-align: center;"></div>
-                        <h3 class="status" style="color: rgb(255, 255, 255);">Server status:</h2>
-                        <h3 id="serverState" style="color: rgb(255, 255, 255);">Offline</p>
-                        <h3 class="status" style="color: rgb(255, 255, 255);">Message:</h2>
-                        <h3 id="statusMessage" style="color: rgb(255, 255, 255);">Not Sent</p>
+                <button type="submit" class="submit">SUBMIT</button>  
+                <div class="status_box_holder">             
+                    <div class="status_box">
+                        <h3 class="status" style="color: rgb(255, 255, 255);">Server:</h2>
+                        <p id="serverState" style="color: rgb(255, 255, 255);">Offline</p>
                     </div>
-                </div>
+                    <div class="status_box">
+                        <h3 class="status" style="color: rgb(255, 255, 255);">Message:</h2>
+                        <p id="statusMessage" style="color: rgb(255, 255, 255);">Not Sent</p>
+                    </div>
+                </div> 
             </div>
         </form>
         <div class="Gapdiv1"></div>
