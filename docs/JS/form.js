@@ -8,15 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    // Check server status on page load
-    fetch('https://pi.mbdev.ca/submit_form', {
-        method: 'POST',
-        body: new URLSearchParams({
-            name: 'Test User',
-            email: 'test@example.com',
-            message: 'Page load'
-        })
-    })
+    // Check server status
+    fetch('https://pi.mbdev.ca/status')
     .then(response => {
         if (!response.ok) {
             throw new Error('Network Error');
@@ -35,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Error:', error);
     });
     
+    // Route for form submission
     contactForm.addEventListener('submit', function(event) {
         event.preventDefault();
     
