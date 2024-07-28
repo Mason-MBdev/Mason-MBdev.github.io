@@ -8,24 +8,32 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    // Check server status when the page is loaded by sending a mock form POST, if there is a response then the server is online
+    // Check server status on page load
     fetch('https://pi.mbdev.ca/submit_form', {
         method: 'POST',
-        body: new FormData()
+        body: new URLSearchParams({
+            name: 'Test User',
+            email: 'test@example.com',
+            message: 'Page load'
+        })
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error('Error: Network response was not ok');
+            throw new Error('Network Error');
         }
+        return response.json();
+    })
+    .then(data => {
+        // Set server status to online
         serverStatusElement.innerText = 'Online';
         serverStatusElement.style.color = 'rgb(70, 255, 130)'; // green for success
     })
     .catch(error => {
+        // Set server status to offline
         serverStatusElement.innerText = 'Offline';
         serverStatusElement.style.color = 'rgb(255, 50, 50)'; // red for error
         console.error('Error:', error);
     });
-    
     
     contactForm.addEventListener('submit', function(event) {
         event.preventDefault();
