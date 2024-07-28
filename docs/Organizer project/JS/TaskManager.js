@@ -429,11 +429,11 @@ class TaskManager {
         operationsContainer.classList.add('operations-container');
         taskMenuContainer.appendChild(operationsContainer);
 
-        // Add operations title
-        let operationsTitle = document.createElement('h3');
-        operationsTitle.innerText = '- Operations -';
-        operationsTitle.style.fontSize = '27px'; // Set font size to 20
-        operationsContainer.appendChild(operationsTitle);
+        // // Add operations title
+        // let operationsTitle = document.createElement('h3');
+        // operationsTitle.innerText = '- Operations -';
+        // operationsTitle.style.fontSize = '27px'; // Set font size to 20
+        // operationsContainer.appendChild(operationsTitle);
 
         // Container for meta task operations while holds another container of class "nav-menu-buttons" for addtask, filter, and sort
         let metaTaskContainer = document.createElement('div');
