@@ -3,12 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const statusMessage = document.getElementById('statusMessage');
     const serverStatusElement = document.getElementById('serverState');
 
-    // test form mock data
-    const testFormData = new FormData();
-    testFormData.append('name', 'load');
-    testFormData.append('email', 'a@a');
-    testFormData.append('message', ' ');
-
     if (!contactForm || !statusMessage || !serverStatusElement) {
         console.error('Error: Contact form or status message element not found.');
         return;
@@ -17,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check server status when the page is loaded by sending a mock form POST, if there is a response then the server is online
     fetch('https://pi.mbdev.ca/submit_form', {
         method: 'POST',
-        body: testFormData
+        body: new FormData()
     })
     .then(response => {
         if (!response.ok) {
@@ -38,6 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
         // Create a FormData object from the form
         const formData = new FormData(contactForm);
+
+        console.log(formData);
 
         // Send a POST request to the backend
         fetch('https://pi.mbdev.ca/submit_form', {
