@@ -80,7 +80,7 @@ h2 {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.73);
     border-bottom: 3px solid #000000;
     z-index: 9999;
-    background: #073336;
+    background: #2a2a2a;
 }
 
 .persistent-elements > :first-child {
@@ -584,7 +584,7 @@ input[type="date"] {
 }
 
 .task-menu-container {
-    background-color: #293c3c;
+    background-color: #3b3b3b;
     padding: 60px;
     box-shadow: 0 0 10px #000000;
     border: #2e2e2e 1px solid;
