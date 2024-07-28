@@ -17,12 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
         return response.json();
     })
     .then(data => {
-        // Set server status to online
         serverStatusElement.innerText = 'Online';
         serverStatusElement.style.color = 'rgb(70, 255, 130)'; // green for success
     })
     .catch(error => {
-        // Set server status to offline
         serverStatusElement.innerText = 'Offline';
         serverStatusElement.style.color = 'rgb(255, 50, 50)'; // red for error
         console.error('Error:', error);
