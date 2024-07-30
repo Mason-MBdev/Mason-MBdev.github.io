@@ -8,23 +8,22 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    // Check server status
-    fetch('https://pi.mbdev.ca/status')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network Error');
-        }
-        return response.json();
-    })
-    .then(data => {
-        serverStatusElement.innerText = 'Online';
-        serverStatusElement.style.color = 'rgb(70, 255, 130)'; // green for success
-    })
-    .catch(error => {
-        serverStatusElement.innerText = 'Offline';
-        serverStatusElement.style.color = 'rgb(255, 50, 50)'; // red for error
-        console.error('Error:', error);
-    });
+    // // Check server status
+    // fetch('https://pi.mbdev.ca/status')
+    // .then(response => {
+    //     if (!response.ok) {
+    //         throw new Error('Network Error');
+    //     }
+    // })
+    // .then(data => {
+    //     serverStatusElement.innerText = 'Online';
+    //     serverStatusElement.style.color = 'rgb(70, 255, 130)'; // green for success
+    // })
+    // .catch(error => {
+    //     serverStatusElement.innerText = 'Offline';
+    //     serverStatusElement.style.color = 'rgb(255, 50, 50)'; // red for error
+    //     console.error('Error:', error);
+    // });
     
     // Route for form submission
     contactForm.addEventListener('submit', function(event) {
