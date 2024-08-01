@@ -706,7 +706,7 @@ input[type="date"] {
     padding: 10px;
     border: 2px black solid;
     box-shadow: 0 0 6px #f46a6a;
-    max-width: 520px;
+    max-width: 530px;
     display: flex;
     justify-content: center;
     align-items: center;
