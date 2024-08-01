@@ -8,12 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
+    console.log('Form script loaded, getting server status...');
     // Check server status
     fetch('https://pi.mbdev.ca/status')
     .then(response => {
         if (!response.ok) {
             throw new Error('Network Error');
         }
+        console.log('Server status:', response.status);
     })
     .then(data => {
         serverStatusElement.innerText = 'Online';
@@ -24,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
         serverStatusElement.style.color = 'rgb(255, 50, 50)'; // red for error
         console.error('Error:', error);
     });
-    
+    console.log('Server status checked. Returned:', serverStatusElement.innerText);
+
     // Route for form submission
     contactForm.addEventListener('submit', function(event) {
         event.preventDefault();
