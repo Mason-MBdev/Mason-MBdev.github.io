@@ -28,7 +28,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
-    color: #68bdbd; /* Orange heading */
+    color: #f46a6a; /* Orange heading */
     margin: 0;
 }
 
@@ -80,7 +80,7 @@ h2 {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.73);
     border-bottom: 3px solid #000000;
     z-index: 9999;
-    background: #2a2a2a;
+    background-image: linear-gradient(#592626, #3f092c);
 }
 
 .persistent-elements > :first-child {
@@ -217,7 +217,7 @@ body, html {
     font-family: Arial, Helvetica, sans-serif;
     --accent: rgb(255, 85, 0);
     font-weight: bold;
-    border: #488383 2px solid;
+    border: #f46a6a 2px solid;
     border-radius: 10px;
     background-color: #1f1f1f;
     cursor: pointer;
@@ -232,7 +232,8 @@ body, html {
 }
 
 .custom-file-input:hover {
-    background-color: #488383;
+    background-color: #feb5e0;
+    color: black;
 }
 
 .custom-file-input:active {
@@ -253,7 +254,7 @@ body, html {
     padding-right: 0px;
     /* padding-top: 5px;
     padding-bottom: 20px; */
-    border: 2px solid #68bdbd;
+    border: 2px solid #f46a6a;
     border-radius: 10px; /* Add border radius */
     cursor: pointer;
     width: auto; /* Set width to fill the container */
@@ -401,7 +402,6 @@ body, html {
 }
 
 .popup h2 {
-    color: #68bdbd; /* Orange heading */
     margin-bottom: 15px;
     font-size: 20px;
 }
@@ -411,7 +411,7 @@ body, html {
     background-color: #555; /* Dark gray background */
     color: #FFF; /* Light text */
     padding: 10px; /* Add some padding */
-    border: #68bdbd 2px solid; /* Orange border */
+    border: #f46a6a 2px solid; /* Orange border */
     border-radius: 5px; /* Add border radius */
     width: calc(100% - 22px); /* Subtract padding and border width */
     font-size: 16px; /* Font size */
@@ -523,7 +523,7 @@ button {
     --accent: rgb(255, 85, 0);
     font-weight: bold;
     letter-spacing: 0.05em;
-    border: #68bdbd 2px solid;
+    border: #ec6868 2px solid;
     border-radius: 10px;
     background-color: #1f1f1f;
     cursor: pointer;
@@ -542,7 +542,7 @@ button {
 }
 
 button:hover {
-    background-color: #488383;
+    background-color: #e63e3e;
 }
 
 button:active {
@@ -556,7 +556,7 @@ button:active {
 button.secondary {
     font-size: 20px; /* Matched font size */
     letter-spacing: 0.1em; /* Kept letter spacing */
-    border: 1px solid #68bdbd; /* Set the border to white */
+    border: 1px solid #f46a6a; /* Set the border to white */
     border-radius: 20px; /* Made border radius consistent */
     background-color: rgb(47, 47, 47);
     cursor: pointer; /* Kept cursor style */
@@ -576,7 +576,7 @@ input[type="date"] {
     background-color: #555; /* Dark gray background */
     color: #FFF; /* Light text */
     padding: 10px; /* Add some padding */
-    border: 2px solid #68bdbd; /* Orange border */
+    border: 2px solid #f46a6a; /* Orange border */
     border-radius: 5px; /* Add border radius */
     width: calc(100% - 22px); /* Subtract padding and border width */
     font-size: 16px; /* Font size */
@@ -584,7 +584,7 @@ input[type="date"] {
 }
 
 .task-menu-container {
-    background-color: #3b3b3b;
+    background-color: rgb(38, 41, 41);
     padding: 60px;
     box-shadow: 0 0 10px #000000;
     border: #2e2e2e 1px solid;
@@ -610,7 +610,7 @@ input[type="date"] {
 .task-container-top {
     display: flex;
     flex-wrap: wrap;
-    border: #000000 2px solid;
+    border: #5a5a5a 2px solid;
     padding: 28px;
     border-radius: 10px;
     background-color: #353535;
@@ -664,7 +664,7 @@ input[type="date"] {
 }
 
 .menu-info-internal {
-    border: #000000 2px solid;
+    border: #5a5a5a 2px solid;
     padding: 25px;
     border-radius: 10px;
     background-color: #353535;
@@ -691,7 +691,7 @@ input[type="date"] {
 
 .highlight {
     transform: scale(0.95);
-    background-color: #488383;
+    background-color: #e13a3a;
     border: black 2px solid;
 }
 
@@ -701,11 +701,11 @@ input[type="date"] {
 }
 
 .nav-menu-buttons {
-    background-color: #2b2b2b;
+    background-color: #353535;
     border-radius: 10px;
     padding: 10px;
     border: 2px black solid;
-    box-shadow: 0 0 3px rgb(0 191 245);
+    box-shadow: 0 0 6px #f46a6a;
     max-width: 520px;
     display: flex;
     justify-content: center;
@@ -718,7 +718,7 @@ input[type="date"] {
     background-color: #353535;
     border-radius: 10px;
     padding: 10px;
-    border: 2px black solid;
+    border: #5a5a5a 2px solid;
     box-shadow: 0 0 3px rgb(0, 0, 0);
     margin-top: 5px;
     max-width: 1424px;
@@ -811,7 +811,7 @@ button.secondary:Hover {
 
 button.secondary.assignment-operators:hover {
     background-color: #488383;
-    border:#68bdbd 1px solid;
+    border:#f46a6a 1px solid;
     color: white; /* White text */
 }
 
