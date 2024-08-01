@@ -417,7 +417,7 @@ nav-mobile {
     background: #393939;
     padding-top: 20px;
     border-radius: 10px;
-    margin: 0px 2vw 13.5vh;
+    margin: 0px 5vw 13.5vh;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); /* Add white box shadow */
 }
 
@@ -651,7 +651,7 @@ interact */
 
 .media_scroller::-webkit-scrollbar-thumb {
     background: rgb(255, 255, 255);
-    border-radius: 9999px;
+    border-radius: 99px;
 }
 
 .ProjectPhoto-1 {
@@ -1166,6 +1166,7 @@ input:-webkit-autofill {
     .project .project_descriptor_box {
         width: auto;
         height: auto;
+        flex-direction: column;
     }
 
     body {
@@ -1221,7 +1222,7 @@ input:-webkit-autofill {
     .down_arrow {
         display: block;
         margin-bottom: 30px;
-        margin-top: 50px;
+        margin-top: 140px;
     }
 
     .contact_container {
