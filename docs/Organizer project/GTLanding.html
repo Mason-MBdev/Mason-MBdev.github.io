@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizer Landing</title>
+    <link rel="stylesheet" href="./CSS/OrganizerStyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div id = "landing-container" class = "landing-container">
+    <div id = "landing-content" class = "landing-content">
+
+        <div id = "landing-left" class = "landing-left">
+            <h2> Academic Organizer V.1</h2>
+            <h3>If you're someone who </h3> 
+            <p> - Wants to know more about their grades, <br> - Carefully tracks their progress and achievement, <br> - Or obsesses over the numbers like I do <br> </p>
+            <p style="margin-left: 85px"> this tool is for <b> you.</b></p>
+        </div>
+
+        <div id = "landing-right" class = "landing-right">
+            <button id="google-sign-in-btn" onclick="window.location.href='https://mbdev.ca/Organizer project/GradeTracker.html'">
+                Open Organizer
+                <!-- <i class="fa fa-save" style="margin-left: 15px; font-size: 20px;"></i> -->
+            </button>
+
+            <!-- <button id="google-sign-in-btn" onclick="signInWithGoogle()">
+                Cloud Save / Load  
+                <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo">
+            </button> -->
+        </div>
+    </div>
+</div>
+<script>
+    (function() {
+        let x = 0, y = 0;
+        let targetX = 0, targetY = 0;
+        const speed = 0.1;
+
+        function updateBackgroundPosition() {
+            x += (targetX - x) * speed;
+            y += (targetY - y) * speed;
+            document.body.style.backgroundPosition = `${x}% ${y}%`;
+            requestAnimationFrame(updateBackgroundPosition);
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            targetX = (e.clientX / window.innerWidth) * 100;
+            targetY = (e.clientY / window.innerHeight) * 100;
+        });
+
+        requestAnimationFrame(updateBackgroundPosition);
+    })();
+</script>
+</body>

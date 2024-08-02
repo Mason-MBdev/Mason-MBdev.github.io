@@ -384,6 +384,8 @@ class CourseManager {
         let title = document.createElement('h2');
         title.innerText = 'Overall Course Stats';
         title.style.textAlign = 'center';
+        title.style.marginTop = '0px';
+        title.style.marginBottom = '65px';
         taskMenuContainer.appendChild(title);
 
         // menu info div container

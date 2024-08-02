@@ -21,14 +21,14 @@ html {
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #FFF; /* Light text for dark background */
-    background-color: #4a4848; /* Dark background */
+    background-color: #262929; /* Dark background */
     margin: 0;
     padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
-    color: #f46a6a; /* Orange heading */
+    color: #f46a6a;
     margin: 0;
 }
 
@@ -76,11 +76,11 @@ h2 {
     padding-left: 30px;
     padding-right: 40px;
     /* background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDEwMCAxMDAiPgogIDxkZWZzPgogICAgPHBhdHRlcm4gaWQ9InBhdHRlcm4iIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblR5cGU9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHJlY3Qgd2lkdGg9IjI1IiBoZWlnaHQ9IjI1IiBmaWxsPSIjZmY1NTAwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgeT0iMjUiIGZpbGw9IiMwMDAwODAiLz4KICAgIDwvcGF0dGVybiA+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMmIxYjFiIiAvPgogIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIiBvcGFjaXR5PSIwLjA0IiAvPgo8L3N2Zz4K'); */
-    background-position: center 7px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.73);
+    box-shadow: 0 0 5px rgba(59, 59, 59, 0.9);
     border-bottom: 3px solid #000000;
     z-index: 9999;
     background-image: linear-gradient(#592626, #3f092c);
+    border-top: solid black 2px;
 }
 
 .persistent-elements > :first-child {
@@ -156,6 +156,7 @@ h2 {
     left: 0;
     right: 0;
     overflow-y: scroll;
+    background: rgb(38, 41, 41);
 }
 
 /* Custom scrollbar styles */
@@ -588,6 +589,7 @@ input[type="date"] {
     padding: 60px;
     box-shadow: 0 0 10px #000000;
     border: #2e2e2e 1px solid;
+    height: 100%;
 }
 
 .task-container {
@@ -643,7 +645,7 @@ input[type="date"] {
 
 .task:hover {
     background: rgb(68, 68, 68);
-    border: rgb(215, 215, 215) 1px solid;
+    border: rgb(240, 100, 100) 1px solid;
     transition: background 0.1s, border 0.1s; /* Added transition property for background and border */
 }
 
@@ -810,7 +812,7 @@ button.secondary:Hover {
 
 
 button.secondary.assignment-operators:hover {
-    background-color: #488383;
+    background-color: #db5341;
     border:#f46a6a 1px solid;
     color: white; /* White text */
 }
@@ -905,4 +907,110 @@ button.secondary.assignment-operators:hover {
 
 .CourseDelete-btn {
     color: rgb(249, 75, 75);
+}
+
+/* Landing page */
+/*----------------------------------------*/
+.landing-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20vh;
+}
+
+.landing-container h2 {
+    font-size: 30px;
+    color: #d73333;
+}
+.landing-container h3 {
+    font-size: 23px;
+    color: #ed7373;
+}
+
+.landing-container p {
+    font-size: 20px;
+    color: #e5e5e5; /* Light text */
+    text-align: left;
+    line-height: 2; /* Increase line spacing */
+    margin: 0px;
+}
+
+.landing-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: #393939;
+    border: #5a5a5a 2px solid;
+    padding: 60px;
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: 0 0 10px #000000;
+    max-width: 800px;
+}
+
+.landing-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 70%;
+    text-align: left;
+    justify-content: left;
+}
+
+.landing-right {
+    margin-top: 25px;
+    padding: 25px 12.5px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    background: #2b2b2b;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px #000000;
+}
+
+.landing-right button{
+    margin: 0px;
+}
+
+#google-sign-in-btn {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    color: #757575;
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    padding: 10px 15px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#google-sign-in-btn img {
+    height: 18px;
+    margin-left: 10px;
+}
+
+#google-sign-in-btn:hover {
+    background-color: #c3c0c0;
+    color: black;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ee4c90, #632c72, #14e5e9, #3244cd);
+    background-size: 150% 150%;
+    transition: background-position 0.1s ease;
 }
