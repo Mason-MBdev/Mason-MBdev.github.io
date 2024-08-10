@@ -10,24 +10,85 @@
 <body>
 <div id = "landing-container" class = "landing-container">
     <div id = "landing-content" class = "landing-content">
-
-        <div id = "landing-left" class = "landing-left">
-            <h2> Academic Organizer V.1</h2>
-            <h3>If you're someone who </h3> 
-            <p> - Wants to know more about their grades, <br> - Carefully tracks their progress and achievement, <br> - Or obsesses over the numbers like I do <br> </p>
-            <p style="margin-left: 85px"> this tool is for you</p>
+        <div id="landing-top" class="landing-top">
+            <h2 style="margin-bottom: 0px;"> Academic Organizer V.1</h2>
+            <p style="margin-top: 0px;">A simple tool made by a student, to help keep track of things.</p>
         </div>
+        <div class="GT-left-right-container">
+            <div id = "landing-left" class = "landing-left">
+                <div id="feature-accordion" class="feature-accordion">
+                    <h3 style="text-align: center; margin-bottom: 15px; margin-top: 0px;">Features</h3>
+                    <div class="accordion">
+                        <button class="accordion-header">Grades +</button>
+                        <div class="accordion-content">
+                            <p>- Track assignment grades and their status.</p>
+                            <p>- See course stats: weight, assignments remaining, and min/max grades.</p>
+                        </div>
+                    </div>
+                    <div class="accordion">
+                        <button class="accordion-header">Tasks +</button>
+                        <div class="accordion-content">
+                            <p>- To-do list, for tracking tasks and their due dates.</p>
+                            <p>- See information like the soonest task due & how many tasks have been completed.</p>
+                            <p>- Sort and filter tasks based on categories.</p>
+                        </div>
+                    </div>
+                    <div class="accordion">
+                        <button class="accordion-header">Calendar +</button>
+                        <div class="accordion-content">
+                            <p>- IN PROGRESS !!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <script>
+                    const headers = document.querySelectorAll('.accordion-header');
 
-        <div id = "landing-right" class = "landing-right">
-            <button id="google-sign-in-btn" onclick="window.location.href='https://mbdev.ca/Organizer project/GradeTracker.html'">
-                Open Organizer
-                <!-- <i class="fa fa-save" style="margin-left: 15px; font-size: 20px;"></i> -->
-            </button>
+                    headers.forEach(header => {
+                        header.addEventListener('click', () => {
+                            const accordion = header.parentElement;
+                            const content = accordion.querySelector('.accordion-content');
 
-            <!-- <button id="google-sign-in-btn" onclick="signInWithGoogle()">
-                Cloud Save / Load  
-                <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo">
-            </button> -->
+                            // Close all accordions
+                            headers.forEach(h => {
+                                const otherAccordion = h.parentElement;
+                                const otherContent = otherAccordion.querySelector('.accordion-content');
+
+                                if (otherAccordion !== accordion && otherAccordion.classList.contains('open')) {
+                                    otherAccordion.classList.remove('open');
+                                    otherContent.style.display = 'none';
+                                    // Reset the header text back to "+" when closed
+                                    h.innerText = h.innerText.replace(' -', ' +');
+                                }
+                            });
+
+                            // Toggle the clicked accordion
+                            accordion.classList.toggle('open');
+                            
+                            // Toggle the text for the clicked header
+                            if (accordion.classList.contains('open')) {
+                                header.innerText = header.innerText.replace(' +', ' -');
+                                content.style.display = 'block'; // Show content when opened
+                            } else {
+                                header.innerText = header.innerText.replace(' -', ' +');
+                                content.style.display = 'none'; // Hide content when closed
+                            }
+                        });
+                    });
+                </script>
+            </div>
+
+            <div id = "landing-right" class = "landing-right">
+                <button id="google-sign-in-btn" onclick="window.location.href='https://mbdev.ca/Organizer project/GradeTracker.html'">
+                    Open Organizer
+                    <!-- <i class="fa fa-save" style="margin-left: 15px; font-size: 20px;"></i> -->
+                </button>
+
+                <!-- <button id="google-sign-in-btn" onclick="signInWithGoogle()">
+                    Cloud Save / Load  
+                    <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo">
+                </button> -->
+            </div>
         </div>
     </div>
 </div>

@@ -1,15 +1,3 @@
-/* Basic Reset */
-/*----------------------------------------*/
-/* Normalize CSS */
-/*----------------------------------------*/
-
-/* Typography */
-/*----------------------------------------*/
-
-/* Typography */
-/*----------------------------------------*/
-
-/* Add this code to disable cursor change on hover */
 html, body {
     cursor: default;
 }
@@ -918,10 +906,7 @@ button.secondary.assignment-operators:hover {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    width: 60vw;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20vh;
+    width: 80vw;
 }
 
 .landing-container h2 {
@@ -943,30 +928,37 @@ button.secondary.assignment-operators:hover {
 
 .landing-content {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
     gap: 20px;
     background: #393939;
     border: #5a5a5a 2px solid;
-    padding: 60px;
+    padding: 40px;
     border-radius: 10px;
-    width: 100%;
     box-shadow: 0 0 10px #000000;
-    max-width: 800px;
+    width: 1000px;
+    height: 460px;
 }
 
+.landing-content > *:first-child {
+    align-self: flex-start;
+    order: -1; /* Move the first child to the top */
+    margin-top: 0; /* Add margin-top to move it to the very top */
+}
+
+.landing-content > *:not(:first-child) {
+    flex: 1; /* Distribute remaining space evenly */
+}
 .landing-left {
     display: flex;
     flex-direction: column;
     gap: 20px;
     width: 70%;
     text-align: left;
-    justify-content: left;
 }
 
 .landing-right {
-    margin-top: 25px;
     padding: 25px 12.5px;
     display: flex;
     flex-direction: column;
@@ -977,6 +969,7 @@ button.secondary.assignment-operators:hover {
     background: #2b2b2b;
     border-radius: 10px;
     box-shadow: inset 0 0 5px #000000;
+    margin-top: 110px;
 }
 
 .landing-right button{
@@ -1014,4 +1007,82 @@ body {
     background: linear-gradient(135deg, #ee4c90, #632c72, #14e5e9, #3244cd);
     background-size: 150% 150%;
     transition: background-position 0.1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feature-accordion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2b2b2b; /* Dark gray background */
+    background: #2b2b2b;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px #000000;
+    padding: 20px;
+    height: 330px;
+}
+
+.accordion {
+    background-color: #2b2b2b; /* Dark gray background for accordion */
+    color: #FFF; /* Light text color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    margin-bottom: 20px; /* Space between accordions */
+    width: 400px;
+}
+
+.accordion-header {
+    background-color: #353535; /* Slightly lighter gray for the header */
+    padding: 15px; /* Padding around header */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Indicate it’s clickable */
+    font-weight: bold; /* Bold text */
+    font-size: 18px; /* Font size */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    width: 100%; /* Expand to full width */
+    max-width: 999999px;;
+}
+
+.accordion-header:hover {
+    background-color: #232323; /* Darker shade on hover */
+}
+
+.accordion-content {
+    padding: 15px; /* Padding around content */
+    background-color: #414141; /* Darker gray for content area */
+    border-radius: 0 0 10px 10px; /* Only round bottom corners */
+    display: none; /* Hidden by default */
+}
+
+.accordion-content p {
+    margin: 0; /* Remove default margin */
+    font-size: 16px; /* Font size for content */
+    line-height: 1.5; /* Line height for readability */
+}
+
+.accordion.open {
+    width: 100%; /* Expand to full width when open */
+}
+
+/* Optional styles for open accordion */
+.accordion.open .accordion-content {
+    display: block; /* Show content when open */
+}
+
+/* Optional styles for active header */
+.accordion.open .accordion-header {
+    background-color: #543d3d; /* Highlight active header */
+    /* remove bottom border, make bottom left and right corners NOT rounded */
+    border-radius: 10px 10px 0 0;
+}
+
+.GT-left-right-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
 }
