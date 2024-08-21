@@ -278,8 +278,8 @@ class TaskManager {
         } else {
             // Clear input fields
             document.getElementById('task-name-input').value = '';
-            document.getElementById('task-grade-input').value = '';
-            document.getElementById('task-weight-input').value = '';
+            // document.getElementById('task-grade-input').value = '';
+            // document.getElementById('task-weight-input').value = '';
             document.getElementById('task-course-input').value = '';
             document.getElementById('task-date-input').value = '';
         }
