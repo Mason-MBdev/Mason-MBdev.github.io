@@ -384,8 +384,8 @@ class CourseManager {
         let title = document.createElement('h2');
         title.innerText = 'Overall Course Stats';
         title.style.textAlign = 'center';
-        title.style.marginTop = '0px';
-        title.style.marginBottom = '65px';
+        title.style.marginTop = '22px';
+        title.style.marginBottom = '75px';
         taskMenuContainer.appendChild(title);
 
         // menu info div container
@@ -945,7 +945,7 @@ class CourseManager {
             completionButton.addEventListener('click', () => {
                 toggleComplete(assignment, completionButton);
                 this.display();
-                this.displayAssignments(courseManager.selectedCourse.id);
+                this.displayAssignments(this.selectedCourse.id);
             });
     
             const editButton = document.createElement('button');
