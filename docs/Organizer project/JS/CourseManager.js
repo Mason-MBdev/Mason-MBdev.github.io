@@ -632,7 +632,7 @@ class CourseManager {
 
         // Create a container for all course info
         let taskContainer = document.createElement('div');
-        taskContainer.innerText = 'Empty . . . Select / Add a Course to start!';
+        taskContainer.innerText = 'Empty \n\n Select or Add a Course';
         taskContainer.classList.add('task-container');
         taskContainer.style.textAlign = 'center'; // Add text alignment style
         taskContainerTop.appendChild(taskContainer);
