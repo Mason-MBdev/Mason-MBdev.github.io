@@ -65,7 +65,7 @@ h2 {
     padding-right: 40px;
     /* background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDEwMCAxMDAiPgogIDxkZWZzPgogICAgPHBhdHRlcm4gaWQ9InBhdHRlcm4iIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblR5cGU9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHJlY3Qgd2lkdGg9IjI1IiBoZWlnaHQ9IjI1IiBmaWxsPSIjZmY1NTAwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgeT0iMjUiIGZpbGw9IiMwMDAwODAiLz4KICAgIDwvcGF0dGVybiA+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMmIxYjFiIiAvPgogIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIiBvcGFjaXR5PSIwLjA0IiAvPgo8L3N2Zz4K'); */
     box-shadow: 0 0 3px rgba(2, 2, 2, 0.9);
-    border-bottom: 2px solid #373737;
+    border-bottom: 2px solid #4b4b4b;
     z-index: 9999;
     background-image: linear-gradient(#592626, #40052b);
     border-top: solid black 1px;
@@ -658,7 +658,7 @@ input[type="date"] {
     border: #5a5a5a 2px solid;
     padding: 25px;
     border-radius: 10px;
-    background-color: #323232;
+    background-color: #313131;
     box-shadow: 0 0 3px rgba(2, 2, 2, 0.9);
     display: flex;
     flex-direction: column;
@@ -1091,4 +1091,80 @@ body {
     gap: 20px;
     width: 100vw;
     height: 100vh;
+}
+
+/* Container for the entire calendar */
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the calendar */
+    border: #5a5a5a 2px solid;
+    border-radius: 8px; /* Optional: rounded corners */
+    box-shadow: 0 0 3px rgba(2, 2, 2, 0.9); /* Optional: subtle shadow */
+    margin-top: 10px;
+    padding: 25px;
+    background: #313131;
+    min-width: 80vw;
+}
+
+/* Row representing a week */
+.week-row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: left; /* Distribute day boxes evenly */
+}
+
+/* Individual day box */
+.day-box {
+    color: rgb(35, 35, 35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% / 7); /* Width of each day box to fit in a row of 7 boxes */
+    height: 50px; /* Height of each day box */
+    border-right: 1px solid #ddd; /* Vertical separator */
+    border-bottom: 1px solid #ddd; /* Horizontal separator */
+    box-sizing: border-box; /* Ensure padding and border are included in the width and height */
+    font-size: 14px; /* Adjust the font size as needed */
+    font-family: Arial, sans-serif; /* Set a font family */
+    background: rgb(235, 235, 235);
+    border: black 1px solid;
+    min-height: 10vh;
+}
+
+/* Remove the right border for the last day in each row */
+.week-row .day-box:nth-child(7n) {
+    border-right: none;
+}
+
+/* Optional: hover effect for day boxes */
+.day-box:hover {
+    background-color: #dbb9b9; /* Light grey background on hover */
+    border: rgb(222, 122, 122);
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.currentday {
+    background: linear-gradient(135deg, #c89e9e, #b37275);
+}
+
+.legend-box {
+    background: rgb(169, 169, 169);
+}
+
+.date-display-box {
+    padding: 25px;
+    border: 2px solid #5a5a5a;
+    border-radius: 8px;
+    background-color: #313131;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0 0 3px rgba(2, 2, 2, 0.9);
+    max-width: 80vw;
+    justify-self: center;
+    align-self: center;
+    margin: auto;
+    margin-top: 20px;
 }

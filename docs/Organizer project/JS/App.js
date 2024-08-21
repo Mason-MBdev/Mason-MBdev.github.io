@@ -154,10 +154,8 @@ function hideOverlay() {
 }
 
 function updateOverallGradeDisplay() {
-    console.log("Fuck");
     console.log(courseManager.selectedCourse);
     console.log("Selected course ID: " + courseManager.selectedCourse.id);
-    console.log("Fuck2");
     const selectedCourseId = courseManager.selectedCourse.id;
     const course = courseManager.getCourseById(selectedCourseId);
     

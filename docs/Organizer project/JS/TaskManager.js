@@ -259,6 +259,10 @@ class TaskManager {
         return this.tasks.filter(task => task.dueDate === dueDate);
     }
 
+    getAllTasks() {
+        return this.tasks;
+    }
+
     // DISPLAY FUNCTIONS ------------------------------------------------------------------------------------
     // Display the task addition popup to user when a new task is being added or when a task is being edited
     displayTaskPopup(task) {
@@ -310,6 +314,8 @@ class TaskManager {
         // Add title
         let title = document.createElement('h2');
         title.innerText = 'Task Stats';
+        title.style.marginTop = '22px'; // Add top margin
+        title.style.marginBottom = '75px'; // Add bottom margin
         title.style.textAlign = 'center'; // Add text alignment style
         taskMenuContainer.appendChild(title);
 
@@ -499,7 +505,7 @@ class TaskManager {
 
         // Create a container for all tasks
         let taskContainer = document.createElement('div');
-        taskContainer.innerText = 'Empty... Add a task to get started!';
+        taskContainer.innerText = 'Empty \n\n Add a task';
         taskContainer.classList.add('task-container');
         taskContainer.style.textAlign = 'center'; // Add text alignment style
         taskContainerTop.appendChild(taskContainer);
@@ -546,7 +552,7 @@ class TaskManager {
         });
 
         if (this.tasks.length === 0) {
-            taskContainer.innerHTML = 'Empty... Add a task to get started!';
+            taskContainer.innerHTML = "Empty . . .  Add a task to start";
             return;
         } else {
             console.log("Tasks exist. Displaying tasks...");
