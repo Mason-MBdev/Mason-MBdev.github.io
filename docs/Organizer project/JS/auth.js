@@ -38,7 +38,7 @@ signupForm.addEventListener('submit', (e) => {
   const password = signupForm['signup-password'].value;
 
   // Sign the user up for authentication
-  auth.createUserWithEmailAndPassword(email, password).then(() => {
+  createUserWithEmailAndPassword(auth, email, password).then(() => {
     closeSignup();
     signupForm.reset();
   });
