@@ -1216,3 +1216,11 @@ body {
     box-shadow: 0 0 6px #969292;
     gap: 10px;
 }
+
+.landingbutton {
+    border: 3px black; 
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: rgb(161, 39, 39);
+}
