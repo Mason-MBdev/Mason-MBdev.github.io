@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,30 +7,45 @@
     <title>Course Management System</title>
     <link rel="stylesheet" href="./CSS/OrganizerStyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-
-
 
 <div id="courses-container">
     <div class="course-section">
         <div class="persistent-elements">
-            
             <div class="nav-menu-buttons nav-element">
-                <h2 style="margin: 0px;">Menu</h2>
+                <!-- <h2 style="margin: 0px;">Menu</h2> -->
                 <button id="grades-btn">Grades </i></button>
                 <button id="tasks-btn">Tasks </i></button>
                 <button id="calendar-btn">Calendar </i></button>
             </div>
-
             <div class="nav-menu-buttons nav-element">
-                <button class="custom-file-input" id="save-btn" title="Save all data to downloads folder"><i class="fa fa-save"></i></button>
-                <label class="custom-file-input" for="fileInput" title="Load data from a previous save file"><i class="fa fa-folder-open"></i></label>
-                <input type="file" id="fileInput">
+                <button id="accountPopupButton" style="display: block; margin: 0 auto; text-align: center; width: 250px;">
+                    Settings <i class="fa-solid fa-gear" style="vertical-align: middle;"></i>
+                </button>
             </div>
-
         </div>
         <div class="courses-loaded"> </div>
+    </div>
+</div>
+
+<div class="popup" id="login-popup">
+    <div class="popup-content">
+        <span id="userLoginPopupCloseButton" class="close-popup">&times;</span>
+        <h2>Log in</h2><br/>
+        <form id="login-form">
+            <div class="input">
+                <input type="email" id="login-email" placeholder = "Email" required />
+            </div>
+            <div style="margin-bottom: 20px;" >
+                <input type="password" id="login-password" placeholder = "Password" required />
+            </div>
+            <!-- <div>
+                <input type="text" id="signup-bio" placeholder = "One Line Bio" required />
+            </div> -->
+            <button>Log in</button>
+        </form>
     </div>
 </div>
 
@@ -119,9 +135,53 @@
     </div>
 </div>
 
+<div class="popup" id="signup-popup">
+    <div class="popup-content">
+        <span id="userPopupCloseButton" class="close-popup">&times;</span>
+        <h2>Sign up</h2><br/>
+        <form id="signup-form">
+            <div class="input">
+                <input type="email" id="signup-email" placeholder = "Email" required />
+            </div>
+            <div style="margin-bottom: 20px;" >
+                <input type="password" id="signup-password" placeholder = "Password" required />
+            </div>
+            <!-- <div>
+                <input type="text" id="signup-bio" placeholder = "One Line Bio" required />
+            </div> -->
+            <button>Sign up</button>
+        </form>
+    </div>
+</div>
+
+<div class="popup" id="account-popup">
+    <div class="popup-content">
+        <span id="accountPopupCloseButton" class="close-popup">&times;</span>
+        <h2>Sign in / Save </h2><br/>
+
+        <!-- Email display given the user is logged in -->
+        <div id="account-details" class="logged-in" style="margin-bottom: 40px;"></div>
+
+        <h4 style="margin-top: 30px; margin-bottom: 10px; text-align: center;">Firebase Cloud Save</h4>
+        <div class="accountButtonBox">
+            <button id="userPopupButton" class = "logged-out" style="display: block; margin: 0 auto;"><i class="fa fa-user fa-regular "></i> Sign up </button>
+            <button id="userLoginPopupButton" class = "logged-out" style="display: block; margin: 0 auto;"><i class="fa fa-user fa-regular "></i> Login </button>
+            <button id="Firebase-save-btn" class="logged-in" style="display: none; text-decoration: none; color: inherit;"> Save to Cloud <i class="fa fa-save"></i></button>
+            <button href="#" id="logout" class="logged-in" style="display: none; text-decoration: none; color: inherit;">
+                    Logout <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
+        </div>
+
+        <h4 style="margin-top: 30px; margin-bottom: 10px; text-align: center;">Save / Load Locally:</h4>
+        <div class="accountButtonBoxHorizontal">
+            <button class="custom-file-input" id="save-btn" title="Save all data to downloads folder" style="margin: 0;"><i class="fa fa-save"></i></button>
+            <label class="custom-file-input button" for="fileInput" title="Load data from a previous save file"><i class="fa fa-folder-open"></i></label>
+            <input type="file" id="fileInput">
+        </div>
+    </div>
+</div>
 
 <div class="overlay"></div>
-
 <script src="./JS/Assignment.js"></script>
 <script src="./JS/Course.js"></script>
 <script src="./JS/Persistence.js"></script>
@@ -131,6 +191,8 @@
 <script src="./JS/CourseManager.js"></script>
 <script src="./JS/Calendar.js"></script>
 <script src="./JS/App.js"></script>
+<script type="module" src="./JS/auth.js"></script>
+
 
 <!-- Mobile Alert -->
 <script>

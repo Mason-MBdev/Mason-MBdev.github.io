@@ -470,6 +470,7 @@ class TaskManager {
         }
         filterTaskButton.id = 'TaskFilter-btn';
         filterTaskButton.style.marginRight = '25px'; // Add right margin
+        filterTaskButton.style.fontSize = '15px';
         navMenuButtons.appendChild(filterTaskButton);
 
         // Sort tasks button
@@ -482,6 +483,7 @@ class TaskManager {
         }
         sortTaskButton.id = 'TaskSort-btn';
         navMenuButtons.appendChild(sortTaskButton);
+        sortTaskButton.style.fontSize = '15px';
 
         // // Add subtitle
         // let subTitle = document.createElement('h3');
@@ -520,12 +522,12 @@ class TaskManager {
         // Add event listener to filter task button
         filterTaskButton.addEventListener('click', () => {
             // prompt user for filter choice
-            const filterChoice = prompt("Enter the filter you would like to apply to the tasks: course, or none.");
+            const filterChoice = prompt("Enter the filter you would like to apply to the tasks: category, or none.");
             
-            // Function to set the filter for the tasks according to the user choice of course, completion, or none.
+            // Function to set the filter for the tasks according to the user choice of category, completion, or none.
             // Filter by course
-            if (filterChoice === 'course') {
-                const course = prompt("Enter the course you would like to show tasks for:");
+            if (filterChoice === 'category') {
+                const course = prompt("Enter the category you would like to show tasks for:");
                 this.filter = course;
             }
     

@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background-image: linear-gradient(0deg, #780086, #8ebfff);
+    background: radial-gradient(circle, rgb(145, 135, 135), black);
 }
 
 /* remove all scroll bars */
@@ -409,10 +409,10 @@ h3 {
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    background-color: #434343;
+    background-image: linear-gradient(#703434, #321137);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* Add shadow */
-    border-bottom: 1px solid #aeaeae; /* Add border */
-    border-top: 1px solid #aeaeae; /* Add border */
+    border-bottom: 1px solid #312a2a; /* Add border */
+    border-top: 1px solid #312a2a; /* Add border */
 }
 
 .nav-left h1 {

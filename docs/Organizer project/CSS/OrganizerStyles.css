@@ -21,12 +21,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h4 {
-    font-size: 18px;
+    font-size: 15px;
 }
 
 
 h2 {
-    font-size: 30px;
+    font-size: 25px;
     margin-bottom: 20px;
     text-transform: uppercase; /* Convert text to uppercase for emphasis */
     letter-spacing: 2px; /* Add letter spacing for readability */
@@ -66,7 +66,7 @@ h2 {
     /* background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDEwMCAxMDAiPgogIDxkZWZzPgogICAgPHBhdHRlcm4gaWQ9InBhdHRlcm4iIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblR5cGU9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHJlY3Qgd2lkdGg9IjI1IiBoZWlnaHQ9IjI1IiBmaWxsPSIjZmY1NTAwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgeT0iMjUiIGZpbGw9IiMwMDAwODAiLz4KICAgIDwvcGF0dGVybiA+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMmIxYjFiIiAvPgogIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIiBvcGFjaXR5PSIwLjA0IiAvPgo8L3N2Zz4K'); */
     box-shadow: 0 0 3px rgba(2, 2, 2, 0.9);
     border-bottom: 1px solid #555555;
-    z-index: 9999;
+    z-index: 9998;
     background-image: linear-gradient(#703434, #321137);
     border-top: solid black 1px;
     position: relative;
@@ -139,13 +139,13 @@ h2 {
 /*----------------------------------------*/
 /* For Firefox */
 .courses-loaded {
-    height: calc(100vh - 96px); /* Adjust the height as needed */
+    height: calc(100vh - 91px); /* Adjust the height as needed */
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     overflow-y: scroll;
-    background: rgb(38, 41, 41);
+    background-color: rgb(30, 30, 30);
 }
 
 /* Custom scrollbar styles */
@@ -250,7 +250,7 @@ body, html {
     cursor: pointer;
     width: auto; /* Set width to fill the container */
     outline: none; /* Remove default outline */
-    font-size: 17px;
+    font-size: 15px;
     height: 50px;
     width: 325px;
     letter-spacing: 0.05em;
@@ -294,6 +294,7 @@ body, html {
     background-color: #292929; /* Dark gray background */
     padding: 15px;
     border: 2px solid #000000;
+    border-radius: 10px 10px 0 0; /* Add border radius */
 }
 
 .legend > div {
@@ -337,7 +338,7 @@ body, html {
     height: 100%;
     overflow: auto;
     background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,4);
     z-index: 9998; /* Higher z-index than the overlay */
 }
 
@@ -377,14 +378,14 @@ body, html {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.65);
     z-index: 9998; /* Higher z-index than the overlay */
 }
 
 
 .popup-content {
     background-color: #333; /* Dark gray background */
-    margin: 16.5% auto;
+    margin: 10% auto;
     padding: 20px;
     border-radius: 10px;
     width: 25%;
@@ -398,7 +399,9 @@ body, html {
 }
 
 .popup input[type="text"],
-.popup input[type="number"] {
+.popup input[type="number"],
+.popup input[type="email"],
+.popup input[type="password"]{
     background-color: #555; /* Dark gray background */
     color: #FFF; /* Light text */
     padding: 10px; /* Add some padding */
@@ -410,7 +413,9 @@ body, html {
 }
 
 .popup input[type="text"]::placeholder,
-.popup input[type="number"]::placeholder {
+.popup input[type="number"]::placeholder,
+.popup input[type="email"]::placeholder,
+.popup input[type="password"]::placeholder {
     color: #FFF; /* Light text */
 }
 
@@ -510,19 +515,18 @@ body, html {
 
 /* different button testing */
 button {
-    font-size: 17px;
+    font-size: 15px;
     --accent: rgb(255, 85, 0);
-    font-weight: bold;
     letter-spacing: 0.07em;
-    border: #000000 2px solid;
+    border: #888888 1px solid;
     border-radius: 10px;
     background-color: #1f1f1f;
     cursor: pointer;
-    color: rgb(223, 215, 215);
+    color: rgb(255, 255, 255);
     padding: 0.75em 1.5em;
-    width: 210px;
-    max-width: 210px;
-    height: 50px;
+    width: 190px;
+    max-width: 190px;
+    height: 45px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -574,10 +578,8 @@ input[type="date"] {
 }
 
 .task-menu-container {
-    background-color: rgb(38, 41, 41);
+    background-color: rgb(30, 30, 30);
     padding: 60px;
-    box-shadow: 0 0 10px #000000;
-    border: #2e2e2e 1px solid;
     height: auto;
 }
 
@@ -588,14 +590,14 @@ input[type="date"] {
     border-radius: 10px;
     background-color: #353535;
     gap: 30px;
+    width: 80vw;
     justify-content: center;
     align-items: center;
     justify-items: center;
     align-content: center;
-    width: 1265.6px;
-    max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
+    
 }
 
 .task-container-top {
@@ -610,8 +612,7 @@ input[type="date"] {
     align-items: center;
     justify-items: left;
     align-content: center;
-    width: 1284.8px;
-    max-width: 1300px;
+    width: 80vw;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 0 0 3px rgba(2, 2, 2, 0.9);
@@ -645,7 +646,7 @@ input[type="date"] {
 .menu-info {
     margin-left: auto;
     margin-right: auto;
-    width: 1323.2px;
+    width: 80vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -663,8 +664,8 @@ input[type="date"] {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 300px;
-    height: 125px;
+    width: 20vw;
+    height: 100px;
     max-width: 400px;
 }
 
@@ -708,15 +709,14 @@ input[type="date"] {
 .course-menu-buttons {
     background-color: #353535;
     border-radius: 10px;
-    padding: 10px;
+    padding: 9px;
     border: #5a5a5a 2px solid;
     box-shadow: 0 0 3px rgba(2, 2, 2, 0.9);
     margin-top: 5px;
-    max-width: 1424px;
     justify-content: space-evenly; /* Modified: Use center to align elements horizontally */
     align-content: center;
     display: flex;
-    width: 1319px;
+    width: 82vw;
     height: 80px;
     margin-bottom: 35px;
 }
@@ -836,7 +836,7 @@ button.secondary.assignment-operators:hover {
     justify-content: center;
     display: flex;
     flex-direction: column;
-    margin-top: 175px;
+    margin-top: 100px;
 }
 
 .course-menu-info {
@@ -999,13 +999,20 @@ button.secondary.assignment-operators:hover {
     color: black;
 }
 
-body {
-    margin: 0;
+body.GTLanding {
     height: 100vh;
     overflow: hidden;
     background: linear-gradient(135deg, #ee4c90, #632c72, #14e5e9, #3244cd);
     background-size: 150% 150%;
     transition: background-position 0.1s ease;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #FFF; /* Light text color */
+    background-color: #1e1e1e; /* Dark gray background */
 }
 
 .feature-accordion {
@@ -1165,4 +1172,47 @@ body {
     flex-direction: column;
     margin: auto;
     text-align: center;
+}
+
+.signup-popup {
+    background: black;
+    height: 300px;
+    width: 200px;
+    display: none;
+}
+
+.login-popup {
+    background: rgb(255, 0, 0);
+    height: 300px;
+    width: 200px;
+}
+
+.accountButtonBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 275px;
+    background-color: #353535;
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px black solid;
+    box-shadow: 0 0 6px #969292;
+    gap: 10px;
+}
+
+.accountButtonBoxHorizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 275px;
+    background-color: #353535;
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px black solid;
+    box-shadow: 0 0 6px #969292;
+    gap: 10px;
 }

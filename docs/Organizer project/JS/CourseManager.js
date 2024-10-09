@@ -1,3 +1,5 @@
+var texth4 = "16px"
+
 class CourseManager {
     constructor() {
         this.courses = [];
@@ -284,6 +286,17 @@ class CourseManager {
         console.log(`Selected course: ${this.selectedCourse}`);
     }
 
+    selectFirstCourse() {
+        if (this.courses.length > 0) {
+            this.selectedCourse = this.courses.find(course => course !== null);
+            if (this.selectedCourse) {
+                this.displayAssignments(this.selectedCourse.id);
+                return this.selectedCourse.id;
+            }
+        }
+        return null;
+    }
+
     updateOverallProgress() {
         const progressBarFill = document.getElementById('progress-bar-fill');
         if (progressBarFill) {
@@ -384,7 +397,7 @@ class CourseManager {
         let title = document.createElement('h2');
         title.innerText = 'Overall Course Stats';
         title.style.textAlign = 'center';
-        title.style.marginTop = '22px';
+        title.style.marginTop = '10px';
         title.style.marginBottom = '75px';
         taskMenuContainer.appendChild(title);
 
@@ -410,7 +423,7 @@ class CourseManager {
         lowestTimeRemaining.id = 'overall-grade';
         lowestTimeRemaining.style.fontWeight = 'normal';
         lowestTimeRemaining.style.color = 'white';
-        lowestTimeRemaining.style.fontSize = '20px';
+        lowestTimeRemaining.style.fontSize = '18px';
         lowestTimeRemaining.style.textAlign = 'center'; // Center align the text
         menuInternalInfoDiv1.appendChild(lowestTimeRemaining);
         console.log(this.highestGradeCourse);
@@ -427,7 +440,7 @@ class CourseManager {
         minGrade.innerText = `Min: ${isNaN(this.minOverallGrade) ? '0.00' : this.minOverallGrade}%`;
         minGrade.style.fontWeight = 'normal';
         minGrade.style.color = 'white';
-        minGrade.style.fontSize = '18px';
+        minGrade.style.fontSize = texth4;
         gradeContainer.appendChild(minGrade);
 
         // add text for max grade
@@ -435,7 +448,7 @@ class CourseManager {
         maxGrade.innerText = `Max: ${isNaN(this.maxOverallGrade) ? '0.00' : this.maxOverallGrade}%`;
         maxGrade.style.fontWeight = 'normal';
         maxGrade.style.color = 'white';
-        maxGrade.style.fontSize = '18px';
+        maxGrade.style.fontSize = texth4;
         gradeContainer.appendChild(maxGrade);
 
         // // Add time of that task
@@ -697,7 +710,7 @@ class CourseManager {
         courseGradeElement.textContent = "0.00%";
         courseGradeElement.style.fontWeight = 'normal';
         courseGradeElement.style.color = 'black'; // Change text color to light blue
-        courseGradeElement.style.fontSize = '20px'; // Set font size to 20
+        courseGradeElement.style.fontSize = '18px'; // Set font size to 20
         courseGradeElement.style.textAlign = 'center'; // Center align the text
         menuInternalInfoDiv1.appendChild(courseGradeElement);
 
@@ -842,15 +855,6 @@ class CourseManager {
             legendItem.appendChild(legendItemText);
             legendDiv.appendChild(legendItem);
         });
-
-        // create title "Assignments" for the course assignments
-        let courseAssignmentsTitle = document.createElement('h3');
-        courseAssignmentsTitle.innerText = 'Assignments:';
-        courseAssignmentsTitle.style.fontSize = '22px';
-        courseAssignmentsTitle.style.textAlign = 'left'; // Add text alignment
-        courseAssignmentsTitle.style.marginLeft = '0'; // Set left margin to 0
-        courseAssignmentsTitle.style.marginRight = 'auto'; // Set left margin to 0
-        gradesSection.appendChild(courseAssignmentsTitle);
 
         // create a container for all course assignments and legend
         let courseAssignmentsContainer = document.createElement('div');

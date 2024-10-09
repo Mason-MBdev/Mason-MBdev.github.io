@@ -36,16 +36,16 @@ class CalendarManager {
         let coursesLoadedDiv = document.querySelector('.courses-loaded');
         coursesLoadedDiv.innerHTML = '';
 
-        // add a label saying "The Calendar feature is still under development, come back soon!"
-        let calendarUnderDevelopment = document.createElement('h1');
-        calendarUnderDevelopment.textContent = "The Calendar feature is still under development, come back soon!";
-        calendarUnderDevelopment.style = "text-align: center; margin: 75px 0";
-        coursesLoadedDiv.appendChild(calendarUnderDevelopment);
-
         // create a container for all task menu elements
         let taskMenuContainer = document.createElement('div');
         taskMenuContainer.classList.add('task-menu-container');
         coursesLoadedDiv.appendChild(taskMenuContainer);
+
+        // add a label saying "The Calendar feature is still under development, come back soon!"
+        let calendarUnderDevelopment = document.createElement('h1');
+        calendarUnderDevelopment.textContent = "The Calendar feature is still under construction, come back soon!";
+        calendarUnderDevelopment.style = "text-align: center; margin: 40px 0";
+        taskMenuContainer.appendChild(calendarUnderDevelopment);
 
         // based on the month of the current user, please display the number of dates, please use the map above
         let currentDate = new Date();

@@ -14,6 +14,8 @@ class SaveManager {
         downloadAnchorNode.remove();
     }
 
+
+
     loadFromFile(courseManager, taskManager, calendarManager, file) {
         const reader = new FileReader();
         reader.readAsText(file, 'UTF-8');
@@ -35,9 +37,10 @@ class SaveManager {
                 return course;
             });
             console.log(courseManager.courses);
-            courseManager.selectCourse(0);
+            var courseID = courseManager.selectFirstCourse();
+            courseManager.selectCourse(courseID);
             courseManager.display();
-            courseManager.displayAssignments(0);
+            courseManager.displayAssignments(courseID);
             console.log("displaying Assignments in Course: " + courseManager.selectedCourse.id);
 
             // Uncomment and update the calendarManager if needed
