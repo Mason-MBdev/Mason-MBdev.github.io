@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background: radial-gradient(circle, rgb(145, 135, 135), black);
+    background: radial-gradient(circle, rgb(94, 70, 70), black);
 }
 
 /* remove all scroll bars */
@@ -30,6 +30,7 @@ body {
     width: 1052px; /* Adjust based on desired size */
     height: 620px; /* Adjust based on desired size */
     border-radius: 15px;
+    border: grey 2px solid;
 }
 
 .scoreboard {
@@ -233,7 +234,6 @@ h3 {
 }
 
 .scoreboard {
-    background-color: #d6d6d6; /* Dark gray background */
     padding: 10px;
     border-radius: 10px;
     border: 1px black solid;
@@ -337,7 +337,7 @@ h3 {
 }
 
 .scoreboard {
-    background-color: #f3f3f3;
+    background-color: #d1d1d1;
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 20px;
@@ -362,7 +362,7 @@ h3 {
 
 .scoreboard .infobox {
     background-color: #efefef;
-    border: 1px solid #bebebe;
+    border: 1px solid #929292;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
