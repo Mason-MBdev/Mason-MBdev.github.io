@@ -38,7 +38,7 @@ signupForm.addEventListener('submit', (e) => {
   const password = signupForm['signup-password'].value;
 
   // Sign the user up for authentication
-  createUserWithEmailAndPassword(auth, email, password).then(() => {
+  auth.createUserWithEmailAndPassword(email, password).then(() => {
     closeSignup();
     signupForm.reset();
   });
@@ -93,14 +93,19 @@ onAuthStateChanged(auth, async (user) => {
 
       // Load data from database to local storage
       if (userData) {
-        // Update the properties of taskManager
-        taskManager.tasks = userData.courseManager.tasks;
-        if (taskManager.tasks) {
-          console.log(taskManager.tasks);
-          taskManager.display();
-          taskManager.updateTimeRemaining();
-          taskManager.startLoop();
-        }
+        console.log("Loading data from database to local storage");
+        // console.log(userData.courseManager.tasks);
+        // console.log(taskManager);
+
+
+        // // Update the properties of taskManager
+        // taskManager = userData.courseManager.tasks;
+        // if (taskManager.tasks) {
+        //   console.log(taskManager.tasks);
+        //   taskManager.display();
+        //   taskManager.updateTimeRemaining();
+        //   taskManager.startLoop();
+        // }
         
         // console.log(userData.courseManager.courses);
 
@@ -142,7 +147,7 @@ document.getElementById('Firebase-save-btn').addEventListener('click', () => {
   console.log("save button pressed");
   var data = {
       courses: courseManager.courses,
-      tasks: taskManager.tasks,
+      tasks: taskManager,
     //   calendar: calendarManager.events
   };
   saveDataToDatabase(data);
