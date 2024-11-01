@@ -7,6 +7,15 @@ document.addEventListener('DOMContentLoaded', function() {
         accordion[i].addEventListener('click', function() {
             this.classList.toggle('active')
         })
+
+        // deactivates all other containers when one is clicked
+        accordion[i].addEventListener('click', function() {
+            for (j = 0; j < accordion.length; j++) {
+                if (accordion[j] != this) {
+                    accordion[j].classList.remove('active');
+                }
+            }
+        })
     }
 
     // Sticky nav bar code

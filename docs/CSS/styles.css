@@ -12,14 +12,18 @@
 }
 
 .down_arrow {
-    display: none;
     font-size: 30px;
 }
 
-.hidden-left {
+.slide-up {
     opacity: 0;
-    transform: translateX(-100%);
-    transition: all 1.5s;
+    transform: translateY(100%);
+    transition: all 0.75s;
+}
+
+.slide-up.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .button_top {
@@ -28,12 +32,14 @@
     margin-left: auto;
     margin-right: auto;
     display: block;
+    width: 140px;
+    height: 35px;
+    padding: 0px;
+    background-color: rgb(42, 39, 39);
 }
 
-.hidden-right {
-    opacity: 0;
-    transform: translateX(100%);
-    transition: all 1.5s;
+.button_top:hover {
+    background-color: rgb(24, 22, 22);
 }
 
 .blurred {
@@ -62,7 +68,7 @@ h1, h2, span {
 }
 
 h1 {
-   font-size: 27.5px; 
+   font-size: 24.5px; 
    color: white;
 }
 
@@ -149,7 +155,7 @@ body::-webkit-scrollbar-thumb {
     border-radius: 15px;
     padding-left: 15px;
     padding-right: 15px;
-    height: 59px;
+    height: 52px;
     border: 2px solid rgb(200, 200, 200); /* Added border above */
 }
 
@@ -210,7 +216,7 @@ nav.sticky {
 /* linear-gradient(#3200d3, #5a2ee0) */
 /* Other existing navbar styles for non-mobile */
 nav {
-    height: 80px; /* Adjust the height of the navbar as needed */
+    height: 68px; /* Adjust the height of the navbar as needed */
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
@@ -414,7 +420,7 @@ nav-mobile {
 /* PROJECT section */
 .project_section {
     background: #393939;
-    padding-top: 20px;
+    padding-top: 35px;
     border-radius: 10px;
     margin: 0px 5vw 13.5vh;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); /* Add white box shadow */
@@ -429,14 +435,24 @@ nav-mobile {
 
 .project_container {
     display: flex;
-    justify-content: center;
-    align-content: center;
     flex-direction: column;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 55px;
-    max-width: 1300px;
+    max-width: 300px;
+    height: 320px;
     width: 70vw;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 1); /* Add box shadow to create a raised effect */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.65);
     border-radius: 15px;
+    background-image: linear-gradient(#4c2525, #340d27);
+    border: 1px rgb(115, 115, 115) solid;
+}
+
+.project_container:hover {
+    border: #1de6f6 1px solid;
+    cursor: pointer;
+    scale: 1.02;
 }
 
 .grey-container {
@@ -449,10 +465,11 @@ nav-mobile {
 }
 
 .project_accordion {
-    margin-top: 35px;
-    display: flex;
-    flex-direction: column;
+    margin: 50px 50px 75px 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     justify-content: center;
+    justify-items: center;
     align-items: center;
 }
 
@@ -511,7 +528,7 @@ interact */
     gap: 30px;
     padding: 12.5px;
     background-image: linear-gradient(#4c2525, #340d27);
-    max-width: 1300px;
+    max-width: 450px;
     width: 70vw;
     margin-right: auto;
     margin-bottom: 0;
@@ -676,12 +693,11 @@ button {
     transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
         letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s;
     width: 170px;
-    font-family: "JetBrains Mono",monospace;
 }
 
 button:hover {
     background-color: #6c0c0c;
-    border: #c8c8c8 2px solid;
+    border: #1de6f6 2px solid;
 }
 
 /* links section */
@@ -945,19 +961,6 @@ input:-webkit-autofill {
     margin-top: 50px;
 }
 
-.Contact_Description .project_accordion .project_container .project,
-.Contact_Description .project_accordion .project_container{
-    width: 50vw;
-    max-width: 50vw;
-    min-width: 40vw;
-}
-
-.Contact_Description .project_accordion .project_container .project-expandable {
-    width: 49.9vw;
-    max-width: 50vw;
-    min-width: 40vw;
-}
-
 .text--white {
     font-size: 23px;
     color: white;
@@ -1217,12 +1220,6 @@ input:-webkit-autofill {
         display: none;
     }
 
-    .down_arrow {
-        display: block;
-        margin-bottom: 30px;
-        margin-top: 140px;
-    }
-
     .contact_container {
         margin: 90px auto; /* Center horizontally */
         padding-bottom: 30px;
@@ -1253,13 +1250,13 @@ a:-webkit-any-link {
     color: #ffffff;
     cursor: pointer;
     display: inline-flex;
-    height: 48px;
+    height: 30px;
     justify-content: center;
     line-height: 1;
     list-style: none;
     overflow: hidden;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 2px;
+    padding-right: 2px;
     position: relative;
     text-align: left;
     text-decoration: none;
@@ -1271,6 +1268,7 @@ a:-webkit-any-link {
     will-change: box-shadow,transform;
     font-size: 18px;
     border: 2px rgb(140, 140, 140)  solid;
+    font-family: "Jetbrains Mono", monospace;
 }
 
 .projectSelectionButton:hover {
@@ -1285,11 +1283,200 @@ a:-webkit-any-link {
 }
 
 .button-container {
-    margin-top: 20px;
+    margin-top: 28px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     justify-self: center;
     gap: 20px;
+}
+
+/* General Popup Styling */
+#project-info-popup {
+    display: none; /* Start hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: rgb(223, 223, 223); /* Light grey text */
+}
+
+/* Show popup when not hidden */
+#project-info-popup:not(.hidden) {
+    display: flex;
+}
+
+/* Popup content styling */
+.popup-content {
+    width: 900px;
+    height: 300px;
+    background: #393939;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(114, 113, 113, 0.65); /* Add white box shadow */
+    border: rgb(69, 68, 68) 1px solid;
+}
+
+.popup-section-title {
+    color: rgb(255, 156, 156); /* Light pink for section titles */
+}
+
+.popup-features,
+.popup-languages {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.popup-link {
+    text-decoration: none;
+    color: rgb(255, 85, 0); /* Bright orange for link */
+    font-weight: bold;
+}
+
+.popup-link:hover {
+    color: #f46a6a; /* Light red hover effect */
+}
+
+#carousel-left, #carousel-right {
+    color: rgb(200, 200, 200); /* Light grey */
+    cursor: pointer;
+}
+
+#close-popup-btn {
+    background: #6c0c0c; /* Dark red for close button */
+    color: white;
+    padding: 3px 6px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#close-popup-btn:hover {
+    background: rgb(197, 75, 75); /* Light red for hover */
+}
+
+#project-info-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup-content {
+    position: relative;
+    background-color: rgb(38, 41, 41);
+    color: rgb(223, 223, 223);
+    border-radius: 10px;
+    width: 1050px;
+    height: 550px;
+    display: flex;
+    padding: 20px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 22px;
+    right: 30px;
+    font-size: 24px;
+    color: rgb(223, 223, 223);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.popup-left, .popup-right {
+    width: 50%;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-left {
+    padding-top: 68px;
+    margin-top: 0px;
+}
+
+.popup-right {
+    padding-top: 88px;
+    align-items: center; /* Center children horizontally */
+    text-align: center; /* Center text inside children */
+}
+
+.popup-title {
+    color: rgb(255, 255, 255);
+    font-size: 28px;
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.popup-section-title {
+    color: rgb(255, 156, 156);
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+.popup-features, .popup-languages {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.carousel {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    gap: 25px;
+}
+
+.carousel-btn {
+    font-size: 24px;
+    color: rgb(223, 223, 223);
+    cursor: pointer;
+}
+
+#carousel-image {
+    max-width: 375px;
+    max-height: 300px;
+    min-width: 200px;
+    min-height: 200px;
+    margin: 0 10px 0 10px;
+}
+
+.popup-link {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgb(255, 85, 0);
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 5px;
+}
+.popup-link:hover {
+    background-color: #6c0c0c;
+}
+
+.hidden {
+    display: none !important; /* Ensure hidden means no display */
 }

@@ -10,6 +10,34 @@
 </head>
 
 <body>   
+    <!-- Popup Modal -->
+    <div id="project-info-popup" class="hidden">
+        <div class="popup-content">
+            <button id="close-popup-btn" class="close-btn">&times;</button>
+            <h2 id="popup-title" class="popup-title"></h2>
+            
+            <div class="popup-left">
+                <h3 class="popup-section-title"><span class="text--purple">Features</span></h3>
+                <ul id="features-list" class="popup-features"></ul>
+                
+                <h3 class="popup-section-title"><span class="text--purple">Languages / Tech</span></h3>
+                <ul id="languages-list" class="popup-languages"></ul>
+            </div>
+    
+            <div class="popup-right">
+                <div id="carousel" class="carousel">
+                    <img id="carousel-image" src="#" alt="Project Image">
+                </div>
+
+                <div id="carousel" class="carousel">
+                    <span id="carousel-left" class="carousel-btn">&#9664; Prev</span>
+                    <span id="carousel-right" class="carousel-btn">Next &#9654;</span>
+                </div>
+            </div>
+            <a id="popup-link" class="popup-link" href="#" target="_blank">Visit Project</a>
+        </div>
+    </div>    
+
     <section id="nav-mobile">
         <nav-mobile>
             <ul class="nav__link--list">
@@ -106,7 +134,7 @@
 
             <h1>
                 <span class = "text--white ">
-                    Click on a project for more information
+                    Click on a project for more.
                 </span>
             </h1>
             
@@ -116,170 +144,53 @@
                 <button id="select-all" class="projectSelectionButton" >All</button>
             </div>
 
-        <!-- for later: &#x2192; -->
-        <div class = "project_accordion">
-            <section class="hidden-left web">
-                <div class="project_container">
-                    <div class = "project">
-                        <div class="left-right-container">
-                            <div class="project_left">
-                                <div class = "project_descriptor_box">
-                                    <h1>Portfolio Website</h1>
-                                    <div class="move-left">
-                                        <img class = "pixel_art-gif" src=".\Content\white-globe-icon-24-2350767687.jpg" alt="Animated Wizzard Gif" style="scale: 1.05;">
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="project_right">              
-                                <div>
-                                    <h1 class="right_arrow" > &#x2192; </h1>
-                                    <h1 class="down_arrow" > &#x2193; </h1>
-                                </div>
-                    
-                                <a href="https://mbdev.ca/" target="_blank">
-                                    <button class="button_top" id="open-popup-btn"> Take Me There </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+            <div class = "project_accordion">
+                <section class="hidden-left web slide-up">
+                    <div class="project_container" id="portfoliowebsite">
+                        
+                        <h1>Portfolio Website</h1>
+                        <img class = "pixel_art-gif" src=".\Content\white-globe-icon-24-2350767687.jpg" alt="Animated Wizzard Gif" style="scale: 1.05;">
 
-                    <div class="project-expandable">
-                        <div class="left-right-container">
-                            <div class="align-project-text grey-container">
-                                <p><span class = "text--purple ">Features:</span><br><br><br></p>
-                                <span class = "text--white">
-                                    <p> - Print a message in real-time on my desk, using the contact page <br><br></p>
-                                    <p> - An interactive & responsive website made to display my projects<br><br><br> </p>
-                                </span>
-                                <p><span class = "text--purple ">Languages/Tech:</span><br><br><br></p>
-                                <span class = "text--white">
-                                    <p>- Python, JavaScript, HTML, CSS, Nginx <br><br></p>
-                                </span>
-                            </div>
-                            <div class="image_container">
-                                <p> <span class = "text--purple ">Site Architechture:</span></p>
-                                <a href=".\Content\FinalChart.drawio.svg" target="_blank">
-                                    <img class="project-expandable_photo" src=".\Content\FinalChart.drawio.svg" alt="Demo Photo not loading">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+                        <h1 class="down_arrow" > &#x2193; </h1>
             
-
-            <section class="hidden-left web">
-                <div class="project_container">
-                    <div class = "project">
-                        <div class="left-right-container">
-                            <div class="project_left">
-                                <div class = "project_descriptor_box">
-                                    <h1>Online Chess</h1>
-                                    <div class="move-left">
-                                        <img class = "pixel_art-gif" src=".\Content\chessboard1.png" alt="Chess image" style="filter: invert(100%);">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="project_right">
-
-                                <div>
-                                    <h1 class="right_arrow"> &#x2192; </h1>
-                                    <h1 class="down_arrow"> &#x2193; </h1>
-                                </div>
-
-                                <!-- link to the grade tracker html -->
-                                <a href=".\Chess project\chess_index.html" target="_blank">
-                                    <button class="button_top" id="open-popup-btn"> Take Me There </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div> 
-                    
-                    <div class="project-expandable">
-                        <div class="align-project-text">
-                            <div class="align-project-text">
-                                <div class="left-right-container">
-                                    <div class="align-project-text">
-
-                                        <div class="grey-container">
-                                            <p><span class = "text--purple ">Features:</span><br><br><br></p>
-                                            <span class = "text--white">
-                                                <p>- Classic chess, recreated on the web <br><br></p>
-                                                <p>- Play against a friend online or in-person <br><br></p>
-                                                <p>- Check & Mate functions are a little buggy for certain edge cases. Still in progress.<br><br></p>
-                                            </span>
-                                        </div>
-
-                                        <a style="text-decoration: none;" href=".\Content\chess_photo.png" target="_blank">
-                                            <img style="text-decoration: none;" class="ProjectPhoto-1" src=".\Content\chess_photo.png" alt="Demo Photo not loading">
-                                        </a>
-                                        
-                                    </div>
-                            </div>
-                        </div>
+                        <a href="https://mbdev.ca/" target="_blank">
+                            <button class="button_top" id="open-popup-btn"> You are here < </button>
+                        </a>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <section class="hidden-left web">
-                <div class="project_container">
-                    <div class = "project">
-                        <div class="left-right-container">
-                            <div class="project_left">
-                                <div class = "project_descriptor_box">
-                                    <h1>Academic Organizer</h1>
-                                    <div class="move-left">
-                                        <img class="pixel_art-gif" src=".\Content\org2.png" alt="Organizer image" style="filter: invert(100%); scale: 1.15; margin-left: 3px;">
-                                    </div>
-                                </div>
-                            </div>
+                <section class="hidden-left web slide-up">
+                    <div class="project_container" id="onlinechess">
+                        
+                        <h1>Online Chess</h1>
+                        <img class = "pixel_art-gif" src=".\Content\chessboard1.png" alt="Chess image" style="filter: invert(100%);">
 
-                            <div class="project_right">
+                        <h1 class="down_arrow"> &#x2193; </h1>
 
-                                <div>
-                                    <h1 class="right_arrow" > &#x2192; </h1>
-                                    <h1 class="down_arrow" > &#x2193; </h1>
-                                </div>
-
-                                <!-- link to the grade tracker html -->
-                                <a href=".\Organizer project\GTLanding.html" target="_blank">
-                                    <button class="button_top" id="open-popup-btn"> Take Me There </button>
-                                </a>    
-                            </div>
-                        </div>
-                    </div> 
-                    
-                    <div class="project-expandable">
-                        <div class="align-project-text">
-                            <div class="align-project-text">
-                                <div class="left-right-container">
-                                    <div class="align-project-text">
-
-                                        <div class="grey-container">
-                                            <p><span class = "text--purple">Features:</span><br><br><br></p>
-                                            <span class = "text--white">
-                                                <p>- Manage courses and assignments <br><br></p>
-                                                <p>- Immediate view of cumulative, course, and assignment grades <br><br></p>
-                                                <p>- Save and load your data <br><br></p>
-                                            </span>
-                                        </div>
-                                        <a href=".\Content\AO-demophoto2.png" target="_blank">
-                                            <img class="ProjectPhoto-1" src=".\Content\AO-demophoto2.png" alt="Demo Photo not loading">
-                                        </a>
-                                    </div>
-                            </div>
-                        </div>
+                        <!-- link to the grade tracker html -->
+                        <a href=".\Chess project\chess_index.html" target="_blank">
+                            <button class="button_top" id="open-popup-btn"> Go to site </button>
+                        </a>
                     </div>
-                </div>
-            </section>
+                </section>
 
-           
-        <script src=".\JS\website_project.js"></script>
-        <script src=".\JS\projectSelector.js"></script>
-    </div>
+                <section class="hidden-left web slide-up">
+                    <div class="project_container" id="academicorganizer">
+                        
+                        <h1>Academic Organizer</h1>
+                        <img class="pixel_art-gif" src=".\Content\org2.png" alt="Organizer image" style="filter: invert(100%); scale: 1.15; margin-left: 3px;">
+
+                        <h1 class="down_arrow" > &#x2193; </h1>
+
+                        <!-- link to the grade tracker html -->
+                        <a href=".\Organizer project\GTLanding.html" target="_blank">
+                            <button class="button_top" id="open-popup-btn"> Go to site </button>
+                        </a>    
+                    </div>
+                </section>
+            </div>
+        </div>
     </div>
 
     <!-- Links Section -->
@@ -305,6 +216,10 @@
             <h1 class="copyright-text">© 2024 Mason Barney</h1>
         </div>
     </div>
+
+    <script src=".\JS\website_project.js"></script>
+    <script src=".\JS\projectSelector.js"></script>
+    <script src=".\JS\projectinfopopup.js"></script>
     
 </body>
 </html>
