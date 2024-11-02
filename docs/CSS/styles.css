@@ -465,12 +465,14 @@ nav-mobile {
 }
 
 .project_accordion {
-    margin: 50px 50px 75px 50px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    justify-items: center;
+    margin: 50px 150px 75px 150px;
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 50px;
 }
 
 .project-expandable::-webkit-scrollbar {
