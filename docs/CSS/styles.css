@@ -6,6 +6,12 @@
     box-sizing: border-box;
 }
 
+.hidden-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .right_arrow {
     display: block;
     font-size: 30px;
@@ -151,7 +157,7 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 3px 6px;
+    padding: 0px 6px;
     border-radius: 15px;
     padding-left: 15px;
     padding-right: 15px;
@@ -1292,6 +1298,13 @@ a:-webkit-any-link {
     align-items: center;
     justify-self: center;
     gap: 20px;
+}
+
+@media (max-width: 800px) {
+    .button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 
 /* General Popup Styling */
