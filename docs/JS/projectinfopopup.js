@@ -2,7 +2,7 @@
 const projectData = {
     portfoliowebsite: {
         title: "Portfolio Website",
-        features: ["- Responsive & Interactive site for display", "- Hardware integration on the contact page"],
+        features: ["- Responsive & Interactive site for display", "- Hardware integration for the contact form"],
         languages: ["Python", "JavaScript", "NGinx", "Raspberry Pi"],
         images: [
             "./Content/FinalChart.drawio.svg",
@@ -32,8 +32,8 @@ const projectData = {
         link: "./Organizer project/GradeTracker.html"
     },
     terminalmessenger: {
-        title: "Terminal Messenger",
-        features: ["- Message others in a retro terminal style chatroom", "- Encrypted messages for privacy", "- Inspired by Bash"],
+        title: "SecureComm",
+        features: ["- Send encrypted messages", "- Transfer files safely", "- Minimal command based interface"],
         languages: ["Python", "Socket Programming", "Cryptography"],
         images: [
             "./Content/placeholder.png"
