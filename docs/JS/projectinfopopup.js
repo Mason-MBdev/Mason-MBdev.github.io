@@ -29,7 +29,17 @@ const projectData = {
             "./Content/placeholder.png"
         ],
         currentImageIndex: 0,
-        link: "./Organizer project/GTLanding.html"
+        link: "./Organizer project/GradeTracker.html"
+    },
+    terminalmessenger: {
+        title: "Terminal Messenger",
+        features: ["- Message others in a retro terminal style chatroom", "- Encrypted messages for privacy", "- Inspired by Bash"],
+        languages: ["Python", "Socket Programming", "Cryptography"],
+        images: [
+            "./Content/placeholder.png"
+        ],
+        currentImageIndex: 0,
+        link: "www.google.com"
     }
 };
 
@@ -84,12 +94,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Close popup
+    // Close popup - button
     closePopupBtn.addEventListener("click", () => {
         popup.classList.add("hidden");
         console.log("Popup hidden after close button click, class list:", popup.classList); // Debug statement
     });
 
+    // Close popup - clicking outside of window
     window.addEventListener("click", event => {
         if (event.target === popup) {
             popup.classList.add("hidden");

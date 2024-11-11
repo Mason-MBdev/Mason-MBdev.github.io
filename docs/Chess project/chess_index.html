@@ -8,17 +8,16 @@
 <body>
 
     <!-- NAV BAR -->
-    <div class="nav">
+    <!-- <div class="nav">
         <div class="nav-left" style="display: flex; align-items: center; justify-self: center;">
             <h1 style="font-size: 30px; margin-left: 25px;">Chess V.2</h1>
         </div>
 
         <div class="nav-right">
             <button id="menu-button" onclick="location.reload();">Reload Game</button>
-            <!-- Reinstate commented code after finishing feature -->
-            <!-- <button id="menu-button" onclick="showSettingsMenu();">Settings</button> -->
+            <button id="menu-button" onclick="showSettingsMenu();">Settings</button>
         </div>
-    </div>
+    </div> -->
 
     <!-- GAME WINDOW -->
     <div class="main_window">
@@ -140,14 +139,12 @@
     <!-- START MENU -->
     <div id="popup-menu" class="popup">
         <div class="popup-content">
-            <h1>Online Chess</h1>
+            <h1>Chess - local & online</h1>
             <div class="menu-container">
                 <div class="right-popup">
                     <h2> Instructions </h2>
-                    <p> <b>Select a mode to get started</b> </p>
-
                     <p> <b>Local:</b> <br><br> Play with a friend locally by switching controls every turn, <br>set a turn timer if you want a faster paced game.</p>
-                    <p> <b>Multiplayer:</b> <br><br> Play with a friend online by hosting (or connecting to) a room. <br><br><b>*not complete yet*</b></p>
+                    <p> <b>Multiplayer:</b> <br><br> Play with a friend online by hosting (or connecting to) a room.</p>
                 </div>
                 <div class="left-popup">
                     
@@ -164,7 +161,7 @@
                     <div class="Local" style="display: block;">
                         <h3>Time:</h3>
                         <p>(Enter in minutes, leave blank for unlimited)</p>
-                        <input type="text" id="time-input" placeholder="Unlimited"><br>
+                        <input type="text" id="time-input" placeholder="Unlimited" class="menu-input"><br>
                         <button id="start-button">Start</button><br><br>
                     </div>
 

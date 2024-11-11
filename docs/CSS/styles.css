@@ -427,6 +427,7 @@ nav-mobile {
 .project_section {
     background: #393939;
     padding-top: 35px;
+    padding-bottom: 20px;
     border-radius: 10px;
     margin: 0px 5vw 13.5vh;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); /* Add white box shadow */
@@ -445,7 +446,6 @@ nav-mobile {
     gap: 25px;
     justify-content: center;
     align-items: center;
-    margin-bottom: 55px;
     max-width: 300px;
     height: 320px;
     width: 70vw;

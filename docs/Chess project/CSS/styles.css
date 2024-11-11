@@ -2,8 +2,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh;
-    background: radial-gradient(circle, rgb(94, 70, 70), black);
+    height: auto;
+    background: rgb(19, 19, 19);
 }
 
 /* remove all scroll bars */
@@ -17,6 +17,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 90vh;
+    margin-top: 25px;
 }
 
 .game-container {
@@ -24,13 +25,13 @@ body {
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
-    background-image: linear-gradient(90deg, #414141, #dbdbdb);
+    background-color: #3d3d3d;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     width: 1052px; /* Adjust based on desired size */
     height: 620px; /* Adjust based on desired size */
     border-radius: 15px;
-    border: grey 2px solid;
+    border: rgb(67, 143, 175) 2px solid;
 }
 
 .scoreboard {
@@ -119,18 +120,18 @@ h3 {
 }
 
 .popup-content {
-    background-image: linear-gradient(180deg, #6c8699, #2e5178, #373d41);
-    margin: 10% auto;
+    background-color: rgb(53, 52, 52);
+    margin: 7% auto;
     padding: 20px;
     border-radius: 10px;
-    width: 600px;
+    width: 610px;
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Subtle shadow for depth */
-    border: 1px solid #b1b1b1; /* Orange border */
+    border: 1px solid #40768e; /* Orange border */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 480px;
+    height: 490px;
 }
 
 /* //display children row */
@@ -156,8 +157,8 @@ h3 {
     border-radius: 10px;
     width: 250px;
     height: 360px;
-    background-color: #fff5ff; /* Dark gray background */
-    border: 2px solid #3c3c3c; /* Orange border */
+    background-color: #b8b4b8; /* Dark gray background */
+    border: 2px solid #e8e6e6; /* Orange border */
 }
 
 .left-popup {
@@ -170,14 +171,14 @@ h3 {
     border-radius: 10px;
     width: 250px;
     height: 360px;
-    background-color: #fff5ff; /* Dark gray background */
-    border: 2px solid #3c3c3c; /* Orange border */
+    background-color: #b8b4b8; /* Dark gray background */
+    border: 2px solid #e8e6e6; /* Orange border */
     margin-bottom: 10px;
 }
 
 
 .popup h1 {
-    color: #ffffff; /* Orange heading */
+    color: #5ea1d7; /* Orange heading */
     margin-bottom: 15px;
     font-size: 35px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35); /* Add text shadow */
@@ -193,14 +194,14 @@ h3 {
     border: 1px solid #000000;
     border-radius: 5px;
     padding: 10px;
-    background-color: #558ccd; /* Dark gray background */
+    background-color: #657b96; /* Dark gray background */
     width: 230px;
     text-align: center;
 }
 
 .popup input[type="text"],
 .popup input[type="number"] {
-    background-color: rgb(199, 168, 168);    
+    background-color: #a0a0aB;    
     color: #000000; /* Black text */
     padding: 10px; /* Add some padding */
     border: 1px solid #000000; /* Orange border */
@@ -216,11 +217,12 @@ h3 {
 }
 
 .popup button {
-    background-color: #64a7f8; /* Orange background */
+    background-color: rgb(42, 39, 39);
+    ; /* Orange background */
     color: #FFF; /* Light text */
-    padding: 10px 20px; /* Add padding */
-    border: 1px solid rgb(0, 0, 0); /* Remove border */
-    border-radius: 5px; /* Add border radius */
+    padding: 5px 25px; /* Add padding */
+    border: #868686 3px solid; /* Remove border */
+    border-radius: 20px; /* Add border radius */
     font-size: 16px; /* Font size */
     cursor: pointer; /* Add pointer cursor */
     width: 97.5px;
@@ -228,7 +230,8 @@ h3 {
 }
 
 .popup button:hover {
-    background-color: #204b7d; /* Lighter orange on hover */
+    background-color: rgb(24, 22, 22); /* Lighter orange on hover */
+    border: 3px solid #4490d7;
     /* transition 1 sec */
     transition: background-color 0.1s ease;
 }
@@ -277,7 +280,7 @@ h3 {
 }
 
 .menu-input {
-    background-color: rgb(199, 168, 168);    
+    background-color: #a0a0ab;    
     color: #ffffff; /* Black text */
     padding: 10px; /* Add some padding */
     border: 1px solid #000000; /* Orange border */
@@ -285,7 +288,6 @@ h3 {
     width: 200px; /* Subtract padding and border width */
     font-size: 16px; /* Font size */
     margin-bottom: 15px; /* Add margin below the input */
-    height: 40px;
 }
 
 .settings-title-container {
@@ -337,7 +339,7 @@ h3 {
 }
 
 .scoreboard {
-    background-color: #d1d1d1;
+    background-color: #b5b5bd;
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 20px;
@@ -409,7 +411,7 @@ h3 {
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    background-image: linear-gradient(#703434, #321137);
+    background-image: linear-gradient(#867878, #211f21);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* Add shadow */
     border-bottom: 1px solid #312a2a; /* Add border */
     border-top: 1px solid #312a2a; /* Add border */
@@ -430,41 +432,22 @@ h3 {
 }
 
 #menu-button {
-    padding: 10px 20px;
-    background-color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #280461;
-    font-size: 16px;
-}
-
-#menu-button {
-    font-family: 'Raleway', sans-serif;
-    margin: 0;
-    box-sizing: border-box;
-    font-size: 14.5px;
-    --accent: rgb(145, 58, 15);
-    font-weight: bold;
-    letter-spacing: 0.1em;
-    border: #000000 1px solid;
-    border-radius: 1.1em;
-    cursor: pointer;
-    color: white;
-    padding: 1em 2em;
-    transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
-        letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s;
     justify-self: center;
     align-self: center;
     margin-left: auto;
     margin-right: auto;
     display: block;
-    background-color: #883535;
-    text-decoration: none;
+    width: 140px;
+    height: 35px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(42, 39, 39);
+    border: 2px solid #000000;
+    color: white;
 }
 
 #menu-button:hover {
-    background-color: #651919; /* Darker blue on hover */
+    background-color: #3d3d3d; /* Darker blue on hover */
 }
 
 /* .with-linear-gradient {
@@ -557,3 +540,4 @@ h3 {
     transform: translateY(-150%);
     transition: transform 0.5s;
 }
+
