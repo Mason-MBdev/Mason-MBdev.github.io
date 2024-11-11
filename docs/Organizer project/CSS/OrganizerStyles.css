@@ -693,11 +693,8 @@ input[type="date"] {
 }
 
 .nav-menu-buttons {
-    background-color: #353535;
     border-radius: 10px;
     padding: 10px;
-    border: 2px black solid;
-    box-shadow: 0 0 6px #6c1010;
     max-width: 530px;
     display: flex;
     justify-content: center;

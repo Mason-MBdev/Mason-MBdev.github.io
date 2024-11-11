@@ -73,6 +73,12 @@ h1, h2, span {
     font-weight: normal;
 }
 
+h2 {
+    font-size: 25px; /* Slightly larger */
+    color: #f0f0f0; /* Same purple color as .text--purple */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Similar text shadow */
+}
+
 h1 {
    font-size: 24.5px; 
    color: white;
@@ -85,7 +91,7 @@ p {
 
 li {
     list-style-type: none;
-    font-size: 25px;
+    font-size: 22px;
     white-space: normal;
 }
 
@@ -201,7 +207,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* nav mobile #5a2ee0)*/
-
 .backholder {
     margin-left: 40px;
     display: flex;
@@ -447,7 +452,7 @@ nav-mobile {
     justify-content: center;
     align-items: center;
     max-width: 300px;
-    height: 320px;
+    height: 300px;
     width: 70vw;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.65);
     border-radius: 15px;
@@ -1334,13 +1339,8 @@ a:-webkit-any-link {
     height: 300px;
     background: #393939;
     padding: 20px;
-    border-radius: 8px;
     box-shadow: 0 0 10px rgba(114, 113, 113, 0.65); /* Add white box shadow */
     border: rgb(69, 68, 68) 1px solid;
-}
-
-.popup-section-title {
-    color: rgb(255, 156, 156); /* Light pink for section titles */
 }
 
 .popup-features,
@@ -1350,26 +1350,16 @@ a:-webkit-any-link {
     margin: 10px 0;
 }
 
-.popup-link {
-    text-decoration: none;
-    color: rgb(255, 85, 0); /* Bright orange for link */
-    font-weight: bold;
-}
-
-.popup-link:hover {
-    color: #f46a6a; /* Light red hover effect */
-}
-
 #carousel-left, #carousel-right {
     color: rgb(200, 200, 200); /* Light grey */
     cursor: pointer;
 }
 
 #close-popup-btn {
-    background: #6c0c0c; /* Dark red for close button */
-    color: white;
+    background: #bcbcbc; /* Dark red for close button */
+    border: 2px solid #021118; /* Dark red border */
+    color: rgb(23, 18, 68);
     padding: 3px 6px;
-    border: none;
     border-radius: 4px;
     cursor: pointer;
 }
@@ -1395,7 +1385,6 @@ a:-webkit-any-link {
     position: relative;
     background-color: rgb(38, 41, 41);
     color: rgb(223, 223, 223);
-    border-radius: 10px;
     width: 1050px;
     height: 550px;
     display: flex;
@@ -1433,8 +1422,8 @@ a:-webkit-any-link {
 }
 
 .popup-title {
-    color: rgb(255, 255, 255);
-    font-size: 28px;
+    color: rgb(143, 141, 210);
+    font-size: 30px;
     position: absolute;
     top: 7%;
     left: 50%;
@@ -1442,9 +1431,10 @@ a:-webkit-any-link {
 }
 
 .popup-section-title {
-    color: rgb(255, 156, 156);
-    font-size: 18px;
+    color: rgb(157, 156, 204);
+    font-size: 25px;
     margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 .popup-features, .popup-languages {
@@ -1457,9 +1447,11 @@ a:-webkit-any-link {
     margin-top: 12px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     position: relative;
     gap: 25px;
+    min-width: 330px;
+    min-height: 300px;
 }
 
 .carousel-btn {
@@ -1481,15 +1473,20 @@ a:-webkit-any-link {
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    color: rgb(255, 85, 0);
+    color: rgb(0, 64, 255);
     font-size: 18px;
     text-decoration: none;
     padding: 10px 20px;
     border: 1px solid rgb(200, 200, 200);
-    border-radius: 5px;
+    border-radius: 1.1em;
+    background-color: rgb(42, 39, 39);
+    width: 140px;
+    height: 35px;
+
 }
 .popup-link:hover {
-    background-color: #6c0c0c;
+    background-color: rgb(24, 22, 22);
+    border: #1de6f6 2px solid;
 }
 
 .hidden {

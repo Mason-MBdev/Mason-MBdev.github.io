@@ -1,7 +1,6 @@
-// Example project data with images for the carousel
 const projectData = {
     portfoliowebsite: {
-        title: "Portfolio Website",
+        title: "Personal Website",
         features: ["- Responsive & Interactive site for display", "- Hardware integration for the contact form"],
         languages: ["Python", "JavaScript", "NGinx", "Raspberry Pi"],
         images: [
@@ -12,11 +11,12 @@ const projectData = {
         link: "https://mbdev.ca/"
     },
     onlinechess: {
-        title: "Online Chess",
-        features: ["- Another chess website to play on during class", "- Working on online multiplayer now"],
+        title: "Web Chess",
+        features: ["- Another chess website to play on during lectures", "- Working on online multiplayer now"],
         languages: [ "JavaScript", "Node.js", "Socket.io"],
         images: [
-            "./Content/placeholder.png"
+            "./Content/chess-board.png",
+            "./Content/chess-popup.png"
         ],
         currentImageIndex: 0,
         link: "./Chess project/chess_index.html"
@@ -26,14 +26,15 @@ const projectData = {
         features: ["- Management for grades and tasks", "- Cloud save & Account login"],
         languages: ["JavaScript", "Firebase Authentication", "Firebase Firestore"],
         images: [
-            "./Content/placeholder.png"
+            "./Content/sign-in-element.png",
+            "./Content/gradetracker-homepage.png"
         ],
         currentImageIndex: 0,
         link: "./Organizer project/GradeTracker.html"
     },
     terminalmessenger: {
-        title: "SecureComm",
-        features: ["- Send encrypted messages", "- Transfer files safely", "- Minimal command based interface"],
+        title: "RetroComm",
+        features: ["- Send encrypted messages", "- Transfer files safely between devices", "- Minimal command based interface"],
         languages: ["Python", "Socket Programming", "Cryptography"],
         images: [
             "./Content/placeholder.png"
@@ -72,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 popupTitle.textContent = project.title;
                 featuresList.innerHTML = project.features.map(feature => `<li>${feature}</li>`).join("");
                 languagesList.innerHTML = project.languages.map(lang => `<li>${lang}</li>`).join("");
-                popupLink.href = project.link;
 
                 // Display the first image in the carousel
                 project.currentImageIndex = 0;
