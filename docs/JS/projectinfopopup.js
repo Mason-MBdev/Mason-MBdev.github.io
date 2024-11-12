@@ -37,7 +37,8 @@ const projectData = {
         features: ["- Send encrypted messages", "- Transfer files safely between devices", "- Minimal command based interface"],
         languages: ["Python", "Socket Programming", "Cryptography"],
         images: [
-            "./Content/placeholder.png"
+            "./Content/retrocomm.png",
+            "./Content/retrocomm-file.png"
         ],
         currentImageIndex: 0,
         link: "www.google.com"
