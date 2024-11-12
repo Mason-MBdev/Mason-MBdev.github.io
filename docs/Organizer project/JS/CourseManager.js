@@ -160,7 +160,7 @@ class CourseManager {
     }
 
 
-    // Helpper function to get the assignment by ID
+    // Helper function to get the assignment by ID
     getAssignmentById(courseId, assignmentId) {
         //console log parameters
         console.log(`Coursemanager - getAssignmentById(courseId: ${courseId}, assignmentId: ${assignmentId})`);

@@ -657,7 +657,7 @@ input[type="date"] {
 
 .menu-info-internal {
     border: #808080 1px solid;
-    padding: 25px;
+    padding: 0px 25px;
     border-radius: 10px;
     background-color: #313131;
     box-shadow: 0 0 3px rgba(2, 2, 2, 0.9);
@@ -665,7 +665,7 @@ input[type="date"] {
     flex-direction: column;
     justify-content: space-evenly;
     width: 20vw;
-    height: 100px;
+    height: 110px;
     max-width: 400px;
 }
 
