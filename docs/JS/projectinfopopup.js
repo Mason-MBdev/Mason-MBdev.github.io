@@ -33,7 +33,7 @@ const projectData = {
         link: "./Organizer project/GradeTracker.html"
     },
     terminalmessenger: {
-        title: "RetroComm",
+        title: "Typewriter",
         features: ["- Send encrypted messages", "- Transfer files safely between devices", "- Minimal command based interface"],
         languages: ["Python", "Socket Programming", "Cryptography"],
         images: [
