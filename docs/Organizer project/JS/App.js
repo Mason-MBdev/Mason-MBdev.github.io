@@ -51,7 +51,11 @@ document.getElementById('close').addEventListener('click', courseManager.closeAd
 document.getElementById('close-edit-popup').addEventListener('click', courseManager.closeEditAssignmentPopup);
 
 // Close Assignment Popup
-document.getElementsByClassName('close-popup')[0].addEventListener('click', courseManager.closeAddAssignmentPopup);
+try {
+    document.getElementById('addassclosebtn').addEventListener('click', courseManager.closeAddAssignmentPopup);
+} catch (error) {
+    console.error('Error adding event listener to addassclosebtn:', error);
+}
 
 document.getElementById('add-assignment-popup-btn').addEventListener('click', () => {
     courseManager.addAssignmentFromPopup();

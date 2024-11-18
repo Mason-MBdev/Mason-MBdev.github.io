@@ -9,14 +9,14 @@ html {
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #FFF; /* Light text for dark background */
-    background-color: #262929; /* Dark background */
+    background-color: #151b23; /* Dark background */
     margin: 0;
     padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
-    color: #f46a6a;
+    color: #a4ebeb;
     margin: 0;
 }
 
@@ -65,9 +65,9 @@ h2 {
     padding-right: 40px;
     /* background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDEwMCAxMDAiPgogIDxkZWZzPgogICAgPHBhdHRlcm4gaWQ9InBhdHRlcm4iIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblR5cGU9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHJlY3Qgd2lkdGg9IjI1IiBoZWlnaHQ9IjI1IiBmaWxsPSIjZmY1NTAwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgeT0iMjUiIGZpbGw9IiMwMDAwODAiLz4KICAgIDwvcGF0dGVybiA+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMmIxYjFiIiAvPgogIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIiBvcGFjaXR5PSIwLjA0IiAvPgo8L3N2Zz4K'); */
     box-shadow: 0 0 3px rgba(2, 2, 2, 0.9);
-    border-bottom: 1px solid #555555;
+    border-bottom: 1px solid #858585;
     z-index: 9998;
-    background-image: linear-gradient(#703434, #321137);
+    background-color: #050b15;
     border-top: solid black 1px;
     position: relative;
 }
@@ -139,13 +139,13 @@ h2 {
 /*----------------------------------------*/
 /* For Firefox */
 .courses-loaded {
-    height: calc(100vh - 91px); /* Adjust the height as needed */
+    height: calc(100vh - 70px); /* Adjust the height as needed */
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     overflow-y: scroll;
-    background-color: rgb(30, 30, 30);
+    background-color: #15181a;
 }
 
 /* Custom scrollbar styles */
@@ -405,7 +405,7 @@ body, html {
     background-color: #555; /* Dark gray background */
     color: #FFF; /* Light text */
     padding: 10px; /* Add some padding */
-    border: #f46a6a 2px solid; /* Orange border */
+    border: #c4d6d6 2px solid; /* Orange border */
     border-radius: 5px; /* Add border radius */
     width: calc(100% - 22px); /* Subtract padding and border width */
     font-size: 16px; /* Font size */
@@ -523,10 +523,10 @@ button {
     background-color: #1f1f1f;
     cursor: pointer;
     color: rgb(255, 255, 255);
-    padding: 0.75em 1.5em;
-    width: 190px;
-    max-width: 190px;
-    height: 45px;
+    padding: 0.75em 1.0em;
+    width: 160px;
+    max-width: 160px;
+    height: 40px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -536,7 +536,7 @@ button {
 }
 
 button:hover {
-    background-color: #c24f4f;
+    border: 2px #c4d6d6 solid;
 }
 
 button:active {
@@ -550,7 +550,7 @@ button:active {
 button.secondary {
     font-size: 20px; /* Matched font size */
     letter-spacing: 0.1em; /* Kept letter spacing */
-    border: 1px solid #f46a6a; /* Set the border to white */
+    border: 1px solid #73c5d0; /* Set the border to white */
     border-radius: 20px; /* Made border radius consistent */
     background-color: rgb(47, 47, 47);
     cursor: pointer; /* Kept cursor style */
@@ -570,7 +570,7 @@ input[type="date"] {
     background-color: #555; /* Dark gray background */
     color: #FFF; /* Light text */
     padding: 10px; /* Add some padding */
-    border: 2px solid #f46a6a; /* Orange border */
+    border: 2px solid #c4d6d6; /* Orange border */
     border-radius: 5px; /* Add border radius */
     width: calc(100% - 22px); /* Subtract padding and border width */
     font-size: 16px; /* Font size */
@@ -578,7 +578,7 @@ input[type="date"] {
 }
 
 .task-menu-container {
-    background-color: rgb(30, 30, 30);
+    background-color: #15181a;
     padding: 60px;
     height: auto;
 }
@@ -683,8 +683,7 @@ input[type="date"] {
 
 .highlight {
     transform: scale(0.95);
-    background-color: #8c3f3f;
-    border: black 2px solid;
+    border: 2px solid #c4d6d6;
 }
 
 .nav-element {
@@ -786,7 +785,7 @@ button.secondary.assignment-operators {
 
 button.secondary:Hover {
     background-color: rgb(47, 47, 47);
-    border:#d4d4d4 1px solid;
+    border:#c4d6d6 1px solid;
     color: #FFF; /* White text */
 }
 
@@ -798,8 +797,7 @@ button.secondary:Hover {
 
 
 button.secondary.assignment-operators:hover {
-    background-color: #db5341;
-    border:#f46a6a 1px solid;
+    border:#c4d6d6 1px solid;
     color: white; /* White text */
 }
 
@@ -1009,7 +1007,7 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     color: #FFF; /* Light text color */
-    background-color: #1e1e1e; /* Dark gray background */
+    background-color: #15181a; /* Dark gray background */
 }
 
 .feature-accordion {

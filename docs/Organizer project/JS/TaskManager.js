@@ -314,7 +314,7 @@ class TaskManager {
         // Add title
         let title = document.createElement('h2');
         title.innerText = 'Task Stats';
-        title.style.marginTop = '22px'; // Add top margin
+        title.style.marginTop = '10px'; // Add top margin
         title.style.marginBottom = '75px'; // Add bottom margin
         title.style.textAlign = 'center'; // Add text alignment style
         taskMenuContainer.appendChild(title);
