@@ -67,7 +67,7 @@ h2 {
     box-shadow: 0 0 3px rgba(2, 2, 2, 0.9);
     border-bottom: 1px solid #858585;
     z-index: 9998;
-    background-color: #050b15;
+    background-color: #300617;
     border-top: solid black 1px;
     position: relative;
 }
@@ -145,7 +145,7 @@ h2 {
     left: 0;
     right: 0;
     overflow-y: scroll;
-    background-color: #15181a;
+    background-color: #09151b;
 }
 
 /* Custom scrollbar styles */
@@ -523,7 +523,7 @@ button {
     background-color: #1f1f1f;
     cursor: pointer;
     color: rgb(255, 255, 255);
-    padding: 0.75em 1.0em;
+    padding: 0em 1.0em;
     width: 160px;
     max-width: 160px;
     height: 40px;
@@ -578,7 +578,7 @@ input[type="date"] {
 }
 
 .task-menu-container {
-    background-color: #15181a;
+    background-color: #1e2225;
     padding: 60px;
     height: auto;
 }
@@ -797,6 +797,7 @@ button.secondary:Hover {
 
 
 button.secondary.assignment-operators:hover {
+
     border:#c4d6d6 1px solid;
     color: white; /* White text */
 }
@@ -1000,14 +1001,14 @@ body.GTLanding {
     background: linear-gradient(135deg, #ee4c90, #632c72, #14e5e9, #3244cd);
     background-size: 150% 150%;
     transition: background-position 0.1s ease;
-}
+}       
 
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     color: #FFF; /* Light text color */
-    background-color: #15181a; /* Dark gray background */
+    background-color: #09151b; /* Dark gray background */
 }
 
 .feature-accordion {
