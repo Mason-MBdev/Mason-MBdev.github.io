@@ -102,7 +102,7 @@ html {
 
 body {
     height: auto;
-    background-color: rgb(38, 41, 41);
+    background-color: rgb(40, 38, 43);
     /* background-image: url('Content/BackgroundRetro.jpg'); */
     background-repeat: no-repeat;
     background-position: center;
@@ -156,7 +156,7 @@ body::-webkit-scrollbar-thumb {
 
 .text--heading {
     color: rgb(255, 255, 255);
-    opacity: 80%;
+    opacity: 92%;
 }
 
 .Logo .text--heading {
@@ -188,7 +188,7 @@ body::-webkit-scrollbar-thumb {
 
 .copyright-text {
     color: rgb(255, 255, 255);
-    opacity: 80%;
+    opacity: 92%;
     font-size: 15px;
     text-align: center;
 }
@@ -237,7 +237,8 @@ nav {
     background-image: linear-gradient(#592626, #3f092c);
     transition: all 100ms ease;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); /* Add white box shadow */
-    border-bottom: 1px rgb(0, 0, 0) solid;
+    border-bottom: 1px rgb(85, 85, 85) solid;
+    border-top: 1px rgb(85, 85, 85) solid;
 }
 
 /* Sticky navbar styles for mobile */
@@ -472,7 +473,7 @@ nav-mobile {
     border-radius: 10px;
     margin-top: 50px;
     margin-bottom: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.65); /* Add white box shadow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.85); /* Add white box shadow */
 }
 
 .project_accordion {
@@ -718,9 +719,8 @@ button:hover {
 .footer {
     display: flex;
     justify-content: center;
-    padding: 12.5px;
+    padding: 7.5px;
     background-image: linear-gradient(#592626, #3f092c);
-    margin: 10px auto;
     box-shadow: 0 8px 16px rgba(0,0,0.16);
     border-top: 1px rgb(98, 98, 98) solid;
     gap: 40px;
@@ -977,7 +977,7 @@ input:-webkit-autofill {
 .text--white {
     font-size: 23px;
     color: white;
-    opacity: 80%;
+    opacity: 96%;
     text-align: left;
     justify-self: center;
     align-self: center;
@@ -985,7 +985,7 @@ input:-webkit-autofill {
 
 .left-right-container .text--white {
     color: white;
-    opacity: 80%;
+    opacity: 92%;
     text-align: left;
     font-size: 20px;
 }
