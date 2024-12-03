@@ -236,9 +236,8 @@ nav {
     align-items: center;
     background-image: linear-gradient(#592626, #3f092c);
     transition: all 100ms ease;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); /* Add white box shadow */
-    border-bottom: 1px rgb(85, 85, 85) solid;
-    border-top: 1px rgb(85, 85, 85) solid;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.95); /* Add white box shadow */
+    border-bottom: 1px rgb(56, 56, 56) solid;
 }
 
 /* Sticky navbar styles for mobile */
@@ -721,8 +720,8 @@ button:hover {
     justify-content: center;
     padding: 7.5px;
     background-image: linear-gradient(#592626, #3f092c);
-    box-shadow: 0 8px 16px rgba(0,0,0.16);
-    border-top: 1px rgb(98, 98, 98) solid;
+    box-shadow: 10px 8px 16px rgba(0,0,0.96);
+    border-top: 1px rgb(87, 87, 87) solid;
     gap: 40px;
 }
 
