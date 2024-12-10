@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizer</title>
+    <link rel="stylesheet" href="./CSS/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Nav, contains title and meta operation buttons -->
+    <div class="nav-element">
+        <div class="nav-title-container">
+            <h1>Academic Organizer</h1>
+        </div>
+
+        <div class="nav-button-container">
+            <button id="cloud-save-navbtn" class="menu logged-in" style="display: none;" title="Save data to your account">Cloud Save <i class="fa fa-save"></i></button>
+            <button id="login-navbtn" class="menu logged-out">Log in</button>
+            <button id="signup-navbtn" class="menu logged-out">Sign up</button>
+            <button id="signout-navbtn" class="menu logged-in" style="display: none;">Sign out</button>
+        </div>
+
+        <div class="nav-button-container">
+            <button id="save-navbtn" title="Save all data to downloads folder">Save <i class="fa fa-save"></i></button>
+            <button id="load-navbtn" title="Load data from a previous save file">Load </button>
+        </div>
+
+        <!-- <div class="nav-button-container"> -->
+            <!-- <button id="settings-navbtn"> Menu             <i class="fa-solid fa-gear"></i></button> -->
+        <!-- </div> -->
+    </div>
+
+    <!-- Main window for all user flow -->
+    <div id="main-window">
+
+        <!-- Overall course stats, contains different views, graphs, and stats -->
+        <div class="overall-course-statistics">
+            <div class="collapse-container">
+                <h2 class="title" contenteditable="true" data-type="title" data-id="overall-statistics-title">Overall Course Statistics</h2>
+                <span class="collapse-arrow" onclick="toggleOverallStats()">&#9650;</span> <!-- Initially pointing downwards -->
+            </div>
+
+            <!-- collapsed view -->
+            <div class="collapsed-view">
+                <p><strong>Overall Grade:</strong> <span id="collapsed-grade">N/A</span></p>
+                <p><strong>Completed Weight:</strong> <span id="collapsed-completed-weight">N/A</span></p>
+                <p><strong>Assignments Completed:</strong> <span id="collapsed-assignments-completed">N/A</span></p>
+            </div>
+
+            <!-- expanded view -->
+            <div class="overall-statistics-content">
+                <div class="course-statistics">
+                    <h2>Overall Grade:</h2>
+                    <p id="overall-grade">N/A</p>
+                </div>
+                <div class="course-statistics">
+                    <h2>Completed Weight:</h2>
+                    <p id="overall-completed-weight">N/A</p>
+                </div>
+                <div class="course-statistics">
+                    <h2>Assignments Completed:</h2>
+                    <p id="overall-assignments-complete">N/A</p>
+                </div>
+            </div>
+
+            <!-- self explanitory -->
+            <div class="graphbox"></div>
+        </div>
+
+        <!-- container for all course elements -->
+        <div class="course-display"></div>
+
+        <!-- container for add-course button -->
+        <div class="replica-course-container">
+            <button id="add-course-btn" class="add-course-btn">Add Course +</button>
+        </div>
+    </div>
+
+    <!-- popup for login / signup -->
+    <div class="popup login-popup">
+        <span id="close-login-popup" class="close-popup">&times;</span>
+        <h2>Log in</h2><br/>
+        <form id="login-form">
+            <div class="input">
+                <input type="email" id="login-email" placeholder = "Email" required />
+            </div>
+            <div style="margin-bottom: 20px;" >
+                <input type="password" id="login-password" placeholder = "Password" required />
+            </div>
+            <button>Log in</button>
+        </form>
+    </div>
+
+    <div class="popup signup-popup">
+        <span id="close-signup-popup" class="close-popup">&times;</span>
+        <h2>Sign up</h2><br/>
+        <form id="signup-form">
+            <div class="input">
+                <input type="email" id="signup-email" placeholder = "Email" required />
+            </div>
+            <div style="margin-bottom: 20px;" >
+                <input type="password" id="signup-password" placeholder = "Password" required />
+            </div>
+            <button>Sign up</button>
+        </form>
+        
+        <h3> HELLO! If you are reading this, you are considering making an account for one of my hobby projects. </h3>
+        <h3> Before doing so, please consider using the local save and load features for the conststency and safety of your data and credentials. </h3> 
+        <h3> I am a random guy on the internet, and giving me the same email and password you use for every other account is a TERRIBLE idea. </h3>
+        <h3> Have a nice day! </h3>
+    </div>
+
+    <script src="./JS/main.js"></script>
+    <script type="module" src="./JS/auth.js"></script>
+
+</body>
+</html>

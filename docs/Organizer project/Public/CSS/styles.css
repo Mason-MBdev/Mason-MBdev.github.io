@@ -1,0 +1,404 @@
+:root {
+    --containercolor: #f3f3f3;
+}
+
+h1 {
+    font-size: 36px;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+    color: #fff;
+}
+
+h2 {
+    margin: 0;
+}
+
+.nav-button-container {
+    display: flex;
+    justify-content: left;
+    background-color: rgb(59, 59, 68);
+    color: white;
+    font-size: 10px;
+    margin: 0;
+    align-items: center;
+}
+
+/* style for nav button container buttons */
+.nav-button-container button {
+    background-color: rgb(59, 59, 68);
+    color: white;
+    border: 1px solid white;    
+    font-size: 13px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-button-container h2{
+    margin: 0;
+}
+
+.nav-title-container {
+    display: flex;
+    justify-content: left;
+    color: white;
+    font-size: 14px;
+    font-weight: normal;
+    align-items: center;
+    flex: 30%;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    gap: 200px;
+}
+
+.nav-title-container h3{
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(235, 235, 235);
+}
+
+.nav-element {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(59, 59, 68);
+    padding: 10px 20px;
+    gap:20px;
+}
+
+.title {
+    font-size: 24px;
+}
+.grades, .assignments {
+    margin-bottom: 20px;
+}
+.assignments-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.assignments-table th, .assignments-table td {
+    border: 1px solid #000000;
+    padding: 8px;
+}
+.assignments-table th {
+    background-color: #cfcfcf;
+}
+.assignments-table td {
+    text-align: center;
+    background-color: #e2e2e2;
+}
+.add-assignment {
+    margin-top: 10px;
+}
+input, button {
+    padding: 8px;
+    margin: 5px;
+}
+.editable {
+    padding: 5px;
+    margin: 2px;
+}
+
+h2.title {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Remove any unwanted border or padding around the course title */
+.card h2.title {
+    display: inline-block;
+    margin: 0; /* Remove any extra margins */
+    padding: 0;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+/* Center the arrow icon */
+.collapse-arrow {
+    cursor: pointer;
+    font-size: 18px; /* Adjust size as needed */
+    margin-left: 10px; /* Space between arrow and title */
+    margin-bottom: 6px;
+}
+
+.card {
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--containercolor);
+}
+
+.replica-course-container {
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    display: grid;
+    background-color: var(--containercolor);
+}
+
+.card .grades, .card .assignments {
+    display: block;
+}
+
+.card .collapsed-view {
+    display: none; /* Hide collapsed view by default */
+}
+
+/* Individual course statistics section */
+.course-statistics {
+    margin-bottom: 20px;
+}
+
+.course-statistics p {
+    font-size: 16px;
+    color: #555;
+    margin: 0;
+}
+
+/* Container for the graph */
+.graphbox {
+    width: 40%;
+    height: auto; /* Set a fixed height for the graph */
+    margin-top: 15px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    border: black 1px solid;
+}
+
+/* Canvas styling */
+.graphbox canvas {
+    width: 100%;
+    height: 300px; /* Adjust the height of the chart */
+    max-height: 400px; /* Ensure the chart doesn’t stretch too much */
+    background-color: #ffffff; /* Slight background color for the graph area */
+}
+
+#overall-gpa, #overall-credits, #overall-courses {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.collapse-arrow {
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth rotation for arrow */
+}
+
+.collapse-arrow.collapsed {
+    transform: rotate(180deg); /* Rotate arrow for collapse state */
+}
+
+.course-statistics {
+    margin-bottom: 20px;
+}
+
+.course-statistics p {
+    font-size: 16px;
+    color: #555;
+    margin: 0;
+}
+
+/* Make the statistics and graph flexbox containers */
+#main-window {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* Other existing styles */
+.graphbox div {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.graphbox button {
+    background-color: #0cb645;
+    color: white;
+    border: none;
+    padding: 7px 10px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.graphbox button:hover {
+    background-color: #45a049;
+}
+
+.graphbox button:active {
+    background-color: #3e8e41;
+}
+
+
+/* Overall statistics container */
+.overall-course-statistics {
+    background-color: var(--containercolor);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: black 1px solid;
+}
+
+/* Collapsed view styling (compact statistics) */
+.collapsed-view {
+    display: none; /* Hide by default */
+    font-size: 16px;
+    color: #555;
+    gap: 20px;
+}
+
+/* Styling for the collapse container */
+.collapse-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    cursor: pointer;
+}
+
+.collapse-arrow {
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth rotation for arrow */
+}
+
+/* Rotate the arrow when collapsed */
+.collapse-arrow.collapsed {
+    transform: rotate(180deg); /* Rotate the arrow */
+}
+
+/* Overall statistics content (visible when expanded) */
+.overall-statistics-content {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+#main-window {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 30px;
+}
+
+#main-window .overall-course-statistics {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Style for individual course statistics */
+.course-statistics {
+    margin-bottom: 20px;
+}
+
+.course-statistics h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.course-statistics p {
+    font-size: 16px;
+    color: #555;
+    margin: 0;
+}
+
+.add-assignment button {
+    background-color: #57e486;
+    width: 120px;
+}
+
+.delete-assignment {
+    margin: 0;
+    padding: 1px 5px;
+    background-color: #ec8888;
+}
+
+.delete-course-button {
+    background-color: rgb(240, 127, 127);
+    width: 120px;
+}
+.delete-course-button-show {
+    background-color: rgb(236, 136, 136);
+    width: 120px;
+}
+
+.add-course-button {
+    background-color: #57e486;
+}
+
+/* POPUP STYLES */
+
+.popup {
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(145, 164, 182);
+    z-index: 9998; /* Higher z-index than the overlay */
+    margin: 62px auto;
+    padding: 20px;
+    width: 270px;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Subtle shadow for depth */
+    border: 1px solid #888; /* Orange border */
+}
+
+.close-popup {
+    color: #000000;
+    font-size: 32px;
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+    margin-top: -5px;
+}
+
+.close-popup:hover,
+.close-popup:focus {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.popup input[type="text"],
+.popup input[type="number"],
+.popup input[type="email"],
+.popup input[type="password"]{
+    background-color: #c0bebe; /* Dark gray background */
+    color: #000000; /* Light text */
+    padding: 10px; /* Add some padding */
+    border: #000000 1px solid; /* Orange border */
+    border-radius: 5px; /* Add border radius */
+    width: calc(100% - 22px); /* Subtract padding and border width */
+    font-size: 16px; /* Font size */
+}
+
+.progression-gradient {
+    width: 80%;
+    height: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    justify-self: center;
+}
