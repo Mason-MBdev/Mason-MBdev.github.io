@@ -4,7 +4,6 @@ const projectData = {
         features: ["- Responsive & Interactive site for display", "- Hardware integration for the contact form"],
         languages: ["Python", "JavaScript", "NGinx", "Raspberry Pi"],
         images: [
-            "./Content/FinalChart.drawio.svg",
             "./Content/Raspberry-Pi-LCD-4-bit-mode.png"
         ],
         currentImageIndex: 0,
@@ -26,11 +25,10 @@ const projectData = {
         features: ["- Management for grades and tasks", "- Cloud save & Account login"],
         languages: ["JavaScript", "Firebase Authentication", "Firebase Firestore"],
         images: [
-            "./Content/sign-in-element.png",
-            "./Content/gradetracker-homepage.png"
+            "placeholder.png",
         ],
         currentImageIndex: 0,
-        link: "./Organizer project/GradeTracker.html"
+        link: "./Organizer project/organizer_index.html"
     },
     terminalmessenger: {
         title: "Typewriter",
