@@ -1,5 +1,11 @@
 :root {
-    --containercolor: #f3f3f3;
+    --containercolor: rgb(229, 220, 236);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f1ecec;
 }
 
 h1 {
@@ -12,6 +18,41 @@ h1 {
 
 h2 {
     margin: 0;
+}
+
+p {
+    font-size: 19px;
+}
+
+.graph-button-box {
+    display: flex;
+    justify-content: left;
+}
+
+.graph-button {
+    background-color: rgb(59, 59, 68);
+    color: white;
+    border: none;
+    padding: 7px 10px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 16px;
+    border: 2px rgb(122, 122, 122) solid;
+}
+
+.graph-button:hover {
+    background-color: #c2f8c5;
+    color: black;
+}
+
+.graph-button:active {
+    background-color: #3e8e41;
+}
+
+.course-operation-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 .nav-button-container {
@@ -34,6 +75,12 @@ h2 {
     padding: 5px 10px;
     border-radius: 5px;
     transition: background-color 0.3s;
+    width: 125px;
+}
+
+.nav-button-container button:hover {
+    background-color: #ffffff;
+    color: black;
 }
 
 .nav-button-container h2{
@@ -58,13 +105,10 @@ h2 {
     margin: 0;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    background-color: rgb(235, 235, 235);
-}
 
 .nav-element {
+    position: sticky;
+    top: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -92,11 +136,17 @@ body {
 }
 .assignments-table td {
     text-align: center;
-    background-color: #e2e2e2;
+    background-color: #ffffff;
 }
 .add-assignment {
-    margin-top: 10px;
+    background-color: #57e486;
+    cursor: pointer;
 }
+
+.add-assignment:hover {
+    background-color: #b6f4cb;
+}
+
 input, button {
     padding: 8px;
     margin: 5px;
@@ -110,7 +160,7 @@ h2.title {
     display: inline-block;
     margin: 0;
     padding: 0;
-    font-size: 24px;
+    font-size: 29px;
     margin-bottom: 10px;
 }
 
@@ -119,7 +169,7 @@ h2.title {
     display: inline-block;
     margin: 0; /* Remove any extra margins */
     padding: 0;
-    font-size: 21px;
+    font-size: 27px;
     margin-bottom: 10px;
 }
 
@@ -135,7 +185,7 @@ h2.title {
     border: 1px solid #000000;
     border-radius: 5px;
     padding: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: var(--containercolor);
 }
@@ -173,21 +223,23 @@ h2.title {
 
 /* Container for the graph */
 .graphbox {
-    width: 40%;
-    height: auto; /* Set a fixed height for the graph */
+    width: 875px;
+    height: 450px; /* Set a fixed height for the graph */
     margin-top: 15px;
     background-color: #ffffff;
     border-radius: 8px;
     padding: 20px;
     border: black 1px solid;
+    display: flex;
+    flex-direction: row;
+    max-width: 97%;
 }
 
 /* Canvas styling */
 .graphbox canvas {
-    width: 100%;
-    height: 300px; /* Adjust the height of the chart */
-    max-height: 400px; /* Ensure the chart doesn’t stretch too much */
+    height: 100%; /* Adjust the height of the chart */
     background-color: #ffffff; /* Slight background color for the graph area */
+    width: 100%;
 }
 
 #overall-gpa, #overall-credits, #overall-courses {
@@ -230,25 +282,6 @@ h2.title {
     margin-top: 10px;
 }
 
-.graphbox button {
-    background-color: #0cb645;
-    color: white;
-    border: none;
-    padding: 7px 10px;
-    border-radius: 2px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.graphbox button:hover {
-    background-color: #45a049;
-}
-
-.graphbox button:active {
-    background-color: #3e8e41;
-}
-
-
 /* Overall statistics container */
 .overall-course-statistics {
     background-color: var(--containercolor);
@@ -274,6 +307,7 @@ h2.title {
     justify-content: left;
     align-items: center;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 
 .collapse-arrow {
@@ -313,35 +347,46 @@ h2.title {
 }
 
 .course-statistics h2 {
-    font-size: 18px;
+    font-size: 21px;
     margin-bottom: 5px;
     color: #333;
 }
 
 .course-statistics p {
-    font-size: 16px;
+    font-size: 20px;
     color: #555;
     margin: 0;
-}
-
-.add-assignment button {
-    background-color: #57e486;
-    width: 120px;
 }
 
 .delete-assignment {
     margin: 0;
     padding: 1px 5px;
     background-color: #ec8888;
+    cursor: pointer;
+}
+
+.delete-assignment:hover {
+    background-color: #f4bcbc;
 }
 
 .delete-course-button {
-    background-color: rgb(240, 127, 127);
+    background-color: rgb(237, 100, 100);
     width: 120px;
+    cursor: pointer;
 }
+
+.delete-course-button:hover {
+    background-color: rgb(237, 167, 167);
+}
+
 .delete-course-button-show {
-    background-color: rgb(236, 136, 136);
+    background-color: rgb(229, 105, 105);
     width: 120px;
+    cursor: pointer;
+}
+
+.delete-course-button-show:hover {
+    background-color: rgb(235, 157, 157);
 }
 
 .add-course-button {
@@ -358,13 +403,13 @@ h2.title {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(145, 164, 182);
+    background-color: rgb(59, 59, 68);
     z-index: 9998; /* Higher z-index than the overlay */
     margin: 62px auto;
     padding: 20px;
     width: 270px;
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Subtle shadow for depth */
-    border: 1px solid #888; /* Orange border */
+    border-top: 1px solid #888; /* Orange border */
 }
 
 .close-popup {
@@ -393,11 +438,30 @@ h2.title {
     border-radius: 5px; /* Add border radius */
     width: calc(100% - 22px); /* Subtract padding and border width */
     font-size: 16px; /* Font size */
+    margin-left: 0;
+}
+
+.popup-button {
+    background-color: rgb(59, 59, 68);
+    color: white;
+    border: 1px solid white;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: 125px;
+    margin-left: 0;
+}
+
+.popup-button:hover {
+    background-color: #ffffff;
+    color: black;
 }
 
 .progression-gradient {
-    width: 80%;
-    height: 10px;
+    height: 80%;
+    width: 10px;
     margin-top: 20px;
     border-radius: 5px;
     justify-self: center;
