@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(data => {
         serverStatusElement.innerText = 'Online';
-        serverStatusElement.style.color = 'rgb(70, 255, 130)'; // green for success
+        serverStatusElement.style.color = 'rgb(70, 255, 130)';
     })
     .catch(error => {
         serverStatusElement.innerText = 'Offline';
-        serverStatusElement.style.color = 'rgb(255, 50, 50)'; // red for error
+        serverStatusElement.style.color = 'rgb(255, 50, 50)';
         console.error('Error:', error);
     });
     console.log('Server status checked. Returned:', serverStatusElement.innerText);
@@ -32,12 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
     contactForm.addEventListener('submit', function(event) {
         event.preventDefault();
     
-        // Create a FormData object from the form
         const formData = new FormData(contactForm);
 
         console.log(formData);
 
-        // Send a POST request to the backend
         fetch('https://pi.mbdev.ca/submit_form', {
             method: 'POST',
             body: formData
@@ -46,19 +44,19 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!response.ok) {
                 throw new Error('Network Error');
             }
-            // Update status message 
+            // Response to update status message 
             return response.json(); // Parse JSON response
         })
         .then(data => {
             // Update status message 
             statusMessage.innerText = data.message;
-            statusMessage.style.color = 'rgb(70, 255, 130)'; // green for success
+            statusMessage.style.color = 'rgb(70, 255, 130)';
 
         })
         .catch(error => {
             // Update status message 
-            statusMessage.innerText = 'Not sent';
-            statusMessage.style.color = 'rgb(255, 50, 50)'; // red for error
+            statusMessage.innerText = 'Error';
+            statusMessage.style.color = 'rgb(255, 50, 50)';
             console.error('Error:', error);
         });
     });

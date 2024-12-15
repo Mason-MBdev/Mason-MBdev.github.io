@@ -6,6 +6,24 @@
     box-sizing: border-box;
 }
 
+button {
+    font-family: 'Raleway', sans-serif;
+    background-color: #2e6168;
+    padding: 5px 10px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+button:hover {
+    font-family: 'Raleway', sans-serif;
+    background-color: #cdf8ff;
+    padding: 5px 10px;
+    color: rgb(0, 0, 0);
+}
+
+
 .hidden-left {
     display: flex;
     justify-content: center;
@@ -32,21 +50,6 @@
     transform: translateY(0);
 }
 
-.button_top {
-    justify-self: center;
-    align-self: center;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    width: 140px;
-    height: 35px;
-    padding: 0px;
-    background-color: rgb(42, 39, 39);
-}
-
-.button_top:hover {
-    background-color: rgb(24, 22, 22);
-}
 
 .blurred {
     filter: blur(1px);
@@ -85,8 +88,9 @@ h1 {
 }
 
 p {
-    color: rgb(223, 223, 223);
+    color: rgb(255, 255, 255);
     font-size: 17.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 li {
@@ -113,6 +117,23 @@ body {
     overflow-x: hidden;
 }
 
+.nav-button {
+    border-radius: 10px;
+    border: 1px solid white;
+    border-top: 0;
+    border-bottom: 0;
+    background-color: rgb(59, 59, 68);
+    margin-right: 30px;
+    font-size: 21px;
+    width: 150px;
+    height: 35px;
+}
+
+.nav-button:hover {
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+    font-size: 21px;
+}
 
 .flex-1 {
     flex: 1;
@@ -145,7 +166,7 @@ body::-webkit-scrollbar-thumb {
 
 .text--purple {
     font-size: 30px;
-    color: #f46a6a;
+    color: #6bd7e6;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -163,12 +184,11 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0px 6px;
-    border-radius: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-    height: 52px;
-    border: 2px solid rgb(200, 200, 200); /* Added border above */
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left: 2px solid rgb(200, 200, 200); /* Added border above */
+    border-right: 2px solid rgb(200, 200, 200); /* Added border above */
 }
 
 .short-text{
@@ -227,14 +247,18 @@ nav.sticky {
 /* linear-gradient(#3200d3, #5a2ee0) */
 /* Other existing navbar styles for non-mobile */
 nav {
-    height: 68px; /* Adjust the height of the navbar as needed */
+    position: sticky;
+    top:0;
+    z-index: 1000;
+    height: 62px; /* Adjust the height of the navbar as needed */
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-image: linear-gradient(#592626, #3f092c);
+    /* background-image: linear-gradient(#592626, #3f092c); */
+    background-color: rgb(59, 59, 68);
     transition: all 100ms ease;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.95); /* Add white box shadow */
     border-bottom: 1px rgb(56, 56, 56) solid;
@@ -251,15 +275,22 @@ nav-mobile.sticky {
 
 /* Other existing navbar styles for mobile */
 nav-mobile {
-    height: 60px; /* Adjust the height of the navbar as needed */
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    height: 62px; /* Adjust the height of the navbar as needed */
     width: 100%;
     max-width: 100%;
+    margin: 0 auto;
     display: none;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    justify-content: center;    
-    background-image: linear-gradient(#643c3c, #340d27);
-    transition: all 200ms ease;
-    box-shadow: 0 8px 16px rgba(0,0,0.16)
+    /* background-image: linear-gradient(#592626, #3f092c); */
+    background-color: rgb(59, 59, 68);
+    transition: all 100ms ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.95); /* Add white box shadow */
+    border-bottom: 1px rgb(56, 56, 56) solid;
 }
 
 /* Troubleshoot which one of these definitions actually needs position:absolute; */
@@ -368,9 +399,9 @@ nav-mobile {
 }
 
 .Logo:hover .text--heading {
-    color: rgb(255, 114, 114);
+    color: black;
     transition: color 100ms ease-in-out;
-    background: #2c2c2c;
+    background: #ffffff;
 }
 
 .Logo:not(:hover) .text--heading {
@@ -430,48 +461,42 @@ nav-mobile {
 
 /* PROJECT section */
 .project_section {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
     background: #393939;
-    padding-top: 35px;
-    padding-bottom: 20px;
-    border-radius: 10px;
-    margin: 0px 5vw 13.5vh;
+    padding: 30px;
+    margin: 0 0 8vh 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); /* Add white box shadow */
+    width:95%;
+    gap: 20px;
+    border-radius: 5px;
 }
 
 .project-title {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding: 10px;
+    padding-left: 0;
+    border-bottom: #1a1a1a 3px solid;
 }
 
 .project_container {
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    justify-content: center;
-    align-items: center;
-    max-width: 300px;
-    height: 300px;
-    width: 70vw;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.65);
-    border-radius: 15px;
-    background-image: linear-gradient(#4c2525, #340d27);
-    border: 1px rgb(115, 115, 115) solid;
-}
-
-.project_container:hover {
-    border: #1de6f6 1px solid;
-    cursor: pointer;
-    scale: 1.02;
+    width: 100%;
+    height: auto;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    padding-bottom: 20px;
+    border-bottom: #1a1a1a 3px solid;
 }
 
 .grey-container {
-    padding: 10px;
     background: #393939;
-    border-radius: 10px;
     margin-top: 50px;
     margin-bottom: 50px;
+    border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.85); /* Add white box shadow */
 }
 
@@ -692,37 +717,17 @@ interact */
     margin-bottom: 20px;
 }
 
-button {
-    font-size: 14.5px;
-    --accent: rgb(255, 85, 0);
-    font-weight: bold;
-    letter-spacing: 0.1em;
-    border: #868686 2px solid;
-    border-radius: 1.1em;
-    background-color: #924444;
-    cursor: pointer;
-    color: white;
-    padding: 15px;
-    transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
-        letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s;
-    width: 170px;
-}
-
-button:hover {
-    background-color: #6c0c0c;
-    border: #1de6f6 2px solid;
-}
-
 /* links section */
 
 .footer {
     display: flex;
     justify-content: center;
-    padding: 7.5px;
-    background-image: linear-gradient(#592626, #3f092c);
+    /* background-image: linear-gradient(#592626, #3f092c); */
+    background-color: rgb(59, 59, 68);
     box-shadow: 10px 8px 16px rgba(0,0,0.96);
     border-top: 1px rgb(87, 87, 87) solid;
     gap: 40px;
+    height: 62px;
 }
 
 .social-media-container {
@@ -811,19 +816,45 @@ button:hover {
     align-items: center;
     text-align: center;
     margin: 50px auto; /* Center horizontally */
-    padding-bottom: 30px;
-    padding: 10px;
-    background: #393939;
+    padding: 30px;
+    background: rgb(57, 57, 57);
     border-radius: 10px;
-    margin-top: 70px;
-    margin-bottom: 50px;
-    box-shadow: 0 0 10px rgba(20, 20, 20, 0.65); /* Add white box shadow */
+    margin-top: 60px;
+    margin-bottom: 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.85); /* Add white box shadow */
     padding-top: 30px;
     width: 0 auto;
-    max-width: 45vw;
     justify-self: center;
     align-self: center;
     max-height: 570px;
+    width: 800px;
+    max-width: 95%;
+}
+
+.project_section {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    background: rgb(57, 57, 57);
+    padding: 30px;
+    margin: 0px 0px 50px;
+    box-shadow: rgba(0, 0, 0, 0.9) 0px 0px 10px;
+    width: 95%;
+    gap: 20px;
+    border-radius: 5px;
+}
+
+.project_section {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    background: rgb(57, 57, 57);
+    padding: 30px;
+    margin: 0px 0px 8vh;
+    box-shadow: rgba(0, 0, 0, 0.9) 0px 0px 10px;
+    width: 95%;
+    gap: 20px;
+    border-radius: 5px;
 }
 
 input, textarea{
@@ -833,37 +864,14 @@ input, textarea{
     color: #fff;
     margin: 5px 0px 0px 0px;
     resize: none;
-    border-radius: 12px;
+    border-radius: 5px;
     /* background: linear-gradient(#303133, #303133) padding-box, linear-gradient(90deg, #ed6e61, #6359e1) border-box; */
-    border: 2px solid #a86a6a;
+    border: 2px solid #2d7577;
 }
 
 form {
     margin-top: 20px;
     align-items: center;
-}
-
-.submit {
-    background: #924444;
-    color: white;
-    font-size: 14.5px;
-    padding: 15px;
-    border: 2px solid #868686;
-    border-radius: 1.1em;
-    cursor: pointer;
-    transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
-        letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s;
-    width: 170px;
-}
-
-.submit:hover {
-    background-color: #6c0c0c;
-    border: #c8c8c8 2px solid;
-    scale: 1.02;
-}
-
-.submit:active {
-    scale: 0.98;
 }
 
 input::placeholder {
@@ -881,6 +889,7 @@ textarea::placeholder {
     align-items: center;
     justify-content: space-between;
     margin-left: 0px;
+    padding: 0 20px;
 }
 
 .status_box {
@@ -888,8 +897,7 @@ textarea::placeholder {
     flex-direction: row;
     align-items: left;
     justify-content: left;
-    gap: 25px;
-    width: 100%;
+    gap: 10px;
 }
 
 .status_box_holder {
@@ -974,7 +982,7 @@ input:-webkit-autofill {
 }
 
 .text--white {
-    font-size: 23px;
+    font-size: 21px;
     color: white;
     opacity: 96%;
     text-align: left;
@@ -1126,10 +1134,6 @@ input:-webkit-autofill {
         display: flex;
     }
 
-    .project_container {
-        max-width: 85%;
-    }
-    
     .project {
         display: space-evenly;
         flex-direction: column;
@@ -1184,7 +1188,6 @@ input:-webkit-autofill {
 
     body {
         height: auto;
-        padding-bottom: 75px;
     }
 
     .Contact_Description .project_accordion .project_container .project,
@@ -1220,7 +1223,7 @@ input:-webkit-autofill {
     }
 
     .text--purple {
-        font-size: 24px;
+        font-size: 26px;
     }
 
     .grey-container {
@@ -1243,7 +1246,11 @@ input:-webkit-autofill {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Add white box shadow */
         padding-top: 30px;
         width: 0 auto;
-        max-width: 70vw;
+    }
+
+    .social-media-icon {
+        width:  25px;
+        height: 25px;
     }
 }
 

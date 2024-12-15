@@ -13,14 +13,6 @@
     <section id="nav-mobile">
         <nav-mobile>
             <ul class="nav__link--list">
-                <li>
-                    <a href="https://mbdev.ca/index" class="
-                        nav__link--anchor
-                        nav__link--anchor-primary
-                        ">
-                        <span class = "text--heading "> < MB</span>
-                    </a>
-                </li>
                 <!-- <li>
                     <a href="https://www.mbdev.ca/Space Project/SpaceIndex.html" class="
                         nav__link--anchor
@@ -35,49 +27,39 @@
                         " target="_blank"><span class = "text--heading ">PROJECTS</span>
                     </a>
                 </li>
+                <li>
+                    <a href="https://www.mbdev.ca/contact.html" class="
+                    nav__link--anchor
+                    nav__link--anchor-primary
+                    "><span class = "text--heading ">CONTACT</span></a>
+                </li>
             </ul>
         </nav-mobile>
     </section>
+    
     <section id="nav">
         <nav>
             <div class="backholder">
                 <div class="Logo">
                     <a href="https://mbdev.ca/index" class="text--header">
-                        <span class="text--heading">&#9814; MB</span>
+                        <span class="text--heading">MB &#9814;</span>
                     </a>
                     <a href="https://mbdev.ca/index" class="short-text">
-                        <span class="text--heading">&#x2656; MB </span>
+                        <span class="text--heading">MB &#x2656;</span>
                     </a>
                 </div>    
             </div>     
-            <strong class = "shorter-text"><span class = "text--heading ">MB</span></strong></div>
-            <ul class="nav__link--list">
-                <!-- <li>
-                    <a href="https://www.mbdev.ca/Space Project/SpaceIndex.html" class="
-                        nav__link--anchor
-                        nav__link--anchor-primary
-                        " target="_blank"><span class = "text--heading "> SPACE </span>
-                    </a>
-                </li> -->
-                <li>
-                    <a href="https://github.com/Mason-MBdev" class="
-                    nav__link--anchor
-                    nav__link--anchor-primary
-                    " target="_blank"><span class = "text--heading ">PROJECTS</span></a>
-                </li>
-                <li>
-                    <a href="https://www.mbdev.ca/contact.html" class="
-                    nav__link--anchor
-                    nav__link--anchor-primary
-                    "><span class = "text--heading ">CONTACT</span></a>    
-                </li>
+            <div class="nav-buttons">
+                <button class = "nav-button" onclick="window.open('https://github.com/Mason-MBdev', '_blank')">PROJECTS </button>
+                <button class="nav-button" onclick="window.open('https://www.mbdev.ca/contact.html', '_blank')">CONTACT</a>    
+                </button>
             </ul>
         </nav>
+    </section>
 
     <!-- user input form, in progress -->
     <div class="contact_container">
         <h1><span class="text--purple" style="margin-bottom: 15px;">CONTACT</span></h1>
-        <p class="text--white" style="text-align: center; margin-top: 10px;">Messages print to a screen at my desk</p>
         <form class="contact-gap-box" id="contactForm" method="post">
             <div class="identifiers">
                 <div class="input-group">
@@ -91,29 +73,18 @@
                 <textarea id="message" name="message" rows="8" class="contact_label" required placeholder="Message"></textarea>
             </div>
             <div class="submission_group">
-                <button type="submit" class="submit">- SEND -</button>  
-                <div class="status_box_holder">             
-                    <div class="status_box">
-                        <h3 class="status" style="color: rgb(255, 255, 255);">Server:</h2>
-                        <p id="serverState" style="color: rgb(255, 255, 255);">Offline</p>
-                    </div>
-                    <div class="status_box">
-                        <h3 class="status" style="color: rgb(255, 255, 255);">Message:</h2>
-                        <p id="statusMessage" style="color: rgb(255, 255, 255);">Not Sent</p>
-                    </div>
-                </div> 
+                <button type="submit" class="submit">- Send -</button>  
+                <div class="status_box" style="display: none;">
+                    <h3 class="status" style="color: rgb(255, 255, 255);">Connection:</h2>
+                    <p id="serverState" style="color: rgb(255, 255, 255);">Offline</p>
+                </div>
+                <div class="status_box">
+                    <h3 class="status" style="color: rgb(255, 255, 255);">Status:</h2>
+                    <p id="statusMessage" style="color: rgb(255, 255, 255);"></p>
+                </div>
             </div>
         </form>
-        <div class="Gapdiv1"></div>
-        <div class="Gapdiv1"></div>
-        <div class="Gapdiv1"></div>
-        <div class="Gapdiv1"></div>
-        <!-- <h1 class="bigger-text">
-            <span class = "text--white">
-                ↓
-            </span>
-        </h1> -->
-    </div>    
+    </div>
     <script src="./JS/form.js"></script>
 
     <!-- <section class="hidden">

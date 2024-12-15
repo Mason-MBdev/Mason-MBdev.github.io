@@ -9,34 +9,7 @@
     <script defer src=".\JS\app_scroll.js"></script>
 </head>
 
-<body>   
-    <!-- Popup Modal -->
-    <div id="project-info-popup" class="hidden">
-        <div class="popup-content">
-            <button id="close-popup-btn" class="close-btn">&times;</button>
-            <h2 id="popup-title" class="popup-title"></h2>
-            
-            <div class="popup-left">
-                <h3 class="popup-section-title">Features</h3>
-                <ul id="features-list" class="popup-features"></ul>
-                
-                <h3 class="popup-section-title">Languages / Tech</h3>
-                <ul id="languages-list" class="popup-languages"></ul>
-            </div>
-    
-            <div class="popup-right">
-                <div id="carousel" class="carousel">
-                    <img id="carousel-image" src="#" alt="Project Image">
-                </div>
-                <div style="display: flex; flex-direction: row; gap: 2em; margin-top: 20px;">
-                    <span id="carousel-left" class="carousel-btn">&#9664; </span>
-                    <h2>L/R</h2>
-                    <span id="carousel-right" class="carousel-btn"> &#9654;</span>
-                </div>
-            </div>
-        </div>
-    </div>    
-
+<body>    
     <section id="nav-mobile">
         <nav-mobile>
             <ul class="nav__link--list">
@@ -63,39 +36,23 @@
             </ul>
         </nav-mobile>
     </section>
+    
     <section id="nav">
         <nav>
             <div class="backholder">
                 <div class="Logo">
                     <a href="https://mbdev.ca/index" class="text--header">
-                        <span class="text--heading">&#9814; MB</span>
+                        <span class="text--heading">MB &#9814;</span>
                     </a>
                     <a href="https://mbdev.ca/index" class="short-text">
-                        <span class="text--heading">&#x2656; MB </span>
+                        <span class="text--heading">MB &#x2656;</span>
                     </a>
                 </div>    
             </div>     
-            <strong class = "shorter-text"><span class = "text--heading ">MB</span></strong></div>
-            <ul class="nav__link--list">
-                <!-- <li>
-                    <a href="https://www.mbdev.ca/Space Project/SpaceIndex.html" class="
-                        nav__link--anchor
-                        nav__link--anchor-primary
-                        " target="_blank"><span class = "text--heading "> SPACE </span>
-                    </a>
-                </li> -->
-                <li>
-                    <a href="https://github.com/Mason-MBdev" class="
-                    nav__link--anchor
-                    nav__link--anchor-primary
-                    " target="_blank"><span class = "text--heading ">PROJECTS</span></a>
-                </li>
-                <li>
-                    <a href="https://www.mbdev.ca/contact.html" class="
-                    nav__link--anchor
-                    nav__link--anchor-primary
-                    "><span class = "text--heading ">CONTACT</span></a>    
-                </li>
+            <div class="nav-buttons">
+                <button class = "nav-button" onclick="window.open('https://github.com/Mason-MBdev', '_blank')">PROJECTS </button>
+                <button class="nav-button" onclick="window.open('https://www.mbdev.ca/contact.html', '_blank')">CONTACT</a>    
+                </button>
             </ul>
         </nav>
         
@@ -131,83 +88,44 @@
                 <span class = "text--purple "> PROJECTS </span>
             </h1>
 
-            <h1>
-                <span class = "text--white ">
-                    Click on a project for more.
-                </span>
-            </h1>
-            
-            <!-- <div class="button-container">
-                <button id="select-web" class="projectSelectionButton" >Websites</button>
-                <button id="select-ele" class="projectSelectionButton" >Electronics</button>
-                <button id="select-all" class="projectSelectionButton" >All</button>
-            </div> -->
+            <div class="project_container">
+                <h2> Personal Site </h2>
+                <p> Hub website showcasing my projects.</p>
+                <div class="project-buttons">
+                    <button onclick="window.open('https://mbdev.ca', '_blank')"> Live Site </button>
+                    <button onclick="window.open('https://github.com/Mason-MBdev/Mason-MBdev.github.io', '_blank')"> Github Repo </button>
+                </div>
+            </div>
 
+            <div class="project_container">
+                <h2> Web-Chess </h2>
+                <p> Online multiplayer chess service. </p>
+                <div class="project-buttons">
+                    <!-- <button onclick="window.open('https://github.com/Mason-MBdev/Chess-Website', '_blank')"> Github Repo </button> -->
+                    <button onclick="window.open('https://mbdev.ca/Chess%20project/chess_index.html', '_blank')"> Live Site </button>
+                </div>
+            </div>
 
-            <div class = "project_accordion">
-                <section class="hidden-left web slide-up">
-                    <div class="project_container" id="portfoliowebsite">
-                        
-                        <h2>Personal Website</h2>
-                        <img class = "pixel_art-gif" src=".\Content\white-globe-icon-24-2350767687.jpg" alt="Animated Wizzard Gif" style="scale: 1.05;">
+            <div class="project_container">
+                <h2> Gradebook </h2>
+                <p> Grade tracking and visualization tool. <br> Users can create an account to access cloud storage for data, or opt for local file saving. </p>
+                <div class="project-buttons">
+                    <!-- <button onclick="window.open('https://github.com/Mason-MBdev/Chess-Website', '_blank')"> Github Repo </button> -->
+                    <button onclick="window.open('https://mbdev.ca/Organizer%20project/organizer_index.html', '_blank')"> Live Site </button>
+                </div>
+            </div>
 
-                        <h1 class="down_arrow" > &#x2193; </h1>
-            
-                        <a href="https://mbdev.ca/" target="_blank">
-                            <button class="button_top" id="open-popup-btn"> You are here < </button>
-                        </a>
-                    </div>
-                </section>
-
-                <section class="hidden-left web slide-up">
-                    <div class="project_container" id="onlinechess">
-                        
-                        <h2>Web Chess</h2>
-                        <img class = "pixel_art-gif" src=".\Content\chessboard1.png" alt="Chess image" style="filter: invert(100%);">
-
-                        <h1 class="down_arrow"> &#x2193; </h1>
-
-                        <!-- link to the grade tracker html -->
-                        <a href=".\Chess project\chess_index.html" target="_blank">
-                            <button class="button_top" id="open-popup-btn"> Go to site </button>
-                        </a>
-                    </div>
-                </section>
-
-                <section class="hidden-left web slide-up">
-                    <div class="project_container" id="academicorganizer">
-                        
-                        <h2>Academic Organizer</h2>
-                        <img class="pixel_art-gif" src=".\Content\org2.png" alt="Organizer image" style="filter: invert(100%); scale: 1.15; margin-left: 3px;">
-
-                        <h1 class="down_arrow" > &#x2193; </h1>
-
-                        <!-- link to the grade tracker html -->
-                        <a href=".\Organizer project\organizer_index.html" target="_blank">
-                            <button class="button_top" id="open-popup-btn"> Go to site </button>
-                        </a>    
-                    </div>
-                </section>
-
-                <section class="hidden-left web slide-up">
-                    <div class="project_container" id="terminalmessenger">
-                        
-                        <h2>Typewriter</h2>
-                        <img class="pixel_art-gif" src=".\Content\terminal.png" alt="Organizer image" style="filter: invert(100%); scale: 1.15; margin-left: 3px; width: 55px; height: 55px;">
-
-                        <h1 class="down_arrow" > &#x2193; </h1>
-
-                        <!-- link to the grade tracker html -->
-                        <a href="https://github.com/Mason-MBdev/RetroComm" target="_blank">
-                            <button class="button_top" id="open-popup-btn"> Go to repo </button>
-                        </a>    
-                    </div>
-                </section>
+            <div class="project_container">
+                <h2> Typewriter </h2>
+                <p> Socket based chatroom and file transfer practice. </p>
+                <div class="project-buttons">
+                    <button onclick="window.open('https://github.com/Mason-MBdev/Typewriter', '_blank')"> Github Repo </button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Links Section -->
+    <!-- Footer & links Section -->
     <div class="footer">
         <div class="social-media-container">
                 <!-- LinkedIn -->
@@ -231,9 +149,6 @@
         </div>
     </div>
 
-    <script src=".\JS\website_project.js"></script>
-    <script src=".\JS\projectSelector.js"></script>
-    <script src=".\JS\projectinfopopup.js"></script>
-    
+    <script src="./JS/form.js"></script>
 </body>
 </html>
