@@ -63,6 +63,7 @@ logout.addEventListener('click', (e) => {
   console.log("User Logged Out");
   e.preventDefault();
   auth.signOut();
+  window.location.reload();
 });
 
 // Login Status ======================================================================================
@@ -71,13 +72,17 @@ onAuthStateChanged(auth, async (user) => {
     userID = user.uid;
     const userRef = ref(db, 'users/' + user.uid);
 
+    console.log("User Logged In: ", userRef);
+
     loggedInLinks.forEach(item => item.style.display = 'block');
     loggedOutLinks.forEach(item => item.style.display = 'none');
     
     // Get realtime user data 
     onValue(userRef, (snapshot) => {
       userData = snapshot.val();
-      console.log("User Data:", userData);
+      console.log("User Data before auth load:", userData);
+      
+
 
       if (userData) {
         console.log("Loading data from database to local storage");
@@ -85,34 +90,15 @@ onAuthStateChanged(auth, async (user) => {
         // Load courses from database to local storage
         if (userData.courses) {
           courses = userData.courses;
-          console.log("Course data now in the course variable successfully: ", courses);
+          console.log("User Data after auth load:", courses);
           
           const courseContainer = document.querySelector('.course-display');
           courseContainer.innerHTML = ''; // Clear existing courses
 
-          // Loop through each course and render it
-          courses.forEach((course) => {
-            const courseCard = createCourseCard(course.id, course.title);
-            courseContainer.appendChild(courseCard);
-
-            // Render assignments for each course
-            const assignmentsList = document.getElementById(`assignments-list-${course.id}`);
-            assignmentsList.innerHTML = course.assignments.map((assignment, index) => 
-              `<tr>
-                <td class="editable" contenteditable="true" data-type="name" data-index="${index}" oninput="updateAssignment(${course.id}, ${index}, 'name', this.innerText)">${assignment.name}</td>
-                <td class="editable" contenteditable="true" data-type="score" data-index="${index}" oninput="updateAssignment(${course.id}, ${index}, 'score', this.innerText)">${assignment.score}</td>
-                <td class="editable" contenteditable="true" data-type="weight" data-index="${index}" oninput="updateAssignment(${course.id}, ${index}, 'weight', this.innerText)">${assignment.weight}</td>
-                <td data-type="operations"><button class="delete-assignment" onclick="this.closest('tr').remove(); courses.find(course => course.id === ${course.id}).assignments.splice(${index}, 1); updateCourseStats(${course.id});">Delete Assignment</button></td>
-              </tr>`
-            ).join('');
-
-            // Update course statistics
-            updateCourseStats(course.id);
-          });
+          renderallcoursesandassignments();
         }
       }
     });
-    console.log("User Logged In: ", user);
   } 
   
   else {
@@ -135,17 +121,25 @@ document.getElementById('cloud-save-navbtn').addEventListener('click', () => {
 
 function saveDataToDatabase(data) {
   console.log("Saving data to database");
-  console.log(data)
+  console.log(data);
   userID = auth.currentUser.uid;
   if (userID && data) {
-    set(ref(db, 'users/' + userID), data)
+    // Clear existing courses before saving new data
+    set(ref(db, 'users/' + userID + '/courses'), null)
       .then(() => {
-        console.log("Data saved to database");
+        // Save new data
+        set(ref(db, 'users/' + userID), data)
+          .then(() => {
+            console.log("Data saved to database");
+          })
+          .catch((error) => {
+            console.error("Error saving data to database: ", error);
+          });
       })
       .catch((error) => {
-        console.error("Error saving data to database: ", error);
-      }); 
+        console.error("Error clearing existing courses: ", error);
+      });
   } else {
     console.log("No user logged in or no data provided");
   }
-};
+}
