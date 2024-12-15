@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./CSS/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -14,24 +15,20 @@
     <!-- Nav, contains title and meta operation buttons -->
     <div class="nav-element">
         <div class="nav-title-container">
-            <h1>Academic Organizer</h1>
+            <h1> Grade Tracker </h1>
         </div>
 
         <div class="nav-button-container">
-            <button id="cloud-save-navbtn" class="menu logged-in" style="display: none;" title="Save data to your account">Cloud Save <i class="fa fa-save"></i></button>
-            <button id="login-navbtn" class="menu logged-out">Log in</button>
-            <button id="signup-navbtn" class="menu logged-out">Sign up</button>
-            <button id="signout-navbtn" class="menu logged-in" style="display: none;">Sign out</button>
+            <button id="cloud-save-navbtn" class="logged-in" style="display: none;" title="Save data to your account">Cloud Save&nbsp;&nbsp;&nbsp;<i class="fa fa-cloud"></i></button>
+            <button id="login-navbtn" class="logged-out">Log in&nbsp;&nbsp;&nbsp;<i class="fa fa-sign-in"></i></button>
+            <button id="signup-navbtn" class="logged-out">Sign up&nbsp;&nbsp;&nbsp;<i class="fa fa-user-plus"></i></button>
+            <button id="signout-navbtn" class="logged-in" style="display: none;">Sign out&nbsp;&nbsp;&nbsp;<i class="fa fa-sign-out"></i></button>
         </div>
 
         <div class="nav-button-container">
-            <button id="save-navbtn" title="Save all data to downloads folder">Save <i class="fa fa-save"></i></button>
-            <button id="load-navbtn" title="Load data from a previous save file">Load </button>
+            <button id="save-navbtn" title="Save all data to downloads folder">Save&nbsp;&nbsp;&nbsp;<i class="fa fa-save"></i></button>
+            <button id="load-navbtn" title="Load data from a previous save file">Load&nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i></button>
         </div>
-
-        <!-- <div class="nav-button-container"> -->
-            <!-- <button id="settings-navbtn"> Menu             <i class="fa-solid fa-gear"></i></button> -->
-        <!-- </div> -->
     </div>
 
     <!-- Main window for all user flow -->
@@ -68,7 +65,13 @@
             </div>
 
             <!-- self explanitory -->
-            <div class="graphbox"></div>
+            <h2 id="graph-title" style="margin-bottom: 10px; margin-top: 30px">Graphs</h2>
+            <div id="graph-button-box" class="graph-button-box">
+                <button class="graph-button" id="graph-grades-button">Grades</button>
+                <button class="graph-button" id="graph-weight-button">Weight</button>
+                <button class="graph-button" id="graph-completion-button">Completion</button>
+            </div>
+            <div class="graphbox" style="resize: both; overflow: auto;"></div>
         </div>
 
         <!-- container for all course elements -->
@@ -76,14 +79,14 @@
 
         <!-- container for add-course button -->
         <div class="replica-course-container">
-            <button id="add-course-btn" class="add-course-btn">Add Course +</button>
+            <button class="add-assignment" id="add-course-btn" class="add-course-btn">Add Course +</button>
         </div>
     </div>
 
     <!-- popup for login / signup -->
     <div class="popup login-popup">
         <span id="close-login-popup" class="close-popup">&times;</span>
-        <h2>Log in</h2><br/>
+        <h2 style="color: white;">Log in</h2><br/>
         <form id="login-form">
             <div class="input">
                 <input type="email" id="login-email" placeholder = "Email" required />
@@ -91,13 +94,13 @@
             <div style="margin-bottom: 20px;" >
                 <input type="password" id="login-password" placeholder = "Password" required />
             </div>
-            <button>Log in</button>
+            <button class="popup-button">Log in</button>
         </form>
     </div>
 
     <div class="popup signup-popup">
         <span id="close-signup-popup" class="close-popup">&times;</span>
-        <h2>Sign up</h2><br/>
+        <h2 style="color: white;">Sign up</h2><br/>
         <form id="signup-form">
             <div class="input">
                 <input type="email" id="signup-email" placeholder = "Email" required />
@@ -105,13 +108,13 @@
             <div style="margin-bottom: 20px;" >
                 <input type="password" id="signup-password" placeholder = "Password" required />
             </div>
-            <button>Sign up</button>
+            <button class="popup-button">Sign up</button>
         </form>
         
-        <h3> HELLO! If you are reading this, you are considering making an account for one of my hobby projects. </h3>
-        <h3> Before doing so, please consider using the local save and load features for the conststency and safety of your data and credentials. </h3> 
-        <h3> I am a random guy on the internet, and giving me the same email and password you use for every other account is a TERRIBLE idea. </h3>
-        <h3> Have a nice day! </h3>
+        <h3 style="color: white;"> HELLO! If you are reading this, you are considering making an account for one of my hobby projects. </h3>
+        <h3 style="color: white;"> Before doing so, please consider using the local save and load features for the conststency and safety of your data and credentials. </h3> 
+        <h3 style="color: rgb(255, 0, 0);"> I am a random guy on the internet, and giving me the same email and password you use for every other account is a TERRIBLE idea. </h3>
+        <h3 style="color: white;"> Have a nice day! </h3>
     </div>
 
     <script src="./JS/main.js"></script>
