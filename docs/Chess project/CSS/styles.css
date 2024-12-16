@@ -123,7 +123,6 @@ h3 {
     background-color: rgb(53, 52, 52);
     margin: 7% auto;
     padding: 20px;
-    border-radius: 10px;
     width: 610px;
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Subtle shadow for depth */
     border: 1px solid #40768e; /* Orange border */
@@ -154,10 +153,9 @@ h3 {
     align-items: center;
     margin-bottom: 10px;
     padding: 10px;
-    border-radius: 10px;
     width: 250px;
     height: 360px;
-    background-color: #b8b4b8; /* Dark gray background */
+    background-color: #ffefff; /* Dark gray background */
     border: 2px solid #e8e6e6; /* Orange border */
 }
 
@@ -168,17 +166,16 @@ h3 {
     align-items: center;
     margin-left: 20px;
     padding: 10px;
-    border-radius: 10px;
     width: 250px;
     height: 360px;
-    background-color: #b8b4b8; /* Dark gray background */
+    background-color: #ffefff; /* Dark gray background */
     border: 2px solid #e8e6e6; /* Orange border */
     margin-bottom: 10px;
 }
 
 
 .popup h1 {
-    color: #5ea1d7; /* Orange heading */
+    color: #ffffff; /* Orange heading */
     margin-bottom: 15px;
     font-size: 35px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35); /* Add text shadow */
@@ -192,16 +189,15 @@ h3 {
     letter-spacing: 1px; /* Increase letter spacing */
     font-size: 20px;
     border: 1px solid #000000;
-    border-radius: 5px;
     padding: 10px;
-    background-color: #657b96; /* Dark gray background */
+    background-color: #272727; /* Dark gray background */
     width: 230px;
     text-align: center;
 }
 
 .popup input[type="text"],
 .popup input[type="number"] {
-    background-color: #a0a0aB;    
+    background-color: #ffffff;    
     color: #000000; /* Black text */
     padding: 10px; /* Add some padding */
     border: 1px solid #000000; /* Orange border */
@@ -213,16 +209,15 @@ h3 {
 
 .popup input[type="text"]::placeholder,
 .popup input[type="number"]::placeholder {
-    color: #FFF; /* Light text */
+    color: #000000; /* Light text */
 }
 
 .popup button {
     background-color: rgb(42, 39, 39);
-    ; /* Orange background */
     color: #FFF; /* Light text */
     padding: 5px 25px; /* Add padding */
-    border: #868686 3px solid; /* Remove border */
-    border-radius: 20px; /* Add border radius */
+    border-radius: 5px;
+    border: #ffffff 2px solid; /* Remove border */
     font-size: 16px; /* Font size */
     cursor: pointer; /* Add pointer cursor */
     width: 97.5px;
@@ -230,10 +225,15 @@ h3 {
 }
 
 .popup button:hover {
-    background-color: rgb(24, 22, 22); /* Lighter orange on hover */
+    background-color: rgb(255, 255, 255); /* Lighter orange on hover */
+    color: black;
     border: 3px solid #4490d7;
-    /* transition 1 sec */
-    transition: background-color 0.1s ease;
+}
+
+.popup button:active {
+    background-color: rgb(83, 140, 187); /* Lighter orange on hover */
+    color: black;
+    border: 3px solid #4490d7;
 }
 
 .scoreboard {
@@ -280,8 +280,8 @@ h3 {
 }
 
 .menu-input {
-    background-color: #a0a0ab;    
-    color: #ffffff; /* Black text */
+    background-color: #ffffff;    
+    color: #000000; /* Black text */
     padding: 10px; /* Add some padding */
     border: 1px solid #000000; /* Orange border */
     border-radius: 5px; /* Add border radius */
@@ -490,7 +490,7 @@ h3 {
 
 #restart-button {
     margin-top: 20px;
-    padding: 5px 0px;
+    padding: 15px 10px;
 }
 
 .gameover-menu-scorebox {

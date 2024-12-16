@@ -461,16 +461,17 @@ nav-mobile {
 
 /* PROJECT section */
 .project_section {
-    justify-self: center;
     display: flex;
     flex-direction: column;
     background: #393939;
     padding: 30px;
-    margin: 0 0 8vh 0;
+    margin: 8vh auto;
+    margin-top: 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); /* Add white box shadow */
     width:95%;
     gap: 20px;
     border-radius: 5px;
+    justify-self: center;
 }
 
 .project-title {
@@ -829,32 +830,6 @@ interact */
     max-height: 570px;
     width: 800px;
     max-width: 95%;
-}
-
-.project_section {
-    justify-self: center;
-    display: flex;
-    flex-direction: column;
-    background: rgb(57, 57, 57);
-    padding: 30px;
-    margin: 0px 0px 50px;
-    box-shadow: rgba(0, 0, 0, 0.9) 0px 0px 10px;
-    width: 95%;
-    gap: 20px;
-    border-radius: 5px;
-}
-
-.project_section {
-    justify-self: center;
-    display: flex;
-    flex-direction: column;
-    background: rgb(57, 57, 57);
-    padding: 30px;
-    margin: 0px 0px 8vh;
-    box-shadow: rgba(0, 0, 0, 0.9) 0px 0px 10px;
-    width: 95%;
-    gap: 20px;
-    border-radius: 5px;
 }
 
 input, textarea{
