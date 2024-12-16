@@ -6,7 +6,8 @@
     <title>M. Barney - software n' stuff</title>
     <link rel="stylesheet" href=".\CSS\styles.css">
     <link rel="shortcut icon" type="image/x-icon" href="./Content/favicon7.ico">
-    <script defer src=".\JS\app_scroll.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>    
@@ -56,34 +57,31 @@
             </ul>
         </nav>
         
-            <div class="flex flex-1">
-                <div class="about-me__info row">
-                    <div class="about-me__info--container">
-                        
-                        <figure class="picture">
-                            <img src=".\Content\laurier_logo.png" class="about-me__picture" alt="laurier logo"> 
-                        </figure>
+        <div class="flex flex-1">
+            <div class="about-me__info row">
+                <div class="about-me__info--container">
+                    
+                    <figure class="picture">
+                        <img src=".\Content\laurier_logo.png" class="about-me__picture" alt="laurier logo"> 
+                    </figure>
 
 
-                        <div class="grey-container">
-                            <h1 class="aboutmetitle"><span class = "text--purple ">ABOUT</span></h1>
-                            <h1 class="paragraph"><span class = "text--white">Hi My name is Mason, I'm studying Computer Science at&nbsp;Wilfrid&nbsp;Laurier&nbsp;University.&nbsp;<br><br>And <del>sometimes</del> I write working code for websites and games. </span><br><br></h1>
-                        </div>
-
-                        <h1 class="bigger-text">
-                            <span>
-                                ↓
-                            </span>
-                        </h1>
+                    <div class="grey-container">
+                        <h1 class="aboutmetitle"><span class = "text--purple ">ABOUT</span></h1>
+                        <h1 class="paragraph"><span class = "text--white">Hi My name is Mason, I'm studying Computer Science at&nbsp;Wilfrid&nbsp;Laurier&nbsp;University.&nbsp;<br><br>And <del>sometimes</del> I write working code for websites and games. </span><br><br></h1>
                     </div>
+
+                    <h1 class="bigger-text">
+                        <span>
+                            ↓
+                        </span>
+                    </h1>
                 </div>
             </div>
-        </section>
-    </section>
+        </div>
 
-    
-    <!-- Projects Section -->
-    <div class="project_section">
+        <!-- Projects Section -->
+        <div class="project_section">
             <h1 class="project-title">
                 <span class = "text--purple "> PROJECTS </span>
             </h1>
@@ -92,8 +90,8 @@
                 <h2> Personal Site </h2>
                 <p> Hub website showcasing my projects.</p>
                 <div class="project-buttons">
-                    <button onclick="window.open('https://mbdev.ca', '_blank')"> Live Site </button>
-                    <button onclick="window.open('https://github.com/Mason-MBdev/Mason-MBdev.github.io', '_blank')"> Github Repo </button>
+                    <button onclick="window.open('https://mbdev.ca', '_blank')"> Site <i class="fa-solid fa-globe"></i></button>
+                    <button onclick="window.open('https://github.com/Mason-MBdev/Mason-MBdev.github.io', '_blank')"> Github Repo <i class="fa-brands fa-github"></i></button>
                 </div>
             </div>
 
@@ -102,28 +100,29 @@
                 <p> Online multiplayer chess service. </p>
                 <div class="project-buttons">
                     <!-- <button onclick="window.open('https://github.com/Mason-MBdev/Chess-Website', '_blank')"> Github Repo </button> -->
-                    <button onclick="window.open('https://mbdev.ca/Chess%20project/chess_index.html', '_blank')"> Live Site </button>
+                    <button onclick="window.open('https://mbdev.ca/Chess%20project/chess_index.html', '_blank')"> Site <i class="fa-solid fa-globe"></i></button>
                 </div>
             </div>
 
             <div class="project_container">
                 <h2> Gradebook </h2>
-                <p> Grade tracking and visualization tool. <br> Users can create an account to access cloud storage for data, or can save locally. </p>
+                <p> Grade tracking and visualization tool.</p>
+                <p> Create an account to access cloud storage for data, or save locally. </p>
                 <div class="project-buttons">
                     <!-- <button onclick="window.open('https://github.com/Mason-MBdev/Chess-Website', '_blank')"> Github Repo </button> -->
-                    <button onclick="window.open('https://mbdev.ca/Organizer%20project/organizer_index.html', '_blank')"> Live Site </button>
+                    <button onclick="window.open('https://mbdev.ca/Organizer%20project/organizer_index.html', '_blank')"> Site <i class="fa-solid fa-globe"></i></button>
                 </div>
             </div>
 
             <div class="project_container">
                 <h2> Typewriter </h2>
-                <p> Socket based chatroom and file transfer practice. </p>
+                <p> Socket practice, chatroom and file transfer service. </p>
                 <div class="project-buttons">
-                    <button onclick="window.open('https://github.com/Mason-MBdev/Typewriter', '_blank')"> Github Repo </button>
+                    <button onclick="window.open('https://github.com/Mason-MBdev/Typewriter', '_blank')"> Github Repo <i class="fa-brands fa-github"></i></button>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Footer & links Section -->
     <div class="footer">
@@ -148,7 +147,5 @@
             <h1 class="copyright-text">© 2024 Mason Barney</h1>
         </div>
     </div>
-
-    <script src="./JS/form.js"></script>
 </body>
 </html>
