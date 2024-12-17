@@ -28,8 +28,8 @@ body {
     background-color: #3d3d3d;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    width: 1052px; /* Adjust based on desired size */
-    height: 620px; /* Adjust based on desired size */
+    width: 1052px;
+    height: 620px;
     border-radius: 15px;
     border: rgb(67, 143, 175) 2px solid;
 }
@@ -95,15 +95,15 @@ h3 {
 }
 
 .overlay {
-    display: none; /* Initially hidden */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
-    backdrop-filter: blur(5px); /* Apply blur effect */
-    z-index: 9997; /* Lower z-index than the popup content */
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 9997;
 }
 
 .popup {
@@ -115,7 +115,7 @@ h3 {
     width: 100%;
     height: 100%;
     overflow: auto;
-    z-index: 9998; /* Higher z-index than the overlay */
+    z-index: 9998;
     will-change: transform;
 }
 
@@ -124,8 +124,8 @@ h3 {
     margin: 7% auto;
     padding: 20px;
     width: 610px;
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Subtle shadow for depth */
-    border: 1px solid #40768e; /* Orange border */
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+    border: 1px solid #40768e;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -155,8 +155,8 @@ h3 {
     padding: 10px;
     width: 250px;
     height: 360px;
-    background-color: #ffefff; /* Dark gray background */
-    border: 2px solid #e8e6e6; /* Orange border */
+    background-color: #ffefff;
+    border: 2px solid #e8e6e6;
 }
 
 .left-popup {
@@ -168,29 +168,29 @@ h3 {
     padding: 10px;
     width: 250px;
     height: 360px;
-    background-color: #ffefff; /* Dark gray background */
-    border: 2px solid #e8e6e6; /* Orange border */
+    background-color: #ffefff;
+    border: 2px solid #e8e6e6;
     margin-bottom: 10px;
 }
 
 
 .popup h1 {
-    color: #ffffff; /* Orange heading */
+    color: #ffffff;
     margin-bottom: 15px;
     font-size: 35px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35); /* Add text shadow */
-    letter-spacing: 2px; /* Increase letter spacing */
-    font-weight: bold; /* Add bold font weight */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
+    letter-spacing: 2px;
+    font-weight: bold;
 }
 
 .popup h2 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    color: #ffffff; /* Orange heading */
-    letter-spacing: 1px; /* Increase letter spacing */
+    color: #ffffff;
+    letter-spacing: 1px;
     font-size: 20px;
     border: 1px solid #000000;
     padding: 10px;
-    background-color: #272727; /* Dark gray background */
+    background-color: #272727;
     width: 230px;
     text-align: center;
 }
@@ -198,40 +198,40 @@ h3 {
 .popup input[type="text"],
 .popup input[type="number"] {
     background-color: #ffffff;    
-    color: #000000; /* Black text */
-    padding: 10px; /* Add some padding */
-    border: 1px solid #000000; /* Orange border */
-    border-radius: 5px; /* Add border radius */
-    width: 178.4px; /* Subtract padding and border width */
-    font-size: 16px; /* Font size */
-    margin-bottom: 15px; /* Add margin below the input */
+    color: #000000;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    width: 178.4px;
+    font-size: 16px;
+    margin-bottom: 15px;
 }
 
 .popup input[type="text"]::placeholder,
 .popup input[type="number"]::placeholder {
-    color: #000000; /* Light text */
+    color: #000000;
 }
 
 .popup button {
     background-color: rgb(42, 39, 39);
-    color: #FFF; /* Light text */
-    padding: 5px 25px; /* Add padding */
+    color: #FFF;
+    padding: 5px 25px;
     border-radius: 5px;
-    border: #ffffff 2px solid; /* Remove border */
-    font-size: 16px; /* Font size */
-    cursor: pointer; /* Add pointer cursor */
+    border: #ffffff 2px solid;
+    font-size: 16px;
+    cursor: pointer;
     width: 97.5px;
     transition: background-color 0.1s ease;
 }
 
 .popup button:hover {
-    background-color: rgb(255, 255, 255); /* Lighter orange on hover */
+    background-color: rgb(255, 255, 255);
     color: black;
     border: 3px solid #4490d7;
 }
 
 .popup button:active {
-    background-color: rgb(83, 140, 187); /* Lighter orange on hover */
+    background-color: rgb(83, 140, 187);
     color: black;
     border: 3px solid #4490d7;
 }
@@ -252,13 +252,13 @@ h3 {
 }
 
 #reset-button {
-    background-color: #d14339; /* Orange background */
-    color: #FFF; /* Light text */
-    padding: 10px 20px; /* Add padding */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Add border radius */
-    font-size: 16px; /* Font size */
-    cursor: pointer; /* Add pointer cursor */
+    background-color: #d14339;
+    color: #FFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .piece-box {
@@ -267,7 +267,7 @@ h3 {
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
-    background-color: #d6d6d6; /* Dark gray background */
+    background-color: #d6d6d6;
     color: black;
 }
 
@@ -281,13 +281,13 @@ h3 {
 
 .menu-input {
     background-color: #ffffff;    
-    color: #000000; /* Black text */
-    padding: 10px; /* Add some padding */
-    border: 1px solid #000000; /* Orange border */
-    border-radius: 5px; /* Add border radius */
-    width: 200px; /* Subtract padding and border width */
-    font-size: 16px; /* Font size */
-    margin-bottom: 15px; /* Add margin below the input */
+    color: #000000;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    width: 200px;
+    font-size: 16px;
+    margin-bottom: 15px;
 }
 
 .settings-title-container {
@@ -412,9 +412,9 @@ h3 {
     justify-content: space-between;
     padding: 10px;
     background-image: linear-gradient(#867878, #211f21);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* Add shadow */
-    border-bottom: 1px solid #312a2a; /* Add border */
-    border-top: 1px solid #312a2a; /* Add border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    border-bottom: 1px solid #312a2a;
+    border-top: 1px solid #312a2a;
 }
 
 .nav-left h1 {
@@ -447,25 +447,19 @@ h3 {
 }
 
 #menu-button:hover {
-    background-color: #3d3d3d; /* Darker blue on hover */
+    background-color: #3d3d3d;
 }
 
-/* .with-linear-gradient {
-    border-style: solid;
-    border-width: 2px;
-    border-image: linear-gradient(270deg, rgb(72, 72, 72), rgb(206, 206, 206)) 1;
-} */
-
 #gameover-menu {
-    display: block; /* or use 'initial' */
+    display: block;
     visibility: hidden;
-    transform: translateY(-100%); /* Start from above the top of the page */
+    transform: translateY(-100%);
     transition: transform 0.5s, visibility 0.5s;
 }
 
 #gameover-menu.animate {
     visibility: visible;
-    transform: translateY(0); /* End at the normal position */
+    transform: translateY(0);
     transition: transform 0.5s, visibility 0.5s;
 }
 
@@ -475,8 +469,8 @@ h3 {
     padding: 20px;
     border-radius: 10px;
     width: 610px;
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Subtle shadow for depth */
-    border: 1px solid #40768e; /* Orange border */
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+    border: 1px solid #40768e;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -497,9 +491,7 @@ h3 {
     padding: 10px;
     border-radius: 10px;
     width: 153px;
-    /* center all text */
     text-align: center;
-    /* place a grey box around it, small border */
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     height: 200px;
     justify-content: space-around;
