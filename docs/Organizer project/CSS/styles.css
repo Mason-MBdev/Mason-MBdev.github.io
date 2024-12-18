@@ -160,7 +160,6 @@ h2.title {
     margin: 0;
     padding: 0;
     font-size: 29px;
-    margin-bottom: 10px;
 }
 
 .card h2.title {
@@ -262,12 +261,6 @@ h2.title {
     margin: 0;
 }
 
-#main-window {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-}
-
 .graphbox div {
     display: flex;
     justify-content: center;
@@ -279,7 +272,7 @@ h2.title {
     background-color: var(--containercolor);
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: black 1px solid;
@@ -297,7 +290,6 @@ h2.title {
     justify-content: left;
     align-items: center;
     cursor: pointer;
-    margin-bottom: 20px;
 }
 
 .collapse-arrow {
@@ -319,7 +311,7 @@ h2.title {
 #main-window {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 10px;
     gap: 30px;
 }
 
@@ -450,4 +442,65 @@ h2.title {
     margin-top: 20px;
     border-radius: 5px;
     justify-self: center;
+}
+
+/* mobile styling */
+@media (max-width: 768px) {
+    .nav-button-container {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .nav-title-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-element {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .graphbox {
+        flex-direction: column;
+        height: auto;
+        width: auto;
+    }
+
+    .graphbox canvas {
+        height: auto;
+    }
+
+    .overall-course-statistics {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .overall-statistics-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .course-statistics p {
+        font-size: 18px;
+    }
+
+    .assignments-table th, .assignments-table td {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .popup {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    #save-navbtn {
+        display: none;
+    }
+
+    #load-navbtn {
+        display: none;
+    }
 }
