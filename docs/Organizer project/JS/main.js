@@ -386,24 +386,24 @@ document.getElementById('add-course-btn').addEventListener('click', () => {
 });
 
 // Event listeners for Save and Load buttons
-document.getElementById('save-navbtn').addEventListener('click', saveToLocalStorage);
-document.getElementById('load-navbtn').addEventListener('click', function() {
-    // Create an input element of type file
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = '.json'; // Accept only JSON files
+// document.getElementById('save-navbtn').addEventListener('click', saveToLocalStorage);
+// document.getElementById('load-navbtn').addEventListener('click', function() {
+//     // Create an input element of type file
+//     const input = document.createElement('input');
+//     input.type = 'file';
+//     input.accept = '.json'; // Accept only JSON files
 
-    // Trigger the file input dialog
-    input.click();
+//     // Trigger the file input dialog
+//     input.click();
 
-    // Add an event listener to handle the file selection
-    input.addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        if (file) {
-            loadFromFile(file);
-        }
-    });
-});
+//     // Add an event listener to handle the file selection
+//     input.addEventListener('change', function(event) {
+//         const file = event.target.files[0];
+//         if (file) {
+//             loadFromFile(file);
+//         }
+//     });
+// });
 
 document.getElementById('login-navbtn').addEventListener('click', function() {
     console.log("Login button clicked");
@@ -548,3 +548,6 @@ graphSetup();
 
 // Initial update when the page loads or when the stats are updated
 updateOverallStats();
+
+// collapse overall stats
+toggleOverallStats();
