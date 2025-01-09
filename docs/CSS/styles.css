@@ -120,6 +120,13 @@ body {
     overflow-x: hidden;
 }
 
+.project-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 .nav-buttons {
     display: flex;
     justify-content: center;
