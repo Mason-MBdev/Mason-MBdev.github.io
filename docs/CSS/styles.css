@@ -120,6 +120,12 @@ body {
     overflow-x: hidden;
 }
 
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .nav-button {
     border-radius: 10px;
     border: 1px solid white;
