@@ -15,7 +15,8 @@ button {
     cursor: pointer;
     transition: all 0.25s;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 5px;
     align-items: center;
 }
 
