@@ -8,7 +8,7 @@
 
 button {
     font-family: 'Raleway', sans-serif;
-    background-color: #2e6168;
+    background-color: #115861;
     padding: 5px 10px;
     color: white;
     font-size: 15px;
@@ -106,7 +106,7 @@ html {
 
 body {
     height: auto;
-    background-color: rgb(40, 38, 43);
+    background-color: rgb(30, 29, 33);
     /* background-image: url('Content/BackgroundRetro.jpg'); */
     background-repeat: no-repeat;
     background-position: center;
@@ -122,7 +122,7 @@ body {
     border: 1px solid white;
     border-top: 0;
     border-bottom: 0;
-    background-color: rgb(59, 59, 68);
+    background-color: rgb(44, 44, 56);
     margin-right: 30px;
     font-size: 21px;
     width: 150px;
@@ -166,7 +166,7 @@ body::-webkit-scrollbar-thumb {
 
 .text--purple {
     font-size: 30px;
-    color: #6bd7e6;
+    color: rgb(117, 159, 213);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -258,7 +258,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     /* background-image: linear-gradient(#592626, #3f092c); */
-    background-color: rgb(59, 59, 68);
+    background-color: rgb(44, 44, 56);
     transition: all 100ms ease;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.95); /* Add white box shadow */
     border-bottom: 1px rgb(56, 56, 56) solid;
@@ -463,7 +463,7 @@ nav-mobile {
 .project_section {
     display: flex;
     flex-direction: column;
-    background: #393939;
+    background: #2f2d2d;
     padding: 30px;
     margin: 8vh auto;
     margin-top: 0;
@@ -494,7 +494,7 @@ nav-mobile {
 }
 
 .grey-container {
-    background: #393939;
+    background: #2f2d2d;
     margin-top: 50px;
     margin-bottom: 50px;
     border-radius: 5px;
@@ -724,7 +724,7 @@ interact */
     display: flex;
     justify-content: center;
     /* background-image: linear-gradient(#592626, #3f092c); */
-    background-color: rgb(59, 59, 68);
+    background-color: rgb(44, 44, 56);
     box-shadow: 10px 8px 16px rgba(0,0,0.96);
     border-top: 1px rgb(87, 87, 87) solid;
     gap: 40px;
