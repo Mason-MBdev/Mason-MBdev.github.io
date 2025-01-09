@@ -141,15 +141,13 @@ body {
     border-bottom: 0;
     background-color: rgb(44, 44, 56);
     margin-right: 30px;
-    font-size: 21px;
-    width: 150px;
+    font-size: 19px;
     height: 35px;
 }
 
 .nav-button:hover {
     background-color: rgb(255, 255, 255);
     color: #000000;
-    font-size: 21px;
 }
 
 .flex-1 {
