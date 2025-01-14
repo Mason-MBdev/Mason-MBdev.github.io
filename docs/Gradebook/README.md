@@ -36,6 +36,6 @@ The Gradebook Application is a course and assignment management tool designed fo
    ```  
 
 ## Future Plans  
-- **Improved Mobile Support**: Fully responsive UI for seamless mobile use, current UI needs some TLC.  
-- **Custom Reports**: Generate detailed reports for grades and progress, automatically know where youre (s)lacking.  
-- **User Customization**: Add themes and personalization options.
+- **Improved Mobile Support**: Fully responsive UI for mobile use, current UI isn't bad but needs some TLC.  
+- **Custom Reports**: Generate detailed reports for grades and progress, automatically know where you're (s)lacking.  
+- **User Customization**: Add themes and personalization options to the UI.
