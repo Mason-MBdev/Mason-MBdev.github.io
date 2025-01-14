@@ -1,6 +1,6 @@
 # WebChess
 
-WebChess is a simple online chess app where you can play with friends in real-time. Host a game, share your game ID, and start playing with no extra steps. It also features a chat system so you can get into your opponents head during the match.
+WebChess is a simple online chess app where you can host a game, and start playing chess in real-time with other players. It also features a chat system so you can get into your opponents head during the match.
 
 ---
 
