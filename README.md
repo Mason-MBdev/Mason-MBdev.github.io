@@ -1,5 +1,3 @@
-# My Site
-
 ## Description
 
 My website for hosting software/hobby projects, with a few interactive features.
@@ -23,7 +21,7 @@ My website for hosting software/hobby projects, with a few interactive features.
 2. **DNS resolution**: DNS servers resolve the target domain to an IP address.
 3. **Data transmission**: Encrypted data travels over ISP networks, routed through various links.
 4. **Home router**: Data arrives at the home router and is port forwarded to the correct device.
-5. **Proxy server**: Proxy performs security checks and forwards the data to the backend program.
+5. **Proxy server**: Proxy performs security checks and forwards the data to the right program.
 
 ## Future Plans
 
