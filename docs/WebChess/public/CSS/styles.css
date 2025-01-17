@@ -12,6 +12,7 @@
     --font-size-base: 1rem;
     --border-radius: 0.5rem; /* Rounded corners */
     --nav-bg-color: rgb(44, 44, 56);
+    --button-color: rgb(171, 171, 214);
 }
 
 h1 {
@@ -35,14 +36,9 @@ body {
     flex-direction: row;
 }
 
-@media (max-width: 768px) {
-    .main-content {
-        flex-direction: column;
-    }
-
-    .board {
-        width: 90%;
-    }
+button{
+    background-color: var(--button-color);
+    max-width: 387.2px;
 }
 
 .nav-title-container {
@@ -63,6 +59,16 @@ body {
     color: var(--text-color);
     font-size: 1.5rem;
     border: 1px rgb(102, 102, 102) solid;
+    max-height: 38vw;
+    max-width: 38vw;
+    min-width: 436px;
+    min-height: 436px;
+}
+
+#init-game-content {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
 }
 
 .initialization-content {
@@ -173,7 +179,7 @@ body {
     padding-left: var(--gap-large);
     padding-right: var(--gap-large);
     flex-wrap: wrap; /* Allow children to wrap when cramped */
-    border-bottom: 1px rgb(56, 56, 56) solid;
+    border-bottom: 1px rgb(102, 102, 102) solid;
     height: 62px;
 }
 
@@ -198,4 +204,59 @@ body {
 .nav-button-container button:hover {
     background-color: #ffffff;
     color: black;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(44, 44, 56);
+    box-shadow: 10px 8px 16px rgba(0, 0, 0, 0.96);
+    border-top: 1px rgb(87, 87, 87) solid;
+    gap: 40px;
+    height: 35px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-text {
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    align-self: center;
+}
+
+.copyright-text {
+    color: rgb(255, 255, 255);
+    opacity: 92%;
+    font-size: 15px;
+    text-align: center;
+}
+
+input {
+    max-width: 380px;
+}
+
+.highlight-legal {
+    box-shadow: inset 0 0 3px 3px green;
+}
+
+@media (max-width: 500px) {
+    .main-content {
+        flex-direction: column;
+        padding: 0.35em;
+        padding-top: 1em;
+    }
+
+    #board {
+        max-height: 88vw;
+        min-height: 88vw;
+        max-width: 88vw;
+        min-width: 88vw;
+    }
+    #init-game-content {
+        display: flex;
+        flex-direction: column;
+        width: 60vw;
+    }
 }
