@@ -54,10 +54,6 @@
                     <h3>Turn:</h3>
                     <p id="turn">White</p>
                 </div>
-                <div class="sidebar-content-element">
-                    <h3>Moves:</h3>
-                    <div id="move-list"></div>
-                </div>
                 <div class="chat">
                     <div class="chat-title">
                         <h3>Chat</h3>
@@ -266,13 +262,6 @@
                         moves.forEach((move) => game.move(move));
                         board.position(game.fen());
 
-                        moveList.innerHTML = '';
-                        moves.forEach((move, index) => {
-                            const p = document.createElement('p');
-                            p.textContent = `${move},`;
-                            moveList.appendChild(p);
-                        });
-
                         const turnDisplay = document.getElementById('turn');
                         if (turnDisplay) {
                             turnDisplay.innerText = data.turn === 'w' ? 'White' : 'Black';
@@ -331,7 +320,7 @@
 
                 const move = game.move({ from: source, to: target, promotion: 'q' });
                 if (move === null) {
-                    alert('Illegal move');
+                    alert('Illegal move, move the piece back to its original position.');
                     return 'snapback';
                 }
 

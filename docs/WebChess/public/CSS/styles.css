@@ -1,7 +1,7 @@
 :root {
-    --main-bg-color: rgb(30, 29, 33); /* Dark background */
-    --board-bg-color: rgb(54, 54, 58);
-    --sidebar-bg-color: rgb(54, 54, 58);
+    --main-bg-color: rgb(40, 33, 33); /* Dark background */
+    --board-bg-color: rgb(57, 57, 66);
+    --sidebar-bg-color: rgb(57, 57, 66);
     --accent-color: rgb(94, 130, 180); /* Accent for buttons and highlights */
     --text-color: rgb(255, 255, 255); /* Light text for contrast */
     --muted-text-color: rgb(150, 150, 150);
@@ -30,15 +30,19 @@ body {
 
 .main-content {
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--gap-medium);
-    padding: var(--gap-medium);
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: var(--gap-large);
+    gap: var(--gap-medium);
+    height: 80vh; /* Ensure it takes the full height of the viewport */
 }
 
 button{
     background-color: var(--button-color);
     max-width: 387.2px;
+    height: 35px;
+    width: 90px;
 }
 
 .nav-title-container {
@@ -59,16 +63,16 @@ button{
     color: var(--text-color);
     font-size: 1.5rem;
     border: 1px rgb(102, 102, 102) solid;
-    max-height: 38vw;
-    max-width: 38vw;
-    min-width: 436px;
-    min-height: 436px;
+    max-height: 33vw;
+    max-width: 33vw;
+    min-width: 406px;
+    min-height: 406px;
 }
 
 #init-game-content {
     display: flex;
     flex-direction: column;
-    width: 40vw;
+    width: auto;
 }
 
 .initialization-content {
@@ -87,6 +91,8 @@ button{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     height: auto;
     border: 1px rgb(102, 102, 102) solid;
+    margin-bottom: 40px;
+    max-width: 400px; 
 }
 
 .sidebar-title h2 {
@@ -119,12 +125,13 @@ button{
 }
 
 #chat {
-    width: 300px;
-    height: 400px;
+    width: 200px;
+    height: 300px;
     border: 1px solid #000000;
     display: flex;
     flex-direction: column;
     margin-top: 20px;
+    height: 250px;
 }
 #chat-window {
     flex: 1;
@@ -136,6 +143,7 @@ button{
     list-style: none;
     padding: 0;
     margin: 0;
+    font-size: 11px;
 }
 #chat-messages li {
     margin-bottom: 5px;
@@ -156,9 +164,11 @@ button{
 }
 #message-input {
     flex: 1;
-    padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    width: 140px;
+    font-size: 11px;
+    margin-bottom: 0px; 
 }
 #send-message {
     padding: 5px 10px;
@@ -213,7 +223,7 @@ button{
     box-shadow: 10px 8px 16px rgba(0, 0, 0, 0.96);
     border-top: 1px rgb(87, 87, 87) solid;
     gap: 40px;
-    height: 35px;
+    height: 25px;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -231,10 +241,19 @@ button{
     opacity: 92%;
     font-size: 15px;
     text-align: center;
+    font-size: 12px;
 }
 
 input {
-    max-width: 380px;
+    max-width: 275px;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+    background-color: white;
+    margin-bottom: var(--gap-small);
+    color: black; 
 }
 
 .highlight-legal {
@@ -246,17 +265,28 @@ input {
         flex-direction: column;
         padding: 0.35em;
         padding-top: 1em;
+        height: auto;
     }
 
     #board {
-        max-height: 88vw;
-        min-height: 88vw;
-        max-width: 88vw;
-        min-width: 88vw;
+        max-height: 89vw;
+        min-height: 89vw;
+        max-width: 89.1vw;
+        min-width: 89.1vw;
     }
+
+    .sidebar {
+        max-width: 89.1vw;
+        min-width: 89.1vw;
+    }
+
     #init-game-content {
         display: flex;
         flex-direction: column;
-        width: 60vw;
+        width: 75vw;
+    }
+
+    #chat {
+        width: 89.1vw;
     }
 }
