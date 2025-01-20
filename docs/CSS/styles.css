@@ -35,7 +35,7 @@ button {
 
 button:hover {
     font-family: 'Raleway', sans-serif;
-    background-color: #cdf8ff;
+    background-color: #72c0cc;
     padding: 5px 10px;
     color: rgb(0, 0, 0);
 }
@@ -143,20 +143,11 @@ body {
 }
 
 .nav-button {
-    border-radius: 10px;
-    border: 1px solid white;
-    border-top: 0;
-    border-bottom: 0;
-    background-color: rgb(44, 44, 56);
     margin-right: 30px;
     font-size: 19px;
     height: 35px;
 }
 
-.nav-button:hover {
-    background-color: rgb(255, 255, 255);
-    color: #000000;
-}
 
 .flex-1 {
     flex: 1;
@@ -418,9 +409,8 @@ nav-mobile {
 }
 
 .Logo:hover .text--heading {
-    color: black;
+    color: rgb(42, 170, 221);
     transition: color 100ms ease-in-out;
-    background: rgb(151, 175, 206);
 }
 
 .Logo:not(:hover) .text--heading {
