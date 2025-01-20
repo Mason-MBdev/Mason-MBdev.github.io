@@ -17,6 +17,12 @@
 
 h1 {
     margin: 0;
+    font-size: 1.5rem;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.2rem;
 }
 
 body {
@@ -55,7 +61,6 @@ button{
 #board {
     flex: 2;
     background-color: var(--board-bg-color);
-    border-radius: var(--border-radius);
     padding: var(--gap-medium);
     display: flex;
     align-items: center;
@@ -83,7 +88,6 @@ button{
 .sidebar {
     flex: 1;
     background-color: var(--sidebar-bg-color);
-    border-radius: var(--border-radius);
     padding: var(--gap-medium);
     display: flex;
     flex-direction: column;
@@ -216,44 +220,17 @@ button{
     color: black;
 }
 
-.footer {
-    display: flex;
-    justify-content: center;
-    background-color: rgb(44, 44, 56);
-    box-shadow: 10px 8px 16px rgba(0, 0, 0, 0.96);
-    border-top: 1px rgb(87, 87, 87) solid;
-    gap: 40px;
-    height: 25px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-.footer-text {
-    justify-content: center;
-    justify-self: center;
-    align-items: center;
-    align-self: center;
-}
-
-.copyright-text {
-    color: rgb(255, 255, 255);
-    opacity: 92%;
-    font-size: 15px;
-    text-align: center;
-    font-size: 12px;
-}
-
 input {
     max-width: 275px;
     padding: 0.5rem;
     border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
+    border-radius: 0;
     font-size: var(--font-size-base);
     color: var(--text-color);
     background-color: white;
     margin-bottom: var(--gap-small);
-    color: black; 
+    color: black;
+
 }
 
 .highlight-legal {
