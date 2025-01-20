@@ -1,16 +1,16 @@
 :root {
-    --main-bg-color: rgb(40, 33, 33); /* Dark background */
+    --main-bg-color: rgb(40, 33, 33);
     --board-bg-color: rgb(57, 57, 66);
     --sidebar-bg-color: rgb(57, 57, 66);
-    --accent-color: rgb(94, 130, 180); /* Accent for buttons and highlights */
-    --text-color: rgb(255, 255, 255); /* Light text for contrast */
+    --accent-color: rgb(94, 130, 180);
+    --text-color: rgb(255, 255, 255);
     --muted-text-color: rgb(150, 150, 150);
     --border-color: rgb(100, 100, 100);
     --gap-small: 0.5rem;
     --gap-medium: 1rem;
     --gap-large: 2rem;
     --font-size-base: 1rem;
-    --border-radius: 0.5rem; /* Rounded corners */
+    --border-radius: 0.5rem;
     --nav-bg-color: rgb(44, 44, 56);
     --button-color: rgb(171, 171, 214);
 }
@@ -41,7 +41,7 @@ body {
     align-items: center;
     padding: var(--gap-large);
     gap: var(--gap-medium);
-    height: 80vh; /* Ensure it takes the full height of the viewport */
+    height: 80vh;
 }
 
 button{
@@ -67,11 +67,13 @@ button{
     justify-content: center;
     color: var(--text-color);
     font-size: 1.5rem;
-    border: 1px rgb(102, 102, 102) solid;
+    border: 1px rgb(80, 80, 80) solid;
     max-height: 33vw;
     max-width: 33vw;
     min-width: 406px;
     min-height: 406px;
+    box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.9); /* Add shadow to all sides to create an outset effect */
+
 }
 
 #init-game-content {
@@ -94,7 +96,7 @@ button{
     gap: var(--gap-medium);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     height: auto;
-    border: 1px rgb(102, 102, 102) solid;
+    border: 1px rgb(80, 80, 80) solid;
     margin-bottom: 40px;
     max-width: 400px; 
 }
@@ -192,9 +194,10 @@ button{
     justify-content: space-between;
     padding-left: var(--gap-large);
     padding-right: var(--gap-large);
-    flex-wrap: wrap; /* Allow children to wrap when cramped */
-    border-bottom: 1px rgb(102, 102, 102) solid;
+    flex-wrap: wrap;
+    border-bottom: 1px rgb(80, 80, 80) solid;
     height: 62px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
 }
 
 .nav-button-container {
@@ -237,7 +240,7 @@ input {
     box-shadow: inset 0 0 3px 3px green;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 690px) {
     .main-content {
         flex-direction: column;
         padding: 0.35em;
