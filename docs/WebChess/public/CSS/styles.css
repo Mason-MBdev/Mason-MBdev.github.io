@@ -58,6 +58,14 @@ button{
     gap: 10px;
 }
 
+.board-b72b1 {
+    touch-action: none;
+}
+
+.piece-417db {
+    touch-action: none;
+}
+
 #board {
     flex: 2;
     background-color: var(--board-bg-color);
@@ -73,7 +81,7 @@ button{
     min-width: 406px;
     min-height: 406px;
     box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.9); /* Add shadow to all sides to create an outset effect */
-
+    touch-action: none;
 }
 
 #init-game-content {
@@ -97,7 +105,6 @@ button{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     height: auto;
     border: 1px rgb(80, 80, 80) solid;
-    margin-bottom: 40px;
     max-width: 400px; 
 }
 
@@ -186,6 +193,13 @@ button{
     cursor: pointer;
 }
 
+#gameover-options {
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap-large);
+    justify-content: center;
+}
+
 .nav-element {
     background-color: var(--nav-bg-color);
     display: flex;
@@ -258,6 +272,7 @@ input {
     .sidebar {
         max-width: 89.1vw;
         min-width: 89.1vw;
+        margin-bottom: 40px;
     }
 
     #init-game-content {
