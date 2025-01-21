@@ -28,9 +28,8 @@ button {
     justify-content: space-between;
     gap: 5px;
     align-items: center;
-    border: rgba(0, 96, 99, 0.207) 2px solid;
-    box-shadow: #1de6f6 0px 0px 10px;   
-    box-shadow: 0 0px 8px rgba(29, 230, 246, 0.1);  
+    border: rgba(0, 239, 248, 0.207) 2px solid;
+    box-shadow: #1de6f6 0px 0px 4px;   
 }
 
 button:hover {
@@ -267,7 +266,7 @@ nav {
     background-color: rgb(44, 44, 56);
     transition: all 100ms ease;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.95); /* Add white box shadow */
-    border-bottom: 1px rgb(56, 56, 56) solid;
+    border-bottom: 1px rgb(80, 80, 80) solid;
 }
 
 /* Sticky navbar styles for mobile */
@@ -468,7 +467,7 @@ nav-mobile {
 .project_section {
     display: flex;
     flex-direction: column;
-    background: rgba(41, 33, 33, 0.716);
+    background: rgba(24, 22, 22, 0.72);
     padding: 50px;
     margin-top: 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); /* Add white box shadow */
@@ -498,7 +497,7 @@ nav-mobile {
     justify-content: flex-start;
     align-items: flex-start;
     gap: 15px;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
     width: 300px;
 }
 
