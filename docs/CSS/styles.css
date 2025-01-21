@@ -89,20 +89,23 @@ h1, h2, span {
 }
 
 h2 {
-    font-size: 23px; /* Slightly larger */
-    color: #f0f0f0; /* Same purple color as .text--purple */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Similar text shadow */
-    border-bottom: 1px solid rgb(184, 184, 184);
+    font-size: 22px;
+    color: #f0f0f0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border-bottom: #585858 2px solid;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
 }
 
 h1 {
-   font-size: 24.5px; 
+   font-size: 28px; 
    color: white;
 }
 
 p {
     color: rgb(255, 255, 255);
-    font-size: 17.5px;
+    font-size: 16px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -119,7 +122,6 @@ html {
 
 body {
     background-color: rgb(30, 29, 33);
-    /* background-image: url('Content/BackgroundRetro.jpg'); */
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -484,7 +486,8 @@ nav-mobile {
     border-bottom: #1a1a1a 3px solid;
     flex-direction: column;
     justify-content: flex-start;
-    border-bottom: #1a1a1a 3px solid;
+    border-bottom: #585858 3px solid;
+    width: 300px;
 }
 
 .project_container {
@@ -494,9 +497,9 @@ nav-mobile {
     height: auto;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 10px;
-    padding-bottom: 20px;
-    border-bottom: #1a1a1a 3px solid;
+    gap: 15px;
+    padding-bottom: 10px;
+    width: 300px;
 }
 
 .grey-container {
@@ -752,15 +755,27 @@ interact */
     margin-top: 7px;
     width:  27px;
     height: 27px;
-    transition: all 200ms ease;
+    transition: all 100ms ease;
+    filter: invert(100%);
+}
+
+.social-media-icon-small {
+    margin-top: 5px;
+    width:  22px;
+    height: 22px;
+    transition: all 100ms ease;
     filter: invert(100%);
 }
 
 .social-media-icon:hover {
-    transform: scale(1.3);
+    transform: scale(1.2);
     color: black;
 }
 
+.social-media-icon-small:hover {
+    transform: scale(1.2);
+    color: black;
+}
 .move-left {
     margin-right: 0px;
 }
@@ -1212,7 +1227,7 @@ input:-webkit-autofill {
     }
 
     .text--purple {
-        font-size: 22px;
+        font-size: 25px;
     }
 
     .grey-container {
@@ -1228,7 +1243,6 @@ input:-webkit-autofill {
         margin: 90px auto; /* Center horizontally */
         padding-bottom: 30px;
         padding: 10px;
-        border-radius: 10px;
         margin-top: 50px;
         margin-bottom: 200px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Add white box shadow */
