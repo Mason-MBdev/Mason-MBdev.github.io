@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 * {
     font-family: 'Raleway', sans-serif;
     padding: 0;
@@ -39,7 +40,6 @@ button:hover {
     color: rgb(0, 0, 0);
 }
 
-
 .hidden-left {
     display: flex;
     justify-content: center;
@@ -65,7 +65,6 @@ button:hover {
     opacity: 1;
     transform: translateY(0);
 }
-
 
 .blurred {
     filter: blur(1px);
@@ -218,7 +217,6 @@ body::-webkit-scrollbar-thumb {
     text-align: center;
 }
 
-/* title text mobile */
 .Title {
     color: rgb(255, 156, 156);
     background-image: linear-gradient(#492da6, #201248);
@@ -231,7 +229,6 @@ body::-webkit-scrollbar-thumb {
     border-color: black;
 }
 
-/* nav mobile #5a2ee0)*/
 .backholder {
     margin-left: 40px;
     display: flex;
@@ -240,45 +237,39 @@ body::-webkit-scrollbar-thumb {
     height: 70px;
 }
 
-/* Sticky navbar styles for non-mobile */
 nav.sticky {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Ensure the navbar appears on top of other content */
+    z-index: 1000;
 }
 
-/* linear-gradient(#3200d3, #5a2ee0) */
-/* Other existing navbar styles for non-mobile */
 nav {
     position: sticky;
     top:0;
     z-index: 1000;
-    height: 62px; /* Adjust the height of the navbar as needed */
+    height: 62px;
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-image: linear-gradient(#592626, #3f092c); */
     background-color: rgb(44, 44, 56);
     transition: all 100ms ease;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.95); /* Add white box shadow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.95);
     border-bottom: 1px rgb(80, 80, 80) solid;
 }
 
-/* Sticky navbar styles for mobile */
 nav-mobile.sticky {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Ensure the navbar appears on top of other content */
+    z-index: 1000;
 }
 
-/* Other existing navbar styles for mobile */
 nav-mobile {
     position: sticky;
     top: 0;
@@ -328,10 +319,8 @@ nav-mobile {
     transition: all 200ms ease;
     color: rgb(255, 156, 156);
     background: #2c2c2c;
-    /* border: 2px solid rgb(151, 193, 240); */
 }
 
-/* gitlink */
 .gitlink {
     height: 60px;
     width: 100%;
@@ -344,8 +333,6 @@ nav-mobile {
     transition: all 100ms ease;
 }
 
-
-/*nav bar*/
 .text--header {
     color: rgb(230, 230, 247);
     display: flex;
@@ -413,7 +400,6 @@ nav-mobile {
     transition: color 100ms ease-in-out;
 }
 
-/* About section */
 .bigger-text {
     font-size: 50px;
 }
@@ -464,7 +450,7 @@ nav-mobile {
     background: rgba(24, 22, 22, 0.72);
     padding: 50px;
     margin-top: 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); /* Add white box shadow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
     width:100%;
     height: auto;
     min-height: 92vh;
@@ -501,7 +487,7 @@ nav-mobile {
     margin-top: 50px;
     margin-bottom: 50px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.85); /* Add white box shadow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.85);
     padding: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -514,7 +500,7 @@ nav-mobile {
     align-items: center;
     justify-items: center;
     justify-content: center;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    flex-wrap: wrap;
     gap: 50px;
 }
 
@@ -541,18 +527,18 @@ nav-mobile {
 }
 
 .project_accordion .project_container:not(.active) .project-expandable {
-    max-height: 0; /* Set maximum height to 0 when not active */
-    padding: 0; /* Remove padding when collapsed */
-    border-width: 0; /* Remove border when collapsed */
+    max-height: 0;
+    padding: 0;
+    border-width: 0;
 }
 
 .project_accordion .project_container.active .project-expandable {
-    padding: 25px; /* Add padding when expanded */
+    padding: 25px;
     cursor: pointer;
-    border-width: 0 2px 2px 2px; /* Remove top border */
-    border-style: solid; /* Specify border style for each side */
-    border-color: transparent rgb(76, 76, 76) rgb(76, 76, 76) rgb(76, 76, 76); /* Specify border color for each side */
-    border-radius: 0 0 10px 10px; /* Rounded only bottom left and right corners */
+    border-width: 0 2px 2px 2px;
+    border-style: solid;
+    border-color: transparent rgb(76, 76, 76) rgb(76, 76, 76) rgb(76, 76, 76);
+    border-radius: 0 0 10px 10px;
 }
 
 .project_accordion .project_container.active .project {
@@ -560,10 +546,6 @@ nav-mobile {
     border-radius: 10px 10px 0 0;
 }
 
-/* when individual projects are hovered, they will expand slightly and the 
-"Find out more" section will expand to indicate to users that they can 
-interact */
-/* background-image: linear-gradient(#492da6, #201248); */
 .project {
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
@@ -617,7 +599,7 @@ interact */
     height: 100%;
     padding-left: 80px;
     padding-right: 80px;
-    align-items: center; /* Add this line to center content vertically */
+    align-items: center;
     padding-top: 15px;
     padding-bottom: 15px;
 }
@@ -668,13 +650,13 @@ interact */
 .align-project-text {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Horizontally center the content */
-    align-items: center; /* Vertically center the content */
+    justify-content: center;
+    align-items: center;
 }
 .align-project-text p {
     display: flex;
-    justify-content: left; /* Horizontally center the content */
-    align-items: center; /* Vertically center the content */
+    justify-content: left;
+    align-items: center;
     color: white;
     font-size: 18px;
 }
@@ -720,7 +702,7 @@ interact */
     max-height: 600px;
     align-self: center;
     justify-self: center;
-    margin: 0 auto; /* Add this line to center the element horizontally */
+    margin: 0 auto;
     margin-bottom: 20px;
 }
 
@@ -781,18 +763,18 @@ interact */
 .input-group input,
 .input-group textarea,
 .submission_group button {
-    touch-action: manipulation; /* Prevent zooming on touch devices */
+    touch-action: manipulation;
 }
 
 .contact-gap-box {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Add a gap of 50px between children */
+    gap: 10px;
 }
 
 .contact-gap-box .input-group,
 .contact-gap-box .submission_group {
-    width: 100%; /* Ensure children take full width */
+    width: 100%;
 }
 
 .input-group {
@@ -812,7 +794,7 @@ interact */
 }
 
 .contact_label {
-    background-color: #2c2c2c; /* Use the desired shade of grey */
+    background-color: #2c2c2c;
     outline: 0;
     width: 100%;
     font-size: 15px;
@@ -838,17 +820,17 @@ interact */
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin: 50px auto; /* Center horizontally */
-    background: rgb(64, 64, 72);
+    margin: 50px auto;
+    background: rgb(57, 57, 66);
     margin-bottom: 100px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.85); /* Add white box shadow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.85);
     width: 0 auto;
     justify-self: center;
     align-self: center;
     max-height: 570px;
     width: 475px;
     max-width: 95%;
-    padding: 10px 10px;
+    padding: 20px;
 }
 
 input, textarea{
@@ -859,7 +841,6 @@ input, textarea{
     margin: 5px 0px 0px 0px;
     resize: none;
     border-radius: 5px;
-    /* background: linear-gradient(#303133, #303133) padding-box, linear-gradient(90deg, #ed6e61, #6359e1) border-box; */
     border: 2px solid rgb(88, 88, 103);
 }
 
@@ -916,12 +897,12 @@ textarea::placeholder {
 .identifiers {
     margin-top: 10px;
     display: flex;
-    flex-direction: row; /* Ensures items are laid out horizontally */
-    align-items: center; /* Centers items vertically */
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
     width: 600px;
-    gap: 20px;
-    height: 100%; /* Adjusted to ensure the container takes up full height */
+    gap: 10px;
+    height: 100%;
 }
 
 .statusDot {
@@ -945,14 +926,14 @@ input:-webkit-autofill {
 }
 
 .description_photos-center {
-    border: 2px solid black; /* Add white border */
-    border-radius: 10px; /* Make the border rounded */
-    padding: 20px; /* Add padding for space between border and content */
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
     background: rgb(41, 41, 41);
 }
 
 .description_photos-center > div:not(:last-child) {
-    margin-bottom: 10px; /* Adjust the value as needed */
+    margin-bottom: 10px;
 }
 
 .description_photo1 {
@@ -1017,7 +998,7 @@ input:-webkit-autofill {
     left: 75%;
     transform: translate(-70%, -50%);
     display: none;
-    font-size: 40px; /* Adjust font size as needed */
+    font-size: 40px;
 }
 
 .project_accordion .project_container.active .project .indicators .close-indicator {
@@ -1179,9 +1160,9 @@ input:-webkit-autofill {
 
     .move-left {
         display: flex;
-        flex-direction: column; /* Display items in a column */
-        justify-content: center; /* Center items horizontally */
-        align-items: center; /* Center items vertically */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .project_expansion {
@@ -1244,12 +1225,12 @@ input:-webkit-autofill {
     }
 
     .contact_container {
-        margin: 90px auto; /* Center horizontally */
+        margin: 90px auto;
         padding-bottom: 30px;
         padding: 10px;
         margin-top: 50px;
         margin-bottom: 200px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Add white box shadow */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
         padding-top: 30px;
         width: 0 auto;
     }
@@ -1328,20 +1309,19 @@ a:-webkit-any-link {
     }
 }
 
-/* General Popup Styling */
 #project-info-popup {
-    display: none; /* Start hidden */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.8); /* Semi-transparent overlay */
+    background: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    color: rgb(223, 223, 223); /* Light grey text */
+    color: rgb(223, 223, 223);
 }
 
 /* Show popup when not hidden */
@@ -1355,7 +1335,7 @@ a:-webkit-any-link {
     height: 300px;
     background: #393939;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(114, 113, 113, 0.65); /* Add white box shadow */
+    box-shadow: 0 0 10px rgba(114, 113, 113, 0.65);
     border: rgb(69, 68, 68) 1px solid;
 }
 
@@ -1367,13 +1347,13 @@ a:-webkit-any-link {
 }
 
 #carousel-left, #carousel-right {
-    color: rgb(200, 200, 200); /* Light grey */
+    color: rgb(200, 200, 200);
     cursor: pointer;
 }
 
 #close-popup-btn {
-    background: #bcbcbc; /* Dark red for close button */
-    border: 2px solid #021118; /* Dark red border */
+    background: #bcbcbc;
+    border: 2px solid #021118;
     color: rgb(23, 18, 68);
     padding: 3px 6px;
     border-radius: 4px;
@@ -1381,7 +1361,7 @@ a:-webkit-any-link {
 }
 
 #close-popup-btn:hover {
-    background: rgb(197, 75, 75); /* Light red for hover */
+    background: rgb(197, 75, 75);
 }
 
 #project-info-popup {
@@ -1433,8 +1413,8 @@ a:-webkit-any-link {
 
 .popup-right {
     padding-top: 88px;
-    align-items: center; /* Center children horizontally */
-    text-align: center; /* Center text inside children */
+    align-items: center;
+    text-align: center;
 }
 
 .popup-title {
@@ -1506,7 +1486,7 @@ a:-webkit-any-link {
 }
 
 .hidden {
-    display: none !important; /* Ensure hidden means no display */
+    display: none !important;
 }
 
 .nav-button {

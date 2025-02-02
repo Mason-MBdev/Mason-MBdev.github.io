@@ -80,7 +80,7 @@ button{
     max-width: 33vw;
     min-width: 406px;
     min-height: 406px;
-    box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.9); /* Add shadow to all sides to create an outset effect */
+    box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.9);
     touch-action: none;
 }
 
