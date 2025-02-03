@@ -19,7 +19,7 @@ body {
 
 button {
     font-family: 'Raleway', sans-serif;
-    background-color: #013e46;
+    background-color: rgba(61, 100, 163, 0.72);
     padding: 5px 10px;
     color: white;
     font-size: 15px;
@@ -29,13 +29,13 @@ button {
     justify-content: space-between;
     gap: 5px;
     align-items: center;
-    border: rgba(0, 239, 248, 0.207) 2px solid;
-    box-shadow: #1de6f6 0px 0px 3px;   
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 4px;
 }
 
 button:hover {
     font-family: 'Raleway', sans-serif;
-    background-color: #72c0cc;
+    background-color: rgb(167, 230, 255);
     padding: 5px 10px;
     color: rgb(0, 0, 0);
 }
@@ -119,7 +119,7 @@ html {
 }
 
 body {
-    background-color: rgb(30, 29, 33);
+    background-color: rgba(27, 23, 23);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -140,14 +140,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 18px;
 }
 
 .nav-button {
     margin-right: 30px;
     font-size: 19px;
     height: 35px;
+    background: rgb(44, 44, 56);
 }
-
 
 .flex-1 {
     flex: 1;
@@ -447,7 +448,7 @@ nav-mobile {
 .project_section {
     display: flex;
     flex-direction: column;
-    background: rgba(24, 22, 22, 0.72);
+    background: rgba(27, 23, 23);
     padding: 50px;
     margin-top: 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
@@ -828,8 +829,7 @@ nav-mobile {
     justify-self: center;
     align-self: center;
     max-height: 570px;
-    width: 475px;
-    max-width: 95%;
+    max-width: 475px;
     padding: 20px;
 }
 
@@ -840,7 +840,6 @@ input, textarea{
     color: #fff;
     margin: 5px 0px 0px 0px;
     resize: none;
-    border-radius: 5px;
     border: 2px solid rgb(88, 88, 103);
 }
 
@@ -867,10 +866,10 @@ textarea::placeholder {
     font-size: 14px;
 }
 
-.submission_group{
+.submission_group {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin-left: 0px;
 }
 
@@ -1227,12 +1226,11 @@ input:-webkit-autofill {
     .contact_container {
         margin: 90px auto;
         padding-bottom: 30px;
-        padding: 10px;
         margin-top: 50px;
         margin-bottom: 200px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-        padding-top: 30px;
-        width: 0 auto;
+        padding: 30px 10px;
+        width: 80%;
     }
 
     .social-media-icon {
@@ -1243,6 +1241,10 @@ input:-webkit-autofill {
     .project-title {
         width: auto;
     }
+}
+
+.submit {
+    margin-top: 20px;
 }
 
 a:-webkit-any-link {
