@@ -29,7 +29,7 @@ button {
     justify-content: space-between;
     gap: 5px;
     align-items: center;
-    border: 2px solid rgb(255, 255, 255);
+    border: 1px solid rgb(226, 226, 226);
     border-radius: 4px;
 }
 
@@ -822,14 +822,14 @@ nav-mobile {
     align-items: center;
     text-align: center;
     margin: 50px auto;
-    background: rgb(57, 57, 66);
+    background: rgb(37, 33, 33);
     margin-bottom: 100px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.85);
+    border: 2px rgb(80, 80, 80) solid;
     width: 0 auto;
     justify-self: center;
     align-self: center;
     max-height: 570px;
-    max-width: 475px;
+    max-width: 550px;
     padding: 20px;
 }
 
@@ -1227,7 +1227,7 @@ input:-webkit-autofill {
         margin: 90px auto;
         padding-bottom: 30px;
         margin-top: 50px;
-        margin-bottom: 200px;
+        margin-bottom: 2000px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
         padding: 30px 10px;
         width: 80%;
