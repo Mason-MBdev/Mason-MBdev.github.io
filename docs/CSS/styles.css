@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 * {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Arial', sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -145,9 +145,10 @@ body {
 
 .nav-button {
     margin-right: 30px;
-    font-size: 19px;
-    height: 35px;
+    font-size: 17px;
+    height: 32px;
     background: rgb(44, 44, 56);
+    letter-spacing: 1px;
 }
 
 .flex-1 {
@@ -250,7 +251,7 @@ nav {
     position: sticky;
     top:0;
     z-index: 1000;
-    height: 62px;
+    height: 57px;
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
@@ -287,7 +288,7 @@ nav-mobile {
     background-color: rgb(44, 44, 56);
     transition: all 100ms ease;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.95);
-    border-bottom: 1px rgb(56, 56, 56) solid;
+    border-bottom: 1px rgb(80, 80, 80) solid;
 }
 
 
@@ -449,7 +450,7 @@ nav-mobile {
     display: flex;
     flex-direction: column;
     background: rgba(27, 23, 23);
-    padding: 50px;
+    padding: 35px 50px;
     margin-top: 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
     width:100%;
@@ -468,7 +469,7 @@ nav-mobile {
     flex-direction: column;
     justify-content: flex-start;
     border-bottom: #585858 3px solid;
-    width: 300px;
+    width: 500px;
 }
 
 .project_container {
@@ -824,7 +825,7 @@ nav-mobile {
     margin: 50px auto;
     background: rgb(37, 33, 33);
     margin-bottom: 100px;
-    border: 2px rgb(80, 80, 80) solid;
+    border: 1px rgb(80, 80, 80) solid;
     width: 0 auto;
     justify-self: center;
     align-self: center;
@@ -840,7 +841,7 @@ input, textarea{
     color: #fff;
     margin: 5px 0px 0px 0px;
     resize: none;
-    border: 2px solid rgb(88, 88, 103);
+    border: 1px solid rgb(88, 88, 103);
 }
 
 #contactForm {

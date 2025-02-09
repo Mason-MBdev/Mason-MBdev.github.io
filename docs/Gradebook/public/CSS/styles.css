@@ -1,11 +1,11 @@
 :root {
-    --containercolor: rgb(255, 255, 255);
+    --containercolor: rgb(225, 225, 225);
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
+    background-color: rgb(220, 220, 220);
     font-family: 'Arial', sans-serif;
 }
 
@@ -60,7 +60,7 @@ p {
 .nav-button-container {
     display: flex;
     justify-content: left;
-    background-color: rgb(59, 59, 68);
+    background-color: rgb(44, 44, 56);
     color: white;
     font-size: 10px;
     margin: 0;
@@ -68,7 +68,7 @@ p {
 }
 
 .nav-button-container button {
-    background-color: rgb(59, 59, 68);
+    background-color: rgb(44, 44, 56);
     color: white;
     border: 1px solid white;    
     font-size: 13px;
@@ -113,9 +113,11 @@ p {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: rgb(59, 59, 68);
+    background-color: rgb(44, 44, 56);
     padding: 10px 20px;
-    gap:20px;
+    border-bottom: 1px rgb(80, 80, 80) solid;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    gap: 20px;
 }
 
 .title {
@@ -281,6 +283,7 @@ h2.title {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: black 1px solid;
     width:50vw;
+    background-color: var(--containercolor);
 }
 
 .collapsed-view {
