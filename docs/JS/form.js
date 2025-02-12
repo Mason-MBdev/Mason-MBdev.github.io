@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            body: new URLSearchParams(new FormData(contactForm))
+            body: formData
         })
         .then(response => {
             if (!response.ok) {
