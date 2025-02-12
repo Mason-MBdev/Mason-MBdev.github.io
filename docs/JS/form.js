@@ -38,7 +38,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         fetch('https://pi.mbdev.ca/submit_form', {
             method: 'POST',
-            body: formData
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams(new FormData(contactForm))
         })
         .then(response => {
             if (!response.ok) {
