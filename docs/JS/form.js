@@ -1,66 +1,50 @@
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
-    const statusMessage = document.getElementById('statusMessage');
-    const serverStatusElement = document.getElementById('serverState');
 
-    if (!contactForm || !statusMessage || !serverStatusElement) {
-        console.error('Error: Contact form or status message element not found.');
+    if (!contactForm) {
+        console.error('Error: Contact form element not found.');
         return;
     }
 
-    console.log('Form script loaded, getting server status...');
     // Check server status
+    console.log('Form script loaded and form element found, checking server status...');
     fetch('https://pi.mbdev.ca/status')
     .then(response => {
         if (!response.ok) {
             throw new Error('Network Error');
         }
-        console.log('Server status:', response.status);
-    })
-    .then(data => {
-        serverStatusElement.innerText = 'Online';
-        serverStatusElement.style.color = 'rgb(70, 255, 130)';
+        console.log('Server status: ', response.status);
     })
     .catch(error => {
-        serverStatusElement.innerText = 'Offline';
-        serverStatusElement.style.color = 'rgb(255, 50, 50)';
-        console.error('Error:', error);
-    });
-    console.log('Server status checked. Returned:', serverStatusElement.innerText);
+        console.error('Server error: ', error);
+    }); 
 
-    // Route for form submission
+    // form submission handling
+    async function submitForm(formData) {
+        try {
+            const response = await fetch("https://pi.mbdev.ca/submit_form", {
+                method: "POST",
+                body: formData,
+            });
+    
+            if (!response.ok) {
+                throw new Error(`HTTP error: ${response.status}`);
+            }
+    
+            const result = await response.json(); // Assuming JSON response
+            console.log("Form submission success: ", result);
+        } catch (error) {
+            console.error("Form submission error: ", error);
+        }
+    }
+
+    // form event listener
     contactForm.addEventListener('submit', function(event) {
         event.preventDefault();
     
         const formData = new FormData(contactForm);
 
         console.log(formData);
-
-        fetch('https://pi.mbdev.ca/submit_form', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: formData
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network Error');
-            }
-            // Response to update status message 
-            return response.json(); // Parse JSON response
-        })
-        .then(data => {
-            // Update status message 
-            statusMessage.innerText = data.message;
-            statusMessage.style.color = 'rgb(70, 255, 130)';
-
-        })
-        .catch(error => {
-            // Update status message 
-            statusMessage.innerText = 'Error';
-            statusMessage.style.color = 'rgb(255, 50, 50)';
-            console.error('Error:', error);
-        });
+        submitForm(formData);
     });
 });
