@@ -28,12 +28,19 @@
             <h1><i class="fa-solid fa-chess"></i></h1>
             <h1 style="margin-top: 5px;">WebChess</h1>
         </div>
+
+        <div class="nav-button-container">
+            <button id="login-navbtn" class="logged-out">Log in&nbsp;&nbsp;&nbsp;<i class="fa fa-sign-in"></i></button>
+            <button id="signup-navbtn" class="logged-out">Sign up&nbsp;&nbsp;&nbsp;<i class="fa fa-user-plus"></i></button>
+            <button id="profile-navbtn" class="logged-in" style="display: none;">Profile&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-user-tie"></i></i></button>
+            <button id="signout-navbtn" class="logged-in" style="display: none;">Sign out&nbsp;&nbsp;&nbsp;<i class="fa fa-sign-out"></i></button>
+        </div>
     </div>
 
     <!-- Main Content window-->
     <div class="main-content">
         <div id="board"></div>
-        <div class="sidebar logged-in" id="sidebar">
+        <div class="sidebar" id="sidebar">
 
             <!-- INTITIAL SIDEBAR CONTENT ----------------------------------------------------------------------- -->
             <div id="init-game-content" class="beforegame">
@@ -97,6 +104,43 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!-- popup for login / signup -->
+    <div class="popup login-popup">
+        <span id="close-login-popup" class="close-popup">&times;</span>
+        <h2 style="color: white;">Log in</h2><br/>
+        <form id="login-form">
+            <div class="input">
+                <input type="email" id="login-email" placeholder = "Email" required />
+            </div>
+            <div style="margin-bottom: 20px;" >
+                <input type="password" id="login-password" placeholder = "Password" required />
+            </div>
+            <button class="popup-button">Log in</button>
+        </form>
+    </div>
+
+    <div class="popup signup-popup">
+        <span id="close-signup-popup" class="close-popup">&times;</span>
+        <h2 style="color: white;">Sign up</h2><br/>
+        <form id="signup-form">
+            <div class="input">
+                <input type="email" id="signup-email" placeholder = "Email" required />
+            </div>
+            <div style="margin-bottom: 20px;" >
+                <input type="password" id="signup-password" placeholder = "Password" required />
+            </div>
+            <button class="popup-button">Sign up</button>
+        </form>
+    </div>
+
+    <div class="popup profile-popup">
+        <span id="close-profile-popup" class="close-popup">&times;</span>
+        <h2 style="color: white;">Profile</h2><br/>
+        <h3 id="userEmail"> Email: </h3>
+        <h3 id="userWinrate"> Win rate: </h3>
+        <!-- contains the score from past games alongside a Win or Lost icon. -->
+        <div id="pastUserGames"</div> 
     </div>
 
     <!-- Scripts -->

@@ -4,6 +4,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
 import { getFirestore, doc, onSnapshot, updateDoc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBz9ucdMV7rIpEid4PoUFZ-7RcX3mKFMWg",
@@ -15,8 +16,111 @@ const firebaseConfig = {
     measurementId: "G-HK1HY6M261"
 };
 
+// DOM ELEMENTS
+const loggedOutLinks = document.querySelectorAll('.logged-out');
+const loggedInLinks = document.querySelectorAll('.logged-in');
+let userID = null;
+var userData;
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
+
+// Auth management popup listeners ----------------------------------------------------
+document.getElementById('login-navbtn').addEventListener('click', function() {
+    console.log("Login button clicked");
+    const loginPopup = document.querySelector('.login-popup');
+    loginPopup.style.display = 'block';
+});
+
+document.getElementById('signup-navbtn').addEventListener('click', function() {
+    console.log("Login button clicked");
+    const signupPopup = document.querySelector('.signup-popup');
+    signupPopup.style.display = 'block';
+});
+
+document.getElementById('profile-navbtn').addEventListener('click', function() {
+    console.log("Login button clicked");
+    const signupPopup = document.querySelector('.profile-popup');
+    signupPopup.style.display = 'block';
+});
+
+document.getElementById('close-login-popup').addEventListener('click', function() {
+    const loginPopup = document.querySelector('.login-popup');
+    loginPopup.style.display = 'none';
+});
+
+document.getElementById('close-signup-popup').addEventListener('click', function() {
+    const signupPopup = document.querySelector('.signup-popup');
+    signupPopup.style.display = 'none';
+});
+
+document.getElementById('close-profile-popup').addEventListener('click', function() {
+    const loginPopup = document.querySelector('.profile-popup');
+    loginPopup.style.display = 'none';
+});
+
+// ======================================== ACCOUNT MANAGEMENT ========================================
+// Signup =============================================================================================
+const signupForm = document.querySelector('#signup-form');
+signupForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  const email = signupForm['signup-email'].value;
+  const password = signupForm['signup-password'].value;
+
+  createUserWithEmailAndPassword(auth, email, password).then(() => {
+    signupForm.reset();
+    document.querySelector('.signup-popup').style.display = 'none';
+  });
+
+  console.log("User Created");
+});
+
+// Login ==============================================================================================
+const loginForm = document.querySelector('#login-form');
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  const email = loginForm['login-email'].value;
+  const password = loginForm['login-password'].value;
+
+  signInWithEmailAndPassword(auth, email, password).then((cred) => {
+    loginForm.reset();
+    document.querySelector('.login-popup').style.display = 'none';
+  });
+
+
+});
+  
+// Logout =============================================================================================
+const logout = document.getElementById('signout-navbtn');
+logout.addEventListener('click', (e) => {
+  console.log("User Logged Out");
+  e.preventDefault();
+  auth.signOut();
+  window.location.reload();
+});
+
+// Login Status ======================================================================================
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    console.log(user);
+    userID = user.uid;
+    console.log(userID);
+    loggedInLinks.forEach(item => item.style.display = 'block');
+    loggedOutLinks.forEach(item => item.style.display = 'none');
+    console.log("Before update:", document.getElementById('userEmail').innerText);
+    document.getElementById('userEmail').innerText = `Email: ${user.email}`;
+    console.log("After update:", document.getElementById('userEmail').innerText);
+} 
+  else {
+    userID = null;
+    loggedInLinks.forEach(item => item.style.display = 'none');
+    loggedOutLinks.forEach(item => item.style.display = 'block');
+    console.log("User Logged Out");
+  }
+});
 
 // -------------------------------
 // ** DOM CONTENT INIT ** 
@@ -129,10 +233,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         UIBeforeGame.forEach(item => item.style.display = 'none');
         UIDuringGame.forEach(item => item.style.display = 'block');
         UIAfterGame.forEach(item => item.style.display = 'none');
-    });
-
-    reloadButton.addEventListener('click', () => {
-        location.reload();
     });
 
     // -------------------------------

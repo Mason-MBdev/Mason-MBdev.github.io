@@ -396,7 +396,7 @@ h2.title {
     padding: 20px;
     width: 270px;
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-    border-top: 1px solid #888;
+    border-top: 1px rgb(80, 80, 80) solid;
 }
 
 .close-popup {
