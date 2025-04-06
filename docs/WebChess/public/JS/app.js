@@ -39,10 +39,44 @@ document.getElementById('signup-navbtn').addEventListener('click', function() {
     signupPopup.style.display = 'block';
 });
 
-document.getElementById('profile-navbtn').addEventListener('click', function() {
-    console.log("Login button clicked");
-    const signupPopup = document.querySelector('.profile-popup');
-    signupPopup.style.display = 'block';
+document.getElementById('profile-navbtn').addEventListener('click', async function() {
+    const profilePopup = document.querySelector('.profile-popup');
+    profilePopup.style.display = 'block';
+
+    try {
+        // Fetch and display user stats
+        const userRef = doc(db, 'users', auth.currentUser.uid);
+        const userDoc = await getDoc(userRef);
+        const userData = userDoc.data();
+
+        if (userData) {
+            document.getElementById('userEmail').textContent = `Email: ${auth.currentUser.email}`;
+            document.getElementById('userWins').textContent = `Wins: ${userData.stats.wins}`;
+            document.getElementById('userLosses').textContent = `Losses: ${userData.stats.losses}`;
+            document.getElementById('userDraws').textContent = `Draws: ${userData.stats.draws}`;
+            document.getElementById('userWinRate').textContent = `Win Rate: ${userData.stats.winRate.toFixed(1)}%`;
+
+            // Display match history
+            const matchHistoryList = document.getElementById('matchHistoryList');
+            matchHistoryList.innerHTML = '';
+
+            const recentMatches = userData.matchHistory.slice(-10).reverse(); // Show last 10 matches
+            recentMatches.forEach(match => {
+                const matchEntry = document.createElement('div');
+                matchEntry.className = `match-entry ${match.result}`;
+                const date = new Date(match.timestamp);
+                matchEntry.innerHTML = `
+                    <div>Result: ${match.result.toUpperCase()}</div>
+                    <div>Opponent: ${match.opponent}</div>
+                    <div>Date: ${date.toLocaleDateString()}</div>
+                `;
+                matchHistoryList.appendChild(matchEntry);
+            });
+        }
+    } catch (error) {
+        console.error("Error loading profile data:", error);
+        alert("Error loading profile data. Please try again.");
+    }
 });
 
 document.getElementById('close-login-popup').addEventListener('click', function() {
@@ -63,18 +97,38 @@ document.getElementById('close-profile-popup').addEventListener('click', functio
 // ======================================== ACCOUNT MANAGEMENT ========================================
 // Signup =============================================================================================
 const signupForm = document.querySelector('#signup-form');
-signupForm.addEventListener('submit', (e) => {
+signupForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   
   const email = signupForm['signup-email'].value;
   const password = signupForm['signup-password'].value;
+  const username = signupForm['signup-username'].value;
 
-  createUserWithEmailAndPassword(auth, email, password).then(() => {
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+    
+    // Initialize user stats with username
+    const userStatsRef = doc(db, 'users', user.uid);
+    await setDoc(userStatsRef, {
+      username: username,
+      email: email,
+      stats: {
+        wins: 0,
+        losses: 0,
+        draws: 0,
+        winRate: 0
+      },
+      matchHistory: []
+    });
+
     signupForm.reset();
     document.querySelector('.signup-popup').style.display = 'none';
-  });
-
-  console.log("User Created");
+    console.log("User Created and Stats Initialized");
+  } catch (error) {
+    console.error("Error creating user:", error);
+    alert("Error creating account. Please try again.");
+  }
 });
 
 // Login ==============================================================================================
@@ -113,12 +167,24 @@ onAuthStateChanged(auth, async (user) => {
     console.log("Before update:", document.getElementById('userEmail').innerText);
     document.getElementById('userEmail').innerText = `Email: ${user.email}`;
     console.log("After update:", document.getElementById('userEmail').innerText);
+    
+    // Update the login status message when user is logged in
+    const loginStatusMessage = document.getElementById('login-status-message');
+    if (loginStatusMessage) {
+      loginStatusMessage.textContent = "You are signed in, tracking stats and game history.";
+    }
 } 
   else {
     userID = null;
     loggedInLinks.forEach(item => item.style.display = 'none');
     loggedOutLinks.forEach(item => item.style.display = 'block');
     console.log("User Logged Out");
+    
+    // Reset login status message to guest mode
+    const loginStatusMessage = document.getElementById('login-status-message');
+    if (loginStatusMessage) {
+      loginStatusMessage.textContent = "You are in guest mode. Sign in to save history and stats.";
+    }
   }
 });
 
@@ -174,6 +240,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
+        // Get current user's username
+        const userRef = doc(db, 'users', auth.currentUser.uid);
+        const userDoc = await getDoc(userRef);
+        const userData = userDoc.data();
+        const username = userData.username;
+
         gameId = Math.random().toString(36).substr(2, 9);
         gameIDElement.innerHTML = gameId;
         gameRef = doc(db, 'games', gameId);
@@ -181,7 +253,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         await setDoc(gameRef, {
             moves: [],
             turn: 'w',
-            players: { host: hostPassword, join: null },
+            players: { host: hostPassword, hostUsername: username, join: null, joinUsername: null },
             gameOver: false,
             messages: []
         });
@@ -221,12 +293,19 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
+        // Get current user's username
+        const userRef = doc(db, 'users', auth.currentUser.uid);
+        const userDoc = await getDoc(userRef);
+        const userData = userDoc.data();
+        const username = userData.username;
+
         gameId = joinId;
         playerColor = 'b';
         gameIDElement.innerHTML = joinId;
 
         await updateDoc(gameRef, {
-            'players.join': 'joined'
+            'players.join': 'joined',
+            'players.joinUsername': username
         });
 
         setupSnapshotListener();
@@ -318,10 +397,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Determine game state and message
         let gameOver = false;
         let gameWinner = null;
+        let result = 'draw';
 
         if (game.in_checkmate()) {
             gameOver = true;
             gameWinner = playerColor;
+            result = playerColor === 'w' ? 'win' : 'loss';
         } else if (game.in_draw()) {
             gameOver = true;
         } else if (game.in_stalemate()) {
@@ -335,6 +416,53 @@ document.addEventListener('DOMContentLoaded', async () => {
             gameOver,
             gameWinner
         });
+
+        // If game is over, update player stats
+        if (gameOver) {
+            try {
+                const userRef = doc(db, 'users', auth.currentUser.uid);
+                const userDoc = await getDoc(userRef);
+                const userData = userDoc.data();
+                
+                // Get opponent info from game data
+                const gameDoc = await getDoc(gameRef);
+                const gameData = gameDoc.data();
+                const opponentUsername = playerColor === 'w' ? 
+                    gameData.players.joinUsername : 
+                    gameData.players.hostUsername;
+
+                // Update stats based on game result
+                const stats = userData.stats || { wins: 0, losses: 0, draws: 0, winRate: 0 };
+                if (result === 'win') {
+                    stats.wins++;
+                } else if (result === 'loss') {
+                    stats.losses++;
+                } else {
+                    stats.draws++;
+                }
+                
+                // Calculate new win rate
+                const totalGames = stats.wins + stats.losses + stats.draws;
+                stats.winRate = totalGames > 0 ? (stats.wins / totalGames) * 100 : 0;
+
+                // Add to match history
+                const matchHistory = userData.matchHistory || [];
+                matchHistory.push({
+                    opponent: opponentUsername,
+                    result: result,
+                    timestamp: Date.now(),
+                    gameId: gameId
+                });
+
+                // Update user document
+                await updateDoc(userRef, {
+                    stats: stats,
+                    matchHistory: matchHistory
+                });
+            } catch (error) {
+                console.error("Error updating user stats:", error);
+            }
+        }
     }
 
     function onDragStart(source, piece, position, orientation) {

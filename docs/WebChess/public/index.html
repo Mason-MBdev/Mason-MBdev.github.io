@@ -45,6 +45,7 @@
             <!-- INTITIAL SIDEBAR CONTENT ----------------------------------------------------------------------- -->
             <div id="init-game-content" class="beforegame">
                 <h1>Start a game</h1>
+                <p id="login-status-message"> You are in guest mode. Sign in to save history and stats.</p>
 
                 <h2 class="initialization-content">Host:</h2>
                 <input type="text" id="host-pw-input" placeholder="Create password...">
@@ -125,10 +126,13 @@
         <h2 style="color: white;">Sign up</h2><br/>
         <form id="signup-form">
             <div class="input">
-                <input type="email" id="signup-email" placeholder = "Email" required />
+                <input type="text" id="signup-username" placeholder="Username" required />
+            </div>
+            <div class="input">
+                <input type="email" id="signup-email" placeholder="Email" required />
             </div>
             <div style="margin-bottom: 20px;" >
-                <input type="password" id="signup-password" placeholder = "Password" required />
+                <input type="password" id="signup-password" placeholder="Password" required />
             </div>
             <button class="popup-button">Sign up</button>
         </form>
@@ -137,10 +141,18 @@
     <div class="popup profile-popup">
         <span id="close-profile-popup" class="close-popup">&times;</span>
         <h2 style="color: white;">Profile</h2><br/>
-        <h3 id="userEmail"> Email: </h3>
-        <h3 id="userWinrate"> Win rate: </h3>
-        <!-- contains the score from past games alongside a Win or Lost icon. -->
-        <div id="pastUserGames"</div> 
+        <h3 id="userEmail">Email: </h3>
+        <div class="stats-container">
+            <h3>Statistics</h3>
+            <p id="userWins">Wins: 0</p>
+            <p id="userLosses">Losses: 0</p>
+            <p id="userDraws">Draws: 0</p>
+            <p id="userWinRate">Win Rate: 0%</p>
+        </div>
+        <div class="match-history">
+            <h3>Recent Matches</h3>
+            <div id="matchHistoryList"></div>
+        </div>
     </div>
 
     <!-- Scripts -->
