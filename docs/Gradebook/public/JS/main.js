@@ -638,6 +638,10 @@ document.getElementById('import-data').addEventListener('click', function() {
     input.addEventListener('change', function(event) {
         const file = event.target.files[0];
         if (file) {
+            // Confirm before loading
+            if (courses.length > 0 && !confirm('Loading this file will replace your current data. Continue?')) {
+                return;
+            }
             loadFromFile(file);
         }
     });
@@ -740,61 +744,70 @@ function selectText(element) {
 }
 
 function saveToLocalStorage() {
-    // Convert the courses array to a JSON string
-    const coursesJSON = JSON.stringify(courses);
+    try {
+        // Format current date for filename
+        const date = new Date();
+        const dateStr = date.toISOString().split('T')[0]; // YYYY-MM-DD format
+        
+        // Convert the courses array to a JSON string
+        const coursesJSON = JSON.stringify(courses);
 
-    // Create a Blob from the JSON string
-    const blob = new Blob([coursesJSON], { type: 'application/json' });
+        // Create a Blob from the JSON string
+        const blob = new Blob([coursesJSON], { type: 'application/json' });
 
-    // Create a link element
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'courses.json';
+        // Create a link element
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = `gradebook_${dateStr}.json`;
 
-    // Append the link to the body
-    document.body.appendChild(link);
+        // Append the link to the body
+        document.body.appendChild(link);
 
-    // Programmatically click the link to trigger the download
-    link.click();
+        // Programmatically click the link to trigger the download
+        link.click();
 
-    // Remove the link from the document
-    document.body.removeChild(link);
+        // Remove the link from the document
+        document.body.removeChild(link);
+        
+        // Provide user feedback
+        alert('Your gradebook has been saved successfully!');
+    } catch (error) {
+        console.error('Error saving data:', error);
+        alert('There was an error saving your data. Please try again.');
+    }
 }
 
 function loadFromFile(file) {
     console.log('Loading file:', file.name);
     const reader = new FileReader();
+    
     reader.onload = function(event) {
         try {
             const data = JSON.parse(event.target.result);
+            
             if (Array.isArray(data)) {
+                // Replace the courses array with the loaded data
                 courses = data;
+                
                 // Re-render the courses
-                const courseContainer = document.querySelector('.course-display');
-                courseContainer.innerHTML = ''; // Clear existing courses
-                courses.forEach(course => {
-                    const courseCard = createCourseCard(course.id, course.title);
-                    courseContainer.appendChild(courseCard);
-                    // Re-render assignments for each course
-                    const assignmentsList = document.getElementById(`assignments-list-${course.id}`);
-                    assignmentsList.innerHTML = course.assignments.map((assignment, index) => `
-                        <tr>
-                            <td class="editable" contenteditable="true" data-type="name" data-index="${index}" oninput="updateAssignment(${course.id}, ${index}, 'name', this.innerText)">${assignment.name}</td>
-                            <td class="editable" contenteditable="true" data-type="score" data-index="${index}" oninput="updateAssignment(${course.id}, ${index}, 'score', this.innerText)">${assignment.score}</td>
-                            <td class="editable" contenteditable="true" data-type="weight" data-index="${index}" oninput="updateAssignment(${course.id}, ${index}, 'weight', this.innerText)">${assignment.weight}</td>
-                            <td data-type="operations"><button class="delete-assignment" onclick="this.closest('tr').remove(); courses.find(course => course.id === ${courseId}).assignments.splice(${index}, 1); updateCourseStats(${courseId});">Delete</button></td>
-                        </tr>
-                    `).join('');
-                    updateCourseStats(course.id);
-                });
-                updateOverallStats();
+                renderallcoursesandassignments();
+                
+                // Provide user feedback
+                alert('Your gradebook has been loaded successfully!');
             } else {
-                console.error('Invalid data format');
+                throw new Error('Invalid data format: Expected an array of courses');
             }
         } catch (error) {
             console.error('Error parsing JSON:', error);
+            alert('Error loading file: ' + (error.message || 'Invalid file format'));
         }
     };
+    
+    reader.onerror = function() {
+        console.error('Error reading file');
+        alert('Error reading file. Please try again with a different file.');
+    };
+    
     reader.readAsText(file);
 }
 

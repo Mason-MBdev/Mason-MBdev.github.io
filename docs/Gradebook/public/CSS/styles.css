@@ -122,6 +122,31 @@ body.minimal-theme {
     color: var(--text-primary);
 }
 
+/* Low Contrast Theme - Soft and gentle on the eyes */
+body.low-contrast-theme {
+    --body-bg: #1a1a1a;
+    --containercolor: #212121;
+    --nav-bg: #141414;
+    --nav-text: #888888;
+    --title-text: #888888; 
+    --popup-text: #888888; 
+    --popup-heading: #888888; 
+    --popup-label: rgba(136, 136, 136, 0.9);
+    --card-bg: #1e1e1e;
+    --button-primary: #3a4a40;
+    --button-hover: #4a6051;
+    --graph-btn-bg: #242424;
+    --graph-btn-text: #888888;
+    --table-header: #242424;
+    --table-cell: #1e1e1e;
+    --text-primary: #777777;
+    --text-secondary: #555555;
+    --border-color: rgba(255, 255, 255, 0.05);
+    --stats-bg: rgba(255, 255, 255, 0.02);
+    --highlight-bg: rgba(58, 74, 64, 0.15);
+    color: var(--text-primary);
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -349,7 +374,6 @@ h2.title {
     background-color: var(--card-bg);
     width: 100%;
     box-sizing: border-box;
-    max-width: 800px;
     border: 1px solid var(--border-color);
 }
 
@@ -703,21 +727,20 @@ h2.title {
 }
 
 #main-window {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-        "stats stats"
-        "courses courses"
-        "add-course add-course";
-    gap: 30px;
-    padding: 20px 30px;
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 30px auto;
+    padding: 0 5%;
+}
+
+#main-window > * {
+    width: 60%;
 }
 
 #main-window .overall-course-statistics {
-    grid-area: stats;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     margin-bottom: 20px;
 }
 
@@ -905,10 +928,13 @@ h2.title {
 /* mobile styling */
 @media (max-width: 768px) {
     #main-window {
-        display: flex;
         flex-direction: column;
         gap: 30px;
         padding: 20px;
+    }
+    
+    #main-window > * {
+        width: 100%;
     }
 
     h1 {
@@ -929,7 +955,7 @@ h2.title {
         flex-wrap: nowrap;
         gap: 10px;
     }
-    
+
     .nav-title-container {
         flex: 0;
         flex-direction: row;
@@ -1273,11 +1299,6 @@ p {
         overflow-y: auto;
         transition: all 0.3s ease;
     }
-    
-    .course-display {
-        padding-right: 20px;
-        max-width: 800px;
-    }
 }
 
 /* Fix text colors for different themes */
@@ -1347,7 +1368,7 @@ body.minimal-theme .stats-section h3 {
 }
 
 /* Redesigned Course Cards */
-.card {
+    .card {
     border: none;
     border-radius: 10px;
     padding: 15px;
@@ -1356,7 +1377,6 @@ body.minimal-theme .stats-section h3 {
     background-color: var(--card-bg);
     width: 100%;
     box-sizing: border-box;
-    max-width: 800px;
 }
 
 .card h2.title {
@@ -1660,4 +1680,67 @@ body.minimal-theme .stat-value {
     border-radius: 4px;
     width: 0%;
     transition: width 0.5s ease-in-out;
+}
+
+/* Fix text colors specifically for low contrast theme */
+body.low-contrast-theme .assignments-table th,
+body.low-contrast-theme .assignments-table td {
+    color: #777777;
+}
+
+body.low-contrast-theme .stat-label {
+    color: #555555;
+}
+
+body.low-contrast-theme .stat-value {
+    color: #777777;
+}
+
+body.low-contrast-theme .graph-button {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+body.low-contrast-theme .card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body.low-contrast-theme .collapse-arrow {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+body.low-contrast-theme .progress-bar {
+    background: linear-gradient(90deg, #3a4a40 0%, #4a6051 100%);
+}
+
+body.low-contrast-theme .course-progress-bar {
+    background: linear-gradient(90deg, #3a4a40 0%, #4a6051 100%);
+}
+
+body.low-contrast-theme h1,
+body.low-contrast-theme h2,
+body.low-contrast-theme h3,
+body.low-contrast-theme h4,
+body.low-contrast-theme h5,
+body.low-contrast-theme h6 {
+    color: #888888;
+}
+
+body.low-contrast-theme .course-stat-label {
+    color: #555555;
+}
+
+body.low-contrast-theme .course-stat-value {
+    color: #777777;
+}
+
+body.low-contrast-theme .delete-course-button-show, 
+body.low-contrast-theme .delete-course-button,
+body.low-contrast-theme .delete-assignment {
+    background-color: #4d3838;
+}
+
+body.low-contrast-theme .delete-course-button-show:hover, 
+body.low-contrast-theme .delete-course-button:hover,
+body.low-contrast-theme .delete-assignment:hover {
+    background-color: #5a4242;
 }
