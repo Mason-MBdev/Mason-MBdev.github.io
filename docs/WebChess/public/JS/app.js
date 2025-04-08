@@ -65,12 +65,61 @@ document.getElementById('profile-navbtn').addEventListener('click', async functi
                 const matchEntry = document.createElement('div');
                 matchEntry.className = `match-entry ${match.result}`;
                 const date = new Date(match.timestamp);
+                
+                // Create a collapsible section for PGN notation
+                const pgnSection = match.pgn ? `
+                    <div class="pgn-section">
+                        <div class="pgn-buttons">
+                            <button class="pgn-toggle">Show PGN</button>
+                            <button class="pgn-copy">Copy PGN</button>
+                        </div>
+                        <div class="pgn-content" style="display: none;">
+                            <pre>${match.pgn}</pre>
+                        </div>
+                    </div>
+                ` : '';
+                
                 matchEntry.innerHTML = `
                     <div>Result: ${match.result.toUpperCase()}</div>
                     <div>Opponent: ${match.opponent}</div>
                     <div>Date: ${date.toLocaleDateString()}</div>
+                    ${pgnSection}
                 `;
                 matchHistoryList.appendChild(matchEntry);
+                
+                // Add event listener for PGN toggle button if it exists
+                const pgnToggle = matchEntry.querySelector('.pgn-toggle');
+                if (pgnToggle) {
+                    pgnToggle.addEventListener('click', function() {
+                        const pgnContent = this.closest('.pgn-section').querySelector('.pgn-content');
+                        if (pgnContent.style.display === 'none') {
+                            pgnContent.style.display = 'block';
+                            this.textContent = 'Hide PGN';
+                        } else {
+                            pgnContent.style.display = 'none';
+                            this.textContent = 'Show PGN';
+                        }
+                    });
+                }
+                
+                // Add event listener for PGN copy button if it exists
+                const pgnCopy = matchEntry.querySelector('.pgn-copy');
+                if (pgnCopy) {
+                    pgnCopy.addEventListener('click', function() {
+                        navigator.clipboard.writeText(match.pgn)
+                            .then(() => {
+                                const originalText = this.textContent;
+                                this.textContent = 'Copied!';
+                                setTimeout(() => {
+                                    this.textContent = originalText;
+                                }, 2000);
+                            })
+                            .catch(err => {
+                                console.error('Failed to copy PGN: ', err);
+                                alert('Failed to copy PGN to clipboard');
+                            });
+                    });
+                }
             });
         }
     } catch (error) {
@@ -252,6 +301,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         await setDoc(gameRef, {
             moves: [],
+            pgn: '',
             turn: 'w',
             players: { host: hostPassword, hostUsername: username, join: null, joinUsername: null },
             gameOver: false,
@@ -340,6 +390,34 @@ document.addEventListener('DOMContentLoaded', async () => {
                 moves.forEach((move) => game.move(move));
                 board.position(game.fen());
 
+                // Update move list with PGN notation
+                if (moveList) {
+                    moveList.innerHTML = '';
+                    const pgnMoves = game.pgn().split(' ');
+                    
+                    // Create a formatted move list with move numbers
+                    let moveNumber = 1;
+                    let moveText = '';
+                    
+                    for (let i = 0; i < pgnMoves.length; i++) {
+                        if (i % 2 === 0) {
+                            // White's move
+                            moveText += `<div class="move-entry"><span class="move-number">${moveNumber}.</span> <span class="white-move">${pgnMoves[i]}</span>`;
+                        } else {
+                            // Black's move
+                            moveText += ` <span class="black-move">${pgnMoves[i]}</span></div>`;
+                            moveNumber++;
+                        }
+                    }
+                    
+                    // Handle case where there's an odd number of moves (game in progress)
+                    if (pgnMoves.length % 2 === 1) {
+                        moveText += '</div>';
+                    }
+                    
+                    moveList.innerHTML = moveText;
+                }
+
                 const turnDisplay = document.getElementById('turn');
                 if (turnDisplay) {
                     turnDisplay.innerText = data.turn === 'w' ? 'White' : 'Black';
@@ -412,6 +490,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Update the game state
         await updateGameState({
             moves: game.history(),
+            pgn: game.pgn(),
             turn: game.turn(),
             gameOver,
             gameWinner
@@ -445,13 +524,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const totalGames = stats.wins + stats.losses + stats.draws;
                 stats.winRate = totalGames > 0 ? (stats.wins / totalGames) * 100 : 0;
 
-                // Add to match history
+                // Add to match history with PGN notation
                 const matchHistory = userData.matchHistory || [];
                 matchHistory.push({
                     opponent: opponentUsername,
                     result: result,
                     timestamp: Date.now(),
-                    gameId: gameId
+                    gameId: gameId,
+                    pgn: gameData.pgn || ''
                 });
 
                 // Update user document

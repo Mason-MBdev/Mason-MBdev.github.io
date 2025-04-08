@@ -196,8 +196,29 @@ button{
 }
 
 #move-list {
-    display: flex; 
-    flex-direction: row;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.move-entry {
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+.move-number {
+    color: var(--muted-text-color);
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.white-move {
+    color: var(--text-color);
+}
+
+.black-move {
+    color: var(--text-color);
+    margin-left: 5px;
 }
 
 #chat {
@@ -356,6 +377,86 @@ input {
     #chat {
         width: 89.1vw;
     }
+    
+    /* Improved mobile navigation like Gradebook */
+    .nav-element {
+        flex-direction: row;
+        justify-content: space-between;
+        height: auto;
+        padding: 12px 15px;
+        flex-wrap: nowrap;
+        gap: 10px;
+    }
+
+    .nav-title-container {
+        flex: 0;
+        flex-direction: row;
+        gap: 10px;
+        margin-right: auto;
+    }
+    
+    /* Hide the text content of h1 but keep the icon */
+    .nav-title-container h1 {
+        font-size: 0;
+    }
+    
+    .nav-title-container h1 i {
+        font-size: 24px;
+    }
+    
+    .nav-button-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+    
+    .nav-button-container button {
+        width: auto;
+        padding: 6px 10px;
+        font-size: 12px;
+        flex-shrink: 0;
+    }
+    
+    /* Make popups full screen on mobile */
+    .popup,
+    .login-popup,
+    .signup-popup,
+    .profile-popup {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 30px 15px;
+        box-sizing: border-box;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 9999;
+        overflow-y: auto;
+    }
+    
+    .close-popup,
+    #close-login-popup,
+    #close-signup-popup,
+    #close-profile-popup {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+    
+    /* Ensure form elements are properly sized on mobile */
+    .popup input[type="text"],
+    .popup input[type="number"],
+    .popup input[type="email"],
+    .popup input[type="password"] {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .popup-button {
+        width: 100%;
+        margin: 10px 0;
+    }
 }
 
 .stats-container {
@@ -370,8 +471,17 @@ input {
 }
 
 #matchHistoryList {
-    max-height: 200px;
+    max-height: 50vh; /* 50% of viewport height */
     overflow-y: auto;
+    padding-right: 5px;
+    margin-bottom: 15px;
+}
+
+/* Adjust scrolling behavior on mobile */
+@media (max-width: 690px) {
+    #matchHistoryList {
+        max-height: 40vh; /* Slightly smaller on mobile */
+    }
 }
 
 .match-entry {
@@ -390,5 +500,55 @@ input {
 }
 
 .match-entry.draw {
-    border-left: 3px solid #FFC107;
+    border-left: 5px solid var(--muted-text-color);
+}
+
+/* PGN Section Styles */
+.pgn-section {
+    margin-top: 10px;
+}
+
+.pgn-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.pgn-toggle,
+.pgn-copy {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.pgn-toggle:hover,
+.pgn-copy:hover {
+    background-color: rgb(74, 100, 140);
+}
+
+.pgn-content {
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    overflow-x: auto;
+}
+
+.pgn-content pre {
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.profile-popup .match-history {
+    margin-top: 20px;
+    max-height: calc(70vh - 200px); /* Account for other profile elements */
+    overflow-y: auto;
 }
