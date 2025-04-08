@@ -11,7 +11,7 @@
     --text-secondary: #a0a0a0;
     --border-color: #1a1a25;
     --shadow-color: rgba(0, 0, 0, 0.9);
-    --retro-glow: 0 0 10px rgba(20, 157, 198, 0.695);
+    --retro-glow: 0 0 5px rgba(20, 157, 198, 0.60);
     --retro-glow-secondary: 0 0 10px rgba(0, 11, 171, 0.5);
 }
 
@@ -253,7 +253,7 @@ body::-webkit-scrollbar-thumb {
     font-family: 'VT323', monospace;
     letter-spacing: 2px;
     text-shadow: var(--retro-glow);
-    font-size: 30px;
+    font-size: 34px;
 }
 
 .project_container {
@@ -522,7 +522,7 @@ input:-webkit-autofill {
     }
 
     .nav-buttons {
-        gap: 40px;
+        gap: 23px;
         margin: 0px;
     }
 
