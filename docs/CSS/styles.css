@@ -80,8 +80,8 @@ li {
 }
 
 button {
-    background-color: var(--bg-tertiary);
-    padding: 8px 15px;
+    background-color: #252531;
+    padding: 8px 9px;
     color: var(--text-primary);
     font-size: 15px;
     cursor: pointer;
@@ -93,11 +93,11 @@ button {
     border: 1px solid var(--border-color);
     border-radius: 4px;
     box-shadow: 0 2px 5px var(--shadow-color);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 button:hover {
     background-color: var(--accent-secondary);
-    color: var(--bg-primary);
     box-shadow: var(--retro-glow);
 }
 
@@ -126,13 +126,71 @@ button:hover {
     color: #ffffff; 
 }
 
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 60px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-secondary);
+    box-shadow: 0 0 10px var(--shadow-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+nav.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav-mobile {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    height: 57px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-secondary);
+    transition: all 100ms ease;
+    box-shadow: 0 0 10px var(--shadow-color);
+    border-bottom: 1px var(--border-color) solid;
+}
+
+nav-mobile.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.text--header {
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .about-me {
     display: flex;
     flex-direction: row;
     gap: 30px;
-    margin-bottom: 75px;
+    margin-bottom: 100px;
     background-color: var(--bg-secondary);
-    padding: 25px;
+    padding: 17px;
     border-radius: 0 8px 8px 8px;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 8px var(--shadow-color);
@@ -150,9 +208,9 @@ button:hover {
 
 .project-buttons {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    width: 100%;
 }
 
 .nav-buttons {
@@ -166,14 +224,13 @@ button:hover {
 .nav-button {
     font-size: 17px;
     height: 32px;
-    background: var(--bg-tertiary);
+    background: #1e212e;
     letter-spacing: 1px;
     border: 1px solid var(--border-color);
 }
 
 .nav-button:hover {
     background-color: var(--accent-secondary);
-    color: var(--bg-primary);
     transform: none;
     box-shadow: var(--retro-glow-secondary);
 }
@@ -254,9 +311,29 @@ body::-webkit-scrollbar-thumb {
     height: auto;
     min-height: 100vh;
     gap: 20px;
-    max-width: 1000px;
+    max-width: 1125px;
     margin: 0 auto;
-    padding: 75px 20px;
+    padding: 85px 20px;
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    grid-auto-flow: dense;
+    grid-auto-rows: minmax(160px, auto);
+    gap: 30px;
+    align-items: start;
+    justify-items: end;
+    direction: ltr;
+    margin-bottom: 200px;
+}
+
+.project-list > * {
+    direction: ltr;
+}
+
+.project-buttons button {
+    min-width: 115px;
 }
 
 /* Add a container for better centering */
@@ -289,16 +366,16 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     flex-direction: column;
     height: auto;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: flex-start;
     gap: 15px;
-    margin-bottom: 30px;
     padding: 20px;
     background-color: var(--bg-secondary);
     border-radius: 8px;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 8px var(--shadow-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 200px;
 }
 
 /* links section */
@@ -494,6 +571,7 @@ input:-webkit-autofill {
     
     nav {
         display: none;
+        justify-content: space-evenly;
     }
 
     nav-mobile {
@@ -519,6 +597,7 @@ input:-webkit-autofill {
         max-width: 70vw;
         min-width: 67.5vw;
         transition: 0s;
+        max-width: 370px;
     }
 
     .text--purple {
@@ -593,9 +672,9 @@ a:-webkit-any-link {
 }
 
 .title-card {
-    background: var(--bg-tertiary);
-    min-width: 135px;
-    height: 75px;
+    background: #2a2a35;
+    min-width: 90px;
+    height: 70px;
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -617,7 +696,7 @@ a:-webkit-any-link {
     background: var(--bg-tertiary);
     border: 1px solid var(--border-color);
     width: 90px;
-    height: 75px;
+    height: 70px;
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -629,7 +708,6 @@ a:-webkit-any-link {
 
 .skill-card:hover {
     background: var(--accent-secondary);
-    transform: translateY(-1px);
     box-shadow: var(--retro-glow);
 }
 
@@ -658,6 +736,7 @@ a:-webkit-any-link {
 }
 
 .title-card h4 {
+    font-size: 13px;
     text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
 }
 
@@ -707,63 +786,6 @@ a:-webkit-any-link {
 
 .backholder {
     margin-left: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    height: 60px;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--bg-secondary);
-    box-shadow: 0 0 10px var(--shadow-color);
-    border-bottom: 1px solid var(--border-color);
-}
-
-nav.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-nav-mobile {
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-    height: 57px;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    display: none;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--bg-secondary);
-    transition: all 100ms ease;
-    box-shadow: 0 0 10px var(--shadow-color);
-    border-bottom: 1px var(--border-color) solid;
-}
-
-nav-mobile.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-.text--header {
-    color: var(--text-primary);
     display: flex;
     justify-content: center;
     align-items: center;

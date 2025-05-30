@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('professional-btn').addEventListener('click', showProfessional);
     document.getElementById('personal-btn').addEventListener('click', showPersonal);
 
+    document.getElementById('professional-btn').classList.add('active');
+
     function showProfessional(event) {
         event.preventDefault(); // Prevent default action
         const aboutMeText = document.getElementById('about-me-text');
