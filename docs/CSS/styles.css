@@ -2,14 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 :root {
-    --bg-primary: #050507;
+    --bg-primary: #0e070c;
     --bg-secondary: #0a0a0f;
     --bg-tertiary: #0f0f15;
     --accent-primary: #c8ebf6;
     --accent-secondary: #316588;
     --text-primary: #e0e0e0;
     --text-secondary: #bfbfbf;
-    --border-color: #282841;
+    --border-color: #2b2b47;
     --shadow-color: rgba(0, 0, 0, 0.9);
     --retro-glow: 0 0 3px rgba(20, 157, 198, 0.60);
     --retro-glow-secondary: 0 0 10px rgba(0, 11, 171, 0.5);
@@ -105,11 +105,12 @@ button:hover {
     display: flex;
     flex-direction: row;
     gap: 1px;
-    margin-bottom: -20px;
+    margin-top: -20px;
+    margin-bottom: 100px;
 }
 
 #personal-btn, #professional-btn {
-    border-radius: 5px 5px 0 0;
+    border-radius: 0 0 5px 5px;
     color: #ffffff;
     cursor: pointer;
     padding: 5px 15px;
@@ -119,7 +120,7 @@ button:hover {
 }
 
 #personal-btn.active, #professional-btn.active {
-    background-color: #242941;
+    background-color: #212a57;
 }
 
 #personal-btn:not(.active):hover, #professional-btn:not(.active):hover {
@@ -140,7 +141,7 @@ nav {
     align-items: center;
     background-color: var(--bg-secondary);
     box-shadow: 0 0 10px var(--shadow-color);
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
 }
 
 nav.sticky {
@@ -188,10 +189,9 @@ nav-mobile.sticky {
     display: flex;
     flex-direction: row;
     gap: 30px;
-    margin-bottom: 100px;
     background-color: var(--bg-secondary);
     padding: 17px;
-    border-radius: 0 8px 8px 8px;
+    border-radius: 8px 8px 8px 0;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 8px var(--shadow-color);
     width: 100%;
@@ -313,7 +313,7 @@ body::-webkit-scrollbar-thumb {
     gap: 20px;
     max-width: 1125px;
     margin: 0 auto;
-    padding: 85px 20px;
+    padding: 65px 20px;
 }
 
 .project-list {
@@ -346,7 +346,8 @@ body::-webkit-scrollbar-thumb {
 
 .project-title {
     display: flex;
-    padding: 10px;
+    padding: 5px;
+    padding-bottom: 0;
     padding-left: 0;
     flex-direction: column;
     justify-content: flex-start;
@@ -641,12 +642,15 @@ input:-webkit-autofill {
     }
 
     .project_section {
-        padding: 50px;
         max-width: 85%;
     }
 
     .project-buttons {
         justify-content: space-between;
+    }
+
+    .nav-buttons {
+        gap: 45px;
     }
 }
 
@@ -674,7 +678,7 @@ a:-webkit-any-link {
 .title-card {
     background: #2a2a35;
     min-width: 90px;
-    height: 70px;
+    height: 75px;
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -696,7 +700,7 @@ a:-webkit-any-link {
     background: var(--bg-tertiary);
     border: 1px solid var(--border-color);
     width: 90px;
-    height: 70px;
+    height: 75px;
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -707,7 +711,7 @@ a:-webkit-any-link {
 }
 
 .skill-card:hover {
-    background: var(--accent-secondary);
+    background: black;
     box-shadow: var(--retro-glow);
 }
 
@@ -744,21 +748,7 @@ a:-webkit-any-link {
     opacity: 1;
 }
 
-@media (max-width: 1040px) {
-    .project_section {
-        padding: 75px 15px;
-    }
-    
-    .container {
-        padding: 0 15px;
-    }
-}
-
 @media (max-width: 768px) {
-    .project_section {
-        padding: 75px 10px;
-    }
-    
     .container {
         padding: 0 10px;
     }
