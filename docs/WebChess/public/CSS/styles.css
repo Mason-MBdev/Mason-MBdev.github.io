@@ -166,11 +166,9 @@ button{
     flex-direction: column;
     gap: var(--gap-medium);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    height: auto;
     border: 1px rgb(80, 80, 80) solid;
-    max-width: 400px; 
+    max-width: 300px;
 }
-
 .sidebar-title h2 {
     color: var(--accent-color);
     margin: 0;

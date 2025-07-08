@@ -1,6 +1,4 @@
-// -------------------------------
-// ** FIREBASE CONFIG ** 
-// -------------------------------
+// Firebase config ----------------------------------------------------
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
 import { getFirestore, doc, onSnapshot, updateDoc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
@@ -16,7 +14,6 @@ const firebaseConfig = {
     measurementId: "G-HK1HY6M261"
 };
 
-// DOM ELEMENTS
 const loggedOutLinks = document.querySelectorAll('.logged-out');
 const loggedInLinks = document.querySelectorAll('.logged-in');
 let userID = null;
@@ -26,7 +23,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-// Auth management popup listeners ----------------------------------------------------
+// Auth management listeners ----------------------------------------------------
 document.getElementById('login-navbtn').addEventListener('click', function() {
     console.log("Login button clicked");
     const loginPopup = document.querySelector('.login-popup');
@@ -39,12 +36,27 @@ document.getElementById('signup-navbtn').addEventListener('click', function() {
     signupPopup.style.display = 'block';
 });
 
+document.getElementById('close-login-popup').addEventListener('click', function() {
+    const loginPopup = document.querySelector('.login-popup');
+    loginPopup.style.display = 'none';
+});
+
+document.getElementById('close-signup-popup').addEventListener('click', function() {
+    const signupPopup = document.querySelector('.signup-popup');
+    signupPopup.style.display = 'none';
+});
+
+document.getElementById('close-profile-popup').addEventListener('click', function() {
+    const loginPopup = document.querySelector('.profile-popup');
+    loginPopup.style.display = 'none';
+});
+
+// Profile display
 document.getElementById('profile-navbtn').addEventListener('click', async function() {
     const profilePopup = document.querySelector('.profile-popup');
     profilePopup.style.display = 'block';
 
     try {
-        // Fetch and display user stats
         const userRef = doc(db, 'users', auth.currentUser.uid);
         const userDoc = await getDoc(userRef);
         const userData = userDoc.data();
@@ -60,13 +72,12 @@ document.getElementById('profile-navbtn').addEventListener('click', async functi
             const matchHistoryList = document.getElementById('matchHistoryList');
             matchHistoryList.innerHTML = '';
 
-            const recentMatches = userData.matchHistory.slice(-10).reverse(); // Show last 10 matches
+            const recentMatches = userData.matchHistory.slice(-10).reverse();
             recentMatches.forEach(match => {
                 const matchEntry = document.createElement('div');
                 matchEntry.className = `match-entry ${match.result}`;
                 const date = new Date(match.timestamp);
-                
-                // Create a collapsible section for PGN notation
+
                 const pgnSection = match.pgn ? `
                     <div class="pgn-section">
                         <div class="pgn-buttons">
@@ -87,7 +98,6 @@ document.getElementById('profile-navbtn').addEventListener('click', async functi
                 `;
                 matchHistoryList.appendChild(matchEntry);
                 
-                // Add event listener for PGN toggle button if it exists
                 const pgnToggle = matchEntry.querySelector('.pgn-toggle');
                 if (pgnToggle) {
                     pgnToggle.addEventListener('click', function() {
@@ -102,7 +112,6 @@ document.getElementById('profile-navbtn').addEventListener('click', async functi
                     });
                 }
                 
-                // Add event listener for PGN copy button if it exists
                 const pgnCopy = matchEntry.querySelector('.pgn-copy');
                 if (pgnCopy) {
                     pgnCopy.addEventListener('click', function() {
@@ -128,23 +137,8 @@ document.getElementById('profile-navbtn').addEventListener('click', async functi
     }
 });
 
-document.getElementById('close-login-popup').addEventListener('click', function() {
-    const loginPopup = document.querySelector('.login-popup');
-    loginPopup.style.display = 'none';
-});
-
-document.getElementById('close-signup-popup').addEventListener('click', function() {
-    const signupPopup = document.querySelector('.signup-popup');
-    signupPopup.style.display = 'none';
-});
-
-document.getElementById('close-profile-popup').addEventListener('click', function() {
-    const loginPopup = document.querySelector('.profile-popup');
-    loginPopup.style.display = 'none';
-});
-
-// ======================================== ACCOUNT MANAGEMENT ========================================
-// Signup =============================================================================================
+// ACCOUNT MANAGEMENT ========================================
+// Signup ----------------------------------------------------
 const signupForm = document.querySelector('#signup-form');
 signupForm.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -180,7 +174,7 @@ signupForm.addEventListener('submit', async (e) => {
   }
 });
 
-// Login ==============================================================================================
+// Login ----------------------------------------------------
 const loginForm = document.querySelector('#login-form');
 loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -196,7 +190,7 @@ loginForm.addEventListener('submit', (e) => {
 
 });
   
-// Logout =============================================================================================
+// Logout ----------------------------------------------------
 const logout = document.getElementById('signout-navbtn');
 logout.addEventListener('click', (e) => {
   console.log("User Logged Out");
@@ -205,7 +199,7 @@ logout.addEventListener('click', (e) => {
   window.location.reload();
 });
 
-// Login Status ======================================================================================
+// Login Status ----------------------------------------------------
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     console.log(user);
@@ -237,10 +231,7 @@ onAuthStateChanged(auth, async (user) => {
   }
 });
 
-// -------------------------------
-// ** DOM CONTENT INIT ** 
-// -------------------------------
-
+// on page load ======================================================================================
 document.addEventListener('DOMContentLoaded', async () => {
     const game = new Chess();
     console.log(game);
@@ -289,11 +280,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        // Get current user's username
-        const userRef = doc(db, 'users', auth.currentUser.uid);
-        const userDoc = await getDoc(userRef);
-        const userData = userDoc.data();
-        const username = userData.username;
+        let username = "Guest";
+        if (auth.currentUser) {
+            const userRef = doc(db, 'users', auth.currentUser.uid);
+            const userDoc = await getDoc(userRef);
+            const userData = userDoc.data();
+            if (userData && userData.username) {
+                username = userData.username;
+            }
+        }
 
         gameId = Math.random().toString(36).substr(2, 9);
         gameIDElement.innerHTML = gameId;
@@ -343,11 +338,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        // Get current user's username
-        const userRef = doc(db, 'users', auth.currentUser.uid);
-        const userDoc = await getDoc(userRef);
-        const userData = userDoc.data();
-        const username = userData.username;
+        let username = "Guest";
+        if (auth.currentUser) {
+            const userRef = doc(db, 'users', auth.currentUser.uid);
+            const userDoc = await getDoc(userRef);
+            const userData = userDoc.data();
+            if (userData && userData.username) {
+                username = userData.username;
+            }
+        }
 
         gameId = joinId;
         playerColor = 'b';
@@ -410,7 +409,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                         }
                     }
                     
-                    // Handle case where there's an odd number of moves (game in progress)
                     if (pgnMoves.length % 2 === 1) {
                         moveText += '</div>';
                     }
@@ -594,4 +592,25 @@ document.addEventListener('DOMContentLoaded', async () => {
             input.value = '';
         }
     });
+});
+
+function matchSidebarHeightToBoard() {
+    const board = document.getElementById('board');
+    const sidebar = document.getElementById('sidebar');
+    if (board && sidebar) {
+        // Get the rendered height of the board
+        const boardRect = board.getBoundingClientRect();
+        sidebar.style.height = (boardRect.height - 34) + 'px';
+    }
+}
+
+// Call on DOMContentLoaded and after board resize
+window.addEventListener('DOMContentLoaded', () => {
+    matchSidebarHeightToBoard();
+    window.addEventListener('resize', matchSidebarHeightToBoard);
+});
+
+// If the board resizes due to chessboard.js, also call it
+$(window).resize(function() {
+    matchSidebarHeightToBoard();
 });
