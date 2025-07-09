@@ -5,7 +5,7 @@
   --bg-primary: #0c0c0c;
   --bg-secondary: #12121d;
   --bg-tertiary: #161620;
-  --accent-primary: #00d6c8;
+  --accent-primary: #4ab3dd;
   --accent-secondary: #04446e;
   --text-primary: #e8fefc;
   --text-secondary: #a5c3c8;
@@ -211,7 +211,6 @@ nav-mobile.sticky {
     gap: 30px;
     background-color: var(--bg-secondary);
     padding: 17px;
-    border-radius: 8px 8px 8px 0;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 8px var(--shadow-color);
     width: 100%;
@@ -333,7 +332,7 @@ body::-webkit-scrollbar-thumb {
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 65px 50px;
+    padding: 50px 50px;
     border-left: 1px solid rgb(34, 34, 34);
     border-right: 1px solid rgb(34, 34, 34);
 }
@@ -394,7 +393,6 @@ body::-webkit-scrollbar-thumb {
     gap: 15px;
     padding: 20px;
     background-color: var(--bg-secondary);
-    border-radius: 8px;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 8px var(--shadow-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -714,7 +712,6 @@ a:-webkit-any-link {
     background: #2a2a35;
     min-width: 90px;
     height: 75px;
-    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -736,7 +733,6 @@ a:-webkit-any-link {
     border: 1px solid var(--border-color);
     width: 90px;
     height: 75px;
-    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
