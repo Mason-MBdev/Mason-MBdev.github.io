@@ -1,47 +1,23 @@
 :root {
     /* Default Theme - Enhanced contrast */
-    --containercolor: rgb(240, 240, 240);
-    --body-bg: rgb(230, 230, 230);
-    --nav-bg: rgb(44, 44, 56);
-    --nav-text: #ffffff;
-    --title-text: #ffffff; /* High contrast title text for nav bar */
-    --popup-text: #ffffff; /* Text color specifically for popups */
-    --popup-heading: #ffffff; /* Heading color for popups */
-    --popup-label: rgba(255, 255, 255, 0.9); /* Label color for popups */
-    --card-bg: #ffffff;
-    --button-primary: #2a9d50;
-    --button-hover: #39ce6a;
-    --graph-btn-bg: rgb(59, 59, 68);
-    --graph-btn-text: white;
-    --table-header: #e6e6e6;
-    --table-cell: #ffffff;
-    --text-primary: #333333;
-    --text-secondary: #555555;
-    --border-color: rgba(0, 0, 0, 0.1);
-    --stats-bg: rgba(0, 0, 0, 0.05);
-    --highlight-bg: rgba(42, 157, 80, 0.1);
-}
-
-/* Dark Theme - Improved contrast */
-body.dark-theme {
     --body-bg: #121212;
     --containercolor: #1e1e1e;
-    --nav-bg: #000000;
+    --nav-bg: #0e0e0e;
     --nav-text: #ffffff;
     --title-text: #ffffff; /* High contrast title text for nav bar */
     --popup-text: #ffffff; /* Text color specifically for popups */
     --popup-heading: #ffffff; /* Heading color for popups */
     --popup-label: rgba(255, 255, 255, 0.9); /* Label color for popups */
-    --card-bg: #2d2d2d;
-    --button-primary: #4ade80;
-    --button-hover: #22c55e;
+    --card-bg: #252525;
+    --button-primary: #00481a;
+    --button-hover: #007b2d;
     --graph-btn-bg: #2d2d30;
     --graph-btn-text: #ffffff;
     --table-header: #3a3a3c;
     --table-cell: #2d2d2d;
     --text-primary: #ffffff;
     --text-secondary: #b0b0b0;
-    --border-color: rgba(255, 255, 255, 0.1);
+    --border-color: rgba(255, 255, 255, 0.192);
     --stats-bg: rgba(255, 255, 255, 0.07);
     --highlight-bg: rgba(74, 222, 128, 0.1);
     color: var(--text-primary);
@@ -53,7 +29,7 @@ body.oceanic-theme {
     --containercolor: #f0f9ff;
     --nav-bg: #075985;
     --nav-text: #ffffff;
-    --title-text: #ffffff; /* High contrast title text for nav bar */
+    --title-text: #000000; /* High contrast title text for nav bar */
     --popup-text: #ffffff; /* Text color specifically for popups */
     --popup-heading: #ffffff; /* Heading color for popups */
     --popup-label: rgba(255, 255, 255, 0.9); /* Label color for popups */
@@ -78,7 +54,7 @@ body.warm-theme {
     --containercolor: #fef3c7;
     --nav-bg: #7c2d12;
     --nav-text: #ffffff;
-    --title-text: #ffffff; /* High contrast title text for nav bar */
+    --title-text: #000000; /* High contrast title text for nav bar */
     --popup-text: #ffffff; /* Text color specifically for popups */
     --popup-heading: #ffffff; /* Heading color for popups */
     --popup-label: rgba(255, 255, 255, 0.9); /* Label color for popups */
@@ -175,7 +151,6 @@ p {
 .graph-button {
     background-color: var(--graph-btn-bg);
     color: var(--graph-btn-text);
-    border: none;
     padding: 10px 16px;
     border-radius: 6px;
     cursor: pointer;
@@ -261,7 +236,6 @@ p {
     margin: 0;
 }
 
-
 .nav-element {
     position: sticky;
     top: 0;
@@ -312,14 +286,6 @@ p {
     text-align: center;
     background-color: var(--table-cell);
 }
-.add-assignment {
-    background-color: var(--button-primary);
-    cursor: pointer;
-}
-
-.add-assignment:hover {
-    background-color: var(--button-hover);
-}
 
 input, button {
     padding: 8px;
@@ -365,18 +331,6 @@ h2.title {
     margin-bottom: 6px;
 }
 
-.card {
-    border: none;
-    border-radius: 12px;
-    padding: 18px;
-    margin-bottom: 24px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    background-color: var(--card-bg);
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid var(--border-color);
-}
-
 .card h2.title {
     font-size: 20px;
     font-weight: bold;
@@ -392,11 +346,9 @@ h2.title {
 .course-stats-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
     margin-bottom: 16px;
     background-color: var(--stats-bg);
     padding: 16px;
-    border-radius: 8px;
     border: 1px solid var(--border-color);
 }
 
@@ -492,20 +444,6 @@ h2.title {
     background-color: var(--button-hover);
     transform: translateY(-1px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-}
-
-.delete-course-button-show, .delete-course-button {
-    background-color: #ec8888;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 15px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.delete-course-button-show:hover, .delete-course-button:hover {
-    background-color: #f4bcbc;
 }
 
 .delete-assignment {
@@ -622,8 +560,6 @@ h2.title {
     padding: 24px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
-    width: 100%;
     box-sizing: border-box;
 }
 
@@ -734,14 +670,18 @@ h2.title {
     align-items: flex-start;
     margin: 30px auto;
     padding: 0 5%;
+    gap: 45px; 
 }
 
-#main-window > * {
+#main-window > .overall-course-statistics {
+    width: 40%;
+}
+#main-window > .course-display-container {
     width: 60%;
 }
 
-#main-window .overall-course-statistics {
-    margin-bottom: 20px;
+#main-window > * {
+    width: unset;
 }
 
 .course-display {
@@ -753,7 +693,6 @@ h2.title {
 
 .replica-course-container {
     border: none;
-    border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     justify-content: center;
     justify-items: center;
@@ -762,11 +701,9 @@ h2.title {
     background-color: var(--card-bg);
     width: 100%;
     box-sizing: border-box;
-    height: 161px;
-}
-
-.add-course-button {
-    background-color: #57e486;
+    height: 167px;
+    border: 1px solid var(--border-color);
+    padding: 10px;
 }
 
 .course-statistics {
@@ -793,7 +730,7 @@ h2.title {
 }
 
 .delete-assignment:hover {
-    background-color: #f4bcbc;
+    background-color: #b50000;
 }
 
 .popup {
@@ -1082,29 +1019,16 @@ h2.title {
         padding: 8px 5px;
         font-size: 12px;
     }
-}
 
-.theme-selector {
-    margin-right: 15px;
-}
+    #main-window > .overall-course-statistics {
+        width: 100%;
+        max-width: none;
+    }
+    #main-window > .course-display-container {
+        width: 100%;
 
-.theme-selector select {
-    background-color: var(--nav-bg);
-    color: var(--nav-text);
-    border: 1px solid var(--nav-text);
-    border-radius: 5px;
-    padding: 5px;
-    font-size: 13px;
-    cursor: pointer;
-}
-
-.theme-selector select:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.theme-selector select option {
-    background-color: var(--nav-bg);
-    color: var(--nav-text);
+        max-width: none;
+    }
 }
 
 .settings-popup {
@@ -1310,83 +1234,16 @@ p {
 /* Desktop layout - side by side for larger screens */
 @media (min-width: 1200px) {
     #main-window {
-        grid-template-columns: minmax(380px, 40%) 1fr;
-        grid-template-areas: 
-            "stats courses"
-            "stats add-course";
+        display: flex;
+        flex-direction: row;
         gap: 40px;
     }
-    
-    #main-window .overall-course-statistics {
-        margin-bottom: 0;
-        position: sticky;
-        top: 70px;
-        align-self: start;
-        max-height: calc(100vh - 100px);
-        overflow-y: auto;
-        transition: all 0.3s ease;
+    #main-window > .overall-course-statistics {
+        max-width: none;
     }
-}
-
-/* Fix text colors for different themes */
-/* Dark theme text fixes - ensure all text is light on dark background */
-body.dark-theme {
-    color: #e1e1e1;
-}
-
-body.dark-theme .course-statistics p,
-body.dark-theme .card .collapsed-view,
-body.dark-theme h2,
-body.dark-theme .course-statistics h2,
-body.dark-theme .assignments-table td,
-body.dark-theme .assignments-table th,
-body.dark-theme .stat-value,
-body.dark-theme .stat-label,
-body.dark-theme .editable {
-    color: #e1e1e1;
-}
-
-body.dark-theme .card .grades p,
-body.dark-theme .card .grades p strong {
-    color: #e1e1e1;
-}
-
-body.dark-theme #graph-title,
-body.dark-theme .stats-section h3 {
-    color: #e1e1e1;
-}
-
-/* Minimal (light) theme text fixes - ensure all text is dark on light background */
-body.minimal-theme {
-    color: #111827;
-}
-
-body.minimal-theme .course-statistics p,
-body.minimal-theme .card .collapsed-view,
-body.minimal-theme h2,
-body.minimal-theme .course-statistics h2,
-body.minimal-theme .assignments-table td,
-body.minimal-theme .assignments-table th,
-body.minimal-theme .editable {
-    color: #111827;
-}
-
-body.minimal-theme .stat-value {
-    color: #111827;
-}
-
-body.minimal-theme .stat-label {
-    color: #4b5563;
-}
-
-body.minimal-theme .card .grades p,
-body.minimal-theme .card .grades p strong {
-    color: #111827;
-}
-
-body.minimal-theme #graph-title,
-body.minimal-theme .stats-section h3 {
-    color: #111827;
+    #main-window > .course-display-container {
+        max-width: none;
+    }
 }
 
 /* Make sure inputs and editable content have proper contrast */
@@ -1395,15 +1252,15 @@ body.minimal-theme .stats-section h3 {
 }
 
 /* Redesigned Course Cards */
-    .card {
+.card {
     border: none;
-    border-radius: 10px;
     padding: 15px;
     margin-bottom: 20px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
     background-color: var(--card-bg);
     width: 100%;
     box-sizing: border-box;
+    border: 1px solid var(--border-color);
 }
 
 .card h2.title {
@@ -1416,21 +1273,6 @@ body.minimal-theme .stats-section h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.course-stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 15px;
-    margin-bottom: 15px;
-    background-color: rgba(0, 0, 0, 0.03);
-    padding: 12px;
-    border-radius: 8px;
-}
-
-.course-stat-item {
-    display: flex;
-    flex-direction: column;
 }
 
 .course-stat-label {
@@ -1485,7 +1327,7 @@ body.minimal-theme .stats-section h3 {
 }
 
 .assignments-table td {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     background-color: var(--table-cell);
 }
 
@@ -1506,7 +1348,6 @@ body.minimal-theme .stats-section h3 {
     cursor: pointer;
     font-weight: normal;
     padding: 8px 15px;
-    border-radius: 5px;
     border: none;
     transition: background-color 0.2s;
 }
@@ -1516,7 +1357,7 @@ body.minimal-theme .stats-section h3 {
 }
 
 .delete-course-button-show, .delete-course-button {
-    background-color: #ec8888;
+    background-color: #a60000;
     color: white;
     border: none;
     border-radius: 5px;
@@ -1526,13 +1367,13 @@ body.minimal-theme .stats-section h3 {
 }
 
 .delete-course-button-show:hover, .delete-course-button:hover {
-    background-color: #f4bcbc;
+    background-color: #ff0000;
 }
 
 .delete-assignment {
     padding: 5px 8px;
     border-radius: 4px;
-    background-color: #ec8888;
+    background-color: #c20000;
     border: none;
     color: white;
 }
@@ -1577,96 +1418,10 @@ body.minimal-theme .stats-section h3 {
     color: inherit;
 }
 
-/* Fix for table text colors */
-body.dark-theme .assignments-table th {
-    color: #e1e1e1;
-}
-
-body.dark-theme .assignments-table td {
-    color: #e1e1e1;
-}
-
-body.oceanic-theme .assignments-table th,
-body.oceanic-theme .assignments-table td {
-    color: #0c4a6e;
-}
-
-body.warm-theme .assignments-table th,
-body.warm-theme .assignments-table td {
-    color: #92400e;
-}
-
-body.minimal-theme .assignments-table th,
-body.minimal-theme .assignments-table td {
-    color: #111827;
-}
-
 /* Assignment display */
 .card .assignments {
     display: block;
     margin-bottom: 25px;
-}
-
-/* Theme-specific styling for stats sections */
-body.dark-theme .stats-section {
-    background-color: rgba(255, 255, 255, 0.05);
-}
-
-body.dark-theme .stat-label {
-    color: #a0a0a0;
-}
-
-body.dark-theme .stat-value {
-    color: #ffffff;
-}
-
-body.oceanic-theme .stats-section {
-    background-color: rgba(12, 74, 110, 0.05);
-}
-
-body.oceanic-theme .stat-label {
-    color: #0c4a6e;
-}
-
-body.oceanic-theme .stat-value {
-    color: #0c4a6e;
-}
-
-body.warm-theme .stats-section {
-    background-color: rgba(146, 64, 14, 0.05);
-}
-
-body.warm-theme .stat-label {
-    color: #92400e;
-}
-
-body.warm-theme .stat-value {
-    color: #92400e;
-}
-
-body.minimal-theme .stats-section {
-    background-color: rgba(0, 0, 0, 0.03);
-}
-
-body.minimal-theme .stat-label {
-    color: #4b5563;
-}
-
-body.minimal-theme .stat-value {
-    color: #111827;
-}
-
-/* Default theme styling for stats */
-.stats-section {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-.stat-label {
-    color: #555;
-}
-
-.stat-value {
-    color: #333;
 }
 
 /* Improved graph button styling */
@@ -1680,7 +1435,7 @@ body.minimal-theme .stat-value {
 .graph-button {
     background-color: var(--graph-btn-bg);
     color: var(--graph-btn-text);
-    border: none;
+    border: 1px var(--border-color) solid;
     padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
@@ -1709,65 +1464,22 @@ body.minimal-theme .stat-value {
     transition: width 0.5s ease-in-out;
 }
 
-/* Fix text colors specifically for low contrast theme */
-body.low-contrast-theme .assignments-table th,
-body.low-contrast-theme .assignments-table td {
-    color: #777777;
-}
-
-body.low-contrast-theme .stat-label {
-    color: #555555;
-}
-
-body.low-contrast-theme .stat-value {
-    color: #777777;
-}
-
-body.low-contrast-theme .graph-button {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-}
-
-body.low-contrast-theme .card {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-body.low-contrast-theme .collapse-arrow {
-    background-color: rgba(255, 255, 255, 0.03);
-}
-
-body.low-contrast-theme .progress-bar {
-    background: linear-gradient(90deg, #3a4a40 0%, #4a6051 100%);
-}
-
-body.low-contrast-theme .course-progress-bar {
-    background: linear-gradient(90deg, #3a4a40 0%, #4a6051 100%);
-}
-
-body.low-contrast-theme h1,
-body.low-contrast-theme h2,
-body.low-contrast-theme h3,
-body.low-contrast-theme h4,
-body.low-contrast-theme h5,
-body.low-contrast-theme h6 {
-    color: #888888;
-}
-
-body.low-contrast-theme .course-stat-label {
-    color: #555555;
-}
-
-body.low-contrast-theme .course-stat-value {
-    color: #777777;
-}
-
-body.low-contrast-theme .delete-course-button-show, 
-body.low-contrast-theme .delete-course-button,
-body.low-contrast-theme .delete-assignment {
-    background-color: #4d3838;
-}
-
-body.low-contrast-theme .delete-course-button-show:hover, 
-body.low-contrast-theme .delete-course-button:hover,
-body.low-contrast-theme .delete-assignment:hover {
-    background-color: #5a4242;
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(16, 16, 16, 0.01) 0px,
+    rgba(225, 255, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  opacity: 1;
+  pointer-events: none;
+  z-index: -1; 
+  animation: scan-shift 2.5s linear infinite, flicker 1.5s ease-in-out infinite;
 }

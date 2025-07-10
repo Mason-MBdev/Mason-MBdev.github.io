@@ -15,6 +15,26 @@
     --button-color: rgb(171, 171, 214);
 }
 
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(16, 16, 16, 0.01) 0px,
+    rgba(225, 255, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  opacity: 1;
+  pointer-events: none;
+  z-index: -1; 
+  animation: scan-shift 2.5s linear infinite, flicker 1.5s ease-in-out infinite;
+}
+
 h1 {
     margin: 0;
     font-size: 1.5rem;
@@ -170,7 +190,7 @@ button{
     max-width: 300px;
 }
 .sidebar-title h2 {
-    color: var(--accent-color);
+    color: var(--accent-color); 
     margin: 0;
     font-size: 1.5rem;
 }
@@ -294,6 +314,16 @@ button{
     border-bottom: 1px rgb(80, 80, 80) solid;
     height: 57px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+}
+
+/* Add spacing below the fixed nav bar */
+body {
+    padding-top: 57px;
 }
 
 .nav-button-container {
@@ -302,8 +332,8 @@ button{
     background-color: rgb(44, 44, 56);
     color: white;
     font-size: 10px;
-    margin: 0;
-    align-items: center;
+    margin-right: 40px;
+    justify-items: center;
 }
 
 .nav-button-container button {
@@ -338,7 +368,6 @@ input {
     background-color: white;
     margin-bottom: var(--gap-small);
     color: black;
-
 }
 
 .highlight-legal {
