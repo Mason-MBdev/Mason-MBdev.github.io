@@ -5,7 +5,7 @@
   --bg-primary: #0c0c0c;
   --bg-secondary: #12121d;
   --bg-tertiary: #161620;
-  --accent-primary: #4ab3dd;
+  --accent-primary: #9de3ff;
   --accent-secondary: #04446e;
   --text-primary: #e8fefc;
   --text-secondary: #a5c3c8;
@@ -48,8 +48,8 @@ body::after {
   height: 100vh;
   background-image: repeating-linear-gradient(
     45deg,
-    rgba(16, 16, 16, 0.01) 0px,
-    rgba(225, 255, 255, 0.04) 1px,
+    rgba(16, 16, 16, 0.5) 0px,
+    rgba(225, 255, 255, 0.091) 1px,
     transparent 1px,
     transparent 4px
   );

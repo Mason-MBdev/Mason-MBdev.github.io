@@ -20,8 +20,6 @@
 </script>
 
 <body>
-
-    <!-- Nav, contains title and meta operation buttons -->
     <div class="nav-element">
         <div class="nav-title-container">
             <h1> <i class="fa-solid fa-book"></i> Gradebook </h1>
@@ -34,17 +32,9 @@
             <button id="signup-navbtn" class="logged-out">Sign up&nbsp;&nbsp;&nbsp;<i class="fa fa-user-plus"></i></button>
             <button id="signout-navbtn" class="logged-in" style="display: none;">Sign out&nbsp;&nbsp;&nbsp;<i class="fa fa-sign-out"></i></button>
         </div>
-
-        <div class="nav-button-container">
-            <!-- <button id="save-navbtn" title="Save all data to downloads folder">Save&nbsp;&nbsp;&nbsp;<i class="fa fa-save"></i></button> -->
-            <!-- <button id="load-navbtn" title="Load data from a previous save file">Load&nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i></button> -->
-        </div>
     </div>
 
-    <!-- Main window for all user flow -->
     <div id="main-window">
-
-        <!-- Overall course stats, contains different views, graphs, and stats -->
         <div class="overall-course-statistics">
             <div class="collapse-container">
                 <h2 class="title" contenteditable="true" data-type="title" data-id="overall-statistics-title">Overall Course Stats</h2>
@@ -60,7 +50,6 @@
 
             <!-- expanded view -->
             <div class="overall-statistics-content">
-                <!-- Primary Stats Section -->
                 <div class="stats-section">
                     <h3>Summary</h3>
                     <div class="stats-grid">
@@ -83,7 +72,6 @@
                     </div>
                 </div>
 
-                <!-- Performance Section -->
                 <div class="stats-section">
                     <h3>Performance</h3>
                     <div class="stats-grid">
@@ -98,7 +86,6 @@
                     </div>
                 </div>
 
-                <!-- Graph Section -->
                 <div class="stats-section">
                     <h3>Visual Analysis</h3>
                     <div id="graph-button-box" class="graph-button-box">
@@ -109,7 +96,6 @@
                     <div class="graphbox"></div>
                 </div>
                 
-                <!-- Progress Section - Moved under graph -->
                 <div class="stats-section">
                     <h3>Progress</h3>
                     <div class="progress-bar-container">
@@ -129,19 +115,14 @@
             </div>
         </div>
             <div class="course-display-container">
-            <!-- container for all course elements -->
             <div class="course-display"></div>
-
-            <!-- container for add-course button -->
             <div class="replica-course-container">
-                <h1>- Welcome to Gradebook -</h1>
-                <p style="text-align: center;">Use the button below to begin tracking assignments. Then expand the stats panel for more details.</p>
+                <p style="text-align: center;">Add a course to begin tracking assignments. Expand the stats panel for more details.</p>
                 <button class="add-assignment" id="add-course-btn" class="add-course-btn">Add Course +</button>
             </div>
         </div>
     </div>
 
-    <!-- popup for login / signup -->
     <div class="popup login-popup">
         <span id="close-login-popup" class="close-popup">&times;</span>
         <h2>Log in</h2><br/>
@@ -170,7 +151,6 @@
         </form>
     </div>
 
-    <!-- Settings Popup -->
     <div class="popup settings-popup">
         <span id="close-settings-popup" class="close-popup">&times;</span>
         <h2>Settings</h2>

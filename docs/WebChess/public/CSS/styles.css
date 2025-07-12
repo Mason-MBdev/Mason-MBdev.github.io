@@ -1,7 +1,7 @@
 :root {
-    --main-bg-color: rgb(40, 33, 33);
-    --board-bg-color: rgb(57, 57, 66);
-    --sidebar-bg-color: rgb(57, 57, 66);
+    --main-bg-color: #161616;
+    --board-bg-color: rgb(44, 44, 53);
+    --sidebar-bg-color: rgb(44, 44, 53);
     --accent-color: rgb(94, 130, 180);
     --text-color: rgb(255, 255, 255);
     --muted-text-color: rgb(150, 150, 150);
@@ -24,8 +24,8 @@ body::after {
   height: 100vh;
   background-image: repeating-linear-gradient(
     45deg,
-    rgba(16, 16, 16, 0.01) 0px,
-    rgba(225, 255, 255, 0.04) 1px,
+    rgba(16, 16, 16, 0.5) 0px,
+    rgba(225, 255, 255, 0.091) 1px,
     transparent 1px,
     transparent 4px
   );
@@ -128,10 +128,17 @@ body {
     height: 80vh;
 }
 
-button{
+button, .nav-button-container button, #host-send, #join-send {
+    -webkit-tap-highlight-color: transparent; /* Remove iOS blue tap highlight */
+    outline: none; /* Remove default focus outline */
+    box-shadow: none; /* Remove any box-shadow on focus */
+    user-select: none; /* Prevent text selection on tap */
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
     background-color: var(--button-color);
     max-width: 387.2px;
-    width: 90px;
+    width: 130px;
+    height: 30px;
 }
 
 .nav-title-container {

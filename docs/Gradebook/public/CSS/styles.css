@@ -2,7 +2,7 @@
     /* Default Theme - Enhanced contrast */
     --body-bg: #121212;
     --containercolor: #1e1e1e;
-    --nav-bg: #0e0e0e;
+    --nav-bg: #1e1e1e;
     --nav-text: #ffffff;
     --title-text: #ffffff; /* High contrast title text for nav bar */
     --popup-text: #ffffff; /* Text color specifically for popups */
@@ -244,7 +244,7 @@ p {
     justify-content: space-between;
     background-color: var(--nav-bg);
     padding: 0px 24px;
-    border-bottom: 1px solid rgb(139, 139, 139);
+    border-bottom: 1px solid var(--border-color);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
     gap: 20px;
     z-index: 100;
@@ -1473,8 +1473,8 @@ body::after {
   height: 100vh;
   background-image: repeating-linear-gradient(
     45deg,
-    rgba(16, 16, 16, 0.01) 0px,
-    rgba(225, 255, 255, 0.04) 1px,
+    rgba(16, 16, 16, 0.5) 0px,
+    rgba(225, 255, 255, 0.091) 1px,
     transparent 1px,
     transparent 4px
   );
