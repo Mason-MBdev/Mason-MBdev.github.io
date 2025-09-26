@@ -117,6 +117,12 @@ function createCourseCard(courseId, courseTitle = "New Course") {
 function graphSetup() {
     const graphContainer = document.querySelector('.graphbox');
 
+    // Remove any existing canvas
+    const oldCanvas = document.getElementById('chart');
+    if (oldCanvas) {
+        oldCanvas.remove();
+    }
+
     // canvas for graph
     const canvas = document.createElement('canvas');
     canvas.id = 'chart';
@@ -126,13 +132,11 @@ function graphSetup() {
     const setCanvasDimensions = () => {
         const isMobile = window.innerWidth <= 768;
         if (isMobile) {
-            // Set physical canvas dimensions for mobile - larger size
             canvas.width = canvas.offsetWidth;
             canvas.height = 300; // Fixed height for mobile
             canvas.style.height = '300px';
             canvas.style.width = '100%';
         } else {
-            // Desktop dimensions with aspect ratio
             canvas.width = canvas.offsetWidth;
             canvas.height = canvas.offsetWidth * (9/16); // 16:9 aspect ratio
         }
@@ -142,112 +146,13 @@ function graphSetup() {
     setCanvasDimensions();
 
     // Buttons for different graph views
-    const overallGradeButton = document.getElementById('graph-grades-button');
-    const assignmentWeightButton = document.getElementById('graph-weight-button');
-    const courseCompletionButton = document.getElementById('graph-completion-button');
-
-    // Initialize Chart.js
-    const ctx = canvas.getContext('2d');
-    let myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: [], // Course names
-            datasets: [{
-                label: '',
-                data: [],
-                backgroundColor: [],
-                borderColor: [],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: window.innerWidth > 768, // Don't maintain aspect ratio on mobile
-            scales: {
-                x: {
-                    beginAtZero: true
-                },
-                y: {
-                    beginAtZero: true,
-                    max: 100
-                }
-            }
-        }
-    });
+    // (No chart initialization here)
+    // Chart will be created by createChart
 
     // Handle resize events to adjust chart dimensions
     window.addEventListener('resize', () => {
         setCanvasDimensions();
-        myChart.resize();
     });
-
-    // Event listener for 'Show Overall Grades'
-    overallGradeButton.addEventListener('click', () => {
-        const courseNames = courses.map(course => course.title);
-        const overallGrades = courses.map(course => {
-            // Use the same weighted calculation as updateOverallStats
-            let courseCompletedWeight = 0;
-            let courseWeightedScore = 0;
-            
-            course.assignments.forEach(assignment => {
-                const score = parseFloat(assignment.score) || 0;
-                const weight = parseFloat(assignment.weight) || 0;
-                
-                if (score > 0) {
-                    courseCompletedWeight += weight;
-                    courseWeightedScore += score * weight;
-                }
-            });
-            
-            // Calculate course grade using the weighted method
-            const courseGrade = courseCompletedWeight > 0 ? 
-                (courseWeightedScore / courseCompletedWeight) : 0;
-                
-            return courseGrade;
-        });
-        updateGraph(overallGrades, courseNames, 'Overall Course Grade');
-    });
-
-    // Event listener for 'Show Assignment Weights'
-    assignmentWeightButton.addEventListener('click', () => {
-        const courseNames = courses.map(course => course.title);
-        const decidedWeights = courses.map(course => {
-            const totalWeight = course.assignments.reduce((sum, a) => sum + (parseFloat(a.weight) || 0), 0);
-            return totalWeight || 0;
-        });
-        updateGraph(decidedWeights, courseNames, 'Completed Assignment Weight');
-    });
-
-    // Event listener for 'Show Course Completion'
-    courseCompletionButton.addEventListener('click', () => {
-        const courseNames = courses.map(course => course.title);
-        const completion = courses.map(course => {
-            const completedAssignments = course.assignments.filter(a => a.score !== '').length;
-            const totalAssignments = course.assignments.length;
-            return totalAssignments === 0 ? 0 : (completedAssignments / totalAssignments) * 100;
-        });
-        updateGraph(completion, courseNames, 'Course Assignment Completion');
-    });
-
-    // Function to update the graph with new data
-    function updateGraph(data, labels, labelText) {
-        // Truncate long labels, especially for mobile
-        const truncatedLabels = labels.map(label => {
-            const maxLength = window.innerWidth < 768 ? 8 : 15; // shorter on mobile
-            return label.length > maxLength ? label.substring(0, maxLength) + '...' : label;
-        });
-        
-        myChart.data.datasets[0].data = data;
-        myChart.data.labels = truncatedLabels;
-        myChart.data.datasets[0].label = labelText;
-
-        // Update bar colors based on the grade value (green for higher grades, red for lower)
-        myChart.data.datasets[0].backgroundColor = data.map(value => getColorForGrade(value));
-        myChart.update();
-    }
-
-    // Click on the "Grade" button to show the initial graph
-    overallGradeButton.click();
 }
 
 function renderallcoursesandassignments () {
@@ -887,44 +792,68 @@ function updateTimeRemaining() {
 
 // Function to create charts with proper sizing for mobile
 function createChart(chartType) {
-    // Clear previous chart
-    if (myChart) {
-        myChart.destroy();
-    }
-
     const canvas = document.getElementById('chart');
     const ctx = canvas.getContext('2d');
     
     // Set proper dimensions based on device size
     const isMobile = window.innerWidth <= 768;
-    
     if (isMobile) {
-        // Set physical canvas dimensions for mobile
         canvas.width = canvas.offsetWidth;
         canvas.height = 300;
     } else {
-        // Maintain aspect ratio for desktop
         canvas.width = canvas.offsetWidth;
         canvas.height = canvas.offsetWidth * (9/16); // 16:9 aspect ratio
     }
-    
-    // Chart data setup
-    // ... existing chart code ...
-    
-    // Create appropriate chart type
-    if (chartType === 'bar') {
-        // ... existing bar chart code ...
-    } else if (chartType === 'line') {
-        // ... existing line chart code ...
-    } else if (chartType === 'pie') {
-        // ... existing pie chart code ...
+
+    // Gather data for the bar chart (overall grades per course)
+    const courseNames = courses.map(course => course.title);
+    const overallGrades = courses.map(course => {
+        let courseCompletedWeight = 0;
+        let courseWeightedScore = 0;
+        course.assignments.forEach(assignment => {
+            const score = parseFloat(assignment.score) || 0;
+            const weight = parseFloat(assignment.weight) || 0;
+            if (score > 0) {
+                courseCompletedWeight += weight;
+                courseWeightedScore += score * weight;
+            }
+        });
+        return courseCompletedWeight > 0 ? (courseWeightedScore / courseCompletedWeight) : 0;
+    });
+
+    // Truncate long labels for mobile
+    const truncatedLabels = courseNames.map(label => {
+        const maxLength = window.innerWidth < 768 ? 8 : 15;
+        return label.length > maxLength ? label.substring(0, maxLength) + '...' : label;
+    });
+
+    // Destroy previous chart instance if it exists
+    if (window.myChart) {
+        window.myChart.destroy();
     }
-    
-    // Add responsiveness but control dimensions
-    myChart.options.responsive = true;
-    myChart.options.maintainAspectRatio = !isMobile; // Don't maintain aspect ratio on mobile
-    
-    myChart.update();
+
+    // Create a new bar chart
+    window.myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: truncatedLabels,
+            datasets: [{
+                label: 'Overall Course Grade',
+                data: overallGrades,
+                backgroundColor: overallGrades.map(value => getColorForGrade(value)),
+                borderColor: 'rgba(0,0,0,0.1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: !isMobile,
+            scales: {
+                x: { beginAtZero: true },
+                y: { beginAtZero: true, max: 100 }
+            }
+        }
+    });
 }
 
 // Update chart creation function with new sizing for mobile
@@ -938,8 +867,8 @@ document.querySelectorAll('.graph-button').forEach(button => {
 
 // When window is resized, recreate chart with proper dimensions
 window.addEventListener('resize', function() {
-    if (myChart) {
-        const currentType = myChart.config.type;
+    if (window.myChart) {
+        const currentType = window.myChart.config.type;
         createChart(currentType);
     }
 });
