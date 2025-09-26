@@ -1,20 +1,20 @@
 :root {
     /* Default Theme - Enhanced contrast */
-    --body-bg: #121212;
+    --body-bg: #080808;
     --containercolor: #1e1e1e;
-    --nav-bg: #1e1e1e;
+    --nav-bg: #130b0b;
     --nav-text: #ffffff;
     --title-text: #ffffff; /* High contrast title text for nav bar */
     --popup-text: #ffffff; /* Text color specifically for popups */
     --popup-heading: #ffffff; /* Heading color for popups */
     --popup-label: rgba(255, 255, 255, 0.9); /* Label color for popups */
-    --card-bg: #252525;
+    --card-bg: #131212;
     --button-primary: #00481a;
     --button-hover: #007b2d;
     --graph-btn-bg: #2d2d30;
     --graph-btn-text: #ffffff;
-    --table-header: #3a3a3c;
-    --table-cell: #2d2d2d;
+    --table-header: #222223;
+    --table-cell: #1f1f1f;
     --text-primary: #ffffff;
     --text-secondary: #b0b0b0;
     --border-color: rgba(255, 255, 255, 0.192);
@@ -92,7 +92,7 @@ body.minimal-theme {
     --table-cell: #ffffff;
     --text-primary: #1e293b;
     --text-secondary: #475569;
-    --border-color: rgba(30, 41, 59, 0.1);
+    --border-color: #3d3d3d;
     --stats-bg: rgba(30, 41, 59, 0.03);
     --highlight-bg: rgba(71, 85, 105, 0.1);
     color: var(--text-primary);
@@ -1473,13 +1473,13 @@ body::after {
   height: 100vh;
   background-image: repeating-linear-gradient(
     45deg,
-    rgba(16, 16, 16, 0.5) 0px,
-    rgba(225, 255, 255, 0.091) 1px,
+    rgba(0, 0, 0, 0.5) 0px,
+    rgba(58, 98, 150, 0.11) 1px,
     transparent 1px,
     transparent 4px
   );
   opacity: 1;
   pointer-events: none;
-  z-index: -1; 
+  z-index: -1; /* <-- ensure it’s behind everything */
   animation: scan-shift 2.5s linear infinite, flicker 1.5s ease-in-out infinite;
 }

@@ -1,17 +1,17 @@
 :root {
-    --main-bg-color: #161616;
-    --board-bg-color: rgb(44, 44, 53);
-    --sidebar-bg-color: rgb(44, 44, 53);
+    --main-bg-color: #080808;
+    --board-bg-color: #1c1515;
+    --sidebar-bg-color: #120f0f;
     --accent-color: rgb(94, 130, 180);
-    --text-color: rgb(255, 255, 255);
+    --text-color: rgb(185, 203, 226);
     --muted-text-color: rgb(150, 150, 150);
-    --border-color: rgb(100, 100, 100);
+    --border-color: 3d3d3d;
     --gap-small: 0.5rem;
     --gap-medium: 1rem;
     --gap-large: 2rem;
     --font-size-base: 1rem;
     --border-radius: 0.5rem;
-    --nav-bg-color: rgb(44, 44, 56);
+    --nav-bg-color: #130b0b;
     --button-color: rgb(171, 171, 214);
 }
 
@@ -24,14 +24,14 @@ body::after {
   height: 100vh;
   background-image: repeating-linear-gradient(
     45deg,
-    rgba(16, 16, 16, 0.5) 0px,
-    rgba(225, 255, 255, 0.091) 1px,
+    rgba(0, 0, 0, 0.5) 0px,
+    rgba(58, 98, 150, 0.11) 1px,
     transparent 1px,
     transparent 4px
   );
   opacity: 1;
   pointer-events: none;
-  z-index: -1; 
+  z-index: -1; /* <-- ensure it’s behind everything */
   animation: scan-shift 2.5s linear infinite, flicker 1.5s ease-in-out infinite;
 }
 
@@ -318,7 +318,7 @@ button, .nav-button-container button, #host-send, #join-send {
     padding-left: var(--gap-large);
     padding-right: var(--gap-large);
     flex-wrap: wrap;
-    border-bottom: 1px rgb(80, 80, 80) solid;
+    border-bottom: 2px rgb(80, 80, 80) solid;
     height: 57px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     position: fixed;
@@ -336,7 +336,6 @@ body {
 .nav-button-container {
     display: flex;
     justify-content: left;
-    background-color: rgb(44, 44, 56);
     color: white;
     font-size: 10px;
     margin-right: 40px;
