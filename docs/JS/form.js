@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
+    const submissionButton = document.getElementsByClassName('submit');
+    const btn = submissionButton[0] || submissionButton;
 
     if (!contactForm) {
         console.error('Error: Contact form element not found.');
@@ -33,14 +35,57 @@ document.addEventListener('DOMContentLoaded', function() {
     
             const result = await response.json(); // Assuming JSON response
             console.log("Form submission success: ", result);
+            
+            if (btn) {
+                const originalColor = btn.style.color || '';
+                if (btn.__sentTimeoutId) {
+                    clearTimeout(btn.__sentTimeoutId);
+                }
+
+                if (btn.tagName === 'INPUT') {
+                    btn.value = "Sent!";
+                    btn.style.color = "green";
+                } else {
+                    btn.textContent = "Sent!";
+                    btn.style.color = "green";
+                }
+
+                // random duration between 5 and 10 seconds
+                const timeoutMs = (5000);
+                btn.__sentTimeoutId = setTimeout(() => {
+                    if (btn.tagName === 'INPUT') {
+                        btn.value = "Send";
+                    } else {
+                        btn.textContent = "Send";
+                    }
+                    // restore original inline color
+                    btn.style.color = originalColor;
+                    btn.__sentTimeoutId = null;
+                }, timeoutMs);
+            }
         } catch (error) {
             console.error("Form submission error: ", error);
+            if (btn) {
+                if (btn.tagName === 'INPUT') {
+                    btn.value = "Not sent!";
+                } else {
+                    btn.textContent = "Not sent!";
+                }
+            }
         }
     }
 
     // form event listener
     contactForm.addEventListener('submit', function(event) {
         event.preventDefault();
+
+        if (btn) {
+            if (btn.tagName === 'INPUT') {
+                btn.value = "Sending...";
+            } else {
+                btn.textContent = "Sending...";
+            }
+        }
     
         const formData = new FormData(contactForm);
 
