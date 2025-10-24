@@ -2,14 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 :root {
-  --bg-primary: #080808;
-  --bg-secondary: #0e0808;
+  --bg-primary: #040404;
+  --bg-secondary: #12161b;
   --bg-tertiary: #13131b;
   --accent-primary: #ffffff;
   --accent-secondary: #000000;
   --text-primary: #e8fefc;
   --text-secondary: #a5c3c8;
-  --border-color: #3d3d3d;
+  --border-color: #535353;
   --shadow-color: rgba(0, 0, 0, 0.9);
   --retro-glow: 0 0 5px rgba(0, 180, 168, 0.26);
   --retro-glow-secondary: 0 0 10px rgba(0, 91, 128, 0.767);
@@ -333,6 +333,7 @@ body::-webkit-scrollbar-thumb {
     padding: 50px 50px;
     border-left: 2px solid rgb(34, 34, 34);
     border-right: 2px solid rgb(34, 34, 34);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.904), 0 1.5px 4px rgba(0,180,168,0.15);
 }
 
 .project-list {
