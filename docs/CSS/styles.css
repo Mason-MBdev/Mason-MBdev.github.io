@@ -378,7 +378,7 @@ body::-webkit-scrollbar-thumb {
     color: var(--accent-primary);
     font-family: 'VT323', monospace;
     letter-spacing: 2px;
-    font-size: 37px;
+    font-size: 42px;
     text-shadow: var(--retro-glow);
 }
 
