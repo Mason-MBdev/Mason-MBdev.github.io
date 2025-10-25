@@ -145,10 +145,6 @@ function graphSetup() {
     // Set initial dimensions
     setCanvasDimensions();
 
-    // Buttons for different graph views
-    // (No chart initialization here)
-    // Chart will be created by createChart
-
     // Handle resize events to adjust chart dimensions
     window.addEventListener('resize', () => {
         setCanvasDimensions();
@@ -499,11 +495,7 @@ document.getElementById('close-settings-popup').addEventListener('click', functi
 // Function to update the user email display in settings
 function updateUserEmailDisplay() {
     const userEmailElement = document.getElementById('user-email');
-    
-    // Check if user is logged in (this would be integrated with your auth system)
-    // This is a placeholder - you'll need to integrate with your actual auth system
-    const user = getCurrentUser(); // Implement this function based on your auth system
-    
+    const user = getCurrentUser();
     if (user && user.email) {
         userEmailElement.textContent = user.email;
     } else {
@@ -511,16 +503,7 @@ function updateUserEmailDisplay() {
     }
 }
 
-// Placeholder for getting current user
-// Replace with your actual authentication implementation
 function getCurrentUser() {
-    // This is just a placeholder. In a real implementation, you would:
-    // 1. Check if the user is logged in through your authentication system
-    // 2. Return the user object with email, etc.
-    
-    // For testing, uncomment this to simulate a logged-in user
-    // return { email: 'example@email.com' };
-    
     // Return null if no user is logged in
     return null;
 }

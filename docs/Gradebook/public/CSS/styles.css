@@ -517,6 +517,7 @@ h2.title {
 .graphbox canvas {
     width: 100% !important;
     height: auto !important;
+    background-color: inherit !important;
     aspect-ratio: 16/9;
     background-color: #ffffff;
 }
